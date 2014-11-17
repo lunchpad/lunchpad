@@ -2,9 +2,9 @@ require 'test_helper'
 
 class VendorsControllerTest < ActionController::TestCase
   def valid_vendor_data
-    { vendor: { name: 'Test User',
-                email: 'test@example.com',
-                phone_number: '111-111-1111' } }
+    { name: 'Test User',
+      email: 'test@example.com',
+      phone_number: '111-111-1111' }
   end
 
   context 'GET vendors#index' do
@@ -34,21 +34,6 @@ class VendorsControllerTest < ActionController::TestCase
   end
 
   context 'GET vendors#new' do
-    setup { get :show, id: vendors(:one) }
-
-    should render_template('show')
-    should respond_with(:success)
-
-    should 'load vendors' do
-      assert assigns[:vendor], 'Should load vendor'
-    end
-
-    should 'instantiate new menu item object' do
-      assert assigns[:menu_item], 'Should have a new menu item'
-    end
-  end
-
-  context 'GET vendors#new' do
       setup { get :new }
 
       should render_template('new')
@@ -72,7 +57,7 @@ class VendorsControllerTest < ActionController::TestCase
   end
 
   context 'POST vendors#create' do
-    setup { post :create, valid_vendor_data }
+    setup { post :create, { vendor: valid_vendor_data } }
 
     should 'create vendor' do
       assert_saved_model(:vendor)
@@ -84,7 +69,7 @@ class VendorsControllerTest < ActionController::TestCase
   end
 
   context 'PATCH vendors#update' do
-    setup { patch :update, { id: vendors(:one), vendor: valid_vendor_data[:vendor] } }
+    setup { patch :update, { id: vendors(:one), vendor: valid_vendor_data } }
 
     should 'update vendor with new params' do
       @vendor = Vendor.find(vendors(:one).id)

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :vendors do
+  resources :vendors, shallow: true do
     resources :menu_items, except: [:index]
   end
 
