@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 20141117205557) do
   add_index "off_days", ["school_id"], name: "index_off_days_on_school_id"
 
   create_table "orders", force: true do |t|
-    t.integer  "menu_item_id"
     t.boolean  "submitted",      default: false
     t.boolean  "paid",           default: false
     t.datetime "submitted_date"
@@ -66,8 +65,6 @@ ActiveRecord::Schema.define(version: 20141117205557) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "orders", ["menu_item_id"], name: "index_orders_on_menu_item_id"
 
   create_table "schools", force: true do |t|
     t.string   "name"
@@ -95,6 +92,8 @@ ActiveRecord::Schema.define(version: 20141117205557) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
