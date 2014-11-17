@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117180552) do
+ActiveRecord::Schema.define(version: 20141117205557) do
+
+  create_table "accounts", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "school_id"
+    t.integer  "balance"
+    t.string   "name"
+    t.string   "section"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "accounts", ["school_id"], name: "index_accounts_on_school_id"
+  add_index "accounts", ["user_id"], name: "index_accounts_on_user_id"
 
   create_table "availabilities", force: true do |t|
     t.datetime "date"
@@ -34,8 +47,8 @@ ActiveRecord::Schema.define(version: 20141117180552) do
   add_index "menu_items", ["vendor_id"], name: "index_menu_items_on_vendor_id"
 
   create_table "menu_items_orders", id: false, force: true do |t|
-    t.integer "menu_item_id"
-    t.integer "order_id"
+    t.integer "menu_items"
+    t.integer "orders"
   end
 
   create_table "off_days", force: true do |t|
@@ -56,7 +69,12 @@ ActiveRecord::Schema.define(version: 20141117180552) do
     t.datetime "paid_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "school_id"
   end
+
+  add_index "orders", ["school_id"], name: "index_orders_on_school_id"
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id"
 
   create_table "schools", force: true do |t|
     t.string   "name"
@@ -66,7 +84,10 @@ ActiveRecord::Schema.define(version: 20141117180552) do
     t.datetime "updated_at"
     t.string   "phone"
     t.string   "address"
+    t.integer  "user_id"
   end
+
+  add_index "schools", ["user_id"], name: "index_schools_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -81,11 +102,8 @@ ActiveRecord::Schema.define(version: 20141117180552) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-<<<<<<< HEAD
-=======
     t.string   "first_name"
     t.string   "last_name"
->>>>>>> upstream_merge
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
