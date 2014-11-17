@@ -2,6 +2,7 @@ require 'test_helper'
 
 class MenuItemTest < ActiveSupport::TestCase
   should belong_to(:vendor)
+  should have_many(:availabilities)
 
   should validate_presence_of(:vendor_id)
 

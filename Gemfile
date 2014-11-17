@@ -48,3 +48,5 @@ group :development, :test do
   gem "shoulda"
   gem "pry-rails"
 end
+
+gem 'simplecov', :require => false, :group => :test
