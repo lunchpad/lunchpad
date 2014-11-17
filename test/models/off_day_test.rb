@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class OffDayTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  should belong_to(:school)
+
+  should validate_presence_of(:name)
+  should validate_presence_of(:date)
+
 end
