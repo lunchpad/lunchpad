@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class VendorTest < ActiveSupport::TestCase
-  should have_many (:menu_items)
+
+  should have_many(:menu_items)
+  should belong_to(:school)
 
   should validate_presence_of(:name)
   should validate_uniqueness_of(:name).case_insensitive
