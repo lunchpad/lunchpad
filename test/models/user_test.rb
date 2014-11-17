@@ -38,11 +38,6 @@ class UserTest < ActiveSupport::TestCase
   #   end
   #
   #   # should "be able..." do
-  #   #   # assert_empty @user.tags
-  #   #   # @user.tag_list = "ruby, activerecord"
-  #   #   # assert_equal 2, @user.tags.count
-  #   #   # assert_includes @user.tags.map(&:name), "ruby"
-  #   #   # assert_includes @user.tags.map(&:name), "activerecord"
   #   # end
   #
   # end
