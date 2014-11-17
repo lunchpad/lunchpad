@@ -11,12 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117161731) do
+
+ActiveRecord::Schema.define(version: 20141116215957) do
 
   create_table "off_days", force: true do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "date"
+  end
+
+  create_table "menu_items", force: true do |t|
+    t.integer  "vendor_id"
+    t.string   "name"
+    t.text     "description"
+    t.integer  "price"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -38,6 +46,15 @@ ActiveRecord::Schema.define(version: 20141117161731) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+  end
+  add_index "menu_items", ["vendor_id"], name: "index_menu_items_on_vendor_id"
+
+  create_table "vendors", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

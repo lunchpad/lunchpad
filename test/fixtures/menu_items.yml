@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vendor: one
+  name: Item One
+  description: Food description for item one
+  price: 10
+
+two:
+  vendor: two
+  name: Item Two
+  description: Food description for item two
+  price: 5
