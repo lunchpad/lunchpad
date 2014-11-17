@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117170100) do
+ActiveRecord::Schema.define(version: 20141117180552) do
 
   create_table "availabilities", force: true do |t|
     t.datetime "date"
@@ -33,6 +33,11 @@ ActiveRecord::Schema.define(version: 20141117170100) do
 
   add_index "menu_items", ["vendor_id"], name: "index_menu_items_on_vendor_id"
 
+  create_table "menu_items_orders", id: false, force: true do |t|
+    t.integer "menu_item_id"
+    t.integer "order_id"
+  end
+
   create_table "off_days", force: true do |t|
     t.string   "name"
     t.string   "description"
@@ -45,7 +50,6 @@ ActiveRecord::Schema.define(version: 20141117170100) do
   add_index "off_days", ["school_id"], name: "index_off_days_on_school_id"
 
   create_table "orders", force: true do |t|
-    t.integer  "menu_item_id"
     t.boolean  "submitted",      default: false
     t.boolean  "paid",           default: false
     t.datetime "submitted_date"
@@ -53,8 +57,6 @@ ActiveRecord::Schema.define(version: 20141117170100) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "orders", ["menu_item_id"], name: "index_orders_on_menu_item_id"
 
   create_table "schools", force: true do |t|
     t.string   "name"
@@ -79,6 +81,11 @@ ActiveRecord::Schema.define(version: 20141117170100) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+<<<<<<< HEAD
+=======
+    t.string   "first_name"
+    t.string   "last_name"
+>>>>>>> upstream_merge
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
