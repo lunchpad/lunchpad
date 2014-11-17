@@ -81,6 +81,11 @@ ActiveRecord::Schema.define(version: 20141117180552) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+<<<<<<< HEAD
+=======
+    t.string   "first_name"
+    t.string   "last_name"
+>>>>>>> upstream_merge
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
