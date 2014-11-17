@@ -48,5 +48,3 @@ group :development, :test do
   gem "shoulda"
   gem "pry-rails"
 end
-
-

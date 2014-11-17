@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 20141117170100) do
 
   add_index "menu_items", ["vendor_id"], name: "index_menu_items_on_vendor_id"
 
+  create_table "off_days", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "school_id"
+  end
+
+  add_index "off_days", ["school_id"], name: "index_off_days_on_school_id"
+
   create_table "orders", force: true do |t|
     t.integer  "menu_item_id"
     t.boolean  "submitted",      default: false
@@ -44,6 +55,16 @@ ActiveRecord::Schema.define(version: 20141117170100) do
   end
 
   add_index "orders", ["menu_item_id"], name: "index_orders_on_menu_item_id"
+
+  create_table "schools", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "motto"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "phone"
+    t.string   "address"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -69,6 +90,9 @@ ActiveRecord::Schema.define(version: 20141117170100) do
     t.string   "phone_number"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "school_id"
   end
+
+  add_index "vendors", ["school_id"], name: "index_vendors_on_school_id"
 
 end
