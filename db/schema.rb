@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20141117165004) do
 
+  create_table "availabilities", force: true do |t|
+    t.datetime "date"
+    t.integer  "menu_item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "availabilities", ["menu_item_id"], name: "index_availabilities_on_menu_item_id"
+
   create_table "menu_items", force: true do |t|
     t.integer  "vendor_id"
     t.string   "name"
@@ -34,6 +43,18 @@ ActiveRecord::Schema.define(version: 20141117165004) do
   end
 
   add_index "off_days", ["school_id"], name: "index_off_days_on_school_id"
+
+  create_table "orders", force: true do |t|
+    t.integer  "menu_item_id"
+    t.boolean  "submitted",      default: false
+    t.boolean  "paid",           default: false
+    t.datetime "submitted_date"
+    t.datetime "paid_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "orders", ["menu_item_id"], name: "index_orders_on_menu_item_id"
 
   create_table "schools", force: true do |t|
     t.string   "name"
