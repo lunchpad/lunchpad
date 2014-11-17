@@ -1,6 +1,6 @@
 class MenuItem < ActiveRecord::Base
   belongs_to :vendor
-  has_and_belongs_to_many :orders
+  has_many :accounts, through: :ordered_items
 
   validates :vendor_id,
             presence: true
