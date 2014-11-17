@@ -1,4 +1,5 @@
 class MenuItem < ActiveRecord::Base
+  has_many :availabilities
   belongs_to :vendor
   has_and_belongs_to_many :orders
 

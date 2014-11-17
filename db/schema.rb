@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117205557) do
+ActiveRecord::Schema.define(version: 20141117222834) do
 
   create_table "accounts", force: true do |t|
     t.integer  "user_id"
@@ -31,9 +31,11 @@ ActiveRecord::Schema.define(version: 20141117205557) do
     t.integer  "menu_item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "school_id"
   end
 
   add_index "availabilities", ["menu_item_id"], name: "index_availabilities_on_menu_item_id"
+  add_index "availabilities", ["school_id"], name: "index_availabilities_on_school_id"
 
   create_table "menu_items", force: true do |t|
     t.integer  "vendor_id"
