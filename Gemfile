@@ -44,6 +44,7 @@ group :development, :test do
   gem "capybara"
   gem "rubocop"
   gem "shoulda"
+  gem "pry-rails"
 end
 
 
