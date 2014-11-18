@@ -25,11 +25,8 @@ class MenuItemsController < ApplicationController
 
   def destroy
     @vendor = @menu_item.vendor
-    if @menu_item.destroy
-      redirect_to @vendor, success: 'Menu item was removed.'
-    else
-      redirect_to @menu_item, error: 'Menu item was not removed.'
-    end
+    return unless @menu_item.destroy
+    redirect_to @vendor, success: 'Menu item was removed.'
   end
 
   private
