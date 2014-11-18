@@ -3,8 +3,6 @@ require 'test_helper'
 class SchoolTest < ActiveSupport::TestCase
   subject { schools(:one) }
 
-  should_eventually have_many(:users)
-  should belong_to(:user)
   should have_many(:vendors)
   should have_many(:off_days)
   should have_many(:accounts)

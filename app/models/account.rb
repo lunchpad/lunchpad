@@ -1,5 +1,5 @@
 class Account < ActiveRecord::Base
-  belongs_to :user
+  has_many :users, through: :account_ownership
   belongs_to :school
   has_many :menu_items, through: :ordered_items
 
