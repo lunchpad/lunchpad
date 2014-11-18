@@ -1,28 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  submitted: false
-  paid: false
-  submitted_date:
-  paid_date:
   delivery_date: 2014-11-17 11:19:15
+  quantity: 1
   account: one
   menu_item: one
 
 two:
-  submitted: false
-  paid: false
-  submitted_date:
-  paid_date:
   delivery_date: 2014-11-17 11:19:15
+  quantity: 1
   account: two
   menu_item: two
 
 submitted:
-  submitted: true
-  paid: true
-  submitted_date: 2014-11-17 11:19:15
-  paid_date: 2014-11-17 11:19:15
   delivery_date: 2014-11-17 11:19:15
+  quantity: 1
   account: two
   menu_item: two
