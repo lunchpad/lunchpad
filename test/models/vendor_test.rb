@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class VendorTest < ActiveSupport::TestCase
-
   should have_many(:menu_items)
   should belong_to(:school)
 
