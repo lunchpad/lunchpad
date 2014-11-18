@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class AccountTest < ActiveSupport::TestCase
-  should belong_to(:user)
+  # should have_many(:users).through(:account_ownership)
   should belong_to(:school)
 
   should validate_presence_of(:name)

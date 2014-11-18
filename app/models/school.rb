@@ -1,6 +1,4 @@
 class School < ActiveRecord::Base
-  # has_many :users
-  belongs_to :user
   has_many :vendors
   has_many :off_days
   has_many :accounts
