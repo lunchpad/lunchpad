@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118033248) do
+ActiveRecord::Schema.define(version: 20141118221621) do
 
   create_table "account_ownerships", force: true do |t|
     t.integer  "user_id"
@@ -75,15 +75,12 @@ ActiveRecord::Schema.define(version: 20141118033248) do
   add_index "off_days", ["school_id"], name: "index_off_days_on_school_id"
 
   create_table "ordered_items", force: true do |t|
-    t.boolean  "submitted",      default: false
-    t.boolean  "paid",           default: false
-    t.datetime "submitted_date"
-    t.datetime "paid_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "account_id"
     t.integer  "menu_item_id"
     t.datetime "delivery_date"
+    t.integer  "quantity"
   end
 
   add_index "ordered_items", ["account_id"], name: "index_ordered_items_on_account_id"
