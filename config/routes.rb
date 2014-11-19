@@ -6,6 +6,12 @@ Rails.application.routes.draw do
     resources :menu_items, except: [:index]
   end
 
+  resources :available_menu_items, only: [:index,:destroy] do
+    get :query, on: :collection
+  end
+
+  resources :ordered_items, except: [:show, :edit]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
