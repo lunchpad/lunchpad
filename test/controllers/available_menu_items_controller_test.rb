@@ -22,12 +22,17 @@ class AvailableMenuItemsControllerTest < ActionController::TestCase
     should render_template('query')
     should respond_with(:success)
 
-    should 'load available menu items' do
-      assert assigns[:available_menu_items], 'Should load items'
+    should 'load available menu items and new ordered items' do
+      assert assigns[:available_menu_items], 'Should load available items'
+      assert assigns[:orders_not_submitted], 'Should load new ordered items'
     end
 
     should 'only load items within range' do
       assert_equal 2, assigns[:available_menu_items].count, 'should only be two'
+    end
+
+    should 'only create one new ordered item for each available menu item' do
+      assert_equal 2, assigns[:orders_not_submitted].count, 'should only be two'
     end
   end
 

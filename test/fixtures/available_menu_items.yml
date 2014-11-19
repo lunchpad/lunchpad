@@ -2,15 +2,15 @@
 
 one:
   date: 2014-11-17 11:23:57
-  menu_item_id: one
-  school_id: one
+  menu_item: one
+  school: one
 
 two:
   date: 2014-11-18 11:23:57
-  menu_item_id: two
-  school_id: one
+  menu_item: two
+  school: one
 
 three:
   date: 2014-11-19 11:23:57
-  menu_item_id:
-  school_id: one
+  menu_item:
+  school: one
