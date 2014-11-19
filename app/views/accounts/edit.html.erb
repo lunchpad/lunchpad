@@ -1,0 +1,24 @@
+<h1>Accounts#edit</h1>
+<p>Find me in app/views/accounts/edit.html.erb</p>
+
+<%= form_for @account do |f| %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_area :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :section %>
+    <%= f.text_field :section %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= button_tag "Update Account", :class => "form-button-lg" %>
+  </div>
+
+<% end %>
