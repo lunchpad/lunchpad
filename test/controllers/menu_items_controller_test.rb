@@ -8,6 +8,12 @@ class MenuItemsControllerTest < ActionController::TestCase
       price: 100 }
   end
 
+  def valid_availability_data
+    { begin_date: '2014-11-16',
+      end_date: '2014-12-15',
+      day_of_week: 'Tuesday' }
+  end
+
   context 'GET menu_items#show' do
     setup { get :show, id: menu_items(:one) }
 
@@ -43,7 +49,9 @@ class MenuItemsControllerTest < ActionController::TestCase
   end
 
   context 'POST menu_items#create' do
-    setup { post :create, { vendor_id: vendors(:one), menu_item: valid_menu_item_data } }
+    setup { post :create, { vendor_id: vendors(:one),
+                            menu_item: valid_menu_item_data,
+                            availability: valid_availability_data } }
 
     should 'create menu_item' do
       assert_saved_model(:menu_item)
@@ -51,6 +59,10 @@ class MenuItemsControllerTest < ActionController::TestCase
 
     should 'redirect to menu_item show' do
       assert assigns[:menu_item]
+    end
+
+    should 'create available menu items based on availability' do
+      assert_equal 4, assigns[:menu_item].available_menu_items.count
     end
   end
 
