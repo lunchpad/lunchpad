@@ -16,4 +16,13 @@ class MenuItem < ActiveRecord::Base
 
   validates :price,
             presence: true
+
+  def schedule_availability(availability)
+    begin_date = Date.parse(availability[:begin_date])
+    end_date = Date.parse(availability[:end_date])
+    date_range = begin_date..end_date
+    date_range.each do |date|
+      AvailableMenuItem.create(date: date, menu_item_id: id) if date.send(availability[:day_of_week].downcase + '?')
+    end
+  end
 end

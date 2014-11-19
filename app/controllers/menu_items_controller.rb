@@ -15,6 +15,7 @@ class MenuItemsController < ApplicationController
   def create
     @menu_item = @vendor.menu_items.new(menu_item_params)
     render :new unless @menu_item.save
+    @menu_item.schedule_availability(availability_params)
     redirect_to @vendor, success: 'Menu item was created.'
   end
 
@@ -41,5 +42,9 @@ class MenuItemsController < ApplicationController
 
   def menu_item_params
     params.require(:menu_item).permit(:vendor_id, :name, :description, :price)
+  end
+
+  def availability_params
+    params.require(:availability).permit(:begin_date,:end_date,:day_of_week)
   end
 end
