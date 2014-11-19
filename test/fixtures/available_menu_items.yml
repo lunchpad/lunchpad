@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2014-11-17 11:23:57
+  menu_item: one
+  school: one
+
+two:
+  date: 2014-11-18 11:23:57
+  menu_item: two
+  school: one
+
+three:
+  date: 2014-11-19 11:23:57
+  menu_item:
+  school: one
