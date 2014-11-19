@@ -58,6 +58,11 @@ ActiveRecord::Schema.define(version: 20141119005130) do
 
   add_index "menu_items", ["vendor_id"], name: "index_menu_items_on_vendor_id"
 
+  create_table "menu_items_orders", id: false, force: true do |t|
+    t.integer "menu_items"
+    t.integer "orders"
+  end
+
   create_table "off_days", force: true do |t|
     t.string   "name"
     t.string   "description"
