@@ -1,4 +1,5 @@
 class OrderedItemsController < ApplicationController
+
   def index
     @ordered_items = OrderedItem.all
   end
@@ -8,22 +9,27 @@ class OrderedItemsController < ApplicationController
   end
 
   def create
-
+    @orders_not_submitted.each do |key, val|
+      hash = params.require(key).permit(:quantity)
+      val.update(quantity: hash[:quantity].to_i)
+      val.save
+    end
   end
 
-  def update
-    @ordered_item = OrderedItem(params[:id])
-    
-  end
+  # def update
+  #   return unless @ordered_item.update(ordered_item_params)
+  # end
 
-  def destroy
-
-  end
+  # def destroy
+  #   return unless @ordered_item.destroy
+  # end
 
   private
 
-  def ordered_items_params
-    params.require(:ordered_item).permit(:quantity)
+  def ordered_item_params
+    @orders_not_submitted.each do |key, val|
+      params.require(key).permit(:quantity)
+    end
   end
 
 end
