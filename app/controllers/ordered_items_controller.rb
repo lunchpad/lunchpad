@@ -12,7 +12,8 @@ class OrderedItemsController < ApplicationController
   end
 
   def update
-
+    @ordered_item = OrderedItem(params[:id])
+    
   end
 
   def destroy
