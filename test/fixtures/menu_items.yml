@@ -11,3 +11,9 @@ two:
   name: Item Two
   description: Food description for item two
   price: 5
+
+three:
+  vendor: three
+  name: Item Three
+  description: Food description for item three
+  price: 8
