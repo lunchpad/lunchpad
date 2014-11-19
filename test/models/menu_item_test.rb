@@ -2,7 +2,7 @@ require 'test_helper'
 
 class MenuItemTest < ActiveSupport::TestCase
   should belong_to(:vendor)
-  should have_many(:availabilities)
+  should have_many(:available_menu_items)
   should have_many(:ordered_items)
   should have_many(:accounts).through(:ordered_items)
 
