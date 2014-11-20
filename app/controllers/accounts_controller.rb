@@ -9,10 +9,13 @@ class AccountsController < ApplicationController
   end
 
   def create
-    @account = current_user.accounts.create(account_params)
+    @account = current_user.accounts.build(account_params)
 
-    return unless @account.save
-    redirect_to "/welcome"
+    if @account.save
+      redirect_to(:controller => "welcome", :action => "index")
+    else
+      render :new
+    end
   end
 
   def show
@@ -33,7 +36,7 @@ class AccountsController < ApplicationController
   end
 
   def account_params
-    params.require(:account).permit(:name, :section, :user_id)
+    params.require(:account).permit(:name, :section)
   end
 
 end
