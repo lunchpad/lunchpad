@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   resources :accounts
+  resources :account_ownerships
 
   resources :vendors, shallow: true do
     resources :menu_items, except: [:index]
