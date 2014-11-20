@@ -39,14 +39,7 @@ class OrderedItemsController < ApplicationController
     @ordered_item = OrderedItem.find(params[:id])
   end
 
-<<<<<<< HEAD
-  # def destroy
-  #   return unless @ordered_item.destroy
-  # end
-=======
   def ordered_item_params
     params.require(:ordered_item).permit(:quantity)
   end
-
->>>>>>> c047aade062f05495e14e1f97d0161bad878abf9
 end

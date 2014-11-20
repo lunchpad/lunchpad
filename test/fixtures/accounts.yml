@@ -1,14 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: 1
   school_id: 1
   balance: 1
   name: FirstAccount
   section: MyString
 
 two:
-  user_id: 1
   school_id: 2
   balance: 1
   name: SecondAccount
