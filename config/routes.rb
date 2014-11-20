@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get :query, on: :collection
   end
 
-  resources :ordered_items, except: [:show, :edit]
+  resources :ordered_items
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
