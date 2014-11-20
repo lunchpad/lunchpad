@@ -18,14 +18,13 @@ class OrderedItemsControllerTest < ActionController::TestCase
 
   end
 
-  # context 'PATCH ordered_items#update' do
-  #   setup { patch :update, { id: ordered_items(:one), quantity: 10} }
-  #
-  #   should 'update ordered item with new quantity' do
-  #     @ordered_item = OrderedItem.find(ordered_items(:one).id)
-  #     assert_equal 10, @ordered_item.quantity
-  #   end
-  # end
+  test 'PATCH ordered_items#update' do
+    @ordered_item = OrderedItem.find(ordered_items(:one).id)
+    assert_difference('@ordered_item.quantity', 1) do
+      patch :update, { id: @ordered_item, ordered_item: {quantity: 2} }
+    end
+  end
+
 
   # context 'DELETE ordered_items#destroy' do
   #   setup { delete :destroy, id: ordered_items(:one)}

@@ -1,4 +1,5 @@
 class OrderedItemsController < ApplicationController
+  before_action :set_ordered_item, only: [:update, :destroy]
 
   def index
     @ordered_items = OrderedItem.all
@@ -18,14 +19,15 @@ class OrderedItemsController < ApplicationController
       @account.ordered_items.create(menu_item_id: @item.menu_item_id,
                                     delivery_date: @item.date,
                                     quantity: @quantity)
-
     end
-
     redirect_to ordered_items_path
   end
 
   def update
-  #   return unless @ordered_item.update(ordered_item_params)
+    binding.pry
+    return unless @ordered_item.update(ordered_item_params)
+    redirect_to @ordered_item
+    binding.pry
   end
 
   def edit
@@ -35,5 +37,15 @@ class OrderedItemsController < ApplicationController
   # def destroy
   #   return unless @ordered_item.destroy
   # end
+
+  private
+
+  def set_ordered_item
+    @ordered_item = OrderedItem.find(params[:id])
+  end
+
+  def ordered_item_params
+    params.require(:ordered_item).permit(:quantity)
+  end
 
 end
