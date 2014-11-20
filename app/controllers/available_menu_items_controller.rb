@@ -22,7 +22,8 @@ class AvailableMenuItemsController < ApplicationController
   private
 
   def date_range_params
-    params.require(:date_range).permit(:begin_date,:end_date)
+    # params.require(:date_range).permit(:begin_date,:end_date)
+    { begin_date: '2014-11-17', end_date: '2014-11-18' }
   end
 
   def set_available_menu_item
