@@ -29,3 +29,5 @@ class AvailableMenuItemsController < ApplicationController
     @available_menu_item = AvailableMenuItem.find(params[:id])
   end
 end
+
+
