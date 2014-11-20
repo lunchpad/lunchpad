@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120192830) do
+ActiveRecord::Schema.define(version: 20141120215118) do
 
   create_table "account_ownerships", force: true do |t|
     t.integer  "user_id"
@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(version: 20141120192830) do
   add_index "account_ownerships", ["user_id"], name: "index_account_ownerships_on_user_id"
 
   create_table "accounts", force: true do |t|
-    t.integer  "user_id"
     t.integer  "school_id"
     t.integer  "balance"
     t.string   "name"
@@ -34,7 +33,6 @@ ActiveRecord::Schema.define(version: 20141120192830) do
   end
 
   add_index "accounts", ["school_id"], name: "index_accounts_on_school_id"
-  add_index "accounts", ["user_id"], name: "index_accounts_on_user_id"
 
   create_table "available_menu_items", force: true do |t|
     t.datetime "date"

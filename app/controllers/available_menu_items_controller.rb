@@ -1,5 +1,6 @@
 class AvailableMenuItemsController < ApplicationController
   before_action :set_available_menu_item, only: [:destroy]
+
   def index
     @available_menu_items = AvailableMenuItem.all
   end
