@@ -7,4 +7,5 @@ class Account < ActiveRecord::Base
 
   validates :name, presence: true
   validates :section, presence: true
+  validates :user_id, presence: true
 end

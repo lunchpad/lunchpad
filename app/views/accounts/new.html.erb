@@ -1,0 +1,32 @@
+<h1>Accounts#new</h1>
+<p>Find me in app/views/accounts/new.html.erb</p>
+
+<% if user_signed_in? %>
+
+  <%= form_for @account do |f| %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_area :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :section %>
+      <%= f.text_field :section %>
+    </div>
+
+    <div class="field">
+      <%= f.hidden_field :user_id %>
+    </div>
+
+    <div class="actions">
+      <%= button_tag "Create Account", :class => "form-button-lg" %>
+    </div>
+
+  <% end %>
+
+<% else %>
+
+  <p><%= link_to 'Log in to create a new account.', new_user_session_path %></p>
+
+<% end %>

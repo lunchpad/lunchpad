@@ -9,4 +9,5 @@ class AccountTest < ActiveSupport::TestCase
 
   should validate_presence_of(:name)
   should validate_presence_of(:section)
+  should validate_presence_of(:user_id)
 end
