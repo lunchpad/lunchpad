@@ -1,0 +1,16 @@
+<%= form_tag({controller: "ordered_items", action: "create"}, method: "post", class: "order_form") do %>
+  <% @orders_not_submitted.each do |item| %>
+    <%= fields_for "orders[]", item do |f| %>
+      <div class="field">
+        <%= f.text_field :quantity %> <%= item.menu_item.name %>
+        <%= f.hidden_field :delivery_date %>
+        <%= f.hidden_field :menu_item_id %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <div class="actions">
+    <%= submit_tag "Update" %>
+  </div>
+<% end %>
+

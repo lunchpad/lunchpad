@@ -87,10 +87,7 @@ ActiveRecord::Schema.define(version: 20141120215118) do
     t.datetime "updated_at"
     t.string   "phone"
     t.string   "address"
-    t.integer  "user_id"
   end
-
-  add_index "schools", ["user_id"], name: "index_schools_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
