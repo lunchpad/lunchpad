@@ -19,7 +19,7 @@ class AvailableMenuItemsControllerTest < ActionController::TestCase
       get :query, date_range_data
     end
 
-    should render_template('new_order')
+    should render_template('query')
     should respond_with(:success)
 
     should 'load available menu items and new ordered items' do

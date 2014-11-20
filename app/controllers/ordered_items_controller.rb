@@ -10,15 +10,14 @@ class OrderedItemsController < ApplicationController
 
   def create
     @account = Account.first
-    @order_params = params[:order]
+    @order_params = params[:orders]
     @order_params.each do |order|
-      @ami_id = order["ami_id"]
-      @quantity = order["quantity"].to_i
-      @item = AvailableMenuItem.find(@ami_id)
-      @account.ordered_items.create(menu_item_id: @item.menu_item_id,
-                                    delivery_date: @item.date,
-                                    quantity: @quantity)
-
+      quantity = order["quantity"].to_i
+      date = Date.parse(order["delivery_date"])
+      menu_item_id = order["menu_item_id"].to_i
+      @account.ordered_items.create(menu_item_id: menu_item_id,
+                                    delivery_date: date,
+                                    quantity: quantity)
     end
 
     redirect_to ordered_items_path
@@ -35,5 +34,4 @@ class OrderedItemsController < ApplicationController
   # def destroy
   #   return unless @ordered_item.destroy
   # end
-
 end

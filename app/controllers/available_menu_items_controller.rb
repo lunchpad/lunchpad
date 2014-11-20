@@ -7,10 +7,9 @@ class AvailableMenuItemsController < ApplicationController
   def query
     dates = date_range_params.values.map { |date| Date.parse(date) }
     @available_menu_items = AvailableMenuItem.within_date_range(dates.first,dates.last)
-    @orders_not_submitted = {}
+    @orders_not_submitted = []
     @available_menu_items.each do |item|
-      identifier = ('item_' + item.id.to_s)
-      @orders_not_submitted[identifier.to_sym] = OrderedItem.new(menu_item_id: item.menu_item_id, delivery_date: item.date, quantity: 0)
+      @orders_not_submitted << OrderedItem.new(menu_item_id: item.menu_item_id, delivery_date: item.date, quantity: 0)
     end
   end
 
