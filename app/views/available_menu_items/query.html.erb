@@ -2,7 +2,7 @@
   <% @orders_not_submitted.each do |item| %>
     <%= fields_for "orders[]", item do |f| %>
       <div class="field">
-        <%= f.text_field :quantity %> <%= item.menu_item.name %>
+        <%= f.text_field :quantity %> <%= item.delivery_date %> <%= item.menu_item.name %>
         <%= f.hidden_field :delivery_date %>
         <%= f.hidden_field :menu_item_id %>
       </div>
