@@ -24,19 +24,14 @@ class OrderedItemsController < ApplicationController
   end
 
   def update
-    binding.pry
     return unless @ordered_item.update(ordered_item_params)
     redirect_to @ordered_item
-    binding.pry
   end
 
-  def edit
-
+  def destroy
+    return unless @ordered_item.destroy
+    redirect_to ordered_items_path
   end
-
-  # def destroy
-  #   return unless @ordered_item.destroy
-  # end
 
   private
 

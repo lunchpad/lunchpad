@@ -15,26 +15,24 @@ class OrderedItemsControllerTest < ActionController::TestCase
                               { ami_id: "298486374", quantity: 2 },
                               { ami_id: "980190962", quantity: 3} ] }
     end
-
   end
 
   test 'PATCH ordered_items#update' do
     @ordered_item = OrderedItem.find(ordered_items(:one).id)
-    assert_difference('@ordered_item.quantity', 1) do
-      patch :update, { id: @ordered_item, ordered_item: {quantity: 2} }
-    end
+    patch :update, { id: @ordered_item, ordered_item: {quantity: 2} }
+    @ordered_item.reload
+    assert_equal @ordered_item.quantity, 2
   end
 
+  context 'DELETE ordered_items#destroy' do
+    setup { delete :destroy, id: ordered_items(:one)}
 
-  # context 'DELETE ordered_items#destroy' do
-  #   setup { delete :destroy, id: ordered_items(:one)}
-  #
-  #   should 'remove ordered_item from DB' do
-  #     assert_raise ActiveRecord::RecordNotFound do
-  #       @ordered_item = OrderedItem.find(ordered_items(:one).id)
-  #     end
-  #   end
-  # end
+    should 'remove ordered_item from DB' do
+      assert_raise ActiveRecord::RecordNotFound do
+        @ordered_item = OrderedItem.find(ordered_items(:one).id)
+      end
+    end
+  end
 end
 
 
