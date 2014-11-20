@@ -36,9 +36,11 @@ class AccountsControllerTest < ActionController::TestCase
       assert_saved_model(:account)
     end
 
-    should 'redirect to /welcome' do
-      assert assigns[:account]
+    should 'redirect to root_path' do
+      assert_not_nil assigns[:account]
     end
+
+    should redirect_to(:controller => "welcome", :action => "index")
   end
 
   context 'GET accounts#show' do
