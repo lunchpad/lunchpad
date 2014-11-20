@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
-  resources :accounts, only: [:new, :create, :show, :edit, :update]
+  resources :accounts, only: [:new, :create, :show, :edit, :update, :destroy]
   resources :account_ownerships, only: [:index, :create, :destroy]
 
   resources :vendors, shallow: true do
