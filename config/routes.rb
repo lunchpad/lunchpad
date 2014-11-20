@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
+  resources :accounts, only: [:new, :create, :show, :edit, :update]
+  resources :account_ownerships, only: [:index, :create, :destroy]
+
   resources :vendors, shallow: true do
     resources :menu_items, except: [:index]
   end
