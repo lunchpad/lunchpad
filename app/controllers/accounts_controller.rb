@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_account, only: [:show, :edit, :update]
+  before_action :set_account, only: [:show, :edit, :update, :destroy]
 
 
   def new
@@ -27,7 +27,7 @@ class AccountsController < ApplicationController
   end
 
   def update
-    if @account.update
+    if @account.update(account_params)
       redirect_to root_path, success: 'Account was updated.'
     else
       render :edit
