@@ -14,8 +14,7 @@ class AvailableMenuItemsControllerTest < ActionController::TestCase
 
   context 'GET available_menu_items#query' do
     setup do
-      date_range_data = { date_range: { begin_date: '2014-11-17',
-                                        end_date: '2014-11-18' } }
+      date_range_data = { begin_date: '2014-11-17', end_date: '2014-11-18' }
       get :query, date_range_data
     end
 
