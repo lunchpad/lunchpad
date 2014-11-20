@@ -1,0 +1,2 @@
+module AccountOwnershipsHelper
+end
