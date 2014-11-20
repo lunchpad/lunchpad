@@ -18,16 +18,23 @@ User.destroy_all
 Vendor.destroy_all
 
 super_admin = User.create(email: 'email@gmail.com',
-                            password: 'password',
-                            password_confirmation: 'password',
-                            first_name: 'Lunch',
-                            last_name: 'Pad')
+                          password: 'password',
+                          password_confirmation: 'password',
+                          first_name: 'Lunch',
+                          last_name: 'Pad')
 
 willow = School.create(name: 'Willow Oak',
                        description: 'Charter school',
                        motto: 'random motto',
                        phone: Faker::PhoneNumber.phone_number,
                        address: Faker::Address.street_address)
+
+account = Account.create(school: willow,
+                         balance: 100,
+                         name: 'Student 1',
+                         section: 3)
+
+AccountOwnership.create(user: super_admin, account: account)
 
 vendor_ht = Vendor.create(name: 'Harris Teeter',
               email: 'email@gmail.com',
