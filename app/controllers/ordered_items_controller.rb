@@ -1,9 +1,9 @@
 class OrderedItemsController < ApplicationController
   before_action :set_ordered_item, only: [:update, :destroy]
+  before_action :set_account, only: [:index, :create]
 
   def index
-    @ordered_items = OrderedItem.all
-    @account = Account.find(params[:account_id])
+    @ordered_items = @account.ordered_items
   end
 
   def new
@@ -11,7 +11,6 @@ class OrderedItemsController < ApplicationController
   end
 
   def create
-    @account = Account.first
     @order_params = params[:orders]
     @order_params.each do |order|
       quantity = order["quantity"].to_i
@@ -35,6 +34,10 @@ class OrderedItemsController < ApplicationController
   end
 
   private
+
+  def set_account
+    @account = Account.find(params[:account_id])
+  end
 
   def set_ordered_item
     @ordered_item = OrderedItem.find(params[:id])
