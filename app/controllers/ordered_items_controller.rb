@@ -10,6 +10,7 @@ class OrderedItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     @account = Account.first
     @order_params = params[:orders]
     @order_params.each do |order|
