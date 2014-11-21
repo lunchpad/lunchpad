@@ -1,0 +1,10 @@
+<h1><%= @vendor.name %></h1>
+<%= link_to "Back to All Vendors", vendors_path %>
+<% @menu_items.each do |item| %>
+  <ul>
+    <li>Name: <%= item.name %></li>
+    <li>Desc: <%= item.description %></li>
+    <li>Price: $<%= item.price %></li>
+    <li><%= link_to "Available Dates for This Item", menu_item_path(item) %></li>
+  </ul>
+<% end %>
