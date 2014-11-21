@@ -8,11 +8,15 @@
     <p>Please make an account for each <strike>eater</strike> person who will need lunch.</p>
     <%= link_to "Create an Account", new_account_path(@account) %>
   <% else %>
+    <div class="panel">
     <ul><% current_user.accounts.each do |a|%>
-      <li><%= a.name %></li>
-      <li><%= a.section %></li>
+      <li><%= a.name %>, <%= a.section %></li>
+        <%= link_to "Check lunchbox for #{Date.today}",  %>
     <% end %></ul>
+    </div>
+    <div class="panel">
     <%= link_to "Add another account", new_account_path(@account) %>
+    </div>
   <% end %>
 
 
