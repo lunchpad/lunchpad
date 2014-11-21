@@ -8,7 +8,8 @@ class VendorsController < ApplicationController
   end
 
   def show
-    @menu_item = MenuItem.new
+    @vendor = Vendor.find(params[:id])
+    @menu_items = @vendor.menu_items.all
   end
 
   def new
