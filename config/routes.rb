@@ -2,18 +2,19 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
-  resources :accounts, only: [:new, :create, :show, :edit, :update, :destroy]
+
+  resources :accounts, only: [:new, :create, :show, :edit, :update] do
+    resources :available_menu_items, only: [:index,:destroy] do
+      get :query, on: :collection
+    end
+    resources :ordered_items, except: [:edit, :show]
+  end
+
   resources :account_ownerships, only: [:index, :create, :destroy]
 
   resources :vendors, shallow: true do
     resources :menu_items, except: [:index]
   end
-
-  resources :available_menu_items, only: [:index,:destroy] do
-    get :query, on: :collection
-  end
-
-  resources :ordered_items
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

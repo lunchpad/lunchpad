@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class AvailableMenuItemsControllerTest < ActionController::TestCase
+  def setup
+    @account = Account.first
+  end
+
   context 'GET available_menu_items#index' do
-    setup { get :index }
+    setup { get :index, account_id: accounts(:one).id }
 
     should render_template('index')
     should respond_with(:success)
@@ -14,8 +18,10 @@ class AvailableMenuItemsControllerTest < ActionController::TestCase
 
   context 'GET available_menu_items#query' do
     setup do
-      date_range_data = { begin_date: '2014-11-17', end_date: '2014-11-18' }
-      get :query, date_range_data
+      account = { account_id: accounts(:one).id }
+      date_range_data = { date_range: { begin_date: '2014-11-17',
+                                        end_date: '2014-11-18' } }
+      get :query, account, date_range_data
     end
 
     should render_template('query')
@@ -36,7 +42,7 @@ class AvailableMenuItemsControllerTest < ActionController::TestCase
   end
 
   context 'DELETE available_menu_items#destroy' do
-    setup { delete :destroy, id: available_menu_items(:one) }
+    setup { delete :destroy, account_id: accounts(:one).id, id: available_menu_items(:one) }
 
     should 'remove vendor from DB' do
       assert_raise ActiveRecord::RecordNotFound do
