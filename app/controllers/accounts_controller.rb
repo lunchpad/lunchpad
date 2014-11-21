@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_account, only: [:show, :edit, :update]
+  before_action :set_account, only: [:show, :edit, :update, :destroy]
 
 
   def new
@@ -10,9 +10,11 @@ class AccountsController < ApplicationController
 
   def create
     @account = current_user.accounts.build(account_params)
+    @accounts = current_user.accounts
+    @accounts << @account
 
     if @account.save
-      redirect_to(:controller => "welcome", :action => "index")
+      redirect_to root_path, success: 'Account was created.'
     else
       render :new
     end
@@ -25,8 +27,11 @@ class AccountsController < ApplicationController
   end
 
   def update
-    return unless @account.update(account_params)
-    redirect_to @account
+    if @account.update(account_params)
+      redirect_to root_path, success: 'Account was updated.'
+    else
+      render :edit
+    end
   end
 
   private

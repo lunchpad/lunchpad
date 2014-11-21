@@ -13,7 +13,8 @@ class AccountsControllerTest < ActionController::TestCase
   end
 
   def valid_data
-  { name: 'Student',
+  { user_id: users(:one).id,
+    name: 'Student',
     section: 'Grade or Class'}
   end
 
@@ -29,13 +30,13 @@ class AccountsControllerTest < ActionController::TestCase
   end
 
   context 'POST accounts#create' do
-    setup { post :create, { account: valid_data } }
+    setup { post :create, { user_id: users(:one), account: valid_data } }
 
     should 'create account' do
       assert_saved_model(:account)
     end
 
-    should 'redirect to root_path' do
+    should 'save account' do
       assert_not_nil assigns[:account]
     end
 

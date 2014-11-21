@@ -6,7 +6,7 @@ class AvailableMenuItemsController < ApplicationController
   end
 
   def query
-    dates = date_range_params.values.map { |date| Date.parse(date) }
+    dates = [params[:begin_date],params[:end_date]].map { |date| Date.parse(date) }
     @available_menu_items = AvailableMenuItem.within_date_range(dates.first,dates.last)
     @orders_not_submitted = []
     @available_menu_items.each do |item|
@@ -23,7 +23,7 @@ class AvailableMenuItemsController < ApplicationController
 
   def date_range_params
     # params.require(:date_range).permit(:begin_date,:end_date)
-    { begin_date: '2014-11-17', end_date: '2014-11-18' }
+    # { begin_date: '2014-11-17', end_date: '2014-11-18' }
   end
 
   def set_available_menu_item

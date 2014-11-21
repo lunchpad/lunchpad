@@ -2,12 +2,14 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
+
   resources :accounts, only: [:new, :create, :show, :edit, :update] do
     resources :available_menu_items, only: [:index,:destroy] do
       get :query, on: :collection
     end
     resources :ordered_items, except: [:edit, :show]
   end
+
   resources :account_ownerships, only: [:index, :create, :destroy]
 
   resources :vendors, shallow: true do
