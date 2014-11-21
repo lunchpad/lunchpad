@@ -1,0 +1,14 @@
+<h1>Lunch for <%= @account.name %></h1>
+
+<% @ordered_items.each do |item| %>
+  <% @menu_item = MenuItem.find(item.menu_item_id) %>
+  <ul class="ordered-item">
+    <li><%= item.delivery_date.strftime("%A") %></li>
+    <li><%= @menu_item.vendor.name %></li>
+    <li><%= @menu_item.name %></li>
+    <li>Quantity: <%= item.quantity %></li>
+    <li><%= link_to 'Remove Item', account_ordered_item_path(@account, item), method: :delete %></li>
+  </ul>
+<% end %>
+<%= link_to 'Choose More Lunch', query_account_available_menu_items_path(@account, begin_date: "2014-11-17", end_date: "2014-11-18") %>
+<%= link_to 'Back to All Luncherz', root_path %>
