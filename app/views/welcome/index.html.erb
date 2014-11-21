@@ -10,8 +10,9 @@
   <% else %>
     <div class="panel">
     <ul><% current_user.accounts.each do |a|%>
-        <p><%= link_to "Check #{a.name}'s lunchbox for #{Date.today}"  %>
-        <%= link_to "Disable this account", account_ownership_path(a), method: :delete %></p>
+        <p><%= link_to "Check #{a.name}'s lunchbox for #{Date.today}" %>
+        <%= link_to "Update", edit_account_path(a) %> or
+        <%= link_to "Disable", account_ownership_path(a), method: :delete %> this account.</p>
     <% end %></ul>
     </div>
     <div class="panel">

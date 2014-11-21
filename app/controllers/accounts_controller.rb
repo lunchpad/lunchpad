@@ -13,11 +13,8 @@ class AccountsController < ApplicationController
     @accounts = current_user.accounts
     @accounts << @account
 
-    if @account.save
-      redirect_to root_path, success: 'Account was created.'
-    else
-      render :new
-    end
+    return unless @account.save
+    redirect_to root_path, success: 'Account was created.'
   end
 
   def show
@@ -27,11 +24,8 @@ class AccountsController < ApplicationController
   end
 
   def update
-    if @account.update(account_params)
-      redirect_to root_path, success: 'Account was updated.'
-    else
-      render :edit
-    end
+    return unless @account.update(account_params)
+    redirect_to root_path, success: 'Account was updated.'
   end
 
   private
