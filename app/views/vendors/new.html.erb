@@ -1,0 +1,30 @@
+<% if user_signed_in? %>
+
+  <%= form_for @vendor do |f| %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+    </div>
+
+    <div class="field">
+      <%= f.label :phone_number %>
+      <%= f.telephone_field :phone_number %>
+    </div>
+
+    <div class="actions">
+      <%= button_tag "Create Vendor", :class => "form-button-lg" %>
+    </div>
+
+  <% end %>
+
+<% else %>
+
+  <p><%= link_to 'Log in to create a new account.', new_user_session_path %></p>
+
+<% end %>

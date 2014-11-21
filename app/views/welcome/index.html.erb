@@ -4,7 +4,7 @@
   <li><%= link_to "Logged in as #{current_user.first_name}", "#" %></li>
   <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 
-  <% if current_user.accounts.nil? %>
+  <% if current_user.account_ownerships.count == 0 %>
     <p>Please make an account for each <strike>eater</strike> person who will need lunch.</p>
     <%= link_to "Create an Account", new_account_path(@account) %>
   <% else %>
@@ -12,7 +12,7 @@
     <ul><% current_user.accounts.each do |a|%>
         <p><%= link_to "Check #{a.name}'s lunchbox for #{Date.today}", query_account_available_menu_items_path(a, begin_date: "2014-11-17", end_date: "2014-11-18") %>
         <%= link_to "Update", edit_account_path(a) %> or
-        <%= link_to "Disable", account_ownership_path(a), method: :delete %> this account.</p>
+        <%= link_to "Disable", account_ownership_path(a.id), method: :delete %> this account.</p>
     <% end %></ul>
     </div>
     <div class="panel">
@@ -20,6 +20,7 @@
     </div>
   <% end %>
 
+  <h2><%= link_to "Add a Vendor", new_vendor_path(@vendor) %></h2>
 
   <% else %>
   <li><%= link_to "Log In", new_user_session_path %></li>
