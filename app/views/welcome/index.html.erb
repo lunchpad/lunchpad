@@ -2,7 +2,7 @@
 
 <% if user_signed_in? %>
   <li><%= link_to "Logged in as #{current_user.first_name}", "#" %></li>
-  <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
+  <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 
   <% if current_user.accounts.nil? %>
     <p>Please make an account for each <strike>eater</strike> person who will need lunch.</p>
@@ -10,8 +10,8 @@
   <% else %>
     <div class="panel">
     <ul><% current_user.accounts.each do |a|%>
-      <li><%= a.name %>, <%= a.section %></li>
-        <%= link_to "Check lunchbox for #{Date.today}",  %>
+        <p><%= link_to "Check #{a.name}'s lunchbox for #{Date.today}"  %>
+        <%= link_to "Disable this account", account_ownership_path(a), method: :delete %></p>
     <% end %></ul>
     </div>
     <div class="panel">
