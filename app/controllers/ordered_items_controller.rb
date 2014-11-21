@@ -1,4 +1,6 @@
 class OrderedItemsController < ApplicationController
+
+  before_action :authenticate_user!
   before_action :set_ordered_item, only: [:update, :destroy]
 
   def index

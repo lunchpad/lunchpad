@@ -1,4 +1,6 @@
 class AccountOwnershipsController < ApplicationController
+
+  before_action :authenticate_user!
   before_action :set_account_ownership, only: [:destroy]
 
   def index
@@ -12,7 +14,7 @@ class AccountOwnershipsController < ApplicationController
 
   def destroy
     return unless @account_ownerships.destroy
-    redirect_to '/welcome'
+    redirect_to root_path,  warning: "Are you sure you want to delete this account?"
   end
 
   private

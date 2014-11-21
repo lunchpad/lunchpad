@@ -1,6 +1,17 @@
 require 'test_helper'
 
 class MenuItemsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
+  def setup
+    @user = User.create!(first_name: 'First',
+                         last_name: 'Last',
+                         email: 'firstlast@example.com',
+                         password: 'password',
+                         password_confirmation: 'password')
+    sign_in @user
+  end
+
   def valid_menu_item_data
     { vendor_id: vendors(:one).id,
       name: 'Test Item',
