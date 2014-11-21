@@ -33,15 +33,15 @@ class OrderedItemsControllerTest < ActionController::TestCase
   test 'POST create takes array of params and creates ordered items' do
     assert_difference('OrderedItem.count', 3) do
       params = { account_id: accounts(:one).id,
-                 orders: [{ quantity: 1,
-                            delivery_date: available_menu_items(:one).date,
-                            menu_item_id: available_menu_items(:one).id},
-                          { quantity: 2,
-                            delivery_date: available_menu_items(:two).date,
-                            menu_item_id: available_menu_items(:two).id},
-                          { quantity: 3,
-                            delivery_date: available_menu_items(:three).date,
-                            menu_item_id: available_menu_items(:three).id} ] }
+                 orders: { '1' => { quantity: 1,
+                                    delivery_date: available_menu_items(:one).date,
+                                    menu_item_id: available_menu_items(:one).id },
+                           '2' => { quantity: 2,
+                                    delivery_date: available_menu_items(:two).date,
+                                    menu_item_id: available_menu_items(:two).id},
+                           '3' => { quantity: 3,
+                                    delivery_date: available_menu_items(:three).date,
+                                    menu_item_id: available_menu_items(:three).id } } }
       post :create, params
     end
   end

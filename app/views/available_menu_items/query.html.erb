@@ -5,9 +5,18 @@
     <% end %>
     <% @date = item.delivery_date %>
 
-    <%= fields_for "orders[]", item do |f| %>
+    <% order_form = 'orders[' + @orders_not_submitted.index(item).to_s + ']' %>
+    <%= fields_for order_form, item do |f| %>
       <div class="field">
-        <%= f.text_field :quantity, size: 1 %> <%= item.menu_item.name %>, <%= item.menu_item.vendor.name %>
+        <%= f.text_field :quantity, size: 1 %>
+
+        <% quantity_dom_id = 'orders_' + @orders_not_submitted.index(item).to_s + '_quantity' %>
+        <span onclick="increment('<%= j quantity_dom_id %>')">[+]</span> /
+
+        <% quantity_dom_id = 'orders_' + @orders_not_submitted.index(item).to_s + '_quantity' %>
+        <span onclick="decrement('<%= j quantity_dom_id %>')">[-]</span> |
+
+        <%= item.menu_item.name %>, <%= item.menu_item.vendor.name %>
         <%= f.hidden_field :delivery_date %>
         <%= f.hidden_field :menu_item_id %>
       </div>
@@ -19,8 +28,14 @@
   </div>
 <% end %>
 
-
 <script type="text/javascript">
-  var elem = document.getElementById("orders__delivery_date";
-  elem.value = "My default value";
+  function decrement(dom_id) {
+    var quantity = document.getElementById(dom_id);
+    quantity.value--;
+  }
+
+  function increment(dom_id) {
+    var quantity = document.getElementById(dom_id);
+    quantity.value++;
+  }
 </script>
