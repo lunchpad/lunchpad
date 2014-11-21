@@ -41,6 +41,11 @@ vendor_ht = Vendor.create(name: 'Harris Teeter',
               phone_number: '555-555-5555',
               school: willow)
 
+vendor_cat = Vendor.create(name: 'Carolina Catering Company',
+                          email: 'carolina@gmail.com',
+                          phone_number: '555-555-5555',
+                          school: willow)
+
 menu_item_1 = MenuItem.create(vendor: vendor_ht,
                               name: 'Pizza',
                               description: 'cheese',
@@ -51,12 +56,12 @@ menu_item_2 = MenuItem.create(vendor: vendor_ht,
                               description: 'veggie',
                               price: 4)
 
-menu_item_3 = MenuItem.create(vendor: vendor_ht,
+menu_item_3 = MenuItem.create(vendor: vendor_cat,
                               name: 'Salad',
                               description: 'garden',
                               price: 5)
 
-menu_item_4 = MenuItem.create(vendor: vendor_ht,
+menu_item_4 = MenuItem.create(vendor: vendor_cat,
                               name: 'California roll',
                               description: 'veggie',
                               price: 8)
@@ -71,7 +76,7 @@ menu_item_6 = MenuItem.create(vendor: vendor_ht,
                               description: 'wheat bread',
                               price: 6)
 
-menu_item_7 = MenuItem.create(vendor: vendor_ht,
+menu_item_7 = MenuItem.create(vendor: vendor_cat,
                               name: 'Veggie wrap',
                               description: 'veggie',
                               price: 4)
@@ -83,7 +88,7 @@ menu_item_8 = MenuItem.create(vendor: vendor_ht,
 
 AvailableMenuItem.create(date: Date.parse('2014-11-17'), menu_item: menu_item_1, school: willow)
 AvailableMenuItem.create(date: Date.parse('2014-11-18'), menu_item: menu_item_2, school: willow)
-AvailableMenuItem.create(date: Date.parse('2014-11-19'), menu_item: menu_item_3, school: willow)
+AvailableMenuItem.create(date: Date.parse('2014-11-18'), menu_item: menu_item_3, school: willow)
 AvailableMenuItem.create(date: Date.parse('2014-11-20'), menu_item: menu_item_4, school: willow)
 AvailableMenuItem.create(date: Date.parse('2014-11-21'), menu_item: menu_item_5, school: willow)
 AvailableMenuItem.create(date: Date.parse('2014-11-22'), menu_item: menu_item_6, school: willow)

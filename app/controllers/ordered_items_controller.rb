@@ -13,6 +13,7 @@ class OrderedItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     @order_params = params[:orders]
     @order_params.each do |order|
       quantity = order["quantity"].to_i
