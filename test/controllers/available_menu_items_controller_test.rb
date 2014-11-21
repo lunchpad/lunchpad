@@ -1,6 +1,17 @@
 require 'test_helper'
 
 class AvailableMenuItemsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
+  def setup
+    @user = User.create!(first_name: 'First',
+                         last_name: 'Last',
+                         email: 'firstlast@example.com',
+                         password: 'password',
+                         password_confirmation: 'password')
+    sign_in @user
+  end
+
   context 'GET available_menu_items#index' do
     setup { get :index }
 

@@ -1,6 +1,17 @@
 require 'test_helper'
 
 class VendorsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
+  def setup
+    @user = User.create!(first_name: 'First',
+                         last_name: 'Last',
+                         email: 'firstlast@example.com',
+                         password: 'password',
+                         password_confirmation: 'password')
+    sign_in @user
+  end
+
   def valid_vendor_data
     { name: 'Test User',
       email: 'test@example.com',
