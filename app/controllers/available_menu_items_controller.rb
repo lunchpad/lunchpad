@@ -16,7 +16,7 @@ class AvailableMenuItemsController < ApplicationController
 
   def destroy
     return unless @available_menu_item.destroy
-    redirect_to available_menu_item_path
+    redirect_to account_available_menu_items_path
   end
 
   private

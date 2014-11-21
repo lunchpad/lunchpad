@@ -20,17 +20,17 @@ class OrderedItemsController < ApplicationController
                                     delivery_date: date,
                                     quantity: quantity)
     end
-    redirect_to ordered_items_path
+    redirect_to account_ordered_items_path
   end
 
   def update
     return unless @ordered_item.update(ordered_item_params)
-    redirect_to @ordered_item
+    redirect_to account_ordered_items_path
   end
 
   def destroy
     return unless @ordered_item.destroy
-    redirect_to ordered_items_path
+    redirect_to account_ordered_items_path
   end
 
   private
