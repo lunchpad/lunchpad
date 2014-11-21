@@ -25,12 +25,9 @@ class AvailableMenuItemsControllerTest < ActionController::TestCase
   end
 
   context 'GET available_menu_items#query' do
-    setup do
-      account = { account_id: accounts(:one).id }
-      date_range_data = { date_range: { begin_date: '2014-11-17',
-                                        end_date: '2014-11-18' } }
-      get :query, account, date_range_data
-    end
+    setup { get :query, {account_id: accounts(:one).id,
+                         begin_date: '2014-11-17',
+                         end_date: '2014-11-18'  } }
 
     should render_template('query')
     should respond_with(:success)
