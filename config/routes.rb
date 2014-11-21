@@ -4,11 +4,13 @@ Rails.application.routes.draw do
 
 
   resources :accounts, only: [:new, :create, :show, :edit, :update] do
-    resources :available_menu_items, only: [:index,:destroy] do
+    resources :available_menu_items, only: :index do
       get :query, on: :collection
     end
     resources :ordered_items, except: [:edit, :show]
   end
+
+  resources :available_menu_items, only: :destroy
 
   resources :account_ownerships, only: [:index, :create, :destroy]
 

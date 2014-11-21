@@ -1,0 +1,14 @@
+<% available = AvailableMenuItem.where(menu_item_id: @menu_item.id) %>
+
+<h1><%= @menu_item.name %></h1>
+<h2><%= @menu_item.vendor.name %></h2>
+<%= link_to "Back to All Items from #{@menu_item.vendor.name}", vendor_path(@menu_item.vendor.id) %>
+<ul>
+  <% if available.empty? %>
+    <h2>This item is not currently available.</h2>
+  <% else %>
+    <% available.each do |date| %>
+      <li><%= date.date.strftime("%A, %b %d, %Y") %> <%= link_to "Remove Availability", available_menu_item_path(date.id, {menu_item: @menu_item.id}), method: 'delete' %></li>
+    <% end %>
+  <% end %>
+</ul>

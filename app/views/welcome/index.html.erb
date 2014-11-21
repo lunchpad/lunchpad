@@ -4,6 +4,7 @@
   <li><%= link_to "Logged in as #{current_user.first_name}", "#" %></li>
   <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
 
+
   <% if current_user.account_ownerships.count == 0 %>
     <p>Please make an account for each <strike>eater</strike> person who will need lunch.</p>
     <%= link_to "Create an Account", new_account_path(@account) %>
