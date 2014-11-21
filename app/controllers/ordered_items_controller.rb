@@ -3,6 +3,7 @@ class OrderedItemsController < ApplicationController
 
   def index
     @ordered_items = OrderedItem.all
+    @account = Account.find(params[:account_id])
   end
 
   def new
@@ -10,7 +11,6 @@ class OrderedItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     @account = Account.first
     @order_params = params[:orders]
     @order_params.each do |order|
