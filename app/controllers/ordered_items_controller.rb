@@ -5,6 +5,7 @@ class OrderedItemsController < ApplicationController
 
   def index
     @ordered_items = OrderedItem.all
+    @account = Account.find(params[:account_id])
   end
 
   def new
