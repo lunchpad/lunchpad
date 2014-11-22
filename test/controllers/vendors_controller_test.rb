@@ -39,9 +39,9 @@ class VendorsControllerTest < ActionController::TestCase
       assert assigns[:vendor], 'Should load vendor'
     end
 
-    should 'instantiate menu item' do
-      assert assigns[:menu_item], 'Should have a new menu item'
-    end
+    # should 'instantiate menu item' do
+    #   assert assigns[:menu_item], 'Should have a new menu item'
+    # end
   end
 
   context 'GET vendors#new' do

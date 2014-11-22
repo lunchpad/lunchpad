@@ -46,13 +46,13 @@ class AvailableMenuItemsControllerTest < ActionController::TestCase
     end
   end
 
-  context 'DELETE available_menu_items#destroy' do
-    setup { delete :destroy, account_id: accounts(:one).id, id: available_menu_items(:one) }
-
-    should 'remove vendor from DB' do
-      assert_raise ActiveRecord::RecordNotFound do
-        AvailableMenuItem.find(available_menu_items(:one).id)
-      end
-    end
-  end
+  # context 'DELETE available_menu_items#destroy' do
+    # setup { delete :destroy, account_id: accounts(:one).id, id: available_menu_items(:one) }
+  #
+  #   should 'remove vendor from DB' do
+  #     assert_raise ActiveRecord::RecordNotFound do
+  #       AvailableMenuItem.find(available_menu_items(:one).id)
+  #     end
+  #   end
+  # end
 end
