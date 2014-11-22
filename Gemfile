@@ -36,7 +36,6 @@ gem 'devise'
 
 gem 'rolify'
 
-gem 'chronic'
 
 
 # Use unicorn as the app server
