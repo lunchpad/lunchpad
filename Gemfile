@@ -51,3 +51,9 @@ end
 
 gem 'simplecov', :require => false, :group => :test
 gem 'faker', '~> 1.4.3'
+
+gem 'bourbon'
+gem 'bitters'
+
+gem 'chronic'
+gem 'tickle'
