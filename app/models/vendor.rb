@@ -1,4 +1,5 @@
 class Vendor < ActiveRecord::Base
+  resourcify
   has_many :menu_items
   belongs_to :school
 
