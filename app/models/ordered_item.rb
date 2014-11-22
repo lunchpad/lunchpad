@@ -1,17 +1,11 @@
 class OrderedItem < ActiveRecord::Base
-  belongs_to :menu_item
-  belongs_to :account
+  belongs_to :available_menu_item
+  belongs_to :order
+  delegate :menu_item, :to => :available_menu_item, :allow_nil => true
 
-  validates :menu_item_id,
-            presence: true
-
-  validates :account_id,
-            presence: true
-
-  validates :delivery_date,
+  validates :available_menu_item_id,
             presence: true
 
   validates :quantity,
-            presence: true,
-            numericality: { greater_than_or_equal_to: 1 }
+            presence: true
 end
