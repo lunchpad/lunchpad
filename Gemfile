@@ -34,8 +34,9 @@ gem 'cancancan', '~> 1.9'
 
 gem 'devise'
 
-gem "rolify"
+gem 'rolify'
 
+gem 'chronic'
 
 
 # Use unicorn as the app server
