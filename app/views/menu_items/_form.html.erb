@@ -1,0 +1,16 @@
+<h1>New Menu Item for <%= @vendor.name %></h1>
+<%= form_tag({controller: "menu_items", action: "create"}, method: "post") do %>
+  <%= label_tag "Name:" %>
+  <%= text_field :menu_item, :name %><br>
+  <%= label_tag "Description:" %>
+  <%= text_field :menu_item, :description %><br>
+  <%= label_tag "Price:" %>
+  <%= number_field :menu_item, :price %><br>
+  <%= label_tag "Availability Start Date:" %>
+  <%= date_field :availability, :begin_date %><br>
+  <%= label_tag "Availability End Date:" %>
+  <%= date_field :availability, :end_date %><br>
+  <%= label_tag "Day Available:" %>
+  <%= select :availability, :day_of_week, options_for_select(@days) %><br><br>
+  <%= submit_tag "Add Menu Item" %>
+<% end %>
