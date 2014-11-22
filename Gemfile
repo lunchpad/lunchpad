@@ -31,6 +31,10 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem "rolify"
+
+
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
