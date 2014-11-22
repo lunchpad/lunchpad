@@ -1,21 +1,25 @@
-<% if current_user.account_ownerships.count == 0 %>
-  <p>Please make an account for each <strike>eater</strike> person who will need lunch.</p>
-  <%= link_to "Create an Account", new_account_path(@account) %>
-<% else %>
-  <h1>All Your Lunchbox</h1>
-  <div class="panel">
-  <ul><% current_user.accounts.each do |a|%>
-    <div class="card">
-      <h3><%= "#{a.name}'s Lunchbox" %></h3>
-      <p><%= link_to "See #{a.name}'s lunchbox for next week", account_ordered_items_path(a) %></p>
-      <p><%= link_to "Fill #{a.name}'s lunchbox for next week", query_account_available_menu_items_path(a, begin_date: @start_date.strftime("%Y-%m-%d"), end_date: @end_date.strftime("%Y-%m-%d")) %>
-      <%= link_to "Update", edit_account_path(a) %> or
-      <%= link_to "Disable", account_ownership_path(a.id), method: :delete %> this account.</p>
+<% if user_signed_in?  %>
+  <% if current_user.account_ownerships.count == 0 %>
+    <p>Please make an account for each <strike>eater</strike> person who will need lunch.</p>
+    <%= link_to "Create an Account", new_account_path(@account) %>
+  <% else %>
+    <h1>All Your Lunchbox</h1>
+    <div class="panel">
+    <ul><% current_user.accounts.each do |a|%>
+      <div class="card">
+        <h3><%= "#{a.name}'s Lunchbox" %></h3>
+        <p><%= link_to "See #{a.name}'s lunchbox for next week", account_ordered_items_path(a) %></p>
+        <p><%= link_to "Fill #{a.name}'s lunchbox for next week", query_account_available_menu_items_path(a, begin_date: @start_date.strftime("%Y-%m-%d"), end_date: @end_date.strftime("%Y-%m-%d")) %>
+        <%= link_to "Update", edit_account_path(a) %> or
+        <%= link_to "Disable", account_ownership_path(a.id), method: :delete %> this account.</p>
+      </div>
+    <% end %>
+    </ul>
+    </div>
+    <div class="panel">
+    <%= link_to "Add another account", new_account_path(@account) %>
     </div>
   <% end %>
-  </ul>
-  </div>
-  <div class="panel">
-  <%= link_to "Add another account", new_account_path(@account) %>
-  </div>
+<% else %>
+  <h1>Welcome To Lunchpad!</h1>
 <% end %>
