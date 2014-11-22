@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :build_order_menu, only: [:new]
   before_action :set_account
-  before_action :set_order, only: [:show]
 
   def index
     @orders = Order.all
@@ -11,9 +10,6 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @ordered_items = build_order_menu
-  end
-
-  def show
   end
 
   def create
@@ -40,10 +36,6 @@ class OrdersController < ApplicationController
 
   def set_account
     @account = Account.find(params[:account_id])
-  end
-
-  def set_order
-    @order = Order.find(params[:id])
   end
 
   def order_params
