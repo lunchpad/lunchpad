@@ -7,4 +7,8 @@ class Account < ActiveRecord::Base
 
   validates :name, presence: true
   validates :section, presence: true
+
+  def has_order_for(begin_date)
+    orders.select { |order| order.begin_date == begin_date }[0]
+  end
 end

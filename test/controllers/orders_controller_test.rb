@@ -13,13 +13,22 @@ class OrdersControllerTest < ActionController::TestCase
     @account = Account.first
   end
 
-  def ordered_items_attributes
+  def valid_items_attributes
     { '1' => { quantity: 1,
                available_menu_item_id: available_menu_items(:one).id },
       '2' => { quantity: 2,
                available_menu_item_id: available_menu_items(:two).id},
       '3' => { quantity: 0,
                available_menu_item_id: available_menu_items(:three).id } }
+  end
+
+  def invalid_items_attributes
+    { '1' => { quantity: '',
+               available_menu_item_id: '' },
+      '2' => { quantity: '',
+               available_menu_item_id: '' },
+      '3' => { quantity: '',
+               available_menu_item_id: '' } }
   end
 
   context 'GET orders#index' do
@@ -46,12 +55,10 @@ class OrdersControllerTest < ActionController::TestCase
     end
   end
 
-  context 'GET orders#new' do
-    setup { get :new, {account_id: accounts(:one).id,
-                       begin_date: '2014-11-17',
-                       end_date: '2014-11-18'  } }
+  context 'GET orders#show' do
+    setup { get :show, { account_id: accounts(:one).id, id: orders(:one).id } }
 
-    should render_template('new')
+    should render_template('show')
     should respond_with(:success)
 
     should 'load order' do
@@ -60,14 +67,28 @@ class OrdersControllerTest < ActionController::TestCase
   end
 
   context 'POST orders#create' do
-    setup { post :create, { account_id: accounts(:one).id, order: { ordered_items_attributes: ordered_items_attributes } } }
+    context 'when valid attributes are submitted' do
+      setup { post :create, { account_id: accounts(:one).id, order: { ordered_items_attributes: valid_items_attributes } } }
 
-    should 'create order' do
-      assert_saved_model(:order)
+      should 'create order' do
+        assert_saved_model(:order)
+      end
+
+      should 'order should have many ordered_items' do
+        assert_equal 3, assigns[:order].ordered_items.count
+      end
     end
 
-    should 'order should have many ordered_items' do
-      assert_equal 3, assigns[:order].ordered_items.count
+    context 'when invalid attributes are submitted' do
+      setup { post :create, { account_id: accounts(:one).id, order: { ordered_items_attributes: invalid_items_attributes } } }
+
+      should 'should have invalid order' do
+        assert_invalid_model(:order)
+      end
+
+      should 'redirect to new order' do
+        assert_redirected_to new_account_order_path
+      end
     end
   end
 end

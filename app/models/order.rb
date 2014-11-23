@@ -7,10 +7,14 @@ class Order < ActiveRecord::Base
             presence: true
 
   def total
-    sub_totals.sum
+    subtotals.sum
   end
 
-  def sub_totals
-    ordered_items.map { |item| item.sub_total }
+  def subtotals
+    ordered_items.map { |item| item.subtotal }
+  end
+
+  def begin_date
+    ordered_items.first.available_menu_item['date']
   end
 end
