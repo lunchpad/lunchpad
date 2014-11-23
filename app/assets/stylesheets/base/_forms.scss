@@ -76,3 +76,8 @@ select {
   max-width: 100%;
   width: auto;
 }
+
+input[type="text"].order_form_quantity {
+  width: 40px;
+  text-align: center;
+}

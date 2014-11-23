@@ -62,6 +62,7 @@ gem 'faker', '~> 1.4.3'
 
 gem 'bourbon'
 gem 'bitters'
+gem 'neat', '~> 1.5.1'
 
 gem 'chronic'
 gem 'tickle'
