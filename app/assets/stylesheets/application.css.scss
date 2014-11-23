@@ -14,8 +14,8 @@
  *= require_self
  */
 @import "bourbon";
+@import "neat";
 @import "base/base";
-
 
 ul {
   list-style: none;
@@ -55,5 +55,96 @@ header {
       list-style-type: none;
       padding-right: 20px;
       }
+  }
+}
+
+.order_form_wrapper {
+  @include outer-container;
+  .quantity {
+    @include span-columns(2);
+  }
+  .quantity_select {
+    @include span-columns(2);
+  }
+  .menu_item {
+    @include span-columns(8);
+    @include omega();
+  }
+
+  .submit {
+    @include span-columns(10);
+    @include shift(2);
+    @include omega();
+  }
+}
+
+.order_confirm_wrapper {
+  @include outer-container;
+  .ordered_item {
+    @include span-columns(4);
+    @include shift(1);
+  }
+  .ordered_quantity {
+    text-align: center;
+    @include span-columns(2);
+  }
+  .ordered_price {
+    text-align: center;
+    @include span-columns(2);
+  }
+  .ordered_sub_total {
+    text-align: right;
+    @include span-columns(2);
+    @include omega();
+  }
+}
+
+.order_confirm_wrapper_header {
+  @include outer-container;
+
+  .order_confirm_title {
+    @include span-columns(10);
+    @include shift(1);
+    @include omega();
+    font-size: 40px;
+    font-weight: 600;
+  }
+  .order_confirm_sub_title {
+    @include span-columns(10);
+    @include shift(1);
+    @include omega();
+    @include padding(20px null 20px null);
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .order_confirm_total {
+    @include span-columns(10);
+    @include shift(1);
+    @include omega();
+    @include padding(10px null 10px null);
+    background-color: lighten($blue, 68);
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .ordered_item_header {
+    @include span-columns(4);
+    @include shift(1);
+    font-weight: 600;
+  }
+  .ordered_quantity_header {
+    @include span-columns(2);
+    text-align: center;
+    font-weight: 600;
+  }
+  .ordered_price_header {
+    text-align: center;
+    font-weight: 600;
+    @include span-columns(2);
+  }
+  .ordered_sub_total_header {
+    text-align: right;
+    font-weight: 600;
+    @include span-columns(2);
+    @include omega();
   }
 }

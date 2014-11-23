@@ -1,19 +1,24 @@
 <%= form_for [:account, @order] do |order_form| %>
-
+  <br />
   <%= order_form.fields_for :ordered_items, @ordered_items do |menu_items| %>
-    <fieldset>
-      <%= menu_items.text_field :quantity, value: 0, size: 1 %>
+  <div class="order_form_wrapper">
+    <div class="quantity">
+      <%= menu_items.text_field :quantity, value: 0, size: 1, class: 'order_form_quantity' %>
+    </div>
+    <div class="quantity_select">
       <span onclick="increment(<%= j menu_items.index.to_s %>)">[+]</span>
       <span onclick="decrement(<%= j menu_items.index.to_s %>)">[-]</span>
-
-      <%= @ordered_items[menu_items.index].menu_item.name %>
-
+    </div>
+    <div class="menu_item">
+      <%= @ordered_items[menu_items.index].menu_item.name %> <%= "($#{@ordered_items[menu_items.index].menu_item.price.to_s})" %>
       <%= menu_items.hidden_field :available_menu_item_id %>
-    </fieldset>
+    </div>
+  </div>
   <% end %>
-
-  <div class="actions">
-    <%= order_form.submit %>
+  <div class="order_form_wrapper">
+    <div class="submit">
+      <%= order_form.submit %>
+    </div>
   </div>
 <% end %>
 
