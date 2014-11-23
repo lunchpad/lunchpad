@@ -191,9 +191,9 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
-  cancancan (~> 1.9)
   bitters
   bourbon
+  cancancan (~> 1.9)
   capybara
   chronic
   coffee-rails (~> 4.0.0)
