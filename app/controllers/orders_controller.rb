@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :build_order_menu, only: [:new]
   before_action :set_account
   before_action :set_order, only: [:show]
 
@@ -10,15 +9,16 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @ordered_items = build_order_menu
   end
 
   def create
     @order = @account.orders.build(order_params)
 
-    if @order.save!
+    if @order.save
       redirect_to account_order_path(id: @order.id), success: 'Order was created.'
     else
-      render :new
+      redirect_to new_account_order_path(begin_date: params[:begin_date], end_date: params[:end_date])
     end
   end
 

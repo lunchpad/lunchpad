@@ -11,7 +11,7 @@ class WelcomeController < ApplicationController
     monday  = Date.parse("Monday")
     delta = monday > Date.today ? 0 : 7
     @start_date = (monday + delta)
-    @end_date = @start_date + 5
+    @end_date = @start_date + 4
   end
 
 end
