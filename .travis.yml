@@ -7,4 +7,4 @@ deploy:
     secure: jHnqGyvur0TdT8QI0uyN4QxizLBU/sA8C0DwC3yxntYx/YuRtSHYaMvdBdYaua2vuMiNyJvNx7JhBq8k/z1mk2SdMtJtKzoBHAPDKfqPyVwS/kIBbdFNQanjGNymkbO2NEtuSAh3BLNTXlAfHRPhkJj0g+SsBbjbierWPby4qbk=
   app: lunchpad-us
   on:
-    repo: deedeelavinder/lunchpad.us
+    repo: deedeelavinder/lunchpad
