@@ -16,7 +16,6 @@ class AvailableMenuItemsController < ApplicationController
   def set_available_menu_item
     @available_menu_item = AvailableMenuItem.find(params[:id])
   end
-
 end
 
 
