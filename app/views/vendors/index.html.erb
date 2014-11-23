@@ -2,11 +2,15 @@
 
 <% if @vendors %>
   <% @vendors.each do |v| %>
-    <li><strong><%= v.name %></strong></li>
-    <li><%= v.email %></li>
-    <li><%= v.phone_number %></li>
-    <p><%= link_to "Vendor's Menu Items", vendor_path(v) %></p>
-    <p><%= link_to "Update Vendor Information", edit_vendor_path(v) %></p>
+    <div class="card">
+      <ul>
+        <li><strong><%= v.name %></strong></li>
+        <li><%= v.email %></li>
+        <li><%= v.phone_number %></li>
+        <p><%= link_to "Vendor's Menu Items", vendor_path(v) %></p>
+        <p><%= link_to "Update Vendor Information", edit_vendor_path(v) %></p>
+      </ul>
+    </div>
   <% end %>
 <% end %>
 
