@@ -189,7 +189,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  better_errors
+  better_errors (~> 2.0.0)
   binding_of_caller
   bitters
   bourbon

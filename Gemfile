@@ -48,7 +48,7 @@ gem 'rolify'
 # gem 'debugger', group: [:development, :test]
 
 group :development, :test do
-  gem "better_errors"
+  gem "better_errors", '~> 2.0.0'
   gem "binding_of_caller"
   gem "capybara"
   gem "rubocop"
