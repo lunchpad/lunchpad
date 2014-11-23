@@ -1,6 +1,6 @@
 class AvailableMenuItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_available_menu_item, only: [:destroy]
+  before_action :set_available_menu_item, only: :destroy
 
   def index
     @available_menu_items = AvailableMenuItem.all
@@ -8,7 +8,7 @@ class AvailableMenuItemsController < ApplicationController
 
   def destroy
     return unless @available_menu_item.destroy
-    redirect_to account_available_menu_items_path
+    redirect_to menu_item_path(params[:menu_item])
   end
 
   private

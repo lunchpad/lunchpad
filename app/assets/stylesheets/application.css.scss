@@ -1,0 +1,150 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+ *= require_self
+ */
+@import "bourbon";
+@import "neat";
+@import "base/base";
+
+ul {
+  list-style: none;
+}
+
+h1 {
+  @include padding(30px null 5px 20px);
+  margin-left: 11%;
+}
+
+.card {
+  background-color: lighten($blue, 72);
+  @include padding(8px null null 25px);
+  @include margin(null auto 15px auto);
+  border-radius: 25px;
+  border: solid 1px $blue;
+  width: 75%;
+}
+
+header {
+  border-bottom: solid 1px black;
+  background-color: lighten($blue, 68);
+
+  .title {
+    font-size: 35pt;
+    font-weight: bold;
+    float: left;
+  }
+
+  ul {
+    text-align: right;
+    padding-top: 24px;
+    font-size: 20px;
+
+    li {
+      display: inline;
+      list-style-type: none;
+      padding-right: 20px;
+      }
+  }
+}
+
+.order_form_wrapper {
+  @include outer-container;
+  .quantity {
+    @include span-columns(2);
+  }
+  .quantity_select {
+    @include span-columns(2);
+  }
+  .menu_item {
+    @include span-columns(8);
+    @include omega();
+  }
+
+  .submit {
+    @include span-columns(10);
+    @include shift(2);
+    @include omega();
+  }
+}
+
+.order_confirm_wrapper {
+  @include outer-container;
+  .ordered_item {
+    @include span-columns(4);
+    @include shift(1);
+  }
+  .ordered_quantity {
+    text-align: center;
+    @include span-columns(2);
+  }
+  .ordered_price {
+    text-align: center;
+    @include span-columns(2);
+  }
+  .ordered_sub_total {
+    text-align: right;
+    @include span-columns(2);
+    @include omega();
+  }
+}
+
+.order_confirm_wrapper_header {
+  @include outer-container;
+
+  .order_confirm_title {
+    @include span-columns(10);
+    @include shift(1);
+    @include omega();
+    font-size: 40px;
+    font-weight: 600;
+  }
+  .order_confirm_sub_title {
+    @include span-columns(10);
+    @include shift(1);
+    @include omega();
+    @include padding(20px null 20px null);
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .order_confirm_total {
+    @include span-columns(10);
+    @include shift(1);
+    @include omega();
+    @include padding(10px null 10px null);
+    background-color: lighten($blue, 68);
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .ordered_item_header {
+    @include span-columns(4);
+    @include shift(1);
+    font-weight: 600;
+  }
+  .ordered_quantity_header {
+    @include span-columns(2);
+    text-align: center;
+    font-weight: 600;
+  }
+  .ordered_price_header {
+    text-align: center;
+    font-weight: 600;
+    @include span-columns(2);
+  }
+  .ordered_sub_total_header {
+    text-align: right;
+    font-weight: 600;
+    @include span-columns(2);
+    @include omega();
+  }
+}

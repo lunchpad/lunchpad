@@ -4,18 +4,22 @@ Rails.application.routes.draw do
 
 
   resources :accounts, only: [:new, :create, :show, :edit, :update] do
-    resources :available_menu_items, only: [:index,:destroy] do
+    resources :available_menu_items, only: :index do
       get :query, on: :collection
     end
-    resources :orders, only: [:index, :new, :create, :s]
+    resources :orders, only: [:index, :new, :create, :show]
     resources :ordered_items, except: [:edit, :show]
   end
+
+  resources :available_menu_items, only: :destroy
 
   resources :account_ownerships, only: [:index, :create, :destroy]
 
   resources :vendors, shallow: true do
     resources :menu_items, except: [:index]
   end
+
+  resources :admins, only: :index
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

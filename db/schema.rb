@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141122222010) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "account_ownerships", force: true do |t|
     t.integer  "user_id"
     t.integer  "account_id"
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 20141122222010) do
     t.datetime "updated_at"
   end
 
-  add_index "account_ownerships", ["account_id"], name: "index_account_ownerships_on_account_id"
-  add_index "account_ownerships", ["user_id"], name: "index_account_ownerships_on_user_id"
+  add_index "account_ownerships", ["account_id"], name: "index_account_ownerships_on_account_id", using: :btree
+  add_index "account_ownerships", ["user_id"], name: "index_account_ownerships_on_user_id", using: :btree
 
   create_table "accounts", force: true do |t|
     t.integer  "school_id"
@@ -32,7 +35,7 @@ ActiveRecord::Schema.define(version: 20141122222010) do
     t.datetime "updated_at"
   end
 
-  add_index "accounts", ["school_id"], name: "index_accounts_on_school_id"
+  add_index "accounts", ["school_id"], name: "index_accounts_on_school_id", using: :btree
 
   create_table "available_menu_items", force: true do |t|
     t.datetime "date"
@@ -42,8 +45,8 @@ ActiveRecord::Schema.define(version: 20141122222010) do
     t.integer  "school_id"
   end
 
-  add_index "available_menu_items", ["menu_item_id"], name: "index_available_menu_items_on_menu_item_id"
-  add_index "available_menu_items", ["school_id"], name: "index_available_menu_items_on_school_id"
+  add_index "available_menu_items", ["menu_item_id"], name: "index_available_menu_items_on_menu_item_id", using: :btree
+  add_index "available_menu_items", ["school_id"], name: "index_available_menu_items_on_school_id", using: :btree
 
   create_table "menu_items", force: true do |t|
     t.integer  "vendor_id"
@@ -54,7 +57,7 @@ ActiveRecord::Schema.define(version: 20141122222010) do
     t.datetime "updated_at"
   end
 
-  add_index "menu_items", ["vendor_id"], name: "index_menu_items_on_vendor_id"
+  add_index "menu_items", ["vendor_id"], name: "index_menu_items_on_vendor_id", using: :btree
 
   create_table "off_days", force: true do |t|
     t.string   "name"
@@ -65,7 +68,7 @@ ActiveRecord::Schema.define(version: 20141122222010) do
     t.integer  "school_id"
   end
 
-  add_index "off_days", ["school_id"], name: "index_off_days_on_school_id"
+  add_index "off_days", ["school_id"], name: "index_off_days_on_school_id", using: :btree
 
   create_table "ordered_items", force: true do |t|
     t.datetime "created_at"
@@ -75,8 +78,8 @@ ActiveRecord::Schema.define(version: 20141122222010) do
     t.integer  "available_menu_item_id"
   end
 
-  add_index "ordered_items", ["available_menu_item_id"], name: "index_ordered_items_on_available_menu_item_id"
-  add_index "ordered_items", ["order_id"], name: "index_ordered_items_on_order_id"
+  add_index "ordered_items", ["available_menu_item_id"], name: "index_ordered_items_on_available_menu_item_id", using: :btree
+  add_index "ordered_items", ["order_id"], name: "index_ordered_items_on_order_id", using: :btree
 
   create_table "orders", force: true do |t|
     t.integer  "account_id"
@@ -84,7 +87,18 @@ ActiveRecord::Schema.define(version: 20141122222010) do
     t.datetime "updated_at"
   end
 
-  add_index "orders", ["account_id"], name: "index_orders_on_account_id"
+  add_index "orders", ["account_id"], name: "index_orders_on_account_id", using: :btree
+
+  create_table "roles", force: true do |t|
+    t.string   "name"
+    t.integer  "resource_id"
+    t.string   "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
+  add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
   create_table "schools", force: true do |t|
     t.string   "name"
@@ -113,8 +127,15 @@ ActiveRecord::Schema.define(version: 20141122222010) do
     t.string   "last_name"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "users_roles", id: false, force: true do |t|
+    t.integer "user_id"
+    t.integer "role_id"
+  end
+
+  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
   create_table "vendors", force: true do |t|
     t.string   "name"
@@ -125,6 +146,6 @@ ActiveRecord::Schema.define(version: 20141122222010) do
     t.integer  "school_id"
   end
 
-  add_index "vendors", ["school_id"], name: "index_vendors_on_school_id"
+  add_index "vendors", ["school_id"], name: "index_vendors_on_school_id", using: :btree
 
 end

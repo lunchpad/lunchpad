@@ -1,4 +1,5 @@
 class School < ActiveRecord::Base
+  resourcify
   has_many :vendors
   has_many :off_days
   has_many :accounts

@@ -1,0 +1,17 @@
+<h1><%= @vendor.name %>: Menu Items</h1>
+<%= link_to "Back to All Vendors", vendors_path %><br><br>
+<%= link_to "Add Item for #{@vendor.name}", new_vendor_menu_item_path(@vendor) %>
+<% if @menu_items.empty? %>
+  <h2>This vendor has no items to show.</h2>
+<% else %>
+  <% @menu_items.each do |item| %>
+    <div class="card">
+      <ul>
+        <li>Item: <%= item.name %></li>
+        <li>Desc: <%= item.description %></li>
+        <li>Price: $<%= item.price %></li>
+        <li><%= link_to "Available Dates for This Item", menu_item_path(item) %></li>
+      </ul>
+    </div>
+  <% end %>
+<% end %>

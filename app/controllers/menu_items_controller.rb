@@ -5,10 +5,12 @@ class MenuItemsController < ApplicationController
   before_action :set_vendor, only: [:new, :create]
 
   def show
+    @menu_item = MenuItem.find(params[:id])
   end
 
   def new
     @menu_item = @vendor.menu_items.new
+    @days = %w[Monday Tuesday Wednesday Thursday Friday]
   end
 
   def edit
@@ -46,7 +48,9 @@ class MenuItemsController < ApplicationController
     params.require(:menu_item).permit(:vendor_id, :name, :description, :price)
   end
 
+
   def availability_params
     params.require(:availability).permit(:begin_date,:end_date,:day_of_week)
   end
+
 end

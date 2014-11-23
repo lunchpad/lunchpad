@@ -8,7 +8,8 @@ class VendorsController < ApplicationController
   end
 
   def show
-    @menu_item = MenuItem.new
+    @vendor = Vendor.find(params[:id])
+    @menu_items = @vendor.menu_items.all
   end
 
   def new
@@ -18,16 +19,22 @@ class VendorsController < ApplicationController
   def create
     @vendor = Vendor.new(vendor_params)
 
-    render :new unless @vendor.save
-    redirect_to @vendor, success: 'Vendor was created.'
+    if @vendor.save
+      redirect_to action: "index", success: 'Vendor was created.'
+    else
+      render :new, alert: "Please try again."
+    end
   end
 
   def edit
   end
 
   def update
-    return unless @vendor.update(vendor_params)
-    redirect_to @vendor, success: 'Vendor was updated.'
+    if @vendor.update(vendor_params)
+      redirect_to action: "index", success: 'Vendor was updated.'
+    else
+      render :edit, alert: "Please try again."
+    end
   end
 
   def destroy

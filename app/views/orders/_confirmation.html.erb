@@ -1,0 +1,45 @@
+<div class="order_confirm_wrapper_header">
+  <div class="ordered_item_header">
+    Menu Item
+  </div>
+  <div class="ordered_quantity_header">
+    Number Ordered
+  </div>
+  <div class="ordered_price_header">
+    Price ($)
+  </div>
+  <div class="ordered_sub_total_header">
+    Subtotal ($)
+  </div>
+</div>
+
+<% order.ordered_items.each do |item| %>
+
+  <div class="order_confirm_wrapper_header">
+    <div class="order_confirm_sub_title">
+      <%= item.available_menu_item.date.to_date.strftime("%A, %B %d, %Y") %>
+    </div>
+  </div>
+
+  <div class="order_confirm_wrapper">
+    <div class="ordered_item">
+      <%= item.menu_item.name %>:
+    </div>
+    <div class="ordered_quantity">
+      <%= item.quantity %>
+    </div>
+    <div class="ordered_price">
+      <%= item.menu_item.price %>
+    </div>
+    <div class="ordered_sub_total">
+      <%= item.sub_total %>
+    </div>
+  </div>
+
+<% end %>
+
+<div class="order_confirm_wrapper_header">
+  <div class="order_confirm_total">
+    Total: <%= order.total %>
+  </div>
+</div>
