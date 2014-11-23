@@ -13,4 +13,8 @@ class Order < ActiveRecord::Base
   def subtotals
     ordered_items.map { |item| item.subtotal }
   end
+
+  def begin_date
+    ordered_items.first.available_menu_item['date']
+  end
 end

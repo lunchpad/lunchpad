@@ -1,10 +1,10 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_account
-  before_action :set_order, only: [:show]
+  before_action :set_order, only: [:show, :edit, :update]
 
   def index
-    @orders = Order.all
+    @orders = Order.where(account: @account)
   end
 
   def new
@@ -16,9 +16,24 @@ class OrdersController < ApplicationController
     @order = @account.orders.build(order_params)
 
     if @order.save
-      redirect_to account_order_path(id: @order.id), success: 'Order was created.'
+      redirect_to account_order_path(@account, @order), success: 'Order was created.'
     else
       redirect_to new_account_order_path(begin_date: params[:begin_date], end_date: params[:end_date])
+    end
+  end
+
+  def edit
+    @ordered_items = @order.ordered_items
+  end
+
+  def show
+  end
+
+  def update
+    if @order.update(order_params)
+      redirect_to account_order_path, success: 'Order was updated.'
+    else
+      redirect_to edit_account_order_path
     end
   end
 
@@ -38,6 +53,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(ordered_items_attributes: [:quantity, :available_menu_item_id])
+    params.require(:order).permit(ordered_items_attributes: [:quantity, :available_menu_item_id, :id])
   end
 end

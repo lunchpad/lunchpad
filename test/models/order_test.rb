@@ -20,5 +20,9 @@ class OrderTest < ActiveSupport::TestCase
     should 'be able to get total cost of all ordered items' do
       assert_equal 35, @order.total, 'should total all subtotals'
     end
+
+    should 'know the begin date for the order' do
+      assert_equal available_menu_items(:one).date, @order.begin_date, 'should know date of first ordered item'
+    end
   end
 end
