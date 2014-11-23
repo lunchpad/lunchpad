@@ -1,28 +1,9 @@
 class OrderedItemsController < ApplicationController
-
   before_action :authenticate_user!
   before_action :set_ordered_item, only: [:update, :destroy]
-  before_action :set_account, only: [:index, :create]
-
-  def index
-    @ordered_items = @account.ordered_items
-  end
 
   def new
     @ordered_item = OrderedItem.new
-  end
-
-  def create
-    @order_params = params[:orders]
-    @order_params.each do |order|
-      quantity = order["quantity"].to_i
-      date = Date.parse(order["delivery_date"])
-      menu_item_id = order["menu_item_id"].to_i
-      @account.ordered_items.create(menu_item_id: menu_item_id,
-                                    delivery_date: date,
-                                    quantity: quantity)
-    end
-    redirect_to account_ordered_items_path
   end
 
   def update
@@ -36,10 +17,6 @@ class OrderedItemsController < ApplicationController
   end
 
   private
-
-  def set_account
-    @account = Account.find(params[:account_id])
-  end
 
   def set_ordered_item
     @ordered_item = OrderedItem.find(params[:id])

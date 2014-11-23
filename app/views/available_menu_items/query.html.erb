@@ -1,16 +1,41 @@
 <%= form_tag({controller: "ordered_items", action: "create"}, method: "post", class: "order_form") do %>
   <% @orders_not_submitted.each do |item| %>
-    <%= fields_for "orders[]", item do |f| %>
+    <% if @date != item.delivery_date %>
+      <p><strong><%= item.delivery_date.strftime("%A, %B %d, %Y") %></strong></p>
+    <% end %>
+    <% @date = item.delivery_date %>
+
+    <% order_form = 'orders[' + @orders_not_submitted.index(item).to_s + ']' %>
+    <%= fields_for order_form, item do |f| %>
       <div class="field">
-        <%= f.text_field :quantity %> <%= item.delivery_date.strftime("%A, %b %d") %> <%= item.menu_item.name %>
+        <%= f.text_field :quantity, size: 1 %>
+
+        <% quantity_dom_id = 'orders_' + @orders_not_submitted.index(item).to_s + '_quantity' %>
+        <span onclick="increment('<%= j quantity_dom_id %>')">[+]</span> /
+
+        <% quantity_dom_id = 'orders_' + @orders_not_submitted.index(item).to_s + '_quantity' %>
+        <span onclick="decrement('<%= j quantity_dom_id %>')">[-]</span> |
+
+        <%= item.menu_item.name %>, <%= item.menu_item.vendor.name %>
         <%= f.hidden_field :delivery_date %>
         <%= f.hidden_field :menu_item_id %>
       </div>
     <% end %>
   <% end %>
-
+  <p></p>
   <div class="actions">
-    <%= submit_tag "Update" %>
+    <%= submit_tag "Place Order" %>
   </div>
 <% end %>
 
+<script type="text/javascript">
+  function decrement(dom_id) {
+    var quantity = document.getElementById(dom_id);
+    quantity.value--;
+  }
+
+  function increment(dom_id) {
+    var quantity = document.getElementById(dom_id);
+    quantity.value++;
+  }
+</script>
