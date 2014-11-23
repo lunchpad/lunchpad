@@ -60,14 +60,20 @@ header {
 
 .order_form_wrapper {
   @include outer-container;
+  .order_form_title {
+    @include span-columns(10);
+    @include shift(2);
+    @include omega();
+  }
   .quantity {
     @include span-columns(2);
+    @include shift(2);
   }
   .quantity_select {
     @include span-columns(2);
   }
   .menu_item {
-    @include span-columns(8);
+    @include span-columns(6);
     @include omega();
   }
 

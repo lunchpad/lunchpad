@@ -9,7 +9,7 @@ class OrderedItem < ActiveRecord::Base
   validates :quantity,
             presence: true
 
-  def sub_total
+  def subtotal
     quantity * menu_item.price
   end
 end
