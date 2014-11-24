@@ -28,7 +28,7 @@ h1 {
 
 .card {
   background-color: lighten($blue, 72);
-  @include padding(8px null null 25px);
+  @include padding(15px 25px 10px 25px);
   @include margin(null auto 15px auto);
   border-radius: 25px;
   border: solid 1px $blue;
