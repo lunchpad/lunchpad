@@ -15,7 +15,7 @@
         <% if a.has_order_for(@start_date) %>
           <p><%= link_to "Edit lunch order for next week", edit_account_order_path(account_id: a, id: a.has_order_for(@start_date)) %></p>
         <% else %>
-          <p><%= link_to "Order lunch for next week", {controller: 'orders', action: 'new', date_range: {begin_date: @start_date.strftime("%Y-%m-%d"), end_date: @end_date.strftime("%Y-%m-%d")} }%></p>
+          <p><%= link_to "Order lunch for next week", new_account_order_path(a, begin_date: @start_date.strftime("%Y-%m-%d"), end_date: @end_date.strftime("%Y-%m-%d")) %></p>
         <% end %>
 
         <p><%= link_to "Edit account", edit_account_path(a) %></p>
