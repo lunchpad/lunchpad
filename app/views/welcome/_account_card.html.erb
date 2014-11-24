@@ -1,7 +1,7 @@
 <div class="card">
   <h3><%= "#{account.name}'s Lunchbox" %></h3>
   <% if account.orders.count > 0 %>
-    <p><%= link_to "See all ordered lunches", account_orders_path(a) %></p>
+    <p><%= link_to "See all ordered lunches", account_orders_path(account) %></p>
   <% end %>
 
   <% if account.has_order_for(@start_date) %>
