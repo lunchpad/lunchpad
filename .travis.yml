@@ -4,8 +4,6 @@ env:
   SECRET_KEY_BASE="$(bundle exec rake secret)"
 deploy:
   provider: heroku
-  api_key:
-    secure: CZjQzPbyp6E0BkzWHqNcHmArPZ6K3MApzJ9Gl7AQet+rclUUY3X8+InIzuhDOi8wKL4nftlrKz32DLLV32oTQoRvaa8zbJnNIMZIPoAbcq+gkEHjtcMXpzyAxBQsrIN4XDs+Dl2sXALGdt+xqd8h4a2VBMlJwKi+zNJYX6GmG1g=
   app: lunchpad-us
   on:
     repo: lunchpad/lunchpad
