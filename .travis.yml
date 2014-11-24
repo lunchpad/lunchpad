@@ -1,9 +1,10 @@
 language: ruby
 rvm: 2.1.3
-env:
-  SECRET_KEY_BASE="$(bundle exec rake secret)"
+env: SECRET_KEY_BASE="$(bundle exec rake secret)"
 deploy:
   provider: heroku
+  api_key:
+    secure: F0dK23tCyXJdiZrAsv1yBNKGDGa7NLwV/3qZPID3RACDGDMk1mb5IiXHx9u8wFUVxs97A5ww6i0ymi5ggDcqewKKQvIdIH3s8cK2lP6SQBLKLxyEM5B07u/FWKSZ6/t3cl/YA2eR1ji/g9aKv1833FM+K1Bl1lFY/d8C2i/tpL8=
   app: lunchpad-us
   on:
     repo: lunchpad/lunchpad
