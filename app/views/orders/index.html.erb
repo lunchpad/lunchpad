@@ -1,3 +1,9 @@
-<% @account.orders.each do |order| %>
-  <p><%= link_to "Order for #{order.begin_date.strftime("%A, %B %d, %Y")}", account_order_path(@account, order) %></p>
-<% end %>
+<h1>All Your Lunchbox Orders</h1>
+
+<div class="panel">
+  <div class="card">
+    <% @account.orders.each do |order| %>
+      <p><%= link_to "Order for #{order.begin_date.strftime("%A, %B %d, %Y")}", account_order_path(@account, order) %></p>
+    <% end %>
+  </div>
+</div>
