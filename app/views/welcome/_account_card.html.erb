@@ -1,0 +1,14 @@
+<div class="card">
+  <h3><%= "#{account.name}'s Lunchbox" %></h3>
+  <% if account.orders.count > 0 %>
+    <p><%= link_to "See all ordered lunches", account_orders_path(a) %></p>
+  <% end %>
+
+  <% if account.has_order_for(@start_date) %>
+    <p><%= link_to "Edit lunch order for next week", edit_account_order_path(account_id: account, id: account.has_order_for(@start_date)) %>
+  <% else %>
+    <p><%= link_to "Order lunch for next week", new_account_order_path(account, begin_date: @start_date.strftime("%Y-%m-%d"), end_date: @end_date.strftime("%Y-%m-%d")) %>
+  <% end %>
+
+  <p><%= link_to "Edit account", edit_account_path(account) %></p>
+</div>
