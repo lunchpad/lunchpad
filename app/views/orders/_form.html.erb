@@ -1,24 +1,35 @@
 <%= form_for [account, order] do |order_form| %>
   <br />
-  <%= order_form.fields_for :ordered_items, ordered_items do |menu_items| %>
+  <%= order_form.fields_for :ordered_items, ordered_items do |menu_item| %>
+
     <div class="order_form_wrapper">
-      <div class="quantity">
-        <%= menu_items.text_field :quantity, size: 1, class: 'order_form_quantity' %>
-      </div>
-      <div class="quantity_select">
-        <span onclick="increment(<%= j menu_items.index.to_s %>)">[+]</span>
-        <span onclick="decrement(<%= j menu_items.index.to_s %>)">[-]</span>
-      </div>
-      <div class="menu_item">
-        <%= @ordered_items[menu_items.index].menu_item.name %> <%= "($#{@ordered_items[menu_items.index].menu_item.price.to_s})" %>
-        <%= menu_items.hidden_field :available_menu_item_id %>
-        <%= menu_items.hidden_field :id %>
+      <div class="order_form_title">
+      <% if @date != menu_item.object.date %>
+        <p><strong><%= menu_item.object.date.strftime("%A, %B %d, %Y") %></strong></p>
+        <% @date = menu_item.object.date %>
+      <% end %>
       </div>
     </div>
+
+    <div class="order_form_wrapper">
+      <div class="quantity">
+        <%= menu_item.text_field :quantity, size: 1, class: 'order_form_quantity' %>
+      </div>
+      <div class="quantity_select">
+        <%= link_to image_tag('add.png', class: 'quantity_add', data: { item: menu_item.index.to_s }, alt: '[+]'), '#' %>
+        <%= link_to image_tag('minus.png', class: 'quantity_subtract', data: { item: menu_item.index.to_s }, alt: '[-]'), '#' %>
+      </div>
+      <div class="menu_item">
+        <%= ordered_items[menu_item.index].menu_item.name %> <%= "($#{ordered_items[menu_item.index].menu_item.price.to_s})" %>
+        <%= menu_item.hidden_field :available_menu_item_id %>
+        <%= menu_item.hidden_field :id %>
+      </div>
+    </div>
+
   <% end %>
   <div class="order_form_wrapper">
     <div class="submit">
-      <%= order_form.submit %>
+      <%= order_form.submit 'Submit Order' %>
     </div>
   </div>
 <% end %>
