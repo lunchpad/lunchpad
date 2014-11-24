@@ -17,7 +17,10 @@
 
   <div class="order_confirm_wrapper_header">
     <div class="order_confirm_sub_title">
-      <%= item.available_menu_item.date.to_date.strftime("%A, %B %d, %Y") %>
+      <% if @date != item.date %>
+        <p><strong><%= item.date.strftime("%A, %B %d, %Y") %></strong></p>
+        <% @date = item.date %>
+      <% end %>
     </div>
   </div>
 
@@ -40,6 +43,6 @@
 
 <div class="order_confirm_wrapper_header">
   <div class="order_confirm_total">
-    Total: <%= order.total %>
+    Total: $<%= order.total %>
   </div>
 </div>
