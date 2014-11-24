@@ -61,25 +61,26 @@ header {
 .order_form_wrapper {
   @include outer-container;
   .order_form_title {
-    @include span-columns(10);
-    @include shift(2);
+    @include span-columns(8);
+    @include shift(1);
     @include omega();
+    font-weight: 600;
   }
   .quantity {
-    @include span-columns(2);
-    @include shift(2);
+    @include span-columns(1);
+    @include shift(1);
   }
   .quantity_select {
-    @include span-columns(2);
+    @include span-columns(1);
+    @include padding(4px null null null);
   }
   .menu_item {
-    @include span-columns(6);
+    @include span-columns(4);
     @include omega();
   }
-
   .submit {
-    @include span-columns(10);
-    @include shift(2);
+    @include span-columns(8);
+    @include shift(1);
     @include omega();
   }
 }
@@ -131,6 +132,7 @@ header {
     background-color: lighten($blue, 68);
     font-size: 20px;
     font-weight: 600;
+    text-align: right;
   }
   .ordered_item_header {
     @include span-columns(4);
@@ -153,4 +155,12 @@ header {
     @include span-columns(2);
     @include omega();
   }
+}
+
+img.quantity_add {
+  width: 20px;
+}
+
+img.quantity_subtract {
+  width: 20px;
 }
