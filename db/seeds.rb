@@ -30,7 +30,7 @@ willow = School.create(name: 'Willow Oak',
                        address: Faker::Address.street_address)
 
 account = Account.create(school: willow,
-                         balance: 100,
+                         balance: 0,
                          name: 'Student 1',
                          section: 3)
 
@@ -46,54 +46,54 @@ vendor_cat = Vendor.create(name: 'Carolina Catering Company',
                           phone_number: '555-555-5555',
                           school: willow)
 
-menu_item_1 = MenuItem.create(vendor: vendor_ht,
+menu_items = []
+
+menu_items << MenuItem.create(vendor: vendor_ht,
                               name: 'Pizza',
                               description: 'cheese',
                               price: 3)
 
-menu_item_2 = MenuItem.create(vendor: vendor_ht,
+menu_items << MenuItem.create(vendor: vendor_ht,
                               name: 'Burger',
                               description: 'veggie',
                               price: 4)
 
-menu_item_3 = MenuItem.create(vendor: vendor_cat,
+menu_items << MenuItem.create(vendor: vendor_cat,
                               name: 'Salad',
                               description: 'garden',
                               price: 5)
 
-menu_item_4 = MenuItem.create(vendor: vendor_cat,
+menu_items << MenuItem.create(vendor: vendor_cat,
                               name: 'California roll',
                               description: 'veggie',
                               price: 8)
 
-menu_item_5 = MenuItem.create(vendor: vendor_ht,
+menu_items << MenuItem.create(vendor: vendor_ht,
                               name: 'Chicken nuggets',
                               description: 'not veggie',
                               price: 4)
 
-menu_item_6 = MenuItem.create(vendor: vendor_ht,
+menu_items << MenuItem.create(vendor: vendor_ht,
                               name: 'Turkey sandwich',
                               description: 'wheat bread',
                               price: 6)
 
-menu_item_7 = MenuItem.create(vendor: vendor_cat,
+menu_items << MenuItem.create(vendor: vendor_cat,
                               name: 'Veggie wrap',
                               description: 'veggie',
                               price: 4)
 
-menu_item_8 = MenuItem.create(vendor: vendor_ht,
+menu_items << MenuItem.create(vendor: vendor_ht,
                               name: 'Ham sandwich',
                               description: 'wheat bread',
                               price: 4)
 
 today = Date.today
+days_of_week = %w[Monday Monday Tuesday Tuesday Wednesday Wednesday Thursday Thursday Friday Friday]
 
-AvailableMenuItem.create(date: today + 1, menu_item: menu_item_1, school: willow)
-AvailableMenuItem.create(date: today + 2, menu_item: menu_item_2, school: willow)
-AvailableMenuItem.create(date: today + 3, menu_item: menu_item_3, school: willow)
-AvailableMenuItem.create(date: today + 4, menu_item: menu_item_4, school: willow)
-AvailableMenuItem.create(date: today + 5, menu_item: menu_item_5, school: willow)
-AvailableMenuItem.create(date: today + 6, menu_item: menu_item_6, school: willow)
-AvailableMenuItem.create(date: today + 7, menu_item: menu_item_7, school: willow)
-AvailableMenuItem.create(date: today + 8, menu_item: menu_item_8, school: willow)
+menu_items.each do |menu_item|
+  menu_item.schedule_availability(begin_date: today.strftime("%Y-%m-%d"),
+                                  end_date: (today + 30).strftime("%Y-%m-%d"),
+                                  day_of_week: days_of_week[menu_items.index(menu_item)])
+end
 
