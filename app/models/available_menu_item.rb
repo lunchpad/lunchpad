@@ -6,6 +6,6 @@ class AvailableMenuItem < ActiveRecord::Base
   validates :date, presence: true
 
   def self.within_date_range(begin_date,end_date)
-    where(:date => begin_date.beginning_of_day..end_date.end_of_day)
+    where(:date => begin_date.beginning_of_day..end_date.end_of_day).order(:date)
   end
 end
