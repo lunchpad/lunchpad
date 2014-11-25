@@ -88,10 +88,20 @@ menu_items << MenuItem.create(vendor: vendor_ht,
                               description: 'wheat bread',
                               price: 4)
 
+menu_items << MenuItem.create(vendor: vendor_cat,
+                              name: 'Veggie wrap',
+                              description: 'veggie',
+                              price: 3)
+
+menu_items << MenuItem.create(vendor: vendor_ht,
+                              name: 'Ham sandwich',
+                              description: 'wheat bread',
+                              price: 3)
+
 today = Date.today
 days_of_week = %w[Monday Monday Tuesday Tuesday Wednesday Wednesday Thursday Thursday Friday Friday]
 
-menu_items.each do |menu_item|
+MenuItem.all.each do |menu_item|
   menu_item.schedule_availability(begin_date: today.strftime("%Y-%m-%d"),
                                   end_date: (today + 30).strftime("%Y-%m-%d"),
                                   day_of_week: days_of_week[menu_items.index(menu_item)])
