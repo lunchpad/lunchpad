@@ -29,5 +29,7 @@ class OrderedItemTest < ActiveSupport::TestCase
         order.ordered_items.first.update(quantity: 3)
       end
     end
+
+
   end
 end

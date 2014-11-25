@@ -6,6 +6,7 @@ class OrderedItem < ActiveRecord::Base
   delegate :account, :to => :order, :allow_nil => true
   after_create :credit_account_balance
   after_update :update_account_balance
+  after_destroy :debit_account_balance
 
   validates :available_menu_item_id,
             presence: true
@@ -21,6 +22,10 @@ class OrderedItem < ActiveRecord::Base
 
   def credit_account_balance
     account.increment!(:balance, subtotal)
+  end
+
+  def debit_account_balance
+    account.decrement!(:balance, subtotal)
   end
 
   def update_account_balance

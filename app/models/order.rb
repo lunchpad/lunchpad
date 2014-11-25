@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
   belongs_to :account
-  has_many :ordered_items
+  has_many :ordered_items, dependent: :destroy
   accepts_nested_attributes_for :ordered_items
 
   validates :account_id,

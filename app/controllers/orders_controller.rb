@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_account
-  before_action :set_order, only: [:show, :edit, :update]
+  before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   def index
     @orders = Order.where(account: @account)
@@ -35,6 +35,11 @@ class OrdersController < ApplicationController
     else
       redirect_to edit_account_order_path
     end
+  end
+
+  def destroy
+    @order.destroy
+    redirect_to account_orders_path(@account)
   end
 
   private

@@ -143,4 +143,19 @@ class OrdersControllerTest < ActionController::TestCase
       end
     end
   end
+
+  context 'DELETE orders#destroy' do
+    setup do
+      @order = orders(:one)
+    end
+
+    should 'should destroy order' do
+      assert_difference('Order.count', -1) do
+        delete :destroy, { account_id: accounts(:one).id, id: @order }
+      end
+
+      assert_nil OrderedItem.find_by(order: @order.id), 'should destroy ordered items'
+      assert_redirected_to account_orders_path, 'should redirect to orders'
+    end
+  end
 end

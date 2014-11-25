@@ -1,5 +1,4 @@
 class WelcomeController < ApplicationController
-
   before_action :set_date_range
 
   def index
@@ -13,5 +12,4 @@ class WelcomeController < ApplicationController
     @start_date = (monday + delta)
     @end_date = @start_date + 4
   end
-
 end

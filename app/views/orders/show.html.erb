@@ -4,7 +4,10 @@
     Review order
   </div>
   <div class="order_confirm_sub_title">
-    [<%= link_to 'Edit Order', edit_account_order_path(@account, @order) %>]
+    <ul>
+    <li>[<%= link_to 'Edit Order', edit_account_order_path %>]</li>
+      <li>[<%= link_to 'Delete Order', [@account, @order], method: :delete %>]</li>
+    </ul>
   </div>
 </div>
 
