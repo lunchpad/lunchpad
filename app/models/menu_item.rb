@@ -1,4 +1,5 @@
 class MenuItem < ActiveRecord::Base
+  resourcify
   has_many :available_menu_items
   belongs_to :vendor
 
