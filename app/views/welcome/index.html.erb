@@ -5,6 +5,11 @@
   <% else %>
     <h1>All Your Lunchbox</h1>
     <div class="panel">
+      <div class="card">
+        Balance for all accounts: $<%= current_user.balance %>
+      </div>
+    </div>
+    <div class="panel">
       <%= render partial: "account_card", collection: current_user.accounts, as: :account %>
     </div>
     <div class="panel">

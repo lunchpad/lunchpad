@@ -18,9 +18,8 @@ class MenuItem < ActiveRecord::Base
   def schedule_availability(availability)
     begin_date = Date.parse(availability[:begin_date])
     end_date = Date.parse(availability[:end_date])
-    date_range = begin_date..end_date
-    date_range.each do |date|
-      AvailableMenuItem.create(date: date, menu_item_id: id) if date.send(availability[:day_of_week].downcase + '?')
+    (begin_date..end_date).each do |date|
+      available_menu_items.create(date: date, school: vendor.school) if date.send(availability[:day_of_week].downcase + '?')
     end
   end
 end
