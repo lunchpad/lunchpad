@@ -1,4 +1,5 @@
 class AvailableMenuItem < ActiveRecord::Base
+  resourcify
   belongs_to :menu_item
   belongs_to :school
   has_many :ordered_items
