@@ -84,7 +84,8 @@ class MenuItemsControllerTest < ActionController::TestCase
       @menu_item = MenuItem.find(menu_items(:one).id)
       assert_equal 'Test Item', @menu_item.name
       assert_equal 'Test item description', @menu_item.description
-      assert_equal 100, @menu_item.price
+      assert_equal 10000, @menu_item.price
+      assert_equal 100, @menu_item.price_dollars
     end
   end
 

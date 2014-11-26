@@ -13,12 +13,16 @@ class OrderTest < ActiveSupport::TestCase
       @order.ordered_items.create(quantity: 3, available_menu_item: available_menu_items(:two))
     end
 
-    should 'be able to get all subtotals for related ordered items' do
-      assert_equal [20,15], @order.subtotals, 'should multiple item quantity with menu item price'
+    should 'be able to get all subtotals in cents for related ordered items' do
+      assert_equal [2000,1500], @order.subtotals, 'should multiple item quantity with menu item price'
     end
 
-    should 'be able to get total cost of all ordered items' do
-      assert_equal 35, @order.total, 'should total all subtotals'
+    should 'be able to get total cost in cents of all ordered items' do
+      assert_equal 3500, @order.total, 'should total all subtotals'
+    end
+
+    should 'be able to get total cost in dollars of all ordered items' do
+      assert_equal '35.00', @order.total_dollars, 'should total all subtotals'
     end
 
     should 'know the begin date for the order' do

@@ -19,6 +19,10 @@ class OrderedItem < ActiveRecord::Base
     quantity * menu_item.price
   end
 
+  def subtotal_dollars
+    Money.new(subtotal).to_s
+  end
+
   private
 
   def credit_account
@@ -38,7 +42,7 @@ class OrderedItem < ActiveRecord::Base
   private
 
   def for_future_date?
-    cutoff_date  = Date.parse('Monday')
+    cutoff_date = Date.parse('Monday')
     cutoff_date += 7 if cutoff_date < Date.today
     date >= cutoff_date
   end
