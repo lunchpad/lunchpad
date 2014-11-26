@@ -3,7 +3,7 @@ require 'test_helper'
 class OrdersControllerTest < ActionController::TestCase
   include Devise::TestHelpers
 
-  def setup
+  setup do
     @user = User.create!(first_name: 'First',
                          last_name: 'Last',
                          email: 'firstlast@example.com',
@@ -145,17 +145,29 @@ class OrdersControllerTest < ActionController::TestCase
   end
 
   context 'DELETE orders#destroy' do
-    setup do
-      @order = orders(:one)
-    end
-
-    should 'should destroy order' do
-      assert_difference('Order.count', -1) do
-        delete :destroy, { account_id: accounts(:one).id, id: @order }
+    context 'If order is after cutoff date' do
+      setup do
+        @order = orders(:one)
       end
 
-      assert_nil OrderedItem.find_by(order: @order.id), 'should destroy ordered items'
-      assert_redirected_to account_orders_path, 'should redirect to orders'
+      should 'should destroy order' do
+        assert_difference 'Order.count', -1 do
+          delete :destroy, { account_id: accounts(:one).id, id: @order }
+        end
+
+        assert_nil OrderedItem.find_by(order: @order.id), 'should destroy ordered items'
+        assert_redirected_to account_orders_path, 'should redirect to orders'
+      end
+    end
+
+    context 'If order is before cutoff date' do
+      should 'should not destroy order' do
+        assert_no_difference 'Order.count' do
+          delete :destroy, { account_id: @account, id: orders(:old).id }
+        end
+
+        assert_redirected_to account_order_path(@account, orders(:old)), 'should redirect to order'
+      end
     end
   end
 end

@@ -15,6 +15,6 @@ class Order < ActiveRecord::Base
   end
 
   def begin_date
-    ordered_items.first.available_menu_item['date']
+    ordered_items.first.date
   end
 end

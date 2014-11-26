@@ -38,8 +38,11 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    @order.destroy
-    redirect_to account_orders_path(@account)
+    if @order.begin_date >= cutoff_date && @order.destroy
+      redirect_to account_orders_path(@account), success: 'Order was cancelled.'
+    else
+      redirect_to account_order_path(@account, @order), error: 'Order cannot be cancelled'
+    end
   end
 
   private
