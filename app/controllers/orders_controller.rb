@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_account
-  before_action :set_order, only: [:show, :edit, :update]
+  before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   def index
     @orders = Order.where(account: @account)
@@ -34,6 +34,14 @@ class OrdersController < ApplicationController
       redirect_to account_order_path, success: 'Order was updated.'
     else
       redirect_to edit_account_order_path
+    end
+  end
+
+  def destroy
+    if @order.begin_date >= cutoff_date && @order.destroy
+      redirect_to account_orders_path(@account), success: 'Order was cancelled.'
+    else
+      redirect_to account_order_path(@account, @order), error: 'Order cannot be cancelled'
     end
   end
 
