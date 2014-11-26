@@ -10,6 +10,10 @@ class Order < ActiveRecord::Base
     subtotals.sum
   end
 
+  def total_dollars
+    Money.new(total).to_s
+  end
+
   def subtotals
     ordered_items.map { |item| item.subtotal }
   end

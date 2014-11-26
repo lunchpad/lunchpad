@@ -6,7 +6,7 @@
     <%= label_tag "Description:" %>
     <%= text_field :menu_item, :description %><br>
     <%= label_tag "Price:" %>
-    <%= number_field :menu_item, :price %><br>
+    <%= number_field :menu_item, :price, min: 0, step: 0.01 %><br>
     <%= label_tag "Availability Start Date:" %>
     <%= date_field :availability, :begin_date %><br>
     <%= label_tag "Availability End Date:" %>

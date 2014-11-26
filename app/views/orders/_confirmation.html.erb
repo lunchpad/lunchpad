@@ -32,10 +32,10 @@
       <%= item.quantity %>
     </div>
     <div class="ordered_price">
-      <%= item.menu_item.price %>
+      <%= item.menu_item.price_dollars %>
     </div>
     <div class="ordered_sub_total">
-      <%= item.subtotal %>
+      <%= item.subtotal_dollars %>
     </div>
   </div>
 
@@ -43,6 +43,6 @@
 
 <div class="order_confirm_wrapper_header">
   <div class="order_confirm_total">
-    Total: $<%= order.total %>
+    Total: $<%= order.total_dollars %>
   </div>
 </div>

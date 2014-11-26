@@ -2,12 +2,12 @@
 
 one:
   school: one
-  balance: 1
+  balance: 10000
   name: FirstAccount
   section: MyString
 
 two:
   school: one
-  balance: 1
+  balance: 10000
   name: SecondAccount
   section: MyString

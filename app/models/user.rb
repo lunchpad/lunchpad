@@ -11,4 +11,8 @@ class User < ActiveRecord::Base
   def balance
     accounts.pluck(:balance).sum
   end
+
+  def balance_dollars
+    Money.new(balance).to_s
+  end
 end
