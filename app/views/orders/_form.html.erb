@@ -20,7 +20,7 @@
         <%= link_to image_tag('minus.png', class: 'quantity_subtract', data: { item: menu_item.index.to_s }, alt: '[-]'), '' %>
       </div>
       <div class="menu_item">
-        <%= ordered_items[menu_item.index].menu_item.name %> <%= "($#{ordered_items[menu_item.index].menu_item.price.to_s})" %>
+        <%= ordered_items[menu_item.index].menu_item.name %> <%= "($#{ordered_items[menu_item.index].menu_item.price_dollars})" %>
         <%= menu_item.hidden_field :available_menu_item_id %>
         <%= menu_item.hidden_field :id %>
       </div>

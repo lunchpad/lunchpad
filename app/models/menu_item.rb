@@ -2,6 +2,7 @@ class MenuItem < ActiveRecord::Base
   resourcify
   has_many :available_menu_items
   belongs_to :vendor
+  monetize :price, :as => 'price_dollars'
 
   validates :vendor_id,
             presence: true

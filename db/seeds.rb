@@ -6,16 +6,15 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
-Account.destroy_all
-AccountOwnership.destroy_all
-AvailableMenuItem.destroy_all
-MenuItem.destroy_all
-OffDay.destroy_all
-OrderedItem.destroy_all
-School.destroy_all
-User.destroy_all
-Vendor.destroy_all
+Account.delete_all
+AccountOwnership.delete_all
+AvailableMenuItem.delete_all
+MenuItem.delete_all
+OffDay.delete_all
+OrderedItem.delete_all
+School.delete_all
+User.delete_all
+Vendor.delete_all
 
 super_admin = User.create(email: 'email@gmail.com',
                           password: 'password',
@@ -51,52 +50,52 @@ menu_items = []
 menu_items << MenuItem.create(vendor: vendor_ht,
                               name: 'Pizza',
                               description: 'cheese',
-                              price: 3)
+                              price: 300)
 
 menu_items << MenuItem.create(vendor: vendor_ht,
                               name: 'Burger',
                               description: 'veggie',
-                              price: 4)
+                              price: 400)
 
 menu_items << MenuItem.create(vendor: vendor_cat,
                               name: 'Salad',
                               description: 'garden',
-                              price: 5)
+                              price: 500)
 
 menu_items << MenuItem.create(vendor: vendor_cat,
                               name: 'California roll',
                               description: 'veggie',
-                              price: 8)
+                              price: 800)
 
 menu_items << MenuItem.create(vendor: vendor_ht,
                               name: 'Chicken nuggets',
                               description: 'not veggie',
-                              price: 4)
+                              price: 400)
 
 menu_items << MenuItem.create(vendor: vendor_ht,
                               name: 'Turkey sandwich',
                               description: 'wheat bread',
-                              price: 6)
+                              price: 600)
 
 menu_items << MenuItem.create(vendor: vendor_cat,
                               name: 'Veggie wrap',
                               description: 'veggie',
-                              price: 4)
+                              price: 400)
 
 menu_items << MenuItem.create(vendor: vendor_ht,
                               name: 'Ham sandwich',
                               description: 'wheat bread',
-                              price: 4)
+                              price: 400)
 
 menu_items << MenuItem.create(vendor: vendor_cat,
                               name: 'Veggie wrap',
                               description: 'veggie',
-                              price: 3)
+                              price: 300)
 
 menu_items << MenuItem.create(vendor: vendor_ht,
                               name: 'Ham sandwich',
                               description: 'wheat bread',
-                              price: 3)
+                              price: 300)
 
 today = Date.today
 days_of_week = %w[Monday Monday Tuesday Tuesday Wednesday Wednesday Thursday Thursday Friday Friday]
