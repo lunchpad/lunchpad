@@ -10,12 +10,9 @@ class Ability
       if user.has_role? :admin
         can :manage, :all
       else
-        can :crud, Account
+        can :crud, [ Account, Order ]
         can :crud, AccountOwnership
-        can :crud, Order
-        cannot :manage, Vendor
-        cannot :manage, School
-        cannot :manage, OffDay
+        cannot :manage, [ Vendor, School, OffDay ]
         cannot :create, :update, :destroy, MenuItem
       end
     #
