@@ -4,16 +4,16 @@ one:
   vendor: one
   name: Item One
   description: Food description for item one
-  price: 10
+  price: 1000
 
 two:
   vendor: two
   name: Item Two
   description: Food description for item two
-  price: 5
+  price: 500
 
 three:
   vendor: three
   name: Item Three
   description: Food description for item three
-  price: 8
+  price: 800

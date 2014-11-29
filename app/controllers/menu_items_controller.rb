@@ -45,9 +45,10 @@ class MenuItemsController < ApplicationController
   end
 
   def menu_item_params
-    params.require(:menu_item).permit(:vendor_id, :name, :description, :price)
+    menu_item_params = params.require(:menu_item).permit(:vendor_id, :name, :description, :price)
+    menu_item_params[:price] = menu_item_params[:price].to_f * 100
+    menu_item_params
   end
-
 
   def availability_params
     params.require(:availability).permit(:begin_date,:end_date,:day_of_week)

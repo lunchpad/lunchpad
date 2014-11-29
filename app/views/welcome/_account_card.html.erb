@@ -14,8 +14,15 @@
 
   <div class="lunchcov">
     <!--if lunch is ordered then highlight that day-->
-
-
+    <% a = account.has_order_for(@start_date) %>
+    <% if a.present? %>
+      <% lc = a.ordered_items.select {|oi| oi["quantity"] > 0 } %>
+      <% days = lc.map(&:date).uniq %>
+      <% days.each do |d| %>
+        <%= d.strftime("%A") %>
+        <% end %>
+    <% end %>
   </div>
-  <p>  <%= "Account balance: $#{account.balance}" %></p>
+
+  <p>  <%= "Account balance: $#{account.balance_dollars}" %></p>
 </div>

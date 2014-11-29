@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20141124194404) do
   end
 
   add_index "ordered_items", ["available_menu_item_id"], name: "index_ordered_items_on_available_menu_item_id", using: :btree
-  add_index "ordered_items", ["order_id"], name: "index_ordered_items_on_order_id", using: :btree
+  add_index "ordered_items", ["order_id"], name: "index_ordered_items_on_order_id",
 
   create_table "orders", force: true do |t|
     t.integer  "account_id"
