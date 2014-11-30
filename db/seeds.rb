@@ -33,6 +33,24 @@ account = Account.create(school: willow,
                          name: 'Student 1',
                          section: 3)
 
+user = User.create(email: 'deedeelavinder@gmail.com',
+                   first_name: 'DeeDee',
+                   last_name: 'Lavinder',
+                   password: 'password',
+                   password_confirmation: 'password')
+
+user = User.create(email: 'nickpassarella@gmail.com',
+                   first_name: 'Nick',
+                   last_name: 'Passarella',
+                   password: 'password',
+                   password_confirmation: 'password')
+
+user = User.create(email: 'kheang@gmail.com',
+                   first_name: 'Kheang',
+                   last_name: 'Lim',
+                   password: 'password',
+                   password_confirmation: 'password')
+
 AccountOwnership.create(user: super_admin, account: account)
 
 vendor_ht = Vendor.create(name: 'Harris Teeter',
@@ -88,12 +106,12 @@ menu_items << MenuItem.create(vendor: vendor_ht,
                               price: 400)
 
 menu_items << MenuItem.create(vendor: vendor_cat,
-                              name: 'Veggie wrap',
-                              description: 'veggie',
+                              name: 'Meaty sub',
+                              description: 'not veggie',
                               price: 300)
 
 menu_items << MenuItem.create(vendor: vendor_ht,
-                              name: 'Ham sandwich',
+                              name: 'Sandwich',
                               description: 'wheat bread',
                               price: 300)
 
