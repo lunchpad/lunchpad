@@ -48,7 +48,7 @@ class OrdersController < ApplicationController
   private
 
   def build_order_menu
-    available_menu_items = AvailableMenuItem.within_date_range(Date.parse(params[:begin_date]),Date.parse(params[:end_date]))
+    available_menu_items = AvailableMenuItem.within_date_range(cutoff_date,cutoff_date + 4)
     @ordered_items = available_menu_items.map { |order| OrderedItem.new(quantity: 0, available_menu_item_id: order.id) }
   end
 
