@@ -13,7 +13,7 @@
 
     <div class="order_form_wrapper">
       <div class="quantity">
-        <%= menu_item.text_field :quantity, size: 1, class: 'order_form_quantity' %>
+        <%= menu_item.number_field :quantity, size: 1, class: 'order_form_quantity', min: 0, step: 1 %>
       </div>
       <div class="quantity_select">
         <%= link_to image_tag('add.png', class: 'quantity_add', data: { item: menu_item.index.to_s }, alt: '[+]'), '' %>
