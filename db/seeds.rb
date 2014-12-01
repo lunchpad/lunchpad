@@ -120,7 +120,7 @@ days_of_week = %w[Monday Monday Tuesday Tuesday Wednesday Wednesday Thursday Thu
 
 MenuItem.all.each do |menu_item|
   menu_item.schedule_availability(begin_date: today.strftime("%Y-%m-%d"),
-                                  end_date: (today + 30).strftime("%Y-%m-%d"),
+                                  end_date: (today + 60).strftime("%Y-%m-%d"),
                                   day_of_week: days_of_week[menu_items.index(menu_item)])
 end
 

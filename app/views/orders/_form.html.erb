@@ -28,6 +28,11 @@
 
   <% end %>
   <div class="order_form_wrapper">
+    <div class="order_form_title">
+    Repeat this order for X number of weeks: <%= select_tag "copy_count", options_for_select(["0","1","2","3","4"]) %>
+    </div>
+  </div>
+  <div class="order_form_wrapper">
     <div class="submit">
       <%= order_form.submit 'Submit Order' %>
     </div>

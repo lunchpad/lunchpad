@@ -24,6 +24,11 @@ class OrderedItem < ActiveRecord::Base
     Money.new(subtotal).to_s
   end
 
+  def self.build_menu(begin_date,end_date)
+    available_menu_items = AvailableMenuItem.within_date_range(begin_date,end_date)
+    available_menu_items.map { |order| OrderedItem.new(quantity: 0, available_menu_item_id: order.id) }
+  end
+
   private
 
   def credit_account
