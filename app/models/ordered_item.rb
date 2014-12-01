@@ -3,7 +3,6 @@ class OrderedItem < ActiveRecord::Base
   has_calendar attribute: :date
 
   resourcify
-
   belongs_to :available_menu_item
   belongs_to :order
   delegate :menu_item, to: :available_menu_item, allow_nil: true
@@ -21,6 +20,8 @@ class OrderedItem < ActiveRecord::Base
 
   validates :quantity,
             presence: true
+
+
 
   def subtotal
     quantity * menu_item.price
