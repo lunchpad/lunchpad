@@ -1,6 +1,7 @@
 class Vendor < ActiveRecord::Base
   resourcify
   has_many :menu_items
+  has_many :ordered_items, through: :school
   belongs_to :school
 
   validates :name,
@@ -13,4 +14,5 @@ class Vendor < ActiveRecord::Base
 
   validates :phone_number,
             format: { with: /\A\d{3}-\d{3}-\d{4}\Z/, message: 'must be formatted as ###-###-####' }
+
 end

@@ -14,10 +14,12 @@ class OrdersController < ApplicationController
 
   def create
     @order = @account.orders.build(order_params)
+    # @order.update(school_id: @account.school_id)
 
     if @order.save
       redirect_to account_order_path(@account, @order), success: 'Order was created.'
     else
+      binding.pry
       redirect_to new_account_order_path(begin_date: params[:begin_date], end_date: params[:end_date])
     end
   end
@@ -61,6 +63,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(ordered_items_attributes: [:quantity, :available_menu_item_id, :id])
+    params.require(:order).permit(ordered_items_attributes: [:quantity, :available_menu_item_id])
   end
 end

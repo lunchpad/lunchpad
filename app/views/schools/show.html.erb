@@ -1,0 +1,8 @@
+<h1><%= @school.name %></h1>
+  <div class="card">
+    <%= render 'order_filter' %>
+    <ul>
+      <li><%= link_to 'View/Edit Vendors & Menus', vendors_path(@school) %></li>
+    </ul>
+  </div>
+

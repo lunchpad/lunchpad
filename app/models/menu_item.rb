@@ -1,7 +1,9 @@
 class MenuItem < ActiveRecord::Base
   resourcify
+  has_many :ordered_items, through: :available_menu_items
   has_many :available_menu_items
   belongs_to :vendor
+  belongs_to :school
   monetize :price, :as => 'price_dollars'
 
   validates :vendor_id,

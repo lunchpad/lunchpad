@@ -4,7 +4,7 @@
   </div>
     <ul>
     <% if user_signed_in?  %>
-      <li><%= if current_user.has_role? :admin then link_to "School Admin", admins_path end %></li>
+      <li><%= if current_user.has_role? :admin, :any then link_to "School Admin", schools_path end %></li>
       <li>Logged in as <%= "#{current_user.first_name} #{current_user.last_name}" %></li>
       <li><%= link_to "Log Out", destroy_user_session_path, method: 'delete' %></li>
     <% else %>

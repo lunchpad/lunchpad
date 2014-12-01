@@ -1,0 +1,40 @@
+<h1>Look Up Another Order</h1>
+<div class="card">
+  <%= render 'order_filter' %>
+</div>
+
+<h1>Orders for <%= @date.strftime("%A %D") %></h1>
+
+<% @vendors.each do |vendor| %>
+<div class="card">
+  <h2><%= vendor.name %></h2>
+  <% @sections.each do |section| %>
+    <div class="card">
+      <h2>Section: <%= section %></h2>
+        <% vendor.menu_items.each do |menu_item| %>
+          <% menu_item.ordered_items.each do |ordered_item| %>
+            <% unless ordered_item.quantity == 0 || ordered_item.date != @date || ordered_item.account.section != section %>
+              <% if @ordered_item != ordered_item.menu_item %>
+                <h2><%= ordered_item.menu_item.name %></h2>
+                <% @ordered_item = ordered_item.menu_item %>
+              <% end %>
+              <li><%= ordered_item.account.name %> -- Quantity: <%= ordered_item.quantity %></li>
+            <% end %>
+          <% end %>
+        <% end %>
+    </div>
+  <% end %>
+  <h2>Totals:</h2>
+  <% vendor.menu_items.each do |menu_item| %>
+    <% menu_item.ordered_items.each do |ordered_item| %>
+      <% unless ordered_item.quantity == 0 || ordered_item.date != @date %>
+        <% count = menu_item.ordered_items.map { |ordered| ordered.quantity}.sum %>
+        <% if @ordered_item != ordered_item.menu_item %>
+          <h2><%= ordered_item.menu_item.name %> <%= count %></h2>
+          <% @ordered_item = ordered_item.menu_item %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+<% end %>

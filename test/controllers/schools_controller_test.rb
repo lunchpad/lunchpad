@@ -18,14 +18,21 @@ class SchoolsControllerTest < ActionController::TestCase
                           email: 'admin@example.com',
                           password: 'password',
                           password_confirmation: 'password')
-    @admin.add_role? :admin
+    @admin.add_role :admin, schools(:one)
     sign_in @admin
   end
 
   context 'GET schools#index' do
-    setup { get :index, { school: schools(:one) } }
+    setup { get :index }
 
     should render_template('index')
+    should respond_with(:success)
+  end
+
+  context 'GET schools#show' do
+    setup { get :show, { id: schools(:one).id } }
+
+    should render_template('show')
     should respond_with(:success)
   end
 
