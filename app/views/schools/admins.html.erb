@@ -11,8 +11,12 @@
   <div class="card">
     <h2><%= "#{admin.first_name} #{admin.last_name}" %></h2>
     <%= admin.email %><br />
-    <%= link_to "Remove Admin Access for #{admin.first_name}",
-                remove_admin_school_path(@school, {user: admin.email}),
-                method: 'put' %>
+    <% if admin == current_user %>
+      <strong>This is you. You cannot remove your own Admin Access.</strong>
+    <% else %>
+      <%= link_to "Remove Admin Access for #{admin.first_name}",
+                  remove_admin_school_path(@school, {user: admin.email}),
+                  method: 'put' %>
+    <% end %>
   </div>
 <% end %>
