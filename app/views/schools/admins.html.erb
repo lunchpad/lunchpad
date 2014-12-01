@@ -1,0 +1,18 @@
+<div class="card">
+  <h2>Add New Admin for <%= @school.name %></h2>
+  <%= form_tag({controller: "schools", action: "make_admin"}, method: "put") do %>
+    <%= text_field :user, nil, :placeholder => "User's Email Address..." %>
+    <%= submit_tag "Add Admin Access" %>
+  <% end %>
+</div>
+
+<h1>All Admins for <%= @school.name %></h1>
+<% @admins.each do |admin| %>
+  <div class="card">
+    <h2><%= "#{admin.first_name} #{admin.last_name}" %></h2>
+    <%= admin.email %><br />
+    <%= link_to "Remove Admin Access for #{admin.first_name}",
+                remove_admin_school_path(@school, {user: admin.email}),
+                method: 'put' %>
+  </div>
+<% end %>
