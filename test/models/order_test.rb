@@ -33,7 +33,7 @@ class OrderTest < ActiveSupport::TestCase
       assert_difference 'Order.count',2 do
         order = Order.create(account: accounts(:one))
         order.ordered_items.create(available_menu_item: available_menu_items(:one), quantity: 1)
-        order.copy(7)
+        order.copy(1)
       end
     end
   end

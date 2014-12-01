@@ -14,8 +14,8 @@ class Order < ActiveRecord::Base
     Money.new(total).to_s
   end
 
-  def copy(weeks_forward)
-    return unless weeks_forward > 0
+  def copy(weeks_forward = 0)
+    return true unless weeks_forward > 0
     (1..weeks_forward).each do |week|
       repeated_order = self.dup
       repeated_order.save

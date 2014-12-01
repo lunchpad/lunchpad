@@ -82,7 +82,8 @@ class OrdersControllerTest < ActionController::TestCase
                                               id: ordered_items(:two).id } }
         patch :update, { account_id: accounts(:one).id,
                          id: orders(:one).id,
-                         order: { ordered_items_attributes: updated_items_attributes } }
+                         order: { ordered_items_attributes: updated_items_attributes },
+                         copy_count: '0' }
       end
 
       should 'redirect to order show' do
@@ -109,7 +110,8 @@ class OrdersControllerTest < ActionController::TestCase
                                               id: ordered_items(:two).id } }
         patch :update, { account_id: accounts(:one).id,
                          id: orders(:one).id,
-                         order: { ordered_items_attributes: updated_items_attributes } }
+                         order: { ordered_items_attributes: updated_items_attributes },
+                         copy_count: "0" }
       end
 
       should 'redirect to order show' do
@@ -120,7 +122,9 @@ class OrdersControllerTest < ActionController::TestCase
 
   context 'POST orders#create' do
     context 'when valid attributes are submitted' do
-      setup { post :create, { account_id: accounts(:one).id, order: { ordered_items_attributes: valid_items_attributes } } }
+      setup { post :create, { account_id: accounts(:one).id,
+                              order: { ordered_items_attributes: valid_items_attributes },
+                              copy_count: '0' } }
 
       should 'create order' do
         assert_saved_model(:order)
