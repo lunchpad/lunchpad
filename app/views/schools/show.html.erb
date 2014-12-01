@@ -1,0 +1,10 @@
+<h1><%= @school.name %></h1>
+  <div class="card">
+    <h2>Get Order Report for Date</h2>
+    <%= render 'order_filter' %>
+    <br />
+    <h2><%= link_to 'Manage Vendors & Menus', vendors_path(@school) %></h2>
+    <br />
+    <h2><%= link_to 'Manage Lunch Accounts', accounts_school_path(@school) %></h2>
+  </div>
+

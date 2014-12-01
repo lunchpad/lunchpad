@@ -17,6 +17,11 @@
 @import "neat";
 @import "base/base";
 
+
+body {
+  margin: 0;
+}
+
 ul {
   list-style: none;
 }
@@ -38,8 +43,10 @@ h1 {
 header {
   border-bottom: solid 1px black;
   background-color: lighten($blue, 68);
+  box-shadow: 0 0 15px #868182;
 
   .title {
+    padding-left: 10px;
     font-size: 35pt;
     font-weight: bold;
     float: left;
