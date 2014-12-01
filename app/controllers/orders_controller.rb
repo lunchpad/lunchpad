@@ -55,6 +55,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(ordered_items_attributes: [:quantity, :available_menu_item_id])
+    params.require(:order).permit(ordered_items_attributes: [:quantity, :available_menu_item_id, :id])
   end
 end

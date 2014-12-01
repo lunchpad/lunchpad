@@ -13,7 +13,7 @@
 
     <div class="order_form_wrapper">
       <div class="quantity">
-        <%= menu_item.number_field :quantity, size: 1, class: 'order_form_quantity', min: 0, step: 1 %>
+        <%= menu_item.text_field :quantity, size: 1, class: 'order_form_quantity' %>
       </div>
       <div class="quantity_select">
         <%= link_to image_tag('add.png', class: 'quantity_add', data: { item: menu_item.index.to_s }, alt: '[+]'), '' %>
@@ -22,15 +22,11 @@
       <div class="menu_item">
         <%= ordered_items[menu_item.index].menu_item.name %> <%= "($#{ordered_items[menu_item.index].menu_item.price_dollars})" %>
         <%= menu_item.hidden_field :available_menu_item_id %>
+        <%= menu_item.hidden_field :id %>
       </div>
     </div>
 
   <% end %>
-  <div class="order_form_wrapper">
-    <div class="order_form_title">
-    Repeat this order for X number of weeks: <%= select_tag "copy_count", options_for_select(["0","1","2","3","4"]) %>
-    </div>
-  </div>
   <div class="order_form_wrapper">
     <div class="submit">
       <%= order_form.submit 'Submit Order' %>

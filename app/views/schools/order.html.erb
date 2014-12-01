@@ -30,7 +30,7 @@
       <% unless ordered_item.quantity == 0 || ordered_item.date != @date %>
         <% count = menu_item.ordered_items.map { |ordered| ordered.quantity}.sum %>
         <% if @ordered_item != ordered_item.menu_item %>
-          <h2><%= ordered_item.menu_item.name %> <%= count %></h2>
+          <h3><%= ordered_item.menu_item.name %> <%= count %></h3>
           <% @ordered_item = ordered_item.menu_item %>
         <% end %>
       <% end %>
