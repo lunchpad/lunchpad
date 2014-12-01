@@ -14,6 +14,21 @@ class Order < ActiveRecord::Base
     Money.new(total).to_s
   end
 
+  def copy(weeks_forward = 0)
+    return true unless weeks_forward > 0
+    (1..weeks_forward).each do |week|
+      repeated_order = self.dup
+      repeated_order.save
+      self.ordered_items.each do |item|
+        ami = AvailableMenuItem.where(date: item.date + (week * 7).days, menu_item_id: item.available_menu_item.menu_item)
+        return unless ami.present?
+        new_item = item.dup
+        new_item.assign_attributes({ available_menu_item_id: ami[0].id, order_id: repeated_order.id, quantity: item.quantity })
+        new_item.save
+      end
+    end
+  end
+
   def subtotals
     ordered_items.map { |item| item.subtotal }
   end

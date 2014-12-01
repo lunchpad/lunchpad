@@ -2,7 +2,7 @@
 
 <div class="panel">
   <div class="card">
-    <% @account.orders.each do |order| %>
+    <% @orders.each do |order| %>
       <p><%= link_to "Order for #{order.begin_date.strftime("%A, %B %d, %Y")}", account_order_path(@account, order) %></p>
     <% end %>
   </div>
