@@ -4,6 +4,7 @@ class Account < ActiveRecord::Base
   has_many :account_ownerships
   has_many :users, through: :account_ownerships
   has_many :orders
+  has_many :ordered_items, through: :orders
   monetize :balance, :as => 'balance_dollars'
 
   validates :name, presence: true

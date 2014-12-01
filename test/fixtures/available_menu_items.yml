@@ -15,6 +15,21 @@ three:
   menu_item: one
   school: one
 
+one_next_wk:
+  date: 2014-12-24 11:23:57
+  menu_item: one
+  school: one
+
+two_next_wk:
+  date: 2014-12-25 11:23:57
+  menu_item: two
+  school: one
+
+three_next_wk:
+  date: 2014-12-26 11:23:57
+  menu_item: one
+  school: one
+
 old:
   date: 2014-11-19 11:23:57
   menu_item: one

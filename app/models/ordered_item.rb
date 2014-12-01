@@ -1,4 +1,5 @@
 class OrderedItem < ActiveRecord::Base
+  resourcify
   belongs_to :available_menu_item
   belongs_to :order
   delegate :menu_item, :to => :available_menu_item, :allow_nil => true
@@ -22,6 +23,11 @@ class OrderedItem < ActiveRecord::Base
 
   def subtotal_dollars
     Money.new(subtotal).to_s
+  end
+
+  def self.build_menu(begin_date,end_date)
+    available_menu_items = AvailableMenuItem.within_date_range(begin_date,end_date)
+    available_menu_items.map { |order| OrderedItem.new(quantity: 0, available_menu_item_id: order.id) }
   end
 
   private
