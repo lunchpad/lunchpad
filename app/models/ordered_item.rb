@@ -1,10 +1,15 @@
 class OrderedItem < ActiveRecord::Base
+  extend SimpleCalendar
+  has_calendar attribute: :date
+
   resourcify
+
   belongs_to :available_menu_item
   belongs_to :order
-  delegate :menu_item, :to => :available_menu_item, :allow_nil => true
-  delegate :date, :to => :available_menu_item, :allow_nil => true
-  delegate :account, :to => :order, :allow_nil => true
+  delegate :menu_item, to: :available_menu_item, allow_nil: true
+  delegate :name, to: :menu_item, allow_nil: true
+  delegate :date, to: :available_menu_item, allow_nil: true
+  delegate :account, to: :order, allow_nil: true
   after_create :credit_account
   after_update :update_account
   after_destroy :debit_account
@@ -45,8 +50,6 @@ class OrderedItem < ActiveRecord::Base
     change = (quantities[1] - quantities[0]) * menu_item.price
     account.increment!(:balance, change)
   end
-
-  private
 
   def for_future_date?
     cutoff_date = Date.parse('Monday')

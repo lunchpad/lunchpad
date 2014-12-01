@@ -4,7 +4,6 @@ class Order < ActiveRecord::Base
   has_one :school, through: :account
   has_many :ordered_items, dependent: :destroy
   accepts_nested_attributes_for :ordered_items
-  scope :items, self
 
   validates :account_id, presence: true
 
@@ -39,29 +38,9 @@ class Order < ActiveRecord::Base
     ordered_items.first.date
   end
 
-  def lunch_coverage
-    items_ordered = ordered_items.select {|oi| oi["quantity"] > 0 }
-    days = items_ordered.map(&:date).uniq
-  end
-
-  # def ordered
-  #   ordered_items.select {|oi| oi["quantity"] > 0 }
-  # end
-  #
-  # def map_coverage
-  #   days = ordered.map(&:date).uniq
-  #   days.each do |d|
-  #     d.strftime("%A")
-  #   end
+  # def lunch_coverage
+  #   items_ordered = ordered_items.select {|oi| oi["quantity"] > 0 }
+  #   days = items_ordered.map(&:date).uniq
   # end
 
-
-# <% a = account.has_order_for(@start_date) %>
-# <% if a.present? %>
-#       <% lc = a.ordered_items.select {|oi| oi["quantity"] > 0 } %>
-#   <% days = lc.map(&:date).uniq %>
-#       <% days.each do |d| %>
-# <%= d.strftime("%A") %>
-#         <% end %>
-#     <% end %>
 end

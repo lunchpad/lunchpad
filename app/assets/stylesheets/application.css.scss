@@ -164,6 +164,27 @@ header {
   }
 }
 
+.day {
+  background-color: lighten($blue, 68);
+  box-shadow: 0 0 15px #868182;
+  text-align: center;
+
+}
+
+.today {
+  background-color: purple;
+}
+
+.calendar-header {
+  text-align: center;
+}
+
+.calendar-row {
+  text-align: center;
+}
+
+
+
 img.quantity_add {
   width: 20px;
 }
