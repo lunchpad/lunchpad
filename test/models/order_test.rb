@@ -28,5 +28,13 @@ class OrderTest < ActiveSupport::TestCase
     should 'know the begin date for the order' do
       assert_equal available_menu_items(:one).date, @order.begin_date, 'should know date of first ordered item'
     end
+
+    should 'repeat order given days in the future' do
+      assert_difference 'Order.count',2 do
+        order = Order.create(account: accounts(:one))
+        order.ordered_items.create(available_menu_item: available_menu_items(:one), quantity: 1)
+        order.copy(1)
+      end
+    end
   end
 end

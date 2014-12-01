@@ -9,6 +9,7 @@ class OrderedItem < ActiveRecord::Base
   after_update :update_account
   after_destroy :debit_account
   before_destroy :for_future_date?
+  default_scope { order(created_at: :asc) }
 
   validates :available_menu_item_id,
             presence: true
@@ -22,6 +23,11 @@ class OrderedItem < ActiveRecord::Base
 
   def subtotal_dollars
     Money.new(subtotal).to_s
+  end
+
+  def self.build_menu(begin_date,end_date)
+    available_menu_items = AvailableMenuItem.within_date_range(begin_date,end_date)
+    available_menu_items.map { |order| OrderedItem.new(quantity: 0, available_menu_item_id: order.id) }
   end
 
   private
