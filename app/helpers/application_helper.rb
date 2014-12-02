@@ -6,4 +6,9 @@ module ApplicationHelper
     }
   end
 
+  def update_coverage
+    ->(date ,covered) {
+      {class: "calendar-date", data: {day: covered}}
+    }
+  end
 end

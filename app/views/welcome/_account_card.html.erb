@@ -16,29 +16,23 @@
 
     <%= calendar table: {class: "table table-bordered"},
                  tr: {class: "calendar-row"},
-                 td: {class: "day"},
+                 # td: {class: "day" },
                  header: {class: "calendar-header"},
                  events: @ordered_items,
-                 day_names: "date.day_names",
                  number_of_days: 5,
-                 # td: ->(start_date, current_calendar_date) { {class: "calendar-date", data: {day: current_calendar_date}} },
-                 next_link: ->(param, date_range) { link_to "Go Forward, Dude.", {param => date_range.last + 3.day}, class: "mason" },
-                 previous_link: ->(param, date_range) { link_to raw("&laquo;"), {param => date_range.first - 7.day} } do |date, ordered_items| %>
+                 td: ->(ordered_items.first.date,ordered_items.first.date) { {class: "today", data: {day: current_calendar_date} },
+                 next_link: ->(param, date_range) { link_to raw("&raquo;"), {param => date_range.last + 3.day} },
+                 previous_link: ->(param, date_range) { link_to raw("&laquo;"), {param => date_range.first - 7.day} } do |date, ordered_items|
+                 %>
 
-      <%= date %>
+      <span class="day"><%= date.strftime("%d") %></span>
 
       <% ordered_items.each do |item| %>
-        <div>
-          <%= item.name %>
-        </div>
+          <span class="date" background-color="green">
+            <% item.date == date %>
+          </span>
       <% end %>
     <% end %>
-
-    <%# if account.has_order_for(@start_date) %>
-      <%# account.has_order_for(@start_date).lunch_coverage.each do |d| %>
-        <%#= d.strftime("%A") %>
-        <%# end %>
-    <%# end %>
   </div>
 
   <p>  <%= "Account balance: $#{account.balance_dollars}" %></p>
