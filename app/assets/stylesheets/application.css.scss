@@ -18,8 +18,6 @@
 @import "base/base";
 @import "font-awesome";
 
-
-
 body {
   margin: 0;
   background-color: #F6F6F6;
@@ -41,7 +39,7 @@ h1 {
 .card {
   border-radius: 2px;
   background: #FFFFFF;
-  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.24);
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.24);
   height: 215px;
   width: 628px;
   @include margin(30px auto 0 auto);
@@ -70,12 +68,23 @@ header {
   }
 
   .title {
-    font-size: 24px;
-    font-family: Avenir;
-    font-weight: 600;
     float: left;
-    color: white;
     margin-top: 12px;
+
+    a {
+      font-family: Avenir;
+      color: white;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    a:hover {
+      color: #008744;
+    }
+
+    a:visited {
+      color: white;
+    }
   }
 
   ul {
@@ -96,40 +105,68 @@ header {
   .dropdown-nav {
     height: 0;
     width: 200px;
-    background: rgba(76, 175, 80, 0.2);
-    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    background: #D3E7D4;
     float: left;
     clear: both;
-    transition: height 0.2s linear;
+    transition: height 0.2s ease-in-out;
+    transition-delay: 0.1s;
+
+    .admin-nav {
+      background-color: #F9F7CE;
+      transition: width 0.2s ease-in-out;
+      transition-delay: 0.1s;
+      height: 275px;
+      width: 0;
+      
+      .admin-head {
+        background: #727272;
+        @include padding(8px null 8px null);
+        color: #FFF;
+        width: 201px;
+      }
+    }
 
     ul {
       margin-top: 0;
       width: 100%;
       opacity: 0;
-      transition: opacity 0.2s linear;
+      transition: opacity 0.1s linear;
       display: inline;
       text-align: left;
       color: #727272;
 
       .dropdown-link {
         width: 100%;
-        border-bottom: solid 1px #4CAF50;
-        @include padding(10px null 5px 5px);
+        @include padding(12px null 10px 15px);
+
+        .school-name {
+          padding-left: 27px;
+        }
       }
 
       li {
-        font-size: 18px;
+        font-size: 14px;
       }
     }
   }
 
   .dropdown-nav-visible {
-    height: 600px;
-    transition: height 0.2s linear;
+    height: 171px;
+    transition: height 0.2s ease-in-out;
+    box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.24);
+
+
+    .admin-nav {
+      width: 200px;
+      transition: width 0.2s ease-in-out;
+      box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.24);
+
+    }
 
     ul {
       opacity: 1;
       transition: opacity 0.2s linear;
+      transition-delay: 0.2s;
     }
   }
 }

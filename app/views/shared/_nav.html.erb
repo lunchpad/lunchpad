@@ -2,7 +2,7 @@
   <div class="user-bar">
     <div class="menu">
       <div class="menu-icon"></div>
-      <div class="title">Lunchpad</div>
+      <div class="title"><%= link_to 'Lunchpad', root_path %></div>
     </div>
     <ul>
     <% if user_signed_in?  %>
@@ -13,17 +13,57 @@
     <% end %>
     </ul>
   </div>
-
+  <div class="shadows">
     <div id="dropdown" class="dropdown-nav">
       <ul>
-        <% if current_user.has_role? :admin, :any %>
-          <div class="dropdown-link">
-          <li><i class="fa fa-cogs fa-fw"></i> Admin Tools</li></div>
-        <% end %>
-        <div class="dropdown-link"><i class="fa fa-usd fa-fw"></i> <li>Payments</li></div>
-        <div class="dropdown-link"><i class="fa fa-question fa-fw"></i> <li>Help</li></div>
-        <div class="dropdown-link"><i class="fa fa-cog fa-fw"></i> <li>Settings</li></div>
-        <div class="dropdown-link"><i class="fa fa-power-off fa-fw"></i> <li>Sign Out</li></div>
+        <div class="dropdown-link">
+          <i class="fa fa-usd fa-fw"></i>
+          <li>&nbspPayments</li>
+        </div>
+        <div class="dropdown-link">
+          <i class="fa fa-question fa-fw"></i>
+          <li>&nbspHelp</li>
+        </div>
+        <div class="dropdown-link">
+          <i class="fa fa-cog fa-fw"></i>
+          <li>&nbspSettings</li>
+        </div>
+        <div class="dropdown-link">
+          <i class="fa fa-power-off fa-fw"></i>
+          <li>&nbspSign Out</li>
+        </div>
+      </ul>
+  <% if current_user.has_role? :admin, :any %>
+    <% schools = School.with_role :admin, current_user %>
+    <div class="dropdown-nav admin-nav">
+      <ul>
+        <div class="dropdown-link admin-head">
+          <li><i class="fa fa-cogs fa-fw"></i>&nbspAdmin Tools</li>
+          <li class="school-name"><%= schools.first.name %></li>
+        </div>
+        <div class="dropdown-link">
+          <i class="fa fa-area-chart fa-fw"></i>
+          <li>&nbspLunch Reports</li>
+        </div>
+        <div class="dropdown-link">
+          <i class="fa fa-truck fa-fw"></i>
+          <li>&nbspVendors/Menus</li>
+        </div>
+        <div class="dropdown-link">
+          <i class="fa fa-user fa-fw"></i>
+          <li>&nbspLunch Accounts</li>
+        </div>
+        <div class="dropdown-link">
+          <i class="fa fa-calendar fa-fw"></i>
+          <li>&nbspSchedules</li>
+        </div>
+        <div class="dropdown-link">
+          <i class="fa fa-cog fa-fw"></i>
+          <li>&nbspSchool Settings</li>
+        </div>
       </ul>
     </div>
+  <% end %>
+    </div>
+  </div>
 </header>
