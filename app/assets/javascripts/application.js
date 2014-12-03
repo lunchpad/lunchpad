@@ -49,3 +49,12 @@ $(document).on("page:load ready", function(){
 //        addDates: datesArr
     });
 });
+
+$(document).on('click', '.menu', function() {
+    if($('#dropdown').hasClass('dropdown-nav')){
+        $('.dropdown-nav').toggleClass('dropdown-nav-visible');
+    }
+    else {
+        $('.dropdown-nav-visible').toggleClass('dropdown-nav');
+    }
+});

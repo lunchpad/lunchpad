@@ -1,0 +1,15 @@
+<% if current_user.has_role? :admin, :any %>
+  <div class="admin-bar">
+    <% @school = School.with_role(:admin, current_user).first %>
+    <div class="title"><%= @school.name %> Admin Portal</div>
+    <div class="nav-links">
+      <ul>
+        <li><%= link_to 'Lunch Reports', order_school_path(@school, {filter: {date: Date.today}}) %></li>
+        <li><%= link_to 'Vendors/Menus', vendors_path(@school) %></li>
+        <li><%= link_to 'Lunch Accounts', accounts_school_path(@school) %></li>
+        <li><%= link_to 'School Info', edit_school_path(@school) %></li>
+        <li><%= link_to 'Off Days & Holidays', school_off_days_path(@school) %></li>
+      </ul>
+    </div>
+  </div>
+<% end %>

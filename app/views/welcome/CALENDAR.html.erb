@@ -1,0 +1,11 @@
+<div class="calendar">
+  <%= calendar number_of_days: 7 do |date| %>
+    <% div_color = "red" %>
+    <% account.ordered_items.each do |order| %>
+      <% if order.date == date && order.quantity > 0 then  %>
+        <% div_color = "green" %>
+      <% end %>
+    <% end %>
+    <div class="<%= div_color %>"><%= date.strftime("%d") %></div>
+  <% end %>
+</div>
