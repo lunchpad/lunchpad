@@ -29,7 +29,8 @@
   <% end %>
   <div class="order_form_wrapper">
     <div class="order_form_title">
-    Repeat this order for X number of weeks: <%= select_tag "copy_count", options_for_select(["0","1","2","3","4"]) %>
+      Repeat your order through:
+      <%= date_field_tag "copy_date" %>
     </div>
   </div>
   <div class="order_form_wrapper">
