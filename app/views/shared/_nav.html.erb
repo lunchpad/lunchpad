@@ -17,15 +17,13 @@
     <div id="dropdown" class="dropdown-nav">
       <ul>
         <% if current_user.has_role? :admin, :any %>
-          <li><i class="fa fa-cog"></i> Admin Tools</li>
+          <div class="dropdown-link">
+          <li><i class="fa fa-cogs fa-fw"></i> Admin Tools</li></div>
         <% end %>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <div class="dropdown-link"><i class="fa fa-usd fa-fw"></i> <li>Payments</li></div>
+        <div class="dropdown-link"><i class="fa fa-question fa-fw"></i> <li>Help</li></div>
+        <div class="dropdown-link"><i class="fa fa-cog fa-fw"></i> <li>Settings</li></div>
+        <div class="dropdown-link"><i class="fa fa-power-off fa-fw"></i> <li>Sign Out</li></div>
       </ul>
     </div>
 </header>

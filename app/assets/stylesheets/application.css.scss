@@ -24,7 +24,7 @@ body {
   margin: 0;
   background-color: #F6F6F6;
 
-  .fa-cog {
+  .fa {
     font-size: 16px;
   }
 }
@@ -91,12 +91,11 @@ header {
       list-style-type: none;
       padding-right: 24px;
     }
-
   }
 
   .dropdown-nav {
     height: 0;
-    width: 300px;
+    width: 200px;
     background: rgba(76, 175, 80, 0.2);
     box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.2);
     float: left;
@@ -104,13 +103,23 @@ header {
     transition: height 0.2s linear;
 
     ul {
+      margin-top: 0;
+      width: 100%;
       opacity: 0;
       transition: opacity 0.2s linear;
-    }
+      display: inline;
+      text-align: left;
+      color: #727272;
 
-    li {
-      float: left;
-      padding-left: 10px;
+      .dropdown-link {
+        width: 100%;
+        border-bottom: solid 1px #4CAF50;
+        @include padding(10px null 5px 5px);
+      }
+
+      li {
+        font-size: 18px;
+      }
     }
   }
 
