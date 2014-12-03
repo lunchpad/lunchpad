@@ -240,6 +240,11 @@ img.quantity_subtract {
   width: 20px;
 }
 
+.school-profile {
+  @include padding(30px null 5px 20px);
+  margin-left: 11%;
+}
+
 .calendar {
   @include padding(null 10px null 10px);
 }

@@ -1,15 +1,39 @@
 <div class="card">
-  <%= form_for @school do |f| %>
+<%= form_for @school, :url => school_path, :html => { :multipart => true } do |f| %>
+
+  <div class="field">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_area :name %>
+  </div>
+
+  <div class="field">
     <%= f.label :description %>
     <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
     <%= f.label :motto %>
     <%= f.text_field :motto %>
-    <%= f.label :phone %>
-    <%= f.text_field :phone %>
+  </div>
+
+  <div class="field">
     <%= f.label :address %>
     <%= f.text_field :address %>
-    <%= f.submit 'Update School Info' %>
-  <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :logo %>
+    <%= f.file_field :logo %>
+  </div>
+
+  <div class="actions">
+    <%= button_tag "Update School Profile", :class => "form-button-lg" %>
+  </div>
+
+<% end %>
 </div>

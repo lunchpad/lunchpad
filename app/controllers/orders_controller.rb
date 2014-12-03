@@ -3,6 +3,8 @@ class OrdersController < ApplicationController
   before_action :set_account
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
+  attr_reader :ordered_items
+
   def index
     @orders = @account.orders.sort_by(&:begin_date)
   end

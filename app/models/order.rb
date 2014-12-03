@@ -4,7 +4,6 @@ class Order < ActiveRecord::Base
   has_one :school, through: :account
   has_many :ordered_items, dependent: :destroy
   accepts_nested_attributes_for :ordered_items
-  scope :items, self
 
   validates :account_id, presence: true
 

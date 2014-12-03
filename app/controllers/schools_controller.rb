@@ -2,13 +2,21 @@ class SchoolsController < ApplicationController
   before_action :set_school, except: :index
 
   def index
-    @schools = School.with_role :admin, current_user
-    if @schools.count == 1
-      redirect_to school_path(@schools.first)
-    end
   end
 
+
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @school.update(school_params)
+      redirect_to action: "index", success: 'School profile was updated.'
+    else
+      render :edit, alert: "Please try again."
+    end
   end
 
   def order
@@ -46,19 +54,10 @@ class SchoolsController < ApplicationController
     redirect_to admins_school_path(@school)
   end
 
-  def update
-    @school.update(school_params)
-
-  end
-
   private
 
   def set_school
     @school = School.find(params[:id])
-  end
-
-  def school_params
-    params.require(:school).permit(:name, :description, :motto, :phone, :address)
   end
 
   def set_vendors(school, date)
@@ -68,5 +67,10 @@ class SchoolsController < ApplicationController
     end
     @vendors.uniq!
   end
+
+  def school_params
+    params.require(:school).permit(:logo, :name, :description, :motto, :address, :phone, :id)
+  end
+
 
 end
