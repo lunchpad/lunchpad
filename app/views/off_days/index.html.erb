@@ -1,0 +1,16 @@
+<div class="card">
+  <% if @off_days.empty? %>
+    <h2> There are no off days set for this school.</h2>
+  <% else %>
+    <h2>Scheduled Days Off</h2>
+    <ul>
+      <% @off_days.each do |off_day| %>
+        <li><%= "#{off_day.date.strftime("%D")} #{off_day.name}" %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+
+<div class="card">
+  <%= render 'form' %>
+</div>

@@ -15,4 +15,5 @@ class User < ActiveRecord::Base
   def balance_dollars
     Money.new(balance).to_s
   end
+
 end

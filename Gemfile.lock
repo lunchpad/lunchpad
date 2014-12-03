@@ -86,6 +86,8 @@ GEM
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
+    jquery-ui-rails (5.0.2)
+      railties (>= 3.2.16)
     json (1.8.1)
     kgio (2.9.2)
     mail (2.6.3)
@@ -174,6 +176,8 @@ GEM
     shoulda-context (1.2.1)
     shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)
+    simple_calendar (1.1.9)
+      rails (>= 3.0)
     simplecov (0.9.1)
       docile (~> 1.1.0)
       multi_json (~> 1.0)
@@ -228,6 +232,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
+  jquery-ui-rails
   money-rails
   neat (~> 1.5.1)
   pg
@@ -239,6 +244,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   shoulda
+  simple_calendar (~> 1.1.0)
   simplecov
   spring
   tickle

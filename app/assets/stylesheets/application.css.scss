@@ -10,13 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
-
+ *= require jquery-ui
  *= require_self
  */
 @import "bourbon";
 @import "neat";
 @import "base/base";
-
 
 body {
   margin: 0;
@@ -62,6 +61,31 @@ header {
       list-style-type: none;
       padding-right: 20px;
       }
+  }
+}
+
+.admin-bar {
+  background-color: #FFDD92;
+  height: 50px;
+  box-shadow: 0 0 15px #868182;
+
+  .title {
+    float: left;
+    font-size: 18pt;
+    padding-left: 25px;
+    clear: both;
+  }
+  ul {
+    text-align: right;
+    font-size: 18px;
+    float: right;
+
+    li {
+      display: inline;
+      list-style-type: none;
+      @include padding(5px 9px 5px 4px);
+      border-right: solid 1px black;
+    }
   }
 }
 
@@ -171,3 +195,92 @@ img.quantity_add {
 img.quantity_subtract {
   width: 20px;
 }
+
+
+table.ui-datepicker-calendar {border-collapse: separate;}
+.ui-datepicker-calendar td {border: 1px solid transparent;}
+
+
+.ui-datepicker .ui-datepicker-calendar .ui-state-highlight a {
+  background: #4CAF50 none;
+  color: white;
+}
+
+.ui-datepicker .ui-datepicker-calendar .ui-state-highlight {
+  background: none;
+  border: none;
+}
+
+div.ui-datepicker{
+  margin-left: 500px;
+  width: 485px;
+  height: 425px;
+  font-size:20px;
+  font-family: $lucida-grande;
+}
+
+.ui-datepicker-header {
+  background-color: #2E7D32;
+}
+
+.ui-datepicker-title {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.ui-datepicker tbody td {
+  padding: 5px;
+}
+
+.ui-state-default {
+  border-radius: 3px;
+}
+.ui-datepicker-unselectable .ui-state-default {
+  background: white;
+  color: #b4b3b3;
+}
+
+
+.ui-datepicker td span, .ui-datepicker td a {
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  line-height: 48px;
+  color: white;
+}
+
+.ui-datepicker-calendar .ui-state-default {
+  height: 50px;
+  width: 50px;
+  background: #FFE6E6;
+  color: #FF2600;
+  border: none;
+}
+.ui-datepicker-unselectable .ui-state-default {
+  background: #FFE6E6;
+  color: #b4b3b3;
+}
+
+.calendar {
+  @include padding(null 10px null 10px);
+}
+.green {
+  height: 50px;
+  width: 50px;
+  background-color: green;
+  color: white;
+  font-size: 25pt;
+  padding-left: 7px;
+}
+
+.red {
+  height: 50px;
+  width: 50px;
+  background-color: red;
+  color: white;
+  font-size: 25pt;
+  padding-left: 7px;
+}
+

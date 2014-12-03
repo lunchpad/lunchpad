@@ -7,8 +7,12 @@
   <% if available.empty? %>
     <h2>This item is not currently available.</h2>
   <% else %>
-    <% available.each do |date| %>
-      <li><%= date.date.strftime("%A, %b %d, %Y") %> <%= link_to "Remove Availability", available_menu_item_path(date.id, {menu_item: @menu_item.id}), method: 'delete' %></li>
+    <% available.each do |item| %>
+      <% if item.ordered_items.empty? %>
+        <li><%= item.date.strftime("%A, %b %d, %Y") %> <%= link_to "Remove Availability", available_menu_item_path(item.id, {menu_item: @menu_item.id}), method: 'delete' %></li>
+      <% else %>
+        <div><%= item.date.strftime("%A, %b %d, %Y") %> Item has been ordered. You cannot delete.</div>
+      <% end %>
     <% end %>
   <% end %>
 </ul>

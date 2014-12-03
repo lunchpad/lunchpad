@@ -9,4 +9,5 @@ class ApplicationController < ActionController::Base
     return cutoff_date if cutoff_date > Date.today
     cutoff_date += 7
   end
+
 end
