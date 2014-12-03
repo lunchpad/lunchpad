@@ -18,6 +18,28 @@
 @import "base/base";
 @import "font-awesome";
 
+
+.login-form {
+
+  ul {
+    float: left;
+  }
+
+  li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+    float: left;
+  }
+
+  .field{
+    height: 10px;
+    width: 200px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
 body {
   margin: 0;
   background-color: #F6F6F6;
@@ -46,6 +68,16 @@ h1 {
 }
 
 header {
+
+  .login-title {
+    font-family: Avenir;
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    width: 50px;
+    float: left;
+    @include padding(12px 40px null 54px);
+  }
 
   .user-bar {
     background-color: #4CAF50;
@@ -111,19 +143,38 @@ header {
     transition: height 0.2s ease-in-out;
     transition-delay: 0.1s;
 
+    a {
+      color: #595959;
+    }
+
+    .dropdown-link:hover {
+      background-color: rgba(76, 175, 80, 0.1);
+    }
+
+    a:visited {
+      color: #595959;
+    }
+
     .admin-nav {
       background-color: #F9F7CE;
       transition: width 0.2s ease-in-out;
       transition-delay: 0.1s;
-      height: 275px;
+      height: 265px;
       width: 0;
+
+      .dropdown-link:hover {
+        background-color: RGBA(255, 250, 147, 0.4);
+      }
       
       .admin-head {
-        background: #727272;
+        background: #595959;
         @include padding(8px null 8px null);
         color: #FFF;
         width: 201px;
       }
+
+      .admin-head:hover {
+        background: #595959;      }
     }
 
     ul {
@@ -143,6 +194,8 @@ header {
           padding-left: 27px;
         }
       }
+
+
 
       li {
         font-size: 14px;

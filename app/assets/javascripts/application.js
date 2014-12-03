@@ -50,7 +50,7 @@ $(document).on("page:load ready", function(){
     });
 });
 
-$(document).on('click', '.menu', function() {
+$(document).on('click', '.menu-icon', function() {
     if($('#dropdown').hasClass('dropdown-nav')){
         $('.dropdown-nav').toggleClass('dropdown-nav-visible');
     }
