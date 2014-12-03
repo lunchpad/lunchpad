@@ -83,7 +83,7 @@ class OrdersControllerTest < ActionController::TestCase
         patch :update, { account_id: accounts(:one).id,
                          id: orders(:one).id,
                          order: { ordered_items_attributes: updated_items_attributes },
-                         copy_count: '0' }
+                         copy_date: '2014-12-17' }
       end
 
       should 'redirect to order show' do
@@ -111,7 +111,7 @@ class OrdersControllerTest < ActionController::TestCase
         patch :update, { account_id: accounts(:one).id,
                          id: orders(:one).id,
                          order: { ordered_items_attributes: updated_items_attributes },
-                         copy_count: "0" }
+                         copy_date: '2014-12-18' }
       end
 
       should 'redirect to order show' do
@@ -124,7 +124,7 @@ class OrdersControllerTest < ActionController::TestCase
     context 'when valid attributes are submitted' do
       setup { post :create, { account_id: accounts(:one).id,
                               order: { ordered_items_attributes: valid_items_attributes },
-                              copy_count: '0' } }
+                              copy_date: '2014-12-18' } }
 
       should 'create order' do
         assert_saved_model(:order)

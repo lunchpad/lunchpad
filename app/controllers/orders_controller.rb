@@ -3,6 +3,8 @@ class OrdersController < ApplicationController
   before_action :set_account
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
+  attr_reader :ordered_items
+
   def index
     @orders = @account.orders.sort_by(&:begin_date)
   end
@@ -14,7 +16,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = @account.orders.build(order_params)
-    if @order.save & @order.copy(params[:copy_count].to_i)
+    if @order.save && @order.copy(params[:copy_date].to_date)
       redirect_to account_order_path(id: @order), success: 'Order was created.'
     else
       redirect_to new_account_order_path
@@ -29,7 +31,7 @@ class OrdersController < ApplicationController
   end
 
   def update
-    if @order.update(order_params) & @order.copy(params[:copy_count].to_i)
+    if @order.update(order_params)
       redirect_to account_order_path, success: 'Order was updated.'
     else
       redirect_to edit_account_order_path

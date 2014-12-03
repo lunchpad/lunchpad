@@ -54,7 +54,7 @@ ul {
 }
 
 h1 {
-  @include padding(30px null 5px 20px);
+  @include padding(10px 10px 10px 10px);
   margin-left: 11%;
 }
 
@@ -331,24 +331,111 @@ img.quantity_subtract {
   width: 20px;
 }
 
+.school-profile {
+  @include padding(30px null 5px 20px);
+  margin-left: 11%;
+}
+
 .calendar {
   @include padding(null 10px null 10px);
 }
-.green {
-  height: 50px;
-  width: 50px;
-  background-color: green;
-  color: white;
-  font-size: 25pt;
-  padding-left: 7px;
+
+.calendar-coverage {
+  width: 100%;
+  max-width: 390px;
+  float: right;
+  clear: right;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
 }
 
-.red {
-  height: 50px;
-  width: 50px;
-  background-color: red;
-  color: white;
-  font-size: 25pt;
-  padding-left: 7px;
+.calendar-header-month {
+  text-align: center;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
 }
 
+.calendar-row {
+  clear: right;
+}
+
+.date-panel {
+  border-radius: 2px;
+  text-align: center;
+  float: left;
+}
+
+.date-panel-sml {
+  @extend .date-panel;
+  height: 35px;
+  width: 35px;
+  font-size: 12px;
+  font-weight: 500;
+  @include margin(3px 3px 3px 5px);
+  padding: 8px 0 10px 0;
+}
+
+.date-covered {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.date-uncovered {
+  background: rgba(255,0,0,0.10);
+  color: red;
+}
+
+.date-disabled {
+  color: rgba(0,0,0,0.26);
+}
+
+.account_profile {
+  width: 100%;
+  max-width: 150px;
+  clear: none;
+}
+
+.account_profile_image {
+  width: 45px;
+  height: 45px;
+  background: rgba(0,0,0,0.54);
+  border-radius: 25px;
+  margin-right: 10px;
+  float: left;
+}
+
+.account_profile_info {
+  ul {
+    text-decoration-style: none;
+  }
+
+  h1 {
+    font-size: 20px;
+    line-height: 20px;
+    color: rgba(0,0,0,0.87);
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    font-size: 14px;
+    color: rgba(0,0,0,0.54);
+    line-height: 14px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.account_card_links {
+  text-align: right;
+  font-size: 14px;
+  max-width: 100%;
+  clear: both;
+  ul {
+    text-decoration-style: none;
+  }
+  ul li {
+    display: inline;
+    margin-left: 30px;
+  }
+}
