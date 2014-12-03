@@ -19,9 +19,8 @@ Rails.application.routes.draw do
     resources :menu_items, except: [:index]
   end
 
-  resources :schools
-
   resources :admins, only: :index
+
   resources :schools do
     get :order, on: :member
     get :accounts, on: :member

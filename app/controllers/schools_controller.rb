@@ -8,15 +8,11 @@ class SchoolsController < ApplicationController
     end
   end
 
-  def new
-    @school = School.new
-  end
-
   def create
-    @school = School.new(school_params)
+    @school = School.create(school_params)
 
     if @school.save
-      redirect_to action: "index", success: 'School was created.'
+      redirect_to action: "show", success: 'School was created.'
     else
       render :new, alert: "Please try again."
     end
@@ -86,12 +82,8 @@ class SchoolsController < ApplicationController
     @vendors.uniq!
   end
 
-  def create
-    @user = User.create( user_params )
-  end
-
   def school_params
-    params.require(:school).permit(:logo)
+    params.require(:school).permit(:logo, :name, :description, :motto, :address, :phone)
   end
 
 

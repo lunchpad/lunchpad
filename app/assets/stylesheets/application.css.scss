@@ -171,3 +171,9 @@ img.quantity_add {
 img.quantity_subtract {
   width: 20px;
 }
+
+.school-profile {
+  @include padding(30px null 5px 20px);
+  margin-left: 11%;
+}
+

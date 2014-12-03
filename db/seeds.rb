@@ -68,63 +68,53 @@ menu_items = []
 menu_items << MenuItem.create(vendor: vendor_ht,
                               name: 'Pizza',
                               description: 'cheese',
-                              price: 300,
-                              school: willow)
+                              price: 300)
 
 menu_items << MenuItem.create(vendor: vendor_ht,
                               name: 'Burger',
                               description: 'veggie',
-                              price: 400,
-                              school: willow)
+                              price: 400)
 
 menu_items << MenuItem.create(vendor: vendor_cat,
                               name: 'Salad',
                               description: 'garden',
-                              price: 500,
-                              school: willow)
+                              price: 500)
 
 menu_items << MenuItem.create(vendor: vendor_cat,
                               name: 'California roll',
                               description: 'veggie',
-                              price: 800,
-                              school: willow)
+                              price: 800)
 
 menu_items << MenuItem.create(vendor: vendor_ht,
                               name: 'Chicken nuggets',
                               description: 'not veggie',
-                              price: 400,
-                              school: willow)
+                              price: 400)
 
 menu_items << MenuItem.create(vendor: vendor_ht,
                               name: 'Turkey sandwich',
                               description: 'wheat bread',
-                              price: 600,
-                              school: willow)
+                              price: 600)
 
 menu_items << MenuItem.create(vendor: vendor_cat,
                               name: 'Veggie wrap',
                               description: 'veggie',
-                              price: 400,
-                              school: willow)
+                              price: 400)
 
 menu_items << MenuItem.create(vendor: vendor_ht,
                               name: 'Ham sandwich',
                               description: 'wheat bread',
-                              price: 400,
-                              school: willow)
+                              price: 400)
 
 menu_items << MenuItem.create(vendor: vendor_cat,
 
                               name: 'Veggie wrap',
                               description: 'veggie',
-                              price: 300,
-                              school: willow)
+                              price: 300)
 
 menu_items << MenuItem.create(vendor: vendor_ht,
                               name: 'Sandwich',
                               description: 'wheat bread',
-                              price: 300,
-                              school: willow)
+                              price: 300)
 
 today = Date.today
 days_of_week = %w[Monday Monday Tuesday Tuesday Wednesday Wednesday Thursday Thursday Friday Friday]
