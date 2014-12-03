@@ -26,17 +26,18 @@ ul {
 }
 
 h1 {
-  @include padding(30px null 5px 20px);
+  @include padding(10px 10px 10px 10px);
   margin-left: 11%;
 }
 
 .card {
-  background-color: lighten($blue, 72);
   @include padding(15px 25px 10px 25px);
   @include margin(null auto 15px auto);
-  border-radius: 25px;
-  border: solid 1px $blue;
-  width: 75%;
+  max-width: 600px;
+  border-radius: 2px;
+  background: #FFFFFF;
+  -moz-box-shadow:    0px 0px 2px 0px rgba(0,0,0,0.12), 0px 2px 2px 0px rgba(0,0,0,0.24);
+  box-shadow:         0px 0px 2px 0px rgba(0,0,0,0.12), 0px 2px 2px 0px rgba(0,0,0,0.24);
 }
 
 header {
@@ -266,21 +267,35 @@ div.ui-datepicker{
 .calendar {
   @include padding(null 10px null 10px);
 }
-.green {
-  height: 50px;
-  width: 50px;
-  background-color: green;
-  color: white;
-  font-size: 25pt;
-  padding-left: 7px;
+
+.calendar-coverage {
+  width: 380px;
 }
 
-.red {
-  height: 50px;
-  width: 50px;
-  background-color: red;
-  color: white;
-  font-size: 25pt;
-  padding-left: 7px;
+.date-panel {
+  border-radius: 2px;
+  text-align: center;
 }
 
+.date-panel-sml {
+  @extend .date-panel;
+  height: 35px;
+  width: 35px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 0 10px 0;
+}
+
+.date-covered {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.date-uncovered {
+  background: rgba(255,0,0,0.10);
+  color: red;
+}
+
+.date-disabled {
+  color: rgba(0,0,0,0.26);
+}

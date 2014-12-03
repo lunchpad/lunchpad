@@ -9,5 +9,6 @@ class WelcomeController < ApplicationController
   def set_date_range
     @start_date = cutoff_date
     @end_date = @start_date + 4
+    params[:start_date] = (cutoff_date - 1).to_date
   end
 end
