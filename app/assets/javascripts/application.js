@@ -13,5 +13,48 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery-ui
+//= require jquery-ui.multidatespicker
 //= require turbolinks
 //= require_tree .
+
+//var datesArr = [];
+//
+//datesArr.push(new Date ('Mon Aug 27 00:00:00 EDT 2014'));
+//
+//datesArr.push(new Date ('Mon Aug 20 00:00:00 EDT 2014'));
+//
+//datesArr.push(new Date ('Mon Aug 13 00:00:00 EDT 2014'));
+//
+//datesArr.push(new Date ('Mon Aug 06 00:00:00 EDT 2014'));
+//
+//datesArr.push(new Date ('Mon Jul 30 00:00:00 EDT 2014'));
+//
+//datesArr.push(new Date ('Mon Jul 23 00:00:00 EDT 2014'));
+//
+//datesArr.push(new Date ('Mon Jul 16 00:00:00 EDT 2014'));
+//
+//datesArr.push(new Date ('Mon Jul 09 00:00:00 EDT 2014'));
+//
+//datesArr.push(new Date ('Mon Jul 02 00:00:00 EDT 2014'));
+
+$(document).on("page:load ready", function(){
+    var today = new Date();
+    var y = today.getFullYear();
+    $('#datepicker').multiDatesPicker({
+        beforeShowDay: $.datepicker.noWeekends,
+        numberOfMonths: 1,
+        defaultDate: '1/1/'+y,
+        dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
+//        addDates: datesArr
+    });
+});
+
+$(document).on('click', '.menu', function() {
+    if($('#dropdown').hasClass('dropdown-nav')){
+        $('.dropdown-nav').toggleClass('dropdown-nav-visible');
+    }
+    else {
+        $('.dropdown-nav-visible').toggleClass('dropdown-nav');
+    }
+});

@@ -12,6 +12,7 @@ class Account < ActiveRecord::Base
   validates :section, presence: true
 
   def has_order_for(begin_date)
+    return false if orders.count == 0
     orders.select { |order| order.begin_date == begin_date }[0]
   end
 end

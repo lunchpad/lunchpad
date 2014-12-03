@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
 
   def create
     @order = @account.orders.build(order_params)
-    if @order.save & @order.copy(params[:copy_count].to_i)
+    if @order.save && @order.copy(params[:copy_date].to_date)
       redirect_to account_order_path(id: @order), success: 'Order was created.'
     else
       redirect_to new_account_order_path
@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
   end
 
   def update
-    if @order.update(order_params) & @order.copy(params[:copy_count].to_i)
+    if @order.update(order_params)
       redirect_to account_order_path, success: 'Order was updated.'
     else
       redirect_to edit_account_order_path

@@ -1,15 +1,29 @@
 <header>
-  <div class="title">
-    <%= link_to "Lunchpad", root_path %>
-  </div>
+  <div class="user-bar">
+    <div class="menu">
+      <div class="menu-icon"></div>
+      <div class="title">Lunchpad</div>
+    </div>
     <ul>
     <% if user_signed_in?  %>
-      <li><%= if current_user.has_role? :admin, :any then link_to "School Admin", schools_path end %></li>
       <li>Logged in as <%= "#{current_user.first_name} #{current_user.last_name}" %></li>
-      <li><%= link_to "Log Out", destroy_user_session_path, method: 'delete' %></li>
     <% else %>
       <li><%= link_to "Sign Up", new_user_registration_path %></li>
       <li><%= link_to "Log In", new_user_session_path %></li>
     <% end %>
     </ul>
+  </div>
+
+    <div id="dropdown" class="dropdown-nav">
+      <ul>
+        <% if current_user.has_role? :admin, :any %>
+          <div class="dropdown-link">
+          <li><i class="fa fa-cogs fa-fw"></i> Admin Tools</li></div>
+        <% end %>
+        <div class="dropdown-link"><i class="fa fa-usd fa-fw"></i> <li>Payments</li></div>
+        <div class="dropdown-link"><i class="fa fa-question fa-fw"></i> <li>Help</li></div>
+        <div class="dropdown-link"><i class="fa fa-cog fa-fw"></i> <li>Settings</li></div>
+        <div class="dropdown-link"><i class="fa fa-power-off fa-fw"></i> <li>Sign Out</li></div>
+      </ul>
+    </div>
 </header>

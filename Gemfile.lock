@@ -79,6 +79,8 @@ GEM
     execjs (2.2.2)
     faker (1.4.3)
       i18n (~> 0.5)
+    font-awesome-rails (4.2.0.0)
+      railties (>= 3.2, < 5.0)
     hike (1.2.3)
     i18n (0.6.11)
     jbuilder (2.2.5)
@@ -90,6 +92,8 @@ GEM
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
+    jquery-ui-rails (5.0.2)
+      railties (>= 3.2.16)
     json (1.8.1)
     kgio (2.9.2)
     mail (2.6.3)
@@ -236,9 +240,11 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   faker (~> 1.4.3)
+  font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
+  jquery-ui-rails
   money-rails
   neat (~> 1.5.1)
   paperclip (~> 4.2)
@@ -251,7 +257,6 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   shoulda
-  simple_calendar (~> 1.1.9)
   simplecov
   spring
   tickle

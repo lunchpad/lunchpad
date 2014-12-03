@@ -58,10 +58,19 @@ class SchoolsController < ApplicationController
     redirect_to admins_school_path(@school)
   end
 
+  def update
+    @school.update(school_params)
+
+  end
+
   private
 
   def set_school
     @school = School.find(params[:id])
+  end
+
+  def school_params
+    params.require(:school).permit(:name, :description, :motto, :phone, :address)
   end
 
   def set_vendors(school, date)
