@@ -83,7 +83,7 @@ class SchoolsController < ApplicationController
   end
 
   def school_params
-    params.require(:school).permit(:logo, :name, :description, :motto, :address, :phone)
+    params.require(:school).permit(:logo, :name, :description, :motto, :address, :phone, :id)
   end
 
 

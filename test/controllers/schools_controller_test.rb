@@ -22,11 +22,44 @@ class SchoolsControllerTest < ActionController::TestCase
     sign_in @admin
   end
 
+  def valid_school_data
+    { school: {  name: "Charter School",
+                 id: 1,
+                 description: "Public Montessori",
+                 motto: "independent learning",
+                 address: "NC",
+                 phone: "919-919-9191" } }
+  end
+
   context 'GET schools#index' do
     setup { get :index }
 
     should render_template('index')
     should respond_with(:success)
+  end
+
+  context 'POST schools#create' do
+    setup { post :create, { school: valid_school_data } }
+
+    should 'create school' do
+      assert_saved_model(:school)
+    end
+
+    should 'redirect to school show' do
+      assert assigns[:school]
+    end
+  end
+
+
+  context 'PATCH schools#update' do
+    setup { patch :update, { id: schools(:one), school: valid_school_data } }
+
+    should 'update school with new params' do
+      @school = School.find(schools(:one).id)
+      assert_equal 'MyString', @school.name
+      assert_equal 'MyString', @school.phone
+    end
+
   end
 
   context 'GET schools#show' do
