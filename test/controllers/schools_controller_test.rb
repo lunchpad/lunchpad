@@ -31,6 +31,15 @@ class SchoolsControllerTest < ActionController::TestCase
                  phone: "919-919-9191" } }
   end
 
+  def invalid_school_data
+    { school: {  name: "",
+                 id: 1,
+                 description: "Public Montessori",
+                 motto: "independent learning",
+                 address: "NC",
+                 phone: "" } }
+  end
+
   context 'GET schools#index' do
     setup { get :index }
 
@@ -38,28 +47,30 @@ class SchoolsControllerTest < ActionController::TestCase
     should respond_with(:success)
   end
 
-  context 'POST schools#create' do
-    setup { post :create, { school: valid_school_data } }
-
-    should 'create school' do
-      assert_saved_model(:school)
-    end
-
-    should 'redirect to school show' do
-      assert assigns[:school]
-    end
-  end
-
-
   context 'PATCH schools#update' do
-    setup { patch :update, { id: schools(:one), school: valid_school_data } }
+    context "with valid school data" do
 
-    should 'update school with new params' do
-      @school = School.find(schools(:one).id)
-      assert_equal 'MyString', @school.name
-      assert_equal 'MyString', @school.phone
+      setup { patch :update, { id: schools(:one), school: valid_school_data } }
+
+      should 'update school with new params' do
+        @school = School.find(schools(:one).id)
+        assert_equal 'MyString', @school.name
+        assert_equal 'MyString', @school.phone
+      end
+
     end
 
+    context "with invalid school data" do
+
+      setup { patch :update, { id: schools(:one), school: invalid_school_data } }
+
+      should 'update school with new params' do
+        @school = School.find(schools(:one).id)
+        assert_not_equal '', @school.name
+        assert_not_equal '', @school.phone
+      end
+
+    end
   end
 
   context 'GET schools#show' do

@@ -8,16 +8,6 @@ class SchoolsController < ApplicationController
     end
   end
 
-  def create
-    @school = School.create(school_params)
-
-    if @school.save
-      redirect_to action: "show", success: 'School was created.'
-    else
-      render :new, alert: "Please try again."
-    end
-  end
-
   def show
 
   end
@@ -27,7 +17,7 @@ class SchoolsController < ApplicationController
 
   def update
     if @school.update(school_params)
-      redirect_to action: "index", success: 'School profile was updated.'
+      redirect_to action: "show", success: 'School profile was updated.'
     else
       render :edit, alert: "Please try again."
     end
