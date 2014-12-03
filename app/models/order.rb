@@ -43,17 +43,8 @@ class Order < ActiveRecord::Base
     ordered_items.first.date
   end
 
-<<<<<<< HEAD
-  # def lunch_coverage
-  #   items_ordered = ordered_items.select {|oi| oi["quantity"] > 0 }
-  #   days = items_ordered.map(&:date).uniq
-  # end
-
-end
-=======
   def weeks_between(start_date,end_date)
     ((end_date - start_date) / 7).to_i
   end
 
 end
->>>>>>> 781b6a1c4f229ee20bedcd8d15d77727866e090d
