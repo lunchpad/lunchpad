@@ -19,3 +19,8 @@ old:
   quantity: 1
   available_menu_item: old
   order: old
+
+three:
+  quantity: 1
+  available_menu_item: one
+  order: three

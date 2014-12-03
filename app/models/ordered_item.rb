@@ -30,6 +30,24 @@ class OrderedItem < ActiveRecord::Base
     available_menu_items.map { |order| OrderedItem.new(quantity: 0, available_menu_item_id: order.id) }
   end
 
+  def copyable_date?
+    available_menu_items = menu_item.available_menu_items.where('date >= ?', date.beginning_of_day).order('date ASC')
+    max_date = available_menu_items.first.date.to_date
+    available_menu_items[1..-1].each do |availability|
+      if (availability.date.to_date - max_date).to_i.modulo(7) == 0
+        break unless availability.date.to_date == max_date + 7
+        max_date = availability.date.to_date
+      end
+    end
+    max_date
+  end
+
+  def copy(copy_date,order_id)
+    ami = AvailableMenuItem.where('date >= ? AND date <= ? AND menu_item_id = ?',
+                                  copy_date.beginning_of_day, copy_date.end_of_day, available_menu_item.menu_item)
+    OrderedItem.create(available_menu_item_id: ami[0].id, order_id: order_id, quantity: self.quantity)
+  end
+
   private
 
   def credit_account
@@ -45,8 +63,6 @@ class OrderedItem < ActiveRecord::Base
     change = (quantities[1] - quantities[0]) * menu_item.price
     account.increment!(:balance, change)
   end
-
-  private
 
   def for_future_date?
     cutoff_date = Date.parse('Monday')

@@ -30,10 +30,9 @@ class OrderTest < ActiveSupport::TestCase
     end
 
     should 'repeat order given days in the future' do
-      assert_difference 'Order.count',2 do
-        order = Order.create(account: accounts(:one))
-        order.ordered_items.create(available_menu_item: available_menu_items(:one), quantity: 1)
-        order.copy(1)
+      assert_difference 'Order.count',1 do
+        order = orders(:three)
+        order.copy(order.begin_date.to_date + 7)
       end
     end
   end
