@@ -1,4 +1,5 @@
 class OrderedItem < ActiveRecord::Base
+  resourcify
   belongs_to :available_menu_item
   belongs_to :order
   delegate :menu_item, :to => :available_menu_item, :allow_nil => true

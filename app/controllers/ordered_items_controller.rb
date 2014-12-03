@@ -23,6 +23,6 @@ class OrderedItemsController < ApplicationController
   end
 
   def ordered_item_params
-    params.require(:ordered_item).permit(:quantity)
+    params.require(:ordered_item).permit(:quantity, :school_id)
   end
 end

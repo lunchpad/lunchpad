@@ -2,6 +2,7 @@ class WelcomeController < ApplicationController
   before_action :set_date_range
 
   def index
+    @order_week = order_week
   end
 
   private

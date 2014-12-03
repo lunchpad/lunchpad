@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 gem 'jquery-turbolinks'
@@ -37,6 +38,7 @@ gem 'cancancan', '~> 1.9'
 gem 'devise'
 
 gem 'rolify'
+gem "simple_calendar", "~> 1.1.0"
 
 
 
@@ -68,5 +70,6 @@ gem 'neat', '~> 1.5.1'
 gem 'chronic'
 gem 'tickle'
 gem 'money-rails'
+gem 'font-awesome-rails'
 
 gem 'rails_12factor', group: :production

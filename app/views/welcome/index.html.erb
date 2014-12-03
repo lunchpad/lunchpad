@@ -3,20 +3,7 @@
     <p>Please make an account for each <strike>eater</strike> person who will need lunch.</p>
     <%= link_to "Create an Account", new_account_path(@account) %>
   <% else %>
-    <h1>All Your Lunchbox</h1>
-    <div class="panel">
-      <div class="card">
-        Balance for all accounts: $<%= current_user.balance_dollars %>
-      </div>
-    </div>
-    <div class="panel">
       <%= render partial: "account_card", collection: current_user.accounts, as: :account %>
-    </div>
-    <div class="panel">
-      <div class="card">
-        <%= link_to "Add another account", new_account_path(@account) %>
-      </div>
-    </div>
   <% end %>
 <% else %>
   <h1>Welcome To Lunchpad!</h1>

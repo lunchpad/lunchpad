@@ -1,10 +1,12 @@
 class Order < ActiveRecord::Base
+  resourcify
   belongs_to :account
+  has_one :school, through: :account
   has_many :ordered_items, dependent: :destroy
   accepts_nested_attributes_for :ordered_items
+  scope :items, self
 
-  validates :account_id,
-            presence: true
+  validates :account_id, presence: true
 
   def total
     subtotals.sum
@@ -42,9 +44,8 @@ class Order < ActiveRecord::Base
     ordered_items.first.date
   end
 
-  private
-
   def weeks_between(start_date,end_date)
     ((end_date - start_date) / 7).to_i
   end
+
 end
