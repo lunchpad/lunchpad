@@ -16,9 +16,15 @@
 @import "bourbon";
 @import "neat";
 @import "base/base";
+@import "font-awesome";
 
 body {
   margin: 0;
+  background-color: #F6F6F6;
+
+  .fa-cog {
+    font-size: 16px;
+  }
 }
 
 ul {
@@ -31,61 +37,89 @@ h1 {
 }
 
 .card {
-  @include padding(15px 25px 10px 25px);
-  @include margin(null auto 15px auto);
-  max-width: 600px;
   border-radius: 2px;
   background: #FFFFFF;
-  -moz-box-shadow:    0px 0px 2px 0px rgba(0,0,0,0.12), 0px 2px 2px 0px rgba(0,0,0,0.24);
-  box-shadow:         0px 0px 2px 0px rgba(0,0,0,0.12), 0px 2px 2px 0px rgba(0,0,0,0.24);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.24);
+  width: 100%;
+  max-width: 600px;
+  @include margin(20px auto null auto);
+  @include padding(20px 20px 20px 20px);
 }
 
 header {
-  border-bottom: solid 1px black;
-  background-color: lighten($blue, 68);
-  box-shadow: 0 0 15px #868182;
 
-  .title {
-    padding-left: 10px;
-    font-size: 35pt;
-    font-weight: bold;
+  .user-bar {
+    background-color: #4CAF50;
+    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.50);
+    height: 56px;
+  }
+
+  .menu-icon {
+    @include margin(22px 18px 22px 18px);
+    height: 12px;
+    width: 18px;
+    background-image: image-url('menu_icon.svg');
+    opacity: 0.6;
+    background-size: cover;
     float: left;
   }
 
-  ul {
-    text-align: right;
-    padding-top: 24px;
-    font-size: 20px;
-
-    li {
-      display: inline;
-      list-style-type: none;
-      padding-right: 20px;
-      }
+  .menu-icon:hover {
+    opacity: 1;
   }
-}
-
-.admin-bar {
-  background-color: #FFDD92;
-  height: 50px;
-  box-shadow: 0 0 15px #868182;
 
   .title {
+    font-size: 24px;
+    font-family: Avenir;
+    font-weight: 600;
     float: left;
-    font-size: 18pt;
-    padding-left: 25px;
-    clear: both;
+    color: white;
+    margin-top: 12px;
   }
+
   ul {
+    margin-top: 18px;
     text-align: right;
-    font-size: 18px;
+    font-weight: 600;
     float: right;
+    font-size: 14px;
+    color: white;
 
     li {
       display: inline;
       list-style-type: none;
-      @include padding(5px 9px 5px 4px);
-      border-right: solid 1px black;
+      padding-right: 24px;
+    }
+
+  }
+
+  .dropdown-nav {
+    height: 0;
+    width: 300px;
+    background: rgba(76, 175, 80, 0.2);
+    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    float: left;
+    clear: both;
+    transition: height 0.2s linear;
+
+    ul {
+      opacity: 0;
+      transition: opacity 0.2s linear;
+    }
+
+    li {
+      float: left;
+      padding-left: 10px;
+    }
+  }
+
+  .dropdown-nav-visible {
+    height: 600px;
+    transition: height 0.2s linear;
+
+    ul {
+      opacity: 1;
+      transition: opacity 0.2s linear;
     }
   }
 }
@@ -197,84 +231,33 @@ img.quantity_subtract {
   width: 20px;
 }
 
-
-table.ui-datepicker-calendar {border-collapse: separate;}
-.ui-datepicker-calendar td {border: 1px solid transparent;}
-
-
-.ui-datepicker .ui-datepicker-calendar .ui-state-highlight a {
-  background: #4CAF50 none;
-  color: white;
-}
-
-.ui-datepicker .ui-datepicker-calendar .ui-state-highlight {
-  background: none;
-  border: none;
-}
-
-div.ui-datepicker{
-  margin-left: 500px;
-  width: 485px;
-  height: 425px;
-  font-size:20px;
-  font-family: $lucida-grande;
-}
-
-.ui-datepicker-header {
-  background-color: #2E7D32;
-}
-
-.ui-datepicker-title {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.ui-datepicker tbody td {
-  padding: 5px;
-}
-
-.ui-state-default {
-  border-radius: 3px;
-}
-.ui-datepicker-unselectable .ui-state-default {
-  background: white;
-  color: #b4b3b3;
-}
-
-
-.ui-datepicker td span, .ui-datepicker td a {
-  display: inline-block;
-  font-weight: bold;
-  text-align: center;
-  width: 30px;
-  height: 30px;
-  line-height: 48px;
-  color: white;
-}
-
-.ui-datepicker-calendar .ui-state-default {
-  height: 50px;
-  width: 50px;
-  background: #FFE6E6;
-  color: #FF2600;
-  border: none;
-}
-.ui-datepicker-unselectable .ui-state-default {
-  background: #FFE6E6;
-  color: #b4b3b3;
-}
-
 .calendar {
   @include padding(null 10px null 10px);
 }
 
 .calendar-coverage {
-  width: 380px;
+  width: 100%;
+  max-width: 390px;
+  float: right;
+  clear: right;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+.calendar-header-month {
+  text-align: center;
+  border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+.calendar-row {
+  clear: right;
 }
 
 .date-panel {
   border-radius: 2px;
   text-align: center;
+  float: left;
 }
 
 .date-panel-sml {
@@ -283,6 +266,7 @@ div.ui-datepicker{
   width: 35px;
   font-size: 12px;
   font-weight: 500;
+  @include margin(3px 3px 3px 5px);
   padding: 8px 0 10px 0;
 }
 
@@ -298,4 +282,55 @@ div.ui-datepicker{
 
 .date-disabled {
   color: rgba(0,0,0,0.26);
+}
+
+.account_profile {
+  width: 100%;
+  max-width: 150px;
+  clear: none;
+}
+
+.account_profile_image {
+  width: 45px;
+  height: 45px;
+  background: rgba(0,0,0,0.54);
+  border-radius: 25px;
+  margin-right: 10px;
+  float: left;
+}
+
+.account_profile_info {
+  ul {
+    text-decoration-style: none;
+  }
+
+  h1 {
+    font-size: 20px;
+    line-height: 20px;
+    color: rgba(0,0,0,0.87);
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    font-size: 14px;
+    color: rgba(0,0,0,0.54);
+    line-height: 14px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.account_card_links {
+  text-align: right;
+  font-size: 14px;
+  max-width: 100%;
+  clear: both;
+  ul {
+    text-decoration-style: none;
+  }
+  ul li {
+    display: inline;
+    margin-left: 30px;
+  }
 }

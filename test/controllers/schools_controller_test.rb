@@ -22,18 +22,4 @@ class SchoolsControllerTest < ActionController::TestCase
     sign_in @admin
   end
 
-  context 'GET schools#index' do
-    setup { get :index }
-
-    should render_template('index')
-    should respond_with(:success)
-  end
-
-  context 'GET schools#show' do
-    setup { get :show, { id: schools(:one).id } }
-
-    should render_template('show')
-    should respond_with(:success)
-  end
-
 end

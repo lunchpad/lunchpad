@@ -1,33 +1,28 @@
 <div class="card">
-  <h3><%= "#{account.name}'s Lunchbox" %></h3>
-  <% if account.orders.count > 0 %>
-    <p><%= link_to "See all ordered lunches", account_orders_path(account) %></p>
-  <% end %>
+  <div class="account_profile">
+    <div class="account_profile_image"></div>
+    <div class="account_profile_info">
+      <h1><%= "#{account.name}" %></h1>
+      <h2></h2><%= "#{account.school.name}" %></h2>
+    </div>
+  </div>
 
-  <% if account.has_order_for(@start_date) %>
-    <p><%= link_to "Edit lunch order for next week", edit_account_order_path(account_id: account, id: account.has_order_for(@start_date)) %>
-  <% else %>
-    <p><%= link_to "Order lunch for next week", new_account_order_path(account) %>
-  <% end %>
+  <%= render partial: "lunch_coverage", locals: { order_week: @order_week, account: account } %>
 
-  <p><%= link_to "Edit account", edit_account_path(account) %></p>
+  <div class="account_card_links">
+    <ul>
+      <% if account.orders.count > 0 %>
+        <li><%= link_to "See all orders", account_orders_path(account) %></li>
+      <% end %>
 
-  <p>  <%= "Account balance: $#{account.balance_dollars}" %></p>
-
-  <div class="calendar-coverage">
-    <%= calendar number_of_days: 7 do |date| %>
-      <% if date.sunday? || date.saturday? %>
-        <% div_color = "date-panel-sml date-disabled" %>
+      <% if account.has_order_for(@start_date) %>
+        <li><%= link_to "Edit order", edit_account_order_path(account_id: account, id: account.has_order_for(@start_date)) %></li>
       <% else %>
-        <% div_color = "date-panel-sml date-uncovered" %>
+        <li><%= link_to "Place order", new_account_order_path(account) %></li>
       <% end %>
-      <% account.ordered_items.each do |order| %>
-        <% if order.date == date && order.quantity > 0  %>
-          <% div_color = "date-panel-sml date-covered" %>
-        <% end %>
-      <% end %>
-      <div class="<%= div_color %>"><%= date.strftime("%-d") %></div>
-    <% end %>
+
+      <li><%= "Account balance: $#{account.balance_dollars}" %></li>
+    </ul>
   </div>
 </div>
 
