@@ -1,0 +1,15 @@
+<div class="card">
+  <%= form_for @school do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+    <%= f.label :motto %>
+    <%= f.text_field :motto %>
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+    <%= f.submit 'Update School Info' %>
+  <% end %>
+</div>

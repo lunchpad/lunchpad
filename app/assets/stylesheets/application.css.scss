@@ -10,16 +10,23 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
-
+ *= require jquery-ui
  *= require_self
  */
 @import "bourbon";
 @import "neat";
 @import "base/base";
+@import "font-awesome";
+
 
 
 body {
   margin: 0;
+  background-color: #F6F6F6;
+
+  .fa {
+    font-size: 16px;
+  }
 }
 
 ul {
@@ -32,36 +39,98 @@ h1 {
 }
 
 .card {
-  background-color: lighten($blue, 72);
-  @include padding(15px 25px 10px 25px);
-  @include margin(null auto 15px auto);
-  border-radius: 25px;
-  border: solid 1px $blue;
-  width: 75%;
+  border-radius: 2px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.24);
+  height: 215px;
+  width: 628px;
+  @include margin(30px auto 0 auto);
 }
 
 header {
-  border-bottom: solid 1px black;
-  background-color: lighten($blue, 68);
-  box-shadow: 0 0 15px #868182;
 
-  .title {
-    padding-left: 10px;
-    font-size: 35pt;
-    font-weight: bold;
+  .user-bar {
+    background-color: #4CAF50;
+    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.50);
+    height: 56px;
+  }
+
+  .menu-icon {
+    @include margin(22px 18px 22px 18px);
+    height: 12px;
+    width: 18px;
+    background-image: image-url('menu_icon.svg');
+    opacity: 0.6;
+    background-size: cover;
     float: left;
   }
 
+  .menu-icon:hover {
+    opacity: 1;
+  }
+
+  .title {
+    font-size: 24px;
+    font-family: Avenir;
+    font-weight: 600;
+    float: left;
+    color: white;
+    margin-top: 12px;
+  }
+
   ul {
+    margin-top: 18px;
     text-align: right;
-    padding-top: 24px;
-    font-size: 20px;
+    font-weight: 600;
+    float: right;
+    font-size: 14px;
+    color: white;
 
     li {
       display: inline;
       list-style-type: none;
-      padding-right: 20px;
+      padding-right: 24px;
+    }
+  }
+
+  .dropdown-nav {
+    height: 0;
+    width: 200px;
+    background: rgba(76, 175, 80, 0.2);
+    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    float: left;
+    clear: both;
+    transition: height 0.2s linear;
+
+    ul {
+      margin-top: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.2s linear;
+      display: inline;
+      text-align: left;
+      color: #727272;
+
+      .dropdown-link {
+        width: 100%;
+        border-bottom: solid 1px #4CAF50;
+        @include padding(10px null 5px 5px);
       }
+
+      li {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .dropdown-nav-visible {
+    height: 600px;
+    transition: height 0.2s linear;
+
+    ul {
+      opacity: 1;
+      transition: opacity 0.2s linear;
+    }
   }
 }
 
@@ -171,3 +240,25 @@ img.quantity_add {
 img.quantity_subtract {
   width: 20px;
 }
+
+.calendar {
+  @include padding(null 10px null 10px);
+}
+.green {
+  height: 50px;
+  width: 50px;
+  background-color: green;
+  color: white;
+  font-size: 25pt;
+  padding-left: 7px;
+}
+
+.red {
+  height: 50px;
+  width: 50px;
+  background-color: red;
+  color: white;
+  font-size: 25pt;
+  padding-left: 7px;
+}
+

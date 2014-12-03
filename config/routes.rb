@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     get :admins, on: :member
     put :make_admin, on: :member
     put :remove_admin, on: :member
+    resources :off_days
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
