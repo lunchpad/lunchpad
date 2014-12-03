@@ -8,7 +8,33 @@ class SchoolsController < ApplicationController
     end
   end
 
+  def new
+    @school = School.new
+  end
+
+  def create
+    @school = School.new(school_params)
+
+    if @school.save
+      redirect_to action: "index", success: 'School was created.'
+    else
+      render :new, alert: "Please try again."
+    end
+  end
+
   def show
+
+  end
+
+  def edit
+  end
+
+  def update
+    if @school.update(school_params)
+      redirect_to action: "index", success: 'School profile was updated.'
+    else
+      render :edit, alert: "Please try again."
+    end
   end
 
   def order
@@ -35,5 +61,14 @@ class SchoolsController < ApplicationController
     end
     @vendors.uniq!
   end
+
+  def create
+    @user = User.create( user_params )
+  end
+
+  def school_params
+    params.require(:school).permit(:logo)
+  end
+
 
 end

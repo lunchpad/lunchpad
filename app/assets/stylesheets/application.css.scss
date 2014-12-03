@@ -164,55 +164,6 @@ header {
   }
 }
 
-.lunchcov {
-  .table {
-    height: 2em;
-    width: 25em;
-  }
-
-  .day {
-    z-index: 1;
-    font-family: sans-serif;
-    font-size: 2em;
-    font-color: grey;
-    background-color: lighten($blue, 68);
-    box-shadow: 0 0 1px #868182;
-    text-align: top;
-  }
-
-  .uncovered {
-    background-color: orangered;
-  }
-
-  .covered {
-    background-color: lawngreen;
-    box-shadow: 0 0 1px #868182;
-    text-align: center;
-  }
-
-  .date {
-    z-index: 2;
-    font-family: sans-serif;
-    font-size: 2em;
-    font-color: grey;
-    text-align: top;
-  }
-
-  .today {
-    background-color: purple;
-  }
-
-  .calendar-header {
-    font-family: $lucida-grande;
-    text-align: center;
-  }
-
-  .calendar-row {
-    text-align: center;
-  }
-}
-
-
 img.quantity_add {
   width: 20px;
 }

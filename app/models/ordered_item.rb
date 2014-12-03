@@ -6,7 +6,6 @@ class OrderedItem < ActiveRecord::Base
   belongs_to :available_menu_item
   belongs_to :order
   delegate :menu_item, to: :available_menu_item, allow_nil: true
-  delegate :name, to: :menu_item, allow_nil: true
   delegate :date, to: :available_menu_item, allow_nil: true
   delegate :account, to: :order, allow_nil: true
   after_create :credit_account

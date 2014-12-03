@@ -12,28 +12,5 @@
 
   <p><%= link_to "Edit account", edit_account_path(account) %></p>
 
-  <div class="lunchcov">
-
-    <%= calendar table: {class: "table table-bordered"},
-                 tr: {class: "calendar-row"},
-                 # td: {class: "day" },
-                 header: {class: "calendar-header"},
-                 events: @ordered_items,
-                 number_of_days: 5,
-                 td: ->(ordered_items.first.date,ordered_items.first.date) { {class: "today", data: {day: current_calendar_date} },
-                 next_link: ->(param, date_range) { link_to raw("&raquo;"), {param => date_range.last + 3.day} },
-                 previous_link: ->(param, date_range) { link_to raw("&laquo;"), {param => date_range.first - 7.day} } do |date, ordered_items|
-                 %>
-
-      <span class="day"><%= date.strftime("%d") %></span>
-
-      <% ordered_items.each do |item| %>
-          <span class="date" background-color="green">
-            <% item.date == date %>
-          </span>
-      <% end %>
-    <% end %>
-  </div>
-
   <p>  <%= "Account balance: $#{account.balance_dollars}" %></p>
 </div>
