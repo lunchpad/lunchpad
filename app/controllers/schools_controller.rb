@@ -1,5 +1,5 @@
 class SchoolsController < ApplicationController
-  before_action :set_school, only: [:show, :order, :accounts]
+  before_action :set_school, except: :index
 
   def index
     @schools = School.with_role :admin, current_user
@@ -46,6 +46,30 @@ class SchoolsController < ApplicationController
 
   def accounts
     @accounts = @school.accounts.sort_by &:section
+  end
+
+  def admins
+    @admins = User.with_role :admin, @school
+  end
+
+  def make_admin
+    @user = User.find_by_email(params[:user])
+    if @user.nil?
+      flash[:notice] = "Cannot find User with that email address."
+    else
+      @user.add_role :admin, @school
+    end
+    redirect_to admins_school_path(@school)
+  end
+
+  def remove_admin
+    @user = User.find_by_email(params[:user])
+    if @user.nil?
+      flash[:notice] = "There was an error removing that user's Admin rights."
+    else
+      @user.remove_role :admin, @school
+    end
+    redirect_to admins_school_path(@school)
   end
 
   private

@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   resources :schools do
     get :order, on: :member
     get :accounts, on: :member
+    get :admins, on: :member
+    put :make_admin, on: :member
+    put :remove_admin, on: :member
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
