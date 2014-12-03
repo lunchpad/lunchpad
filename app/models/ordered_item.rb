@@ -1,6 +1,4 @@
 class OrderedItem < ActiveRecord::Base
-  extend SimpleCalendar
-  has_calendar attribute: :date
 
   resourcify
   belongs_to :available_menu_item
