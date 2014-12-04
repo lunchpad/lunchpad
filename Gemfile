@@ -72,5 +72,4 @@ gem 'neat', '~> 1.5.1'
 gem 'chronic'
 gem 'tickle'
 gem 'money-rails'
-gem 'font-awesome-rails', '~> 4.2.0.0'
 gem 'rails_12factor', group: :production
