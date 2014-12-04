@@ -13,10 +13,20 @@
  *= require jquery-ui
  *= require_self
  */
+
+//$visual-grid: true;
+//$visual-grid-color: yellow;
+//$visual-grid-index: front;
+//$visual-grid-opacity: 0.02;
+
 @import "bourbon";
+@import "base/grid-settings";
 @import "neat";
 @import "base/base";
 @import "font-awesome";
+
+
+
 
 
 .login-form {
@@ -62,22 +72,38 @@ a {
   color: #2E7D32;
 }
 
-.card {
-  border-radius: 2px;
-  background: #FFFFFF;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.24);
-  width: 628px;
-  height: 100%;
-  @include margin(15px auto 0 auto);
-  @include padding(25px 25px 15px 25px);
+.cards {
+  @include outer-container();
 }
 
-.card:after {
-  content: ".";
-  visibility: hidden;
-  display: block;
-  height: 0;
-  clear: both;
+.card {
+  @include span-columns(8);
+  @include shift(2);
+  border-radius: 2px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12), 0px 0px 2px 0px rgba(0, 0, 0, 0.24);
+  margin-top: 15px;
+
+  h1 {
+    font-size: 24px;
+    color: #2E7D32;
+    line-height: 28px;
+  }
+}
+
+.card_padding {
+  @include margin(25px 25px 15px 25px);
+}
+
+.card_title {
+  @extend .card_padding;
+  float: right;
+  clear: none;
+}
+
+.card_divider {
+  width: 100%;
+  height: 1;
 }
 
 header {
@@ -352,30 +378,32 @@ img.quantity_subtract {
 }
 
 .calendar-coverage {
-  width: 100%;
-  max-width: 390px;
-  float: right;
+  @include span-columns(8 of 8);
+  align-content: center;
   padding-bottom: 5px;
 }
 
 .calendar-header {
-  width: 100%;
+  @include span-columns(6 of 8);
+  @include shift(1);
+  @include omega();
   text-align: center;
-  float: left;
-  clear: right;
 }
 
 .calendar-header-month {
-  @extend .calendar-header;
+  @include span-columns(8 of 8);
+  @include omega();
+  text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.12);
   border-bottom: 1px solid rgba(0,0,0,0.12);
   color: rgba(0,0,0,0.54);
+  @include padding(10px null 10px null);
 }
 
 .calendar-row {
-  margin-bottom: 5px;
-  float: left;
-  clear: right;
-
+  @include span-columns(6 of 8);
+  @include shift(1);
+  text-align: center;
   a {
     color: rgba(0,0,0,0.26);
   }
@@ -390,9 +418,10 @@ img.quantity_subtract {
 
 .date-panel-sml {
   @extend .date-panel;
-  height: 35px;
-  width: 35px;
-  font-size: 12px;
+  max-height: 38px;
+  width: 100%;
+  max-width: 38px;
+  font-size: 13px;
   font-weight: 500;
   @include margin(3px 3px 3px 5px);
   padding: 8px 0 10px 0;
@@ -419,8 +448,9 @@ img.quantity_subtract {
 }
 
 .account_profile {
-  width: 100%;
-  max-width: 150px;
+  @include span-columns(4 of 8);
+  @extend .card_padding;
+  float: left;
 }
 
 .account_profile_image {
@@ -455,6 +485,7 @@ img.quantity_subtract {
 }
 
 .account_card_links {
+  @include padding(10px 15px 10px 15px);
   text-align: right;
   font-size: 14px;
   line-height: 24px;
@@ -462,7 +493,6 @@ img.quantity_subtract {
   border-top: 1px solid rgba(0,0,0,0.12);
   ul {
     list-style-type: none;
-    margin-top: 15px;
   }
   ul li {
     display: inline;

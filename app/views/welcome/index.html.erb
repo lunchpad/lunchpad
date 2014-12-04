@@ -3,8 +3,11 @@
     <p>Please make an account for each <strike>eater</strike> person who will need lunch.</p>
     <%= link_to "Create an Account", new_account_path(@account) %>
   <% else %>
+    <div class="cards">
       <%= render partial: "account_card", collection: current_user.accounts, as: :account %>
+    </div>
   <% end %>
 <% else %>
   <h1>Welcome To Lunchpad!</h1>
 <% end %>
+
