@@ -1,9 +1,11 @@
-<br />
-<div class="order_confirm_wrapper_header">
-  <div class="order_confirm_title">
-    New Order
+<div class="flex-boxes card-wrapper">
+
+  <div class="flex-box card">
+
+
+    <h1 class="card_title">New Order</h1>
+
+    <%= render partial: 'form', locals: {account: @account, order: @order, ordered_items: @ordered_items} %>
   </div>
+
 </div>
-
-<%= render partial: 'form', locals: {account: @account, order: @order, ordered_items: @ordered_items} %>
-
