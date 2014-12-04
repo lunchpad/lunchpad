@@ -3,6 +3,8 @@
 <div class="card">
   <%= form_for @account do |f| %>
 
+    <%= f.collection_select :school_id, School.all, :id, :name %>
+
     <div class="field">
       <%= f.label :name %>
       <%= f.text_area :name %>
