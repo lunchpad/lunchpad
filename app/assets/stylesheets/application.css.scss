@@ -11,13 +11,13 @@
  * file per style scope.
  *
  *= require jquery-ui
+ *= require font-awesome
  *= require_self
  */
 @import "bourbon";
 @import "neat";
 @import "base/base";
 @import "font-awesome";
-
 
 .login-form {
 
@@ -102,7 +102,7 @@ header {
     @include margin(22px 18px 22px 18px);
     height: 12px;
     width: 18px;
-    background-image: image-url('menu_icon.svg');
+    background-image: asset-url("menu_icon.svg", image);
     opacity: 0.6;
     background-size: cover;
     float: left;
