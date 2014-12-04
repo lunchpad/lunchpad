@@ -14,20 +14,15 @@
  *= require_self
  */
 
-//$visual-grid: true;
-//$visual-grid-color: yellow;
-//$visual-grid-index: front;
-//$visual-grid-opacity: 0.02;
-
 @import "bourbon";
 @import "base/grid-settings";
 @import "neat";
 @import "base/base";
 @import "font-awesome";
 
-
-
-
+$lunchpad_green: #4CAF50;
+$lunchpad_green_dark: #2E7D32;
+$lunchpad_green_light: #C8E6C9;
 
 .login-form {
 
@@ -72,17 +67,41 @@ a {
   color: #2E7D32;
 }
 
-.cards {
-  @include outer-container();
+$flex-box-gutter: 0;
+
+.flex-boxes {
+  @include clearfix;
+  @include display(flex);
+  @include justify-content(center);
+  @include align-items(stretch);
+  @include flex-wrap(wrap);
+  text-align: center;
+}
+
+.card-wrapper {
+  @include media(em(1050)) {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+.flex-box {
+  @include transition (all 0.2s ease-in-out);
+  @include flex(2 2 15em);
+  @include align-self(stretch);
+  display: block;
+  margin: $flex-box-gutter;
 }
 
 .card {
+  @include flex(1 1 40em);
   @include span-columns(8);
-  @include shift(2);
+  @include omega();
   border-radius: 2px;
   background: #FFFFFF;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12), 0px 0px 2px 0px rgba(0, 0, 0, 0.24);
-  margin-top: 15px;
+  margin-bottom: 15px;
+  max-width: 700px;
 
   h1 {
     font-size: 24px;
@@ -98,7 +117,7 @@ a {
 .card_title {
   @extend .card_padding;
   float: right;
-  clear: none;
+  clear: both;
 }
 
 .card_divider {
@@ -262,29 +281,25 @@ header {
 }
 
 .order_form_wrapper {
-  @include outer-container;
+  width: 100%;
+  border: 1px solid red;
+
   .order_form_title {
-    @include span-columns(8);
-    @include shift(1);
-    @include omega();
-    font-weight: 600;
+
+
+
   }
   .quantity {
-    @include span-columns(1);
-    @include shift(1);
+
   }
   .quantity_select {
-    @include span-columns(1);
-    @include padding(4px null null null);
+
   }
   .menu_item {
-    @include span-columns(4);
-    @include omega();
+
   }
   .submit {
-    @include span-columns(8);
-    @include shift(1);
-    @include omega();
+
   }
 }
 
@@ -378,32 +393,33 @@ img.quantity_subtract {
 }
 
 .calendar-coverage {
-  @include span-columns(8 of 8);
+  width:100%;
   align-content: center;
   padding-bottom: 5px;
+  float: left;
 }
 
 .calendar-header {
-  @include span-columns(6 of 8);
-  @include shift(1);
-  @include omega();
   text-align: center;
+  width: 100%;
+  height: auto;
 }
 
 .calendar-header-month {
-  @include span-columns(8 of 8);
-  @include omega();
   text-align: center;
-  border-top: 1px solid rgba(0,0,0,0.12);
   border-bottom: 1px solid rgba(0,0,0,0.12);
-  color: rgba(0,0,0,0.54);
+  color: rgba(0,0,0,0.87);
+  font-weight: 500;
   @include padding(10px null 10px null);
+  float: left;
+  width: 100%;
 }
 
 .calendar-row {
-  @include span-columns(6 of 8);
-  @include shift(1);
-  text-align: center;
+  float: left;
+  width: 100%;
+  padding-bottom: 10px;
+
   a {
     color: rgba(0,0,0,0.26);
   }
@@ -412,8 +428,7 @@ img.quantity_subtract {
 .date-panel {
   border-radius: 2px;
   text-align: center;
-  float: left;
-  clear: right;
+  display: inline-block;
 }
 
 .date-panel-sml {
@@ -421,10 +436,10 @@ img.quantity_subtract {
   max-height: 38px;
   width: 100%;
   max-width: 38px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
-  @include margin(3px 3px 3px 5px);
-  padding: 8px 0 10px 0;
+  @include margin(4px 2px 4px 4px);
+  padding: 6px 0 8px 0;
 }
 
 .date-covered {
@@ -448,9 +463,9 @@ img.quantity_subtract {
 }
 
 .account_profile {
-  @include span-columns(4 of 8);
   @extend .card_padding;
   float: left;
+  display: inline-block;
 }
 
 .account_profile_image {
@@ -459,17 +474,22 @@ img.quantity_subtract {
   background: rgba(0,0,0,0.54);
   border-radius: 25px;
   margin-right: 10px;
-  float: left;
+  display: inline-block;
 }
 
 .account_profile_info {
+  height: 100%;
+  display: inline-block;
+  text-align: left;
+  float: right;
+
   ul {
     text-decoration-style: none;
   }
 
   h1 {
     font-size: 20px;
-    line-height: 20px;
+    line-height: 25px;
     color: rgba(0,0,0,0.87);
     margin: 0;
     padding: 0;
@@ -480,7 +500,7 @@ img.quantity_subtract {
     color: rgba(0,0,0,0.54);
     line-height: 14px;
     margin: 0;
-    padding: 0;
+    padding-top: 2px;
   }
 }
 

@@ -1,7 +1,11 @@
-<div class="card">
-  <%= render partial: "accounts/account_profile_card" , locals: {account: @account} %>
+<div class="flex-boxes card-wrapper">
 
-  <h1 class="card_title">New Order</h1>
+  <div class="flex-box card">
+    <%= render partial: "accounts/account_profile_card" , locals: {account: @account} %>
 
-  <%= render partial: 'form', locals: {account: @account, order: @order, ordered_items: @ordered_items} %>
+    <h1 class="card_title">New Order</h1>
+
+    <%= render partial: 'form', locals: {account: @account, order: @order, ordered_items: @ordered_items} %>
+  </div>
+
 </div>

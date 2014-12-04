@@ -1,8 +1,11 @@
 <%= form_for [account, order] do |order_form| %>
-  <br />
   <%= order_form.fields_for :ordered_items, ordered_items do |menu_item| %>
 
     <div class="order_form_wrapper">
+      <div class="order_form_date_span">
+        <%= ordered_items[0].available_menu_item.date %>
+      </div>
+
       <div class="order_form_title">
       <% if @date != menu_item.object.date %>
         <p><strong><%= menu_item.object.date.strftime("%A, %B %d, %Y") %></strong></p>
