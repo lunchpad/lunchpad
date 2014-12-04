@@ -18,7 +18,7 @@ class AccountTest < ActiveSupport::TestCase
     end
 
     should 'know if it has an order for a certain begin date' do
-      assert @account.has_order_for(available_menu_items(:one).date), 'should know if it has order for begin date'
+      assert @account.has_order_for(available_menu_items(:one).date.to_date), 'should know if it has order for begin date'
     end
   end
 end

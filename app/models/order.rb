@@ -41,7 +41,7 @@ class Order < ActiveRecord::Base
   end
 
   def begin_date
-    ordered_items.first.date
+    ordered_items.first.date.to_date
   end
 
   def weeks_between(start_date,end_date)

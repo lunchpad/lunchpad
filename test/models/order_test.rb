@@ -26,13 +26,13 @@ class OrderTest < ActiveSupport::TestCase
     end
 
     should 'know the begin date for the order' do
-      assert_equal available_menu_items(:one).date, @order.begin_date, 'should know date of first ordered item'
+      assert_equal available_menu_items(:one).date.to_date, @order.begin_date, 'should know date of first ordered item'
     end
 
     should 'repeat order given days in the future' do
       assert_difference 'Order.count',1 do
         order = orders(:three)
-        order.copy(order.begin_date.to_date + 7)
+        order.copy(order.begin_date + 7)
       end
     end
   end

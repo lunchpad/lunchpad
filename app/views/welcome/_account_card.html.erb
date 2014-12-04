@@ -7,22 +7,6 @@
     </div>
   </div>
 
-  <%= render partial: "lunch_coverage", locals: { order: account.has_order_for(@start_date), account: account, order_week: @order_week } %>
+  <%= render partial: "shared/lunch_coverage", locals: { order: account.has_order_for(@start_date), account: account, order_week: @order_week } %>
 
-  <div class="account_card_links">
-    <ul>
-      <% if account.orders.count > 0 %>
-        <li><%= link_to "See all orders", account_orders_path(account) %></li>
-      <% end %>
-
-      <% if account.has_order_for(@start_date) %>
-        <li><%= link_to "Edit order", edit_account_order_path(account_id: account, id: account.has_order_for(@start_date)) %></li>
-      <% else %>
-        <li><%= link_to "Place order", new_account_order_path(account) %></li>
-      <% end %>
-
-      <li><%= "Account balance: $#{account.balance_dollars}" %></li>
-    </ul>
-  </div>
 </div>
-

@@ -1,8 +1,6 @@
 class AccountsController < ApplicationController
-
   before_action :authenticate_user!
-  before_action :set_account, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_account, only: [:show, :edit, :update, :destroy, :coverage]
 
   def new
     @account = Account.new
@@ -28,6 +26,21 @@ class AccountsController < ApplicationController
     redirect_to root_path, success: 'Account was updated.'
   end
 
+  def coverage
+    @order = @account.has_order_for(params[:start_date].to_date + 1)
+    @order_week = order_week(params[:start_date].to_date)
+
+    respond_to do |format|
+      format.js do
+        if @order
+          render "shared/coverage", status: :created
+        else
+          render "shared/coverage", status: :accepted
+        end
+      end
+    end
+  end
+
   private
 
   def set_account
@@ -37,5 +50,4 @@ class AccountsController < ApplicationController
   def account_params
     params.require(:account).permit(:name, :section)
   end
-
 end

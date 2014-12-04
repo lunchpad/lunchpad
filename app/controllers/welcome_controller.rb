@@ -1,6 +1,4 @@
 class WelcomeController < ApplicationController
-  include CalendarHelper
-
   before_action :set_date_range
 
   def index
