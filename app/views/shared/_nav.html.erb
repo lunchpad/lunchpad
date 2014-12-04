@@ -1,7 +1,7 @@
 <header>
   <div class="user-bar">
     <% if user_signed_in? %>
-      <div class="menu-icon"></div>
+      <div class="menu-icon"><i class="fa fa-bars"></i></div>
       <div class="title"><%= link_to 'Lunchpad', root_path %></div>
     <ul>
       <li>Logged in as <%= "#{current_user.first_name} #{current_user.last_name}" %></li>

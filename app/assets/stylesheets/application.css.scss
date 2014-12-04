@@ -103,13 +103,17 @@ header {
   }
 
   .menu-icon {
-    @include margin(22px 18px 22px 18px);
-    height: 12px;
-    width: 18px;
-    background-image: asset-url("menu_icon.svg", image);
+    @include margin(15px 20px 0 20px);
+//    background-image: asset-url("menu_icon.svg", image);
     opacity: 0.6;
-    background-size: cover;
+//    background-size: cover;
     float: left;
+
+    .fa-bars {
+      font-size: 28px;
+      color: white;
+    }
+
   }
 
   .menu-icon:hover {
