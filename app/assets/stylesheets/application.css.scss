@@ -79,6 +79,8 @@ $flex-box-gutter: 0;
 }
 
 .card-wrapper {
+  margin-top: 70px;
+
   @include media(em(1050)) {
     margin-left: 10%;
     margin-right: 10%;
