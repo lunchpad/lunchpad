@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  include CalendarHelper
+
   before_action :authenticate_user!
   before_action :set_account
   before_action :set_order, only: [:show, :edit, :update, :destroy]
@@ -42,6 +44,10 @@ class OrdersController < ApplicationController
     else
       redirect_to account_order_path(id: @order), error: 'Order cannot be cancelled'
     end
+  end
+
+  def next
+
   end
 
   private

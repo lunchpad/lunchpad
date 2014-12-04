@@ -7,7 +7,9 @@ Rails.application.routes.draw do
     resources :available_menu_items, only: :index do
       get :query, on: :collection
     end
-    resources :orders, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+    resources :orders, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+      get :next
+    end
     resources :ordered_items, except: [:edit, :show]
   end
 

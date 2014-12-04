@@ -27,12 +27,9 @@
     </div>
 
   <% end %>
-  <div class="order_form_wrapper">
-    <div class="order_form_title">
-      Repeat your order through:
-      <%= date_field_tag "copy_date" %>
-    </div>
-  </div>
+
+  <%= render 'form_repeat_order' if (params[:action] == 'new') %>
+
   <div class="order_form_wrapper">
     <div class="submit">
       <%= order_form.submit 'Submit Order' %>

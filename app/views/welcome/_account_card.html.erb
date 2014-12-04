@@ -7,7 +7,7 @@
     </div>
   </div>
 
-  <%= render partial: "lunch_coverage", locals: { order_week: @order_week, account: account } %>
+  <%= render partial: "lunch_coverage", locals: { order: account.has_order_for(@start_date), account: account, order_week: @order_week } %>
 
   <div class="account_card_links">
     <ul>
