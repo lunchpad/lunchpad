@@ -14,3 +14,4 @@ class WelcomeController < ApplicationController
     @end_date = @start_date + 4
   end
 end
+

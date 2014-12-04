@@ -1,10 +1,11 @@
 class OrderedItem < ActiveRecord::Base
+
   resourcify
   belongs_to :available_menu_item
   belongs_to :order
-  delegate :menu_item, :to => :available_menu_item, :allow_nil => true
-  delegate :date, :to => :available_menu_item, :allow_nil => true
-  delegate :account, :to => :order, :allow_nil => true
+  delegate :menu_item, to: :available_menu_item, allow_nil: true
+  delegate :date, to: :available_menu_item, allow_nil: true
+  delegate :account, to: :order, allow_nil: true
   after_create :credit_account
   after_update :update_account
   after_destroy :debit_account
@@ -16,6 +17,8 @@ class OrderedItem < ActiveRecord::Base
 
   validates :quantity,
             presence: true
+
+
 
   def subtotal
     quantity * menu_item.price

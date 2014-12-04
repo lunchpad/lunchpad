@@ -18,11 +18,33 @@
 @import "base/base";
 @import "font-awesome";
 
+
+.login-form {
+
+  ul {
+    float: left;
+  }
+
+  li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 20px;
+    float: left;
+  }
+
+  .field{
+    height: 10px;
+    width: 200px;
+    margin: 0;
+    padding: 0;
+  }
+}
+
 body {
   margin: 0;
   background-color: #F6F6F6;
 
-  .fa-cog {
+  .fa {
     font-size: 16px;
   }
 }
@@ -39,14 +61,23 @@ h1 {
 .card {
   border-radius: 2px;
   background: #FFFFFF;
-  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.24);
-  width: 100%;
-  max-width: 600px;
-  @include margin(20px auto null auto);
-  @include padding(20px 20px 20px 20px);
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.24);
+  height: 215px;
+  width: 628px;
+  @include margin(30px auto 0 auto);
 }
 
 header {
+
+  .login-title {
+    font-family: Avenir;
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    width: 50px;
+    float: left;
+    @include padding(12px 40px null 54px);
+  }
 
   .user-bar {
     background-color: #4CAF50;
@@ -69,12 +100,23 @@ header {
   }
 
   .title {
-    font-size: 24px;
-    font-family: Avenir;
-    font-weight: 600;
     float: left;
-    color: white;
     margin-top: 12px;
+
+    a {
+      font-family: Avenir;
+      color: white;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    a:hover {
+      color: #008744;
+    }
+
+    a:visited {
+      color: white;
+    }
   }
 
   ul {
@@ -90,36 +132,92 @@ header {
       list-style-type: none;
       padding-right: 24px;
     }
-
   }
 
   .dropdown-nav {
     height: 0;
-    width: 300px;
-    background: rgba(76, 175, 80, 0.2);
-    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    background: #D3E7D4;
     float: left;
     clear: both;
-    transition: height 0.2s linear;
+    transition: height 0.2s ease-in-out;
+    transition-delay: 0.1s;
 
-    ul {
-      opacity: 0;
-      transition: opacity 0.2s linear;
+    a {
+      color: #595959;
     }
 
-    li {
-      float: left;
-      padding-left: 10px;
+    .dropdown-link:hover {
+      background-color: rgba(76, 175, 80, 0.1);
+    }
+
+    a:visited {
+      color: #595959;
+    }
+
+    .admin-nav {
+      background-color: #F9F7CE;
+      transition: width 0.2s ease-in-out;
+      transition-delay: 0.1s;
+      height: 273px;
+      width: 0;
+
+      .dropdown-link:hover {
+        background-color: RGBA(255, 250, 147, 0.4);
+      }
+      
+      .admin-head {
+        background: #595959;
+        @include padding(8px null 8px null);
+        color: #FFF;
+        width: 201px;
+      }
+
+      .admin-head:hover {
+        background: #595959;      }
+    }
+
+    ul {
+      margin-top: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 0.1s linear;
+      display: inline;
+      text-align: left;
+      color: #727272;
+
+      .dropdown-link {
+        width: 100%;
+        @include padding(12px null 10px 15px);
+
+        .school-name {
+          padding-left: 27px;
+        }
+      }
+
+      li {
+        font-size: 14px;
+      }
     }
   }
 
   .dropdown-nav-visible {
-    height: 600px;
-    transition: height 0.2s linear;
+    height: 171px;
+    transition: height 0.2s ease-in-out;
+    box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.24);
+
+
+    .admin-nav {
+      width: 200px;
+      transition: width 0.2s ease-in-out;
+      box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.24);
+
+    }
 
     ul {
       opacity: 1;
       transition: opacity 0.2s linear;
+      transition-delay: 0.2s;
     }
   }
 }
@@ -229,6 +327,11 @@ img.quantity_add {
 
 img.quantity_subtract {
   width: 20px;
+}
+
+.school-profile {
+  @include padding(30px null 5px 20px);
+  margin-left: 11%;
 }
 
 .calendar {
