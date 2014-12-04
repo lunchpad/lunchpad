@@ -89,7 +89,7 @@ header {
     @include margin(22px 18px 22px 18px);
     height: 12px;
     width: 18px;
-    background-image: image-url('menu_icon.svg');
+    background-image: url(asset-path('mypic.png'));
     opacity: 0.6;
     background-size: cover;
     float: left;
