@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
 
   resources :accounts, only: [:new, :create, :show, :edit, :update] do
+    post :coverage, on: :member
     resources :available_menu_items, only: :index do
       get :query, on: :collection
     end

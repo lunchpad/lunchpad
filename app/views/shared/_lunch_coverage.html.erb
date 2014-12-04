@@ -1,0 +1,66 @@
+<div class="calendar-coverage" id="<%= "coverage_account_#{account.id}" %>">
+  <div class="calendar-header-month">
+    Lunch Coverage:
+    <% if order_week[0].strftime("%b") == order_week[-1].strftime("%b") %>
+      <%= order_week[0].strftime("%b %e") + " - " + order_week[-1].strftime("%e") %>
+    <% else %>
+      <%= order_week[0].strftime("%b %e") + " - " + order_week[-1].strftime("%b %e") %>
+    <% end %>
+  </div>
+  <div class="calendar-header">
+    <div class="date-panel-sml"></div>
+    <% order_week.each do |date| %>
+      <div class="date-panel-sml date-header"><%= date.strftime("%-a")[0] %></div>
+    <% end %>
+    <div class="date-panel-sml"></div>
+  </div>
+  <div class="calendar-row">
+    <div class="date-panel-sml">
+      <%= link_to raw('<i class="fa fa-play" id="flip"></i>'), coverage_account_path(account, start_date: order_week[0] -7), method: :post, remote: true %>
+    </div>
+    <% order_week.each do |date| %>
+      <% if date.sunday? || date.saturday? %>
+        <% div_color = "date-panel-sml date-disabled" %>
+      <% else %>
+        <% div_color = "date-panel-sml date-uncovered" %>
+      <% end %>
+
+      <% if order %>
+        <% order.ordered_items.each do |order| %>
+          <% if order.date.to_date == date && order.quantity > 0  %>
+            <% div_color = "date-panel-sml date-covered" %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <div class="<%= div_color %>">
+        <% if order %>
+          <%= link_to date.strftime("%-d"), edit_account_order_path(account_id: account, id: account.has_order_for(order_week[1])) %>
+        <% else %>
+          <%= link_to date.strftime("%-d"), new_account_order_path(account) %>
+        <% end %>
+      </div>
+
+    <% end %>
+    <div class="date-panel-sml">
+      <%= link_to raw('<i class="fa fa-play"></i>'), coverage_account_path(account, start_date: order_week[0] + 7), method: :post, remote: true %>
+    </div>
+  </div>
+
+  <div class="account_card_links">
+    <ul>
+      <% if account.orders.count > 0 %>
+        <li><%= link_to "See all orders", account_orders_path(account) %></li>
+      <% end %>
+
+      <% if account.has_order_for(order_week[1]) %>
+        <li><%= link_to "Edit order", edit_account_order_path(account_id: account, id: account.has_order_for(order_week[1])) %></li>
+      <% else %>
+        <li><%= link_to "Place order", new_account_order_path(account) %></li>
+      <% end %>
+
+      <li><%= "Balance: $#{account.balance_dollars}" %></li>
+    </ul>
+  </div>
+</div>
+

@@ -46,6 +46,10 @@ class OrdersController < ApplicationController
     end
   end
 
+  def next
+
+  end
+
   private
 
   def set_account
