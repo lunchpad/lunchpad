@@ -31,6 +31,11 @@ GEM
     ast (2.0.0)
     astrolabe (1.3.0)
       parser (>= 2.2.0.pre.3, < 3.0)
+    aws-sdk (1.59.1)
+      aws-sdk-v1 (= 1.59.1)
+    aws-sdk-v1 (1.59.1)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     bcrypt (3.1.9)
     better_errors (2.0.0)
       coderay (>= 1.0.0)
@@ -79,8 +84,6 @@ GEM
     execjs (2.2.2)
     faker (1.4.3)
       i18n (~> 0.5)
-    font-awesome-rails (4.2.0.0)
-      railties (>= 3.2, < 5.0)
     hike (1.2.3)
     i18n (0.6.11)
     jbuilder (2.2.5)
@@ -187,8 +190,6 @@ GEM
     shoulda-context (1.2.1)
     shoulda-matchers (2.7.0)
       activesupport (>= 3.0.0)
-    simple_calendar (1.1.9)
-      rails (>= 3.0)
     simplecov (0.9.1)
       docile (~> 1.1.0)
       multi_json (~> 1.0)
@@ -230,6 +231,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk
   better_errors (~> 2.0.0)
   binding_of_caller
   bitters
@@ -240,7 +242,6 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   faker (~> 1.4.3)
-  font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks

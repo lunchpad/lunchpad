@@ -22,6 +22,7 @@ super_admin = User.create(email: 'email@gmail.com',
                           first_name: 'Lunch',
                           last_name: 'Pad')
 
+
 willow = School.create(name: 'Willow Oak',
                        description: 'Charter school',
                        motto: 'random motto',
@@ -50,6 +51,8 @@ user = User.create(email: 'kheang@gmail.com',
                    last_name: 'Lim',
                    password: 'password',
                    password_confirmation: 'password')
+
+super_admin.add_role :admin, willow
 
 AccountOwnership.create(user: super_admin, account: account)
 

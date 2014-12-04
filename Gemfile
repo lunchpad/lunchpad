@@ -41,7 +41,7 @@ gem 'devise'
 gem 'rolify'
 
 gem "paperclip", "~> 4.2"
-
+gem 'aws-sdk'
 
 
 # Use unicorn as the app server
@@ -72,6 +72,4 @@ gem 'neat', '~> 1.5.1'
 gem 'chronic'
 gem 'tickle'
 gem 'money-rails'
-gem 'font-awesome-rails'
-
 gem 'rails_12factor', group: :production

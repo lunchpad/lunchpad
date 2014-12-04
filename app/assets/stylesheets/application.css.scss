@@ -18,11 +18,11 @@
 @import "base/grid-settings";
 @import "neat";
 @import "base/base";
-@import "font-awesome";
 
 $lunchpad_green: #4CAF50;
 $lunchpad_green_dark: #2E7D32;
 $lunchpad_green_light: #C8E6C9;
+
 
 .login-form {
 
@@ -141,16 +141,23 @@ header {
     background-color: #4CAF50;
     box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.50);
     height: 56px;
+    width: 100%;
+    top: 0;
+    position: fixed;
   }
 
   .menu-icon {
-    @include margin(22px 18px 22px 18px);
-    height: 12px;
-    width: 18px;
-    background-image: image-url('menu_icon.svg');
+    @include margin(15px 20px 0 20px);
+//    background-image: asset-url("menu_icon.svg", image);
     opacity: 0.6;
-    background-size: cover;
+//    background-size: cover;
     float: left;
+
+    .fa-bars {
+      font-size: 28px;
+      color: white;
+    }
+
   }
 
   .menu-icon:hover {
@@ -169,7 +176,6 @@ header {
     }
 
     a:hover {
-
     }
 
     a:visited {
@@ -198,6 +204,8 @@ header {
     background: #D3E7D4;
     float: left;
     clear: both;
+    position: fixed;
+    top: 57px;
     transition: height 0.2s ease-in-out;
     transition-delay: 0.1s;
 
@@ -219,6 +227,8 @@ header {
       transition-delay: 0.1s;
       height: 273px;
       width: 0;
+      position: fixed;
+      top: 272px;
 
       .dropdown-link:hover {
         background-color: RGBA(255, 250, 147, 0.4);
@@ -238,8 +248,8 @@ header {
     ul {
       margin-top: 0;
       width: 100%;
-      opacity: 0;
-      transition: opacity 0.1s linear;
+      visibility: hidden;
+      transition: visibility 0.1s linear;
       display: inline;
       text-align: left;
       color: #727272;
@@ -260,21 +270,21 @@ header {
   }
 
   .dropdown-nav-visible {
-    height: 171px;
+    height: 215px;
     transition: height 0.2s ease-in-out;
-    box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.24);
+    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.24);
 
 
     .admin-nav {
       width: 200px;
       transition: width 0.2s ease-in-out;
-      box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.24);
+      box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.24);
 
     }
 
     ul {
-      opacity: 1;
-      transition: opacity 0.2s linear;
+      visibility: visible;
+      transition: visibility 0.2s linear;
       transition-delay: 0.2s;
     }
   }

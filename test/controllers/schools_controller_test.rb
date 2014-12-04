@@ -58,6 +58,9 @@ class SchoolsControllerTest < ActionController::TestCase
         assert_equal 'MyString', @school.phone
       end
 
+      should 'redirect to school show' do
+        assert_redirected_to school_path
+      end
     end
 
     context "with invalid school data" do
