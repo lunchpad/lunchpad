@@ -10,7 +10,7 @@ label,
 select {
   display: block;
   font-family: $form-font-family;
-  font-size: $form-font-size;
+  font-size: 16px;
 }
 
 label {
@@ -29,7 +29,7 @@ label {
 textarea,
 #{$all-text-inputs},
 select[multiple=multiple] {
-  @include box-sizing(border-box);
+//  @include box-sizing(border-box);
   @include transition(border-color);
   background-color: white;
   border-radius: $form-border-radius;
@@ -37,8 +37,8 @@ select[multiple=multiple] {
   box-shadow: $form-box-shadow;
   font-family: $form-font-family;
   font-size: $form-font-size;
-  margin-bottom: $base-spacing / 2;
-  padding: ($base-spacing / 3) ($base-spacing / 3);
+//  margin-bottom: $base-spacing / 2;
+//  padding: ($base-spacing / 3) ($base-spacing / 3);
   width: 100%;
 
   &:hover {
