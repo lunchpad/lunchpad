@@ -16,6 +16,7 @@ class Order < ActiveRecord::Base
   end
 
   def copy(future_date)
+    return true if future_date.nil?
     return false unless future_date > Date.today && future_date <= copyable_date?
     end_week = weeks_between(begin_date.to_date,future_date)
     (1..end_week).to_a.each do |week|
@@ -40,7 +41,7 @@ class Order < ActiveRecord::Base
   end
 
   def begin_date
-    ordered_items.first.date
+    ordered_items.first.date.to_date
   end
 
   def weeks_between(start_date,end_date)
