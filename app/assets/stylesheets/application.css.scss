@@ -29,8 +29,7 @@ $lunchpad_black: rgba(0,0,0,.87);
 $lunchpad_green_hover: rgba(0,255,0,.05);
 
 h1 {
-  @include padding(10px 10px 10px 10px);
-  margin-left: 11%;
+  @include padding(10px null 20px null);
 }
 
 h2 {
@@ -69,6 +68,8 @@ $flex-box-gutter: 0;
   }
 }
 
+
+
 .flex-box {
   @include transition (all 0.2s ease-in-out);
   @include flex(2 2 15em);
@@ -100,6 +101,10 @@ $flex-box-gutter: 0;
 
 .card_padding {
   @include padding(25px 25px 25px 25px);
+}
+
+.card-align-left {
+  text-align: left;
 }
 
 .card_title {
