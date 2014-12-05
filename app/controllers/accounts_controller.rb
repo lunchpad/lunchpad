@@ -29,6 +29,11 @@ class AccountsController < ApplicationController
   def edit
   end
 
+  def destroy
+    return unless @account.destroy
+    redirect_to accounts_school_path((School.with_role :admin, current_user).first)
+  end
+
   def update
     return unless @account.update(account_params)
     redirect_to root_path, success: 'Account was updated.'
@@ -47,6 +52,14 @@ class AccountsController < ApplicationController
         end
       end
     end
+  end
+
+  def payment
+    @account = Account.find(params[:account])
+    @payment = (params[:amount][:payment]).to_i * 100
+    @account.balance -= @payment
+    @account.save
+    redirect_to accounts_school_path(School.find(params[:id]))
   end
 
   private

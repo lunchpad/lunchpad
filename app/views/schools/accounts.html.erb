@@ -1,5 +1,13 @@
 <% @accounts.each do |account| %>
   <div class="card">
     <h2><%= account.name %></h2>
+    <h2>Owes: $<%= account.balance / 100 %></h2>
+    <%= link_to 'Delete Account', account_path(account, {method: 'delete'}) %>
+    <%= form_tag({controller: "accounts", action: "payment"}, method: "put") do %>
+      <%= label_tag 'Balance Payments' %>
+      <%= number_field :amount, :payment, min: 0, step: 0.01 %>
+      <%= hidden_field_tag :account, account.id %>
+      <%= submit_tag 'Apply Payment' %>
+    <% end %>
   </div>
 <% end %>
