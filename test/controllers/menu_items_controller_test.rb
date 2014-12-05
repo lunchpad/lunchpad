@@ -20,8 +20,8 @@ class MenuItemsControllerTest < ActionController::TestCase
   end
 
   def valid_availability_data
-    { begin_date: '2014-11-16',
-      end_date: '2014-12-15',
+    { begin_date: (Date.today.beginning_of_week + 7).to_s,
+      end_date: (Date.today.beginning_of_week + 30).to_s,
       day_of_week: 'Tuesday' }
   end
 

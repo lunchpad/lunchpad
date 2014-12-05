@@ -1,51 +1,51 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  date: 2014-12-17 11:23:57
+  date: <%= Date.today.beginning_of_week + 9 %>
   menu_item: one
   school: one
 
 two:
-  date: 2014-12-18 11:23:57
+  date: <%= Date.today.beginning_of_week + 10 %>
   menu_item: two
   school: one
 
 three:
-  date: 2014-12-19 11:23:57
+  date: <%= Date.today.beginning_of_week + 11 %>
   menu_item: one
   school: one
 
 four:
-  date: 2014-12-08 11:23:57
+  date: <%= Date.today.beginning_of_week + 16 %>
   menu_item: one
   school: one
 
 five:
-  date: 2014-12-09 11:23:57
+  date: <%= Date.today.beginning_of_week + 17 %>
   menu_item: two
   school: one
 
 six:
-  date: 2014-12-10 11:23:57
+  date: <%= Date.today.beginning_of_week + 18 %>
   menu_item: one
   school: one
 
 one_next_wk:
-  date: 2014-12-24 11:23:57
+  date: <%= Date.today.beginning_of_week + 32 %>
   menu_item: one
   school: one
 
 two_next_wk:
-  date: 2014-12-25 11:23:57
+  date: <%= Date.today.beginning_of_week + 33 %>
   menu_item: two
   school: one
 
 three_next_wk:
-  date: 2014-12-26 11:23:57
+  date: <%= Date.today.beginning_of_week + 34 %>
   menu_item: one
   school: one
 
 old:
-  date: 2014-11-19 11:23:57
+  date: <%= Date.today.beginning_of_week - 5 %>
   menu_item: one
   school: one
