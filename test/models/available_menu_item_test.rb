@@ -9,8 +9,8 @@ class AvailableMenuItemTest < ActiveSupport::TestCase
 
   context 'AvailableMenuItem class' do
     should 'be able to return all items within range' do
-      @begin_date = Date.parse('2014-12-17')
-      @end_date = Date.parse('2014-12-18')
+      @begin_date = Date.today.beginning_of_week + 9
+      @end_date = Date.today.beginning_of_week + 10
       assert_equal 2, AvailableMenuItem.within_date_range(@begin_date,@end_date).count
     end
   end

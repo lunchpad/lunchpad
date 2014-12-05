@@ -1,41 +1,44 @@
-<%= form_for [account, order] do |order_form| %>
-  <%= order_form.fields_for :ordered_items, ordered_items do |menu_item| %>
 
-    <div class="order_form_wrapper">
-      <div class="order_form_date_span">
-        <%= ordered_items[0].available_menu_item.date %>
-      </div>
+<div class="form_date_span">
+  <h2>Week of <%= ordered_items[0].available_menu_item.date.strftime("%b %e") %></h2>
+</div>
 
-      <div class="order_form_title">
-      <% if @date != menu_item.object.date %>
-        <p><strong><%= menu_item.object.date.strftime("%A, %B %d, %Y") %></strong></p>
-        <% @date = menu_item.object.date %>
-      <% end %>
-      </div>
-    </div>
+<div class="form_wrapper no-top-padding">
+  <%= form_for [account, order] do |order_form| %>
+    <%= order_form.fields_for :ordered_items, ordered_items do |menu_item| %>
 
-    <div class="order_form_wrapper">
-      <div class="quantity">
-        <%= menu_item.text_field :quantity, size: 1, class: 'order_form_quantity' %>
+        <% if @date != menu_item.object.date %>
+          <h3><%= menu_item.object.date.strftime("%a %m/%-e") %></h3>
+          <% @date = menu_item.object.date %>
+        <% end %>
+
+        <div class="order-block">
+          <div class="order-quantity">
+            <%= menu_item.number_field :quantity, min: 0, step: 1, class: 'order-quantity field' %>
+          </div>
+
+          <%= link_to raw('<i class="fa fa-minus-circle"></i>'), '', class: 'quantity_subtract', data: { item: menu_item.index.to_s }, alt: '[-]' %>
+          <%= link_to raw('<i class="fa fa-plus-circle"></i>'), '', class: 'quantity_add', data: { item: menu_item.index.to_s }, alt: '[+]' %>
+
+          <%= ordered_items[menu_item.index].menu_item.name %>
+          <div class="order-item-price">
+            (<%= "$#{ordered_items[menu_item.index].menu_item.price_dollars}" %>)
+          </div>
+
+          <%= menu_item.hidden_field :available_menu_item_id %>
+          <%= menu_item.hidden_field :id %>
+        </div>
+    <% end %>
+</div>
+
+<%= render 'form_repeat_order' if (params[:action] == 'new') %>
+
+<div class="form_wrapper">
+
+      <div class="submit">
+        <%= order_form.submit 'Submit Order' %>
       </div>
-      <div class="quantity_select">
-        <%= link_to image_tag('add.png', class: 'quantity_add', data: { item: menu_item.index.to_s }, alt: '[+]'), '' %>
-        <%= link_to image_tag('minus.png', class: 'quantity_subtract', data: { item: menu_item.index.to_s }, alt: '[-]'), '' %>
-      </div>
-      <div class="menu_item">
-        <%= ordered_items[menu_item.index].menu_item.name %> <%= "($#{ordered_items[menu_item.index].menu_item.price_dollars})" %>
-        <%= menu_item.hidden_field :available_menu_item_id %>
-        <%= menu_item.hidden_field :id %>
-      </div>
-    </div>
 
   <% end %>
 
-  <%= render 'form_repeat_order' if (params[:action] == 'new') %>
-
-  <div class="order_form_wrapper">
-    <div class="submit">
-      <%= order_form.submit 'Submit Order' %>
-    </div>
-  </div>
-<% end %>
+</div>

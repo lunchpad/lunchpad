@@ -1,6 +1,8 @@
 <div class="flex-box card">
+  <div class="page_header">
+    <%= render partial: "accounts/account_profile_card" , locals: {account: account} %>
+  </div>
 
-  <%= render partial: "accounts/account_profile_card" , locals: {account: account} %>
 
   <%= render partial: "shared/lunch_coverage", locals: { order: account.has_order_for(@start_date), account: account, order_week: @order_week } %>
 
