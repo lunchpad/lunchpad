@@ -19,7 +19,9 @@
     </div>
 
     <% if @menu_items.empty? %>
-      <h2>This vendor has no menu items.</h2>
+      <div class="display-block">
+        <h2>This vendor has no menu items.</h2>
+      </div>
     <% else %>
       <% @menu_items.each do |item| %>
         <div class="display-block">
