@@ -112,13 +112,18 @@ $flex-box-gutter: 0;
   width: 100%;
   background-image: url('apples.jpg');
   background-size: cover;
-  @include padding(1px null null null);
+  position: fixed;
+  bottom: 2px;
+  z-index: -1px;
+  @include padding(null null null null);
 }
 
 .forms {
   height: 400px;
   width: 340px;
   float: right;
+  position: relative;
+  top: 25px;
   @include margin(6% 13% null null);
 }
 
@@ -130,6 +135,7 @@ $flex-box-gutter: 0;
 
   .card {
     width: 100%;
+    @include padding(6px 25px 3px 25px);
   }
 }
 .login-form {
@@ -155,7 +161,7 @@ $flex-box-gutter: 0;
       font-weight: bold;
       float: left;
       padding-left: 10px;
-      color: #00964C;
+      color: $lunchpad_green;
     }
 
     a:hover {
@@ -183,17 +189,18 @@ $flex-box-gutter: 0;
 
     input {
       @include padding(8px 9px 8px 9px);
-      background-color: #00964C;
+      background-color: $lunchpad_green;
     }
 
     input:hover {
-      background-color: #006F37;
+      background-color: $lunchpad_green_dark;
     }
   }
 }
 
 .sign-up-form{
   .card {
+    width: 100%;
     @include padding(25px 29px 30px 28px);
   }
 }
@@ -207,11 +214,11 @@ $flex-box-gutter: 0;
     float: right;
 
     input {
-      background-color: #00964C;
+      background-color: $lunchpad_green;
     }
 
     input:hover {
-      background-color: #006F37;
+      background-color: $lunchpad_green_dark;
     }
   }
 }
@@ -230,6 +237,7 @@ ul {
 }
 
 header {
+  margin-left: 0;
 
   .login-title {
     font-family: Avenir;
@@ -242,13 +250,16 @@ header {
   }
 
   .user-bar {
-    background-color: #4CAF50;
+    background-color: $lunchpad_green;
     box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.50);
     height: 56px;
     width: 100%;
-    top: 0;
     position: fixed;
     z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+
   }
 
   .menu-icon {
@@ -350,14 +361,14 @@ header {
       }
 
       .admin-head {
-        background: #4CAF50;
+        background: $lunchpad_green;
         @include padding(8px null 8px null);
         color: white;
         width: 200px;
       }
 
       .admin-head:hover {
-        background: #4CAF50;
+        background: $lunchpad_green;
       }
     }
 
