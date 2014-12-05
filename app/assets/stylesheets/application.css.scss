@@ -22,8 +22,10 @@
 $lunchpad_green: #4CAF50;
 $lunchpad_green_dark: #2E7D32;
 $lunchpad_green_light: #C8E6C9;
-$lunchpad_gray_secondary: rgba(0,0,0,.54);
+$lunchpad_grey_secondary: rgba(0,0,0,.54);
+$lunchpad_grey_hint: rgba(0,0,0,.26);
 $lunchpad_black: rgba(0,0,0,.87);
+$lunchpad_green_hover: rgba(0,255,0,.05);
 
 
 .login-form {
@@ -337,10 +339,11 @@ header {
 
 .order-block {
   width: 100%;
+  @include margin(10px null 10px null);
 }
 
 div.order-block:hover {
-  background-color: rgba(0,255,0,.05);
+  background-color: $lunchpad_green_hover;
 }
 
 .order-quantity {
@@ -353,27 +356,48 @@ div.order-block:hover {
 }
 
 .order-item-price {
-  color: $lunchpad_gray_secondary;
+  color: $lunchpad_grey_secondary;
   display: inline;
   text-align: right;
 }
 
-.quantity_add, .quantity_subtract {
-  a {
-    color: $lunchpad_gray_secondary;
-  }
 
-  a:visited {
-    color: $lunchpad_gray_secondary;
+.order-quantity-select {
+  a {
+    color: $lunchpad_grey_secondary;
   }
 
   a:hover {
     color: $lunchpad_green;
   }
+  margin-right: 20px;
+  display: inline;
+}
+
+.order-item {
+  display: inline-block;
 }
 
 .order-item-price {
+  text-align: right;
+}
 
+.order-item-notes {
+  padding-left: 102px;
+  @include padding(10px null 10px 102px);
+  font-size: 12px;
+}
+
+.show-notes {
+//  display: inline-block;
+  text-align: right;
+  float: right;
+  clear: right;
+  display: none;
+}
+
+a.show-notes:hover .order-item-notes {
+  display: inline-block;
 }
 
 .order_confirm_wrapper {
@@ -446,14 +470,6 @@ div.order-block:hover {
     @include span-columns(2);
     @include omega();
   }
-}
-
-img.quantity_add {
-  width: 20px;
-}
-
-img.quantity_subtract {
-  width: 20px;
 }
 
 .school-profile {
