@@ -24,6 +24,7 @@ $lunchpad_green_dark: #2E7D32;
 $lunchpad_green_light: #C8E6C9;
 $lunchpad_grey_secondary: rgba(0,0,0,.54);
 $lunchpad_grey_hint: rgba(0,0,0,.26);
+$lunchpad_grey_faint: rgba(0,0,0,.12);
 $lunchpad_black: rgba(0,0,0,.87);
 $lunchpad_green_hover: rgba(0,255,0,.05);
 
@@ -361,6 +362,31 @@ header {
   }
 }
 
+.display-block {
+  border-top: 1px solid $lunchpad_grey_faint;
+  width: 100%;
+  text-align: left;
+  @include padding(15px 25px 15px 25px);
+
+  h1 {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    padding-top: 10px;
+  }
+
+  li {
+    font-size: 14px;
+  }
+}
+
+div.display-block:hover {
+  background-color: $lunchpad_green_hover;
+}
+
 .order-block {
   width: 100%;
   @include margin(10px null 10px null);
@@ -690,6 +716,19 @@ a.show-notes:hover .order-item-notes {
     display: inline;
     margin-left: 30px;
   }
+}
+
+.school_profile {
+  @extend .account_profile;
+}
+
+.school_profile_image {
+  @extend .account_profile_image;
+}
+
+.school_profile_info {
+  @extend .account_profile_info;
+  margin-top: 10px;
 }
 
 #flip {

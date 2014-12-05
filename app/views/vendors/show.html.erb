@@ -1,17 +1,51 @@
-<h1><%= @vendor.name %>: Menu Items</h1>
-<%= link_to "Back to All Vendors", vendors_path %><br><br>
-<%= link_to "Add Item for #{@vendor.name}", new_vendor_menu_item_path(@vendor) %>
-<% if @menu_items.empty? %>
-  <h2>This vendor has no items to show.</h2>
-<% else %>
-  <% @menu_items.each do |item| %>
-    <div class="card">
+
+
+
+<div class="flex-boxes card-wrapper">
+
+  <div class="flex-box card">
+
+    <div class="page_header">
+      <%= render "schools/school_profile_card", school: @school %>
+
+      <h1 class="card_title"><%= @vendor.name %></h1>
+    </div>
+
+    <div class="helpful_links">
       <ul>
-        <li>Item: <%= item.name %></li>
-        <li>Desc: <%= item.description %></li>
-        <li>Price: $<%= item.price_dollars %></li>
-        <li><%= link_to "Available Dates for This Item", menu_item_path(item) %></li>
+        <li><%= link_to "Back to All Vendors", vendors_path %></li>
+        <li><%= link_to "Add Menu Item", new_vendor_menu_item_path(@vendor) %></li>
       </ul>
     </div>
-  <% end %>
-<% end %>
+
+    <% if @menu_items.empty? %>
+      <h2>This vendor has no menu items.</h2>
+    <% else %>
+      <% @menu_items.each do |item| %>
+        <div class="display-block">
+          <h1><%= item.name %></h1>
+
+          <ul>
+            <li>
+              <strong>Description:</strong>
+              <p><%= item.description %></p>
+            </li>
+            <li>
+              <strong>Price:</strong>
+              <p>$<%= item.price_dollars %></p>
+            </li>
+            <li>
+              <strong>Available Date Range:</strong>
+              <p>
+                <%= item.available_menu_items[0].date.strftime("%b %e, %Y") %> - <%= item.available_menu_items[-1].date.strftime("%b %e, %Y") %>
+                - <%= link_to "Modify Availability", menu_item_path(item) %>
+              </p>
+            </li>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+
+</div>

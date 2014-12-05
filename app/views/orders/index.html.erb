@@ -1,9 +1,18 @@
-<h1>All Your Lunchbox Orders</h1>
+<div class="flex-boxes card-wrapper">
 
-<div class="panel">
-  <div class="card">
+  <div class="flex-box card">
+
+    <div class="page_header">
+      <%= render partial: "accounts/account_profile_card" , locals: {account: @account} %>
+
+      <h1 class="card_title">All Orders</h1>
+    </div>
+
     <% @orders.each do |order| %>
-      <p><%= link_to "Order for #{order.begin_date.strftime("%A, %B %d, %Y")}", account_order_path(@account, order) %></p>
+      <p><%= link_to "#{order.begin_date.strftime("%A, %B %d, %Y")}", edit_account_order_path(@account, order) %></p>
     <% end %>
+
+    <%= render partial: 'confirmation', collection: @orders, as: :order %>
   </div>
+
 </div>

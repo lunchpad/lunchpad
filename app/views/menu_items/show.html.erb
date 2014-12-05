@@ -1,18 +1,35 @@
-<% available = AvailableMenuItem.where(menu_item_id: @menu_item.id) %>
+<div class="flex-boxes card-wrapper">
 
-<h1><%= @menu_item.name %></h1>
+  <div class="flex-box card">
 
-<%= link_to "Back to All Items from #{@menu_item.vendor.name}", vendor_path(@menu_item.vendor.id) %>
-<ul>
-  <% if available.empty? %>
-    <h2>This item is not currently available.</h2>
-  <% else %>
-    <% available.each do |item| %>
-      <% if item.ordered_items.empty? %>
-        <li><%= item.date.strftime("%A, %b %d, %Y") %> <%= link_to "Remove Availability", available_menu_item_path(item.id, {menu_item: @menu_item.id}), method: 'delete' %></li>
+    <div class="page_header">
+      <%= render "schools/school_profile_card", school: @menu_item.vendor.school %>
+
+      <h1 class="card_title"><%= link_to "#{@menu_item.vendor.name}", vendor_path(@menu_item.vendor) %></h1>
+    </div>
+
+    <div class="helpful_links">
+      <ul>
+        <li><%= link_to "View All Menu Items", vendor_path(@menu_item.vendor) %></li>
+      </ul>
+    </div>
+
+    <h1><%= @menu_item.name %></h1>
+
+
+    <ul>
+      <% if @menu_item.available_menu_items.empty? %>
+        <h2>This item is not currently available.</h2>
       <% else %>
-        <div><%= item.date.strftime("%A, %b %d, %Y") %> Item has been ordered. You cannot delete.</div>
+        <% @menu_item.available_menu_items.each do |item| %>
+          <% if item.ordered_items.empty? %>
+            <li><%= item.date.strftime("%A, %b %d, %Y") %> <%= link_to "Remove", available_menu_item_path(item.id, {menu_item: @menu_item.id}), method: 'delete' %></li>
+          <% else %>
+            <div><%= item.date.strftime("%A, %b %d, %Y") %> Item has been ordered. You cannot delete.</div>
+          <% end %>
+        <% end %>
       <% end %>
-    <% end %>
-  <% end %>
-</ul>
+    </ul>
+
+  </div>
+</div>
