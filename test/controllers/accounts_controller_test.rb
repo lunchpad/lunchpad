@@ -18,13 +18,21 @@ class AccountsControllerTest < ActionController::TestCase
     section: 'Grade or Class'}
   end
 
-  context "GET accounts#new" do
+  context "GET accounts#new without school" do
     setup { get :new }
 
     should render_template('new')
     should respond_with(:success)
 
-    should "instantiate new account" do
+  end
+
+  context "GET accounts#new with school" do
+    setup { get :new, { school: School.first.name } }
+
+    should render_template('new')
+    should respond_with(:success)
+
+    should "instantiate new account if params are passed" do
       assert assigns[:account], 'Should be a new account'
     end
   end

@@ -6,6 +6,8 @@ one:
   motto: MyString
   phone: MyString
   address: MyString
+  section_name: Section
+  section_titles: String
 
 two:
   name: MyString
@@ -13,3 +15,5 @@ two:
   motto: MyString
   phone: MyString
   address: MyString
+  section_name: Section
+  section_titles: String

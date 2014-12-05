@@ -1,29 +1,33 @@
-<h1>Add a Lunch Account</h1>
-<% if user_signed_in? %>
-  <div class="card">
 
-    <%= form_for @account do |f| %>
+<div class="flex-boxes card-wrapper">
+  <div class="flex-box card">
+    <% if @school %>
 
-      <div class="field">
-        <%= f.label :name %>
-        <%= f.text_field :name, placeholder:'First and Last Name' %>
-      </div>
+      <%= form_for @account do |f| %>
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name, placeholder:'First and Last Name' %>
+        </div>
 
-      <div class="field">
-        <%= f.label :section %>
-        <%= f.text_field :section %>
-      </div>
+        <div class="field">
+          <%= f.label @school.section_name %>
+          <%= f.select :section, @section_titles %>
+        </div>
 
-      <div class="actions">
-        <%= button_tag "Create Account", :class => "form-button-lg" %>
-      </div>
+        <%= f.hidden_field :school_id, value: @school.id %>
 
+
+        <div class="actions">
+          <%= button_tag "Create Lunchbox", :class => "form-button-lg" %>
+        </div>
+      <% end %>
+
+  <% else %>
+    <%= form_tag({controller: "accounts", action: "new"}, method: "get") do %>
+        <h2>Select your school from the list.</h2>
+      <%= select :school, nil, options_for_select(@school_names) %>
+      <%= submit_tag 'Select School' %>
     <% end %>
-
+  <% end %>
   </div>
-
-<% else %>
-
-  <p><%= link_to 'Log in to create a new account.', new_user_session_path %></p>
-
-<% end %>
+</div>

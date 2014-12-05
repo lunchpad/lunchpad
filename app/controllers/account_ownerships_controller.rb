@@ -7,6 +7,9 @@ class AccountOwnershipsController < ApplicationController
     @account_ownerships = AccountOwnership.all
   end
 
+  def new
+  end
+
   def create
     @account_ownership = AccountOwnership.new(account_ownership_params)
     return unless @account_ownership.save
