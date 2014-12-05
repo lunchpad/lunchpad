@@ -36,7 +36,7 @@
 
       <div class="<%= div_color %>">
         <% if order %>
-          <%= link_to date.strftime("%-d"), edit_account_order_path(account_id: account, id: account.has_order_for(order_week[1])) %>
+          <%= link_to date.strftime("%-d"), account_order_path(account_id: account, id: order) %>
         <% else %>
           <%= link_to date.strftime("%-d"), new_account_order_path(account) %>
         <% end %>
