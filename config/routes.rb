@@ -10,11 +10,11 @@ Rails.application.routes.draw do
     end
     resources :orders, only: [:index, :new, :create, :show, :edit, :update, :destroy]
     resources :ordered_items, except: [:edit, :show]
+    resources :account_ownerships, only: [:index, :create, :destroy, :new], on: :member
   end
 
   resources :available_menu_items, only: :destroy
 
-  resources :account_ownerships, only: [:index, :create, :destroy]
 
   resources :vendors, shallow: true do
     resources :menu_items, except: [:index]
