@@ -4,6 +4,7 @@
     <div class="account_profile_info">
       <h1><%= "#{account.name}" %></h1>
       <h2></h2><%= "#{account.school.name}" %></h2>
+      <%= link_to 'Add owner', new_account_ownership_path({account: account}) %>
     </div>
   </div>
 

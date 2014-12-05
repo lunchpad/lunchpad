@@ -10,7 +10,7 @@ label,
 select {
   display: block;
   font-family: $form-font-family;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 label {
@@ -38,7 +38,7 @@ select[multiple=multiple] {
   font-family: $form-font-family;
   font-size: $form-font-size;
 //  margin-bottom: $base-spacing / 2;
-//  padding: ($base-spacing / 3) ($base-spacing / 3);
+  padding: 6px;
   width: 100%;
 
   &:hover {

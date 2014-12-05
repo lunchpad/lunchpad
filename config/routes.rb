@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :available_menu_items, only: :destroy
 
-  resources :account_ownerships, only: [:index, :create, :destroy]
+  resources :account_ownerships, only: [:index, :create, :destroy, :new]
 
   resources :vendors, shallow: true do
     resources :menu_items, except: [:index]
@@ -30,6 +30,8 @@ Rails.application.routes.draw do
     put :remove_admin, on: :member
     resources :off_days
   end
+
+  get '/sign_in' => 'welcome#sign_in'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
