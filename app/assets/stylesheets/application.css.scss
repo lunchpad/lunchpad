@@ -20,20 +20,19 @@
 .background {
   height: 700px;
   width: 100%;
-  background-image: url('kittens.jpg');
+  background-image: url('apples.jpg');
   background-size: cover;
   @include padding(1px null null null);
 }
 .forms {
   height: 400px;
   width: 340px;
-//  border: solid 1px blue;
-  @include margin(6% null null 10%);
+  float: right;
+  @include margin(6% 13% null null);
 
   .card {
     width: 100%;
   }
-
 }
 .login-form {
 
@@ -68,6 +67,7 @@
 
   #user_remember_me {
     float: left;
+    @include margin(5px 5px null 5px);
   }
 
   label {
@@ -80,14 +80,38 @@
   }
 
   .login-button {
-    @include margin(31px 3px null null);
+    @include margin(21px 5px null null);
     float: right;
 
     input {
       @include padding(8px 9px 8px 9px);
       background-color: #00964C;
     }
-    
+
+    input:hover {
+      background-color: #006F37;
+    }
+  }
+}
+
+.sign-up-form{
+  .card {
+    @include padding(25px 29px 30px 28px);
+  }
+}
+
+#new_user{
+  input{
+    margin-top: 10px;
+  }
+
+  .sign-up-button {
+    float: right;
+
+    input {
+      background-color: #00964C;
+    }
+
     input:hover {
       background-color: #006F37;
     }
@@ -216,6 +240,7 @@ header {
     clear: both;
     position: fixed;
     top: 56px;
+    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.24);
     transition: height 0.2s ease-in-out;
     transition-delay: 0.1s;
 
@@ -233,6 +258,7 @@ header {
 
     .admin-nav {
       background-color: #595959;
+      box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.24);
       transition: width 0.2s ease-in-out;
       transition-delay: 0.1s;
       height: 273px;
