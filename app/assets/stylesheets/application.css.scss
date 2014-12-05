@@ -133,6 +133,10 @@ $flex-box-gutter: 0;
   @include margin(25px 25px 25px 25px);
 }
 
+.card_padding {
+  @include padding(25px 25px 25px 25px);
+}
+
 .card_title {
   text-align: right;
 }
@@ -337,6 +341,26 @@ header {
   }
 }
 
+.helpful_links {
+  border-top: 1px solid rgba(0,0,0,0.12);
+  width: 100%;
+  text-align: right;
+  @include padding(10px 35px 10px null);
+
+  ul {
+    list-style: none;
+  }
+
+  li:first-child {
+    padding: 0;
+  }
+
+  li {
+    padding-left: 20px;
+    display: inline;
+  }
+}
+
 .order-block {
   width: 100%;
   @include margin(10px null 10px null);
@@ -398,6 +422,66 @@ div.order-block:hover {
 
 a.show-notes:hover .order-item-notes {
   display: inline-block;
+}
+
+.table-table {
+  display: table;
+  width: 100%;
+  @extend .card_padding;
+  border-top: 1px solid rgba(0,0,0,.12);
+}
+
+.table-title {
+  display: table-caption;
+}
+
+.table-heading {
+  display: table-row;
+  background-color: $lunchpad_green_dark;
+  color: white;
+  padding: 15px;
+}
+
+.table-subheading {
+  display: table-row;
+  background-color: rgba(0,0,0,.05);
+  padding-left: 15px;
+  border: 1px solid $lunchpad_green_dark;
+  text-align: left;
+}
+
+.table-footer {
+  display: table-row;
+  background-color: $lunchpad_green;
+  color: white;
+  padding-left: 15px;
+  border: 1px solid $lunchpad_green_dark;
+  text-align: left;
+
+}
+
+.table-row {
+  display: table-row;
+  text-align: left;
+  border: 1px solid $lunchpad_green_dark;
+}
+
+.table-cell {
+  display: table-cell;
+  @include padding(10px 20px 10px 10px);
+  font-size: 14px;
+}
+
+.cell-align-center {
+  text-align: center;
+}
+
+.cell-align-left {
+  text-align: left;
+}
+
+.cell-align-right {
+  text-align: right;
 }
 
 .order_confirm_wrapper {
