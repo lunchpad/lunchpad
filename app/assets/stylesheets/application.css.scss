@@ -22,6 +22,8 @@
 $lunchpad_green: #4CAF50;
 $lunchpad_green_dark: #2E7D32;
 $lunchpad_green_light: #C8E6C9;
+$lunchpad_gray_secondary: rgba(0,0,0,.54);
+$lunchpad_black: rgba(0,0,0,.87);
 
 
 .login-form {
@@ -61,6 +63,19 @@ ul {
 h1 {
   @include padding(10px 10px 10px 10px);
   margin-left: 11%;
+}
+
+h2 {
+  color: $lunchpad_black;
+  font-size: 20px;
+  color: rgba(0,0,0,0.87);
+  line-height: 23px;
+}
+
+h3 {
+  color: $lunchpad_green_dark;
+  font-size: 18px;
+  line-height: 21px;
 }
 
 a {
@@ -112,14 +127,12 @@ $flex-box-gutter: 0;
   }
 }
 
-.card_padding {
-  @include margin(25px 25px 15px 25px);
+.card_margin {
+  @include margin(25px 25px 25px 25px);
 }
 
 .card_title {
-  @extend .card_padding;
-  float: right;
-  clear: both;
+  text-align: right;
 }
 
 .card_divider {
@@ -292,27 +305,75 @@ header {
   }
 }
 
-.order_form_wrapper {
+.form_wrapper {
   width: 100%;
-  border: 1px solid red;
+  text-align: left;
+  border-top: 1px solid rgba(0,0,0,0.12);
+  @include padding(25px 25px 25px 25px);
 
-  .order_form_title {
-
-
-
+  h3 {
+    padding-top: 30px;
+    padding-bottom: 20px;
   }
-  .quantity {
+}
 
-  }
-  .quantity_select {
+.no-top-padding {
+  padding-top: 0;
+}
 
-  }
-  .menu_item {
+#copy_date {
+  width: 200px;
+}
 
-  }
-  .submit {
+.form_date_span {
+  border-top: 1px solid rgba(0,0,0,0.12);
+  width: 100%;
+  text-align: left;
 
+  h2 {
+    @extend .card_margin;
   }
+}
+
+.order-block {
+  width: 100%;
+}
+
+div.order-block:hover {
+  background-color: rgba(0,255,0,.05);
+}
+
+.order-quantity {
+  display: inline-block;
+
+  .field {
+    width: 40px;
+    text-align: center;
+  }
+}
+
+.order-item-price {
+  color: $lunchpad_gray_secondary;
+  display: inline;
+  text-align: right;
+}
+
+.quantity_add, .quantity_subtract {
+  a {
+    color: $lunchpad_gray_secondary;
+  }
+
+  a:visited {
+    color: $lunchpad_gray_secondary;
+  }
+
+  a:hover {
+    color: $lunchpad_green;
+  }
+}
+
+.order-item-price {
+
 }
 
 .order_confirm_wrapper {
@@ -475,7 +536,6 @@ img.quantity_subtract {
 }
 
 .account_profile {
-  @extend .card_padding;
   float: left;
   display: inline-block;
 }
@@ -536,4 +596,8 @@ img.quantity_subtract {
   -ms-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
+}
+
+.page_header {
+  @extend .card_margin;
 }

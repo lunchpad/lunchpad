@@ -37,9 +37,7 @@ class OrdersControllerTest < ActionController::TestCase
   end
 
   context 'GET orders#new' do
-    setup { get :new, {account_id: accounts(:one).id,
-                         begin_date: '2014-11-17',
-                         end_date: '2014-11-18'  } }
+    setup { get :new, { account_id: accounts(:one).id } }
 
     should render_template('new')
     should respond_with(:success)
@@ -83,7 +81,7 @@ class OrdersControllerTest < ActionController::TestCase
         patch :update, { account_id: accounts(:one).id,
                          id: orders(:one).id,
                          order: { ordered_items_attributes: updated_items_attributes },
-                         copy_date: '2014-12-17' }
+                         copy_date: Date.today.beginning_of_week + 14 }
       end
 
       should 'redirect to order show' do
@@ -111,7 +109,7 @@ class OrdersControllerTest < ActionController::TestCase
         patch :update, { account_id: accounts(:one).id,
                          id: orders(:one).id,
                          order: { ordered_items_attributes: updated_items_attributes },
-                         copy_date: '2014-12-18' }
+                         copy_date: Date.today.beginning_of_week + 14 }
       end
 
       should 'redirect to order show' do
@@ -124,7 +122,7 @@ class OrdersControllerTest < ActionController::TestCase
     context 'when valid attributes are submitted' do
       setup { post :create, { account_id: accounts(:one).id,
                               order: { ordered_items_attributes: valid_items_attributes },
-                              copy_date: '2014-12-18' } }
+                              copy_date: Date.today.beginning_of_week + 14 } }
 
       should 'create order' do
         assert_saved_model(:order)
@@ -151,12 +149,12 @@ class OrdersControllerTest < ActionController::TestCase
   context 'DELETE orders#destroy' do
     context 'If order is after cutoff date' do
       setup do
-        @order = orders(:one)
+        @order = orders(:three)
       end
 
       should 'should destroy order' do
         assert_difference 'Order.count', -1 do
-          delete :destroy, { account_id: accounts(:one).id, id: @order }
+          delete :destroy, { account_id: accounts(:two).id, id: @order }
         end
 
         assert_nil OrderedItem.find_by(order: @order.id), 'should destroy ordered items'

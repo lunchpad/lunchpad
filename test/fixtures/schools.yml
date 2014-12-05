@@ -6,7 +6,6 @@ one:
   motto: MyString
   phone: MyString
   address: MyString
-  id: 1
 
 two:
   name: MyString
@@ -14,4 +13,3 @@ two:
   motto: MyString
   phone: MyString
   address: MyString
-  id: 2
