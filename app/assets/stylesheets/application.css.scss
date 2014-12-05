@@ -13,9 +13,99 @@
  *= require jquery-ui
  *= require_self
  */
+
 @import "bourbon";
+@import "base/grid-settings";
 @import "neat";
 @import "base/base";
+
+$lunchpad_green: #4CAF50;
+$lunchpad_green_dark: #2E7D32;
+$lunchpad_green_light: #C8E6C9;
+$lunchpad_gray_secondary: rgba(0,0,0,.54);
+$lunchpad_black: rgba(0,0,0,.87);
+
+h1 {
+  @include padding(10px 10px 10px 10px);
+  margin-left: 11%;
+}
+
+h2 {
+  color: $lunchpad_black;
+  font-size: 20px;
+  color: rgba(0,0,0,0.87);
+  line-height: 23px;
+}
+
+h3 {
+  color: $lunchpad_green_dark;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+a {
+  color: #2E7D32;
+}
+
+$flex-box-gutter: 0;
+
+.flex-boxes {
+  @include clearfix;
+  @include display(flex);
+  @include justify-content(center);
+  @include align-items(stretch);
+  @include flex-wrap(wrap);
+  text-align: center;
+}
+
+.card-wrapper {
+  margin-top: 70px;
+
+  @include media(em(1050)) {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+.flex-box {
+  @include transition (all 0.2s ease-in-out);
+  @include flex(2 2 15em);
+  @include align-self(stretch);
+  display: block;
+  margin: $flex-box-gutter;
+}
+
+.card {
+  @include flex(1 1 40em);
+  @include span-columns(8);
+  @include omega();
+  border-radius: 2px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12), 0px 0px 2px 0px rgba(0, 0, 0, 0.24);
+  margin-bottom: 15px;
+  max-width: 700px;
+
+  h1 {
+    font-size: 24px;
+    color: #2E7D32;
+    line-height: 28px;
+  }
+}
+
+.card_margin {
+  @include margin(25px 25px 25px 25px);
+}
+
+.card_title {
+  text-align: right;
+}
+
+.card_divider {
+  width: 100%;
+  height: 1;
+}
+
+//END OF VARIABLE AND STYLES
 
 .background {
   height: 700px;
@@ -24,11 +114,19 @@
   background-size: cover;
   @include padding(1px null null null);
 }
+
 .forms {
   height: 400px;
   width: 340px;
   float: right;
   @include margin(6% 13% null null);
+}
+
+.login-form {
+
+  ul {
+    float: left;
+  }
 
   .card {
     width: 100%;
@@ -119,7 +217,7 @@
 }
 
 body {
-  margin: 0;
+  margin-top: 100px;
   background-color: #F6F6F6;
 
   .fa {
@@ -129,33 +227,6 @@ body {
 
 ul {
   list-style: none;
-}
-
-h1 {
-  @include padding(10px 10px 10px 10px);
-  margin-left: 11%;
-}
-
-a {
-  color: #2E7D32;
-}
-
-.card {
-  border-radius: 2px;
-  background: #FFFFFF;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.12), 0px 2px 2px 0px rgba(0, 0, 0, 0.24);
-  width: 628px;
-  height: 100%;
-  @include margin(15px auto 0 auto);
-  @include padding(25px 25px 15px 25px);
-}
-
-.card:after {
-  content: ".";
-  visibility: hidden;
-  display: block;
-  height: 0;
-  clear: both;
 }
 
 header {
@@ -332,31 +403,75 @@ header {
   }
 }
 
-.order_form_wrapper {
-  @include outer-container;
-  .order_form_title {
-    @include span-columns(8);
-    @include shift(1);
-    @include omega();
-    font-weight: 600;
+.form_wrapper {
+  width: 100%;
+  text-align: left;
+  border-top: 1px solid rgba(0,0,0,0.12);
+  @include padding(25px 25px 25px 25px);
+
+  h3 {
+    padding-top: 30px;
+    padding-bottom: 20px;
   }
-  .quantity {
-    @include span-columns(1);
-    @include shift(1);
+}
+
+.no-top-padding {
+  padding-top: 0;
+}
+
+#copy_date {
+  width: 200px;
+}
+
+.form_date_span {
+  border-top: 1px solid rgba(0,0,0,0.12);
+  width: 100%;
+  text-align: left;
+
+  h2 {
+    @extend .card_margin;
   }
-  .quantity_select {
-    @include span-columns(1);
-    @include padding(4px null null null);
+}
+
+.order-block {
+  width: 100%;
+}
+
+div.order-block:hover {
+  background-color: rgba(0,255,0,.05);
+}
+
+.order-quantity {
+  display: inline-block;
+
+  .field {
+    width: 40px;
+    text-align: center;
   }
-  .menu_item {
-    @include span-columns(4);
-    @include omega();
+}
+
+.order-item-price {
+  color: $lunchpad_gray_secondary;
+  display: inline;
+  text-align: right;
+}
+
+.quantity_add, .quantity_subtract {
+  a {
+    color: $lunchpad_gray_secondary;
   }
-  .submit {
-    @include span-columns(8);
-    @include shift(1);
-    @include omega();
+
+  a:visited {
+    color: $lunchpad_gray_secondary;
   }
+
+  a:hover {
+    color: $lunchpad_green;
+  }
+}
+
+.order-item-price {
+
 }
 
 .order_confirm_wrapper {
@@ -449,29 +564,32 @@ img.quantity_subtract {
 }
 
 .calendar-coverage {
-  width: 100%;
-  max-width: 390px;
-  float: right;
+  width:100%;
+  align-content: center;
   padding-bottom: 5px;
+  float: left;
 }
 
 .calendar-header {
-  width: 100%;
   text-align: center;
-  float: left;
-  clear: right;
+  width: 100%;
+  height: auto;
 }
 
 .calendar-header-month {
-  @extend .calendar-header;
+  text-align: center;
   border-bottom: 1px solid rgba(0,0,0,0.12);
-  color: rgba(0,0,0,0.54);
+  color: rgba(0,0,0,0.87);
+  font-weight: 500;
+  @include padding(10px null 10px null);
+  float: left;
+  width: 100%;
 }
 
 .calendar-row {
-  margin-bottom: 5px;
   float: left;
-  clear: right;
+  width: 100%;
+  padding-bottom: 10px;
 
   a {
     color: rgba(0,0,0,0.26);
@@ -481,18 +599,18 @@ img.quantity_subtract {
 .date-panel {
   border-radius: 2px;
   text-align: center;
-  float: left;
-  clear: right;
+  display: inline-block;
 }
 
 .date-panel-sml {
   @extend .date-panel;
-  height: 35px;
-  width: 35px;
-  font-size: 12px;
+  max-height: 38px;
+  width: 100%;
+  max-width: 38px;
+  font-size: 14px;
   font-weight: 500;
-  @include margin(3px 3px 3px 5px);
-  padding: 8px 0 10px 0;
+  @include margin(4px 2px 4px 4px);
+  padding: 6px 0 8px 0;
 }
 
 .date-covered {
@@ -516,8 +634,8 @@ img.quantity_subtract {
 }
 
 .account_profile {
-  width: 100%;
-  max-width: 150px;
+  float: left;
+  display: inline-block;
 }
 
 .account_profile_image {
@@ -526,17 +644,22 @@ img.quantity_subtract {
   background: rgba(0,0,0,0.54);
   border-radius: 25px;
   margin-right: 10px;
-  float: left;
+  display: inline-block;
 }
 
 .account_profile_info {
+  height: 100%;
+  display: inline-block;
+  text-align: left;
+  float: right;
+
   ul {
     text-decoration-style: none;
   }
 
   h1 {
     font-size: 20px;
-    line-height: 20px;
+    line-height: 25px;
     color: rgba(0,0,0,0.87);
     margin: 0;
     padding: 0;
@@ -547,11 +670,12 @@ img.quantity_subtract {
     color: rgba(0,0,0,0.54);
     line-height: 14px;
     margin: 0;
-    padding: 0;
+    padding-top: 2px;
   }
 }
 
 .account_card_links {
+  @include padding(10px 15px 10px 15px);
   text-align: right;
   font-size: 14px;
   line-height: 24px;
@@ -559,7 +683,6 @@ img.quantity_subtract {
   border-top: 1px solid rgba(0,0,0,0.12);
   ul {
     list-style-type: none;
-    margin-top: 15px;
   }
   ul li {
     display: inline;
@@ -571,4 +694,8 @@ img.quantity_subtract {
   -ms-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
+}
+
+.page_header {
+  @extend .card_margin;
 }

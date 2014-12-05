@@ -1,6 +1,13 @@
-<% if current_user.account_ownerships.count == 0 %>
-  <p>Please make an account for each <strike>eater</strike> person who will need lunch.</p>
-  <%= link_to "Create an Account", new_account_path(@account) %>
-<% else %>
-    <%= render partial: "account_card", collection: current_user.accounts, as: :account %>
+<% if user_signed_in?  %>
+  <div class="flex-boxes card-wrapper">
+    <% if current_user.account_ownerships.count == 0 %>
+      <div class="flex-box card">
+        <p>Welcome to Lunchpad! You currently have no Lunchboxes associated with your account.
+          Each person getting their lunch ordered will need their own Lunchbox.
+          Click on the <i class="fa fa-bars"></i> icon in the top left corner to add your first Lunchbox!.</p>
+      </div>
+    <% else %>
+        <%= render partial: "account_card", collection: current_user.accounts, as: :account %>
+    <% end %>
+  </div>
 <% end %>

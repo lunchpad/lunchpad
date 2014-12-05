@@ -13,9 +13,9 @@ class SchoolsController < ApplicationController
 
   def update
     if @school.update(school_params)
-      redirect_to action: "index", success: 'School profile was updated.'
+      redirect_to action: "show"
     else
-      render :edit, alert: "Please try again."
+      flash[:notice] = 'Please try again.'
     end
   end
 
