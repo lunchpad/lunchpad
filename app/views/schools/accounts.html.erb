@@ -1,5 +1,17 @@
-<% @accounts.each do |account| %>
-  <div class="card">
-    <h2><%= account.name %></h2>
+<div class="flex-boxes card-wrapper">
+
+  <div class="flex-box card">
+
+    <div class="page_header">
+      <%= render "schools/school_profile_card", school: @school %>
+
+      <h1 class="card_title">Accounts</h1>
+    </div>
+
+    <div class="card_padding card-align-left">
+      <% @accounts.each do |account| %>
+        <h2><%= account.name %></h2>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>

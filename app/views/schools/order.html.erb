@@ -1,15 +1,27 @@
+<div class="flex-boxes card-wrapper">
+
+  <div class="flex-box card">
+
+    <div class="page_header">
+      <%= render "schools/school_profile_card", school: @school %>
+
+      <h1 class="card_title">Orders</h1>
+    </div>
+
+    <div class="card_padding card-align-left">
+
 <h1>Look Up Another Order</h1>
-<div class="card">
+
   <%= render 'order_filter' %>
-</div>
+
 
 <h1>Orders for <%= @date.strftime("%A %D") %></h1>
 
 <% @vendors.each do |vendor| %>
-<div class="card">
+<div class="display-block">
   <h2><%= vendor.name %></h2>
   <% @sections.each do |section| %>
-    <div class="card">
+    <div class="display-item-notes">
       <h2>Section: <%= section %></h2>
         <% vendor.menu_items.each do |menu_item| %>
           <% menu_item.ordered_items.each do |ordered_item| %>
@@ -38,3 +50,8 @@
   <% end %>
 </div>
 <% end %>
+
+
+    </div>
+  </div>
+</div>

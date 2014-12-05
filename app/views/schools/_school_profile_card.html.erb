@@ -1,6 +1,12 @@
 <div class="school_profile">
   <div class="school_profile_image"></div>
   <div class="school_profile_info">
-    <h1></h1>
+    <h1>
+      <% if school.nil? %>
+        The Iron Yard
+      <% else %>
+        <%= school.name %>
+      <% end %>
+    </h1>
   </div>
 </div>
