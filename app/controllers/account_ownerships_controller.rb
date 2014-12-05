@@ -12,11 +12,11 @@ class AccountOwnershipsController < ApplicationController
   end
 
   def create
-    user = User.find_by_email(params[:user])
+    user = User.find_by_email(params[:other_user_email])
     if user.nil?
       flash[:notice] = "Cannot find User with that email address."
     else
-      @account_ownership = @account.account_ownership.new(account_ownership_params)
+      @account_ownership = @account.account_ownerships.new(user: user)
       unless @account_ownership.save
         flash[:notice] = "This lunchbox was not shared with #{user.first_name} #{user.last_name}."
       end

@@ -1,7 +1,7 @@
 <div class="share-ownership">
   <p>Share this lunchbox with another parent/guardian:</p>
-  <%= form_tag({controller: "account_ownerships", action: "new"}, method: "get") do %>
-    <%= text_field :user, nil, :placeholder => "Enter their email address here" %>
+  <%= form_tag({controller: "account_ownerships", action: "create"}, method: "post") do %>
+    <%= text_field :other_user_email, nil, :placeholder => "Enter their email address here" %>
     <%= submit_tag "Share Lunchbox" %>
   <% end %>
 </div>
