@@ -5,4 +5,8 @@
   <%= render partial: "shared/lunch_coverage", locals: { order: account.has_order_for(@start_date), account: account, order_week: @order_week } %>
 
   <strong><%= link_to "Share", new_account_account_ownership_path(account) %></strong>
+
+  <% account.account_ownerships.each do |n| %>
+    <%= n.first_name %>
+    <% end %>
 </div>

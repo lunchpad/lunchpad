@@ -12,8 +12,8 @@
       </div>
 
       <div class="field">
-        <%= f.label :section %>
-        <%= f.text_field :section %>
+        <%= f.label :grade %>
+        <%= f.collection_select :section, Account.section.all %>
       </div>
 
       <div class="actions">
