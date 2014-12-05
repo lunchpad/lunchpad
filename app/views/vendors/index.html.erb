@@ -1,17 +1,35 @@
-<h1>Vendors</h1>
+<div class="flex-boxes card-wrapper">
 
-<% if @vendors %>
-  <% @vendors.each do |v| %>
-    <div class="card">
+  <div class="flex-box card">
+
+    <div class="page_header">
+      <%= render "schools/school_profile_card", school: @school %>
+
+      <h1 class="card_title">Vendors</h1>
+    </div>
+
+    <div class="helpful_links">
       <ul>
-        <li><strong><%= v.name %></strong></li>
-        <li><%= v.email %></li>
-        <li><%= v.phone_number %></li>
-        <p><%= link_to "Vendor's Menu Items", vendor_path(v) %></p>
-        <p><%= link_to "Update Vendor Information", edit_vendor_path(v) %></p>
+        <li><%= link_to "Add a Vendor", new_vendor_path %></li>
       </ul>
     </div>
-  <% end %>
-<% end %>
 
-<h2><%= link_to "Add a Vendor", new_vendor_path(@vendor) %></h2>
+    <% if @vendors %>
+      <% @vendors.each do |v| %>
+        <div class="display-block">
+          <ul>
+            <li><%= link_to v.name, vendor_path(v) %></li>
+            <li><%= v.email %></li>
+            <li><%= v.phone_number %></li>
+
+          </ul>
+        </div>
+      <% end %>
+    <% else %>
+      No vendors have been added.
+    <% end %>
+
+
+  </div>
+
+</div>

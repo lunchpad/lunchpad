@@ -1,14 +1,25 @@
-<br />
-<div class="order_confirm_wrapper_header">
-  <div class="order_confirm_title">
-    Review order
+<div class="flex-boxes card-wrapper">
+
+  <div class="flex-box card">
+
+    <div class="page_header">
+      <%= render partial: "accounts/account_profile_card" , locals: {account: @account} %>
+
+      <h1 class="card_title">Review Order</h1>
+    </div>
+
+    <%= render 'confirmation', order: @order %>
+
+    <div class="helpful_links">
+      <ul>
+        <li><%= link_to 'Edit Order', edit_account_order_path %></li>
+        <li><%= link_to 'Delete Order', [@account, @order], method: :delete %></li>
+      </ul>
+    </div>
   </div>
-  <div class="order_confirm_sub_title">
-    <ul>
-    <li>[<%= link_to 'Edit Order', edit_account_order_path %>]</li>
-      <li>[<%= link_to 'Delete Order', [@account, @order], method: :delete %>]</li>
-    </ul>
-  </div>
+
 </div>
 
-<%= render 'confirmation', order: @order %>
+
+
+
