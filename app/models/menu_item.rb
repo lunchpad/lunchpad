@@ -26,4 +26,8 @@ class MenuItem < ActiveRecord::Base
       available_menu_items.create(date: date, school: vendor.school) if date.send(availability[:day_of_week].downcase + '?')
     end
   end
+
+  def available_on(date)
+    self.available_menu_items.where("date = ?", date)
+  end
 end

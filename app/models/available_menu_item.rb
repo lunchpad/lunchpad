@@ -1,7 +1,6 @@
 class AvailableMenuItem < ActiveRecord::Base
   resourcify
   belongs_to :menu_item
-  has_one :vendor, through: :menu_item
   belongs_to :school
   has_many :ordered_items
 

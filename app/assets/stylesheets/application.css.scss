@@ -18,6 +18,7 @@
 @import "base/grid-settings";
 @import "neat";
 @import "base/base";
+@import "dropdown";
 
 $lunchpad_green: #4CAF50;
 $lunchpad_green_dark: #2E7D32;
@@ -115,6 +116,7 @@ $flex-box-gutter: 0;
   width: 100%;
   height: 1;
 }
+
 
 //END OF VARIABLE AND STYLES
 
@@ -236,10 +238,10 @@ $flex-box-gutter: 0;
 }
 
 //New Account
-#school_, #account_section {
-  text-align: center;
-  @include margin(5% null null 43%);
-  font-size: 18px;
+.styled-select {
+  height: 30px;
+  width: 300px;
+  background-color: blue;
 }
 
 //Header Styling

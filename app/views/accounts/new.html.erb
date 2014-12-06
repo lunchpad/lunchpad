@@ -1,33 +1,44 @@
-
-<div class="flex-boxes card-wrapper">
-  <div class="flex-box card">
+<div class="dropdown">
+  <div class="dropdown-container">
+    <p class="dropdown-description">Choose School:</p>
     <% if @school %>
+      <p class="dropdown-button"><%= @school.name %></p>
+    <% else %>
+      <p class="dropdown-button">Click to Select</p>
+    <% end %>
+    <ul class="dropdown-menu dropdown-select">
+      <% School.find_each do |school| %>
+        <%= link_to new_account_path( { school: school } ) do %>
+          <li><%= school.name %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
 
+
+<div class="flex-boxes">
+    <% if @school %>
+    <div class="account-form">
+      <h2>New Lunchbox for <%= @school.name %></h2>
       <%= form_for @account do |f| %>
         <div class="field">
-          <%= f.label :name %>
           <%= f.text_field :name, placeholder:'First and Last Name' %>
         </div>
 
-        <div class="field">
+        <div class="grade">
           <%= f.label @school.section_name %>
           <%= f.select :section, @section_titles %>
-        </div>
+
 
         <%= f.hidden_field :school_id, value: @school.id %>
+        </div>
 
 
         <div class="actions">
           <%= button_tag "Create Lunchbox", :class => "form-button-lg" %>
         </div>
       <% end %>
-
-  <% else %>
-    <%= form_tag({controller: "accounts", action: "new"}, method: "get") do %>
-        <h2>Select your school from the list.</h2>
-      <%= select :school, nil, options_for_select(@school_names) %>
-      <%= submit_tag 'Select School' %>
-    <% end %>
+    </div>
   <% end %>
-  </div>
 </div>

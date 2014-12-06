@@ -1,11 +1,10 @@
 class AccountsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_account, only: [:show, :edit, :update, :destroy, :coverage]
-  before_action :set_school_names, only: :new
 
   def new
     if params[:school]
-      @school = School.where(name: params[:school]).first
+      @school = School.find(params[:school])
       @section_titles = @school.section_titles.split(' ')
     end
     @account = Account.new
@@ -67,14 +66,6 @@ class AccountsController < ApplicationController
 
   def account_params
     params.require(:account).permit(:name, :section, :school_id)
-  end
-
-  def set_school_names
-    @school_names = []
-    School.all.each do |school|
-      @school_names << school.name
-    end
-    @school_names
   end
 
 end
