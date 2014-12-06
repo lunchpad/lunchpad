@@ -1,7 +1,7 @@
 class AccountOwnershipsController < ApplicationController
 
   before_action :authenticate_user!
-  before_action :set_account, only: [:new, :create]
+  before_action :set_account, only: [:new, :create, :destroy]
   before_action :set_account_ownership, only: [:destroy]
 
   def index
@@ -25,7 +25,9 @@ class AccountOwnershipsController < ApplicationController
   end
 
   def destroy
-    return unless @account_ownerships.destroy
+    user = User.find_by_email(params[:other_user_email])
+    @account.account_ownerships.destroy(user: user)
+    return unless @account_ownership.destroy
     redirect_to root_path,  warning: "Are you sure you want to remove this account?"
   end
 
@@ -36,7 +38,7 @@ class AccountOwnershipsController < ApplicationController
   end
 
   def set_account_ownership
-    @account_ownerships = AccountOwnership.find(params[:id])
+    @account_ownership = AccountOwnership.find(params[:id])
   end
 
   def account_ownership_params

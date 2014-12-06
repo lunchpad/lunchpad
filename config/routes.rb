@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :available_menu_items, only: :destroy
 
+  resources :charges
 
   resources :vendors, shallow: true do
     resources :menu_items, except: [:index]
