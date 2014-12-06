@@ -1,33 +1,51 @@
-<% if user_signed_in? %>
+<div class="flex-boxes card-wrapper">
 
-  <h1>Add a Vendor</h1>
-<div class="card">
-  <%= form_for @vendor do |f| %>
+  <div class="flex-box card">
 
-    <div class="field">
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+    <div class="page_header">
+      <%= render "schools/school_profile_card", school: @school %>
+
+      <h1 class="card_title">Vendors</h1>
     </div>
 
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.email_field :email %>
+    <% if user_signed_in? %>
+
+
+    <div class="card_padding card-align-left">
+
+      <h1>Add a Vendor</h1>
+
+      <%= form_for @vendor do |f| %>
+
+        <div class="field">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+
+        <div class="field">
+          <%= f.label :email %>
+          <%= f.email_field :email %>
+        </div>
+
+        <div class="field">
+          <%= f.label :phone_number %>
+          <%= f.telephone_field :phone_number %>
+        </div>
+    </div>
+    <div class="card_padding card-align-left">
+
+        <div class="actions">
+          <%= button_tag "Create Vendor", :class => "form-button-lg" %>
+        </div>
+
+      <% end %>
     </div>
 
-    <div class="field">
-      <%= f.label :phone_number %>
-      <%= f.telephone_field :phone_number %>
-    </div>
+    <% else %>
 
-    <div class="actions">
-      <%= button_tag "Create Vendor", :class => "form-button-lg" %>
-    </div>
+      <p><%= link_to 'Log in to create a new account.', new_user_session_path %></p>
 
-  <% end %>
+    <% end %>
+
+  </div>
 </div>
-
-<% else %>
-
-  <p><%= link_to 'Log in to create a new account.', new_user_session_path %></p>
-
-<% end %>

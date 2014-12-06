@@ -1,6 +1,7 @@
 class VendorsController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :set_school
   before_action :set_vendor, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -50,5 +51,9 @@ class VendorsController < ApplicationController
 
   def vendor_params
     params.require(:vendor).permit(:name, :email, :phone_number)
+  end
+
+  def set_school
+    @school = School.with_role(:admin, current_user).first
   end
 end

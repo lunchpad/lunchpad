@@ -22,53 +22,19 @@
 $lunchpad_green: #4CAF50;
 $lunchpad_green_dark: #2E7D32;
 $lunchpad_green_light: #C8E6C9;
-$lunchpad_gray_secondary: rgba(0,0,0,.54);
+$lunchpad_grey_secondary: rgba(0,0,0,.54);
+$lunchpad_grey_hint: rgba(0,0,0,.26);
+$lunchpad_grey_faint: rgba(0,0,0,.12);
 $lunchpad_black: rgba(0,0,0,.87);
-
-
-.login-form {
-
-  ul {
-    float: left;
-  }
-
-  li {
-    display: inline;
-    list-style-type: none;
-    padding-right: 20px;
-    float: left;
-  }
-
-  .field{
-    height: 10px;
-    width: 200px;
-    margin: 0;
-    padding: 0;
-  }
-}
-
-body {
-  margin: 0;
-  background-color: #F6F6F6;
-
-  .fa {
-    font-size: 16px;
-  }
-}
-
-ul {
-  list-style: none;
-}
+$lunchpad_green_hover: rgba(0,255,0,.05);
 
 h1 {
-  @include padding(10px 10px 10px 10px);
-  margin-left: 11%;
+  @include padding(10px null 20px null);
 }
 
 h2 {
   color: $lunchpad_black;
   font-size: 20px;
-  color: rgba(0,0,0,0.87);
   line-height: 23px;
 }
 
@@ -102,6 +68,8 @@ $flex-box-gutter: 0;
   }
 }
 
+
+
 .flex-box {
   @include transition (all 0.2s ease-in-out);
   @include flex(2 2 15em);
@@ -131,6 +99,14 @@ $flex-box-gutter: 0;
   @include margin(25px 25px 25px 25px);
 }
 
+.card_padding {
+  @include padding(25px 25px 25px 25px);
+}
+
+.card-align-left {
+  text-align: left;
+}
+
 .card_title {
   text-align: right;
 }
@@ -142,9 +118,150 @@ $flex-box-gutter: 0;
 
 .share-ownership {
   margin-top: 100px;
+  }
+
+//END OF VARIABLE AND STYLES
+
+.background {
+  height: 700px;
+  width: 100%;
+  background-image: url('apples.jpg');
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1px;
+  @include padding(null null null null);
+}
+
+.forms {
+  height: 400px;
+  width: 340px;
+  float: right;
+  position: relative;
+  top: 25px;
+  @include margin(6% 13% null null);
+}
+
+.login-form {
+
+  ul {
+    float: left;
+  }
+
+  .card {
+    width: 100%;
+    @include padding(6px 25px 3px 25px);
+  }
+}
+.login-form {
+
+  .field{
+    height: 10px;
+    width: 200px;
+    margin: 0;
+    padding: 0;
+  }
+
+  #user_email {
+    width: 285px;
+  }
+
+  .test {
+    margin-top: 66px;
+    padding-top: 5px;
+
+
+    a {
+      font-size: 14px;
+      font-weight: bold;
+      float: left;
+      padding-left: 10px;
+      color: $lunchpad_green;
+    }
+
+    a:hover {
+      color: #006F37;
+    }
+  }
+
+  #user_remember_me {
+    float: left;
+    @include margin(5px 5px null 5px);
+  }
+
+  label {
+    float: left;
+
+  }
+
+  #user_password {
+    margin-top: 9px;
+  }
+
+  .login-button {
+    @include margin(21px 5px null null);
+    float: right;
+
+    input {
+      @include padding(8px 9px 8px 9px);
+      background-color: $lunchpad_green;
+    }
+
+    input:hover {
+      background-color: $lunchpad_green_dark;
+    }
+  }
+}
+
+.sign-up-form{
+  .card {
+    width: 100%;
+    @include padding(25px 29px 30px 28px);
+  }
+}
+
+#new_user{
+  input{
+    margin-top: 10px;
+  }
+
+  .sign-up-button {
+    float: right;
+
+    input {
+      background-color: $lunchpad_green;
+    }
+
+    input:hover {
+      background-color: $lunchpad_green_dark;
+    }
+  }
+}
+
+//New Account
+#school_, #account_section {
+  text-align: center;
+  @include margin(5% null null 43%);
+  font-size: 18px;
+}
+
+//Header Styling
+body {
+  margin-top: 100px;
+  background-color: #F6F6F6;
+
+  .fa {
+    font-size: 16px;
+  }
+}
+
+ul {
+  list-style: none;
 }
 
 header {
+  margin-left: 0;
 
   .login-title {
     font-family: Avenir;
@@ -157,12 +274,16 @@ header {
   }
 
   .user-bar {
-    background-color: #4CAF50;
+    background-color: $lunchpad_green;
     box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.50);
     height: 56px;
     width: 100%;
-    top: 0;
     position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    right: 0;
+
   }
 
   .menu-icon {
@@ -220,11 +341,13 @@ header {
   .dropdown-nav {
     height: 0;
     width: 200px;
-    background: #D3E7D4;
+    background: RGBA(207, 207, 207, 1);
     float: left;
     clear: both;
     position: fixed;
-    top: 57px;
+    top: 56px;
+    left: 0;
+    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.24);
     transition: height 0.2s ease-in-out;
     transition-delay: 0.1s;
 
@@ -233,7 +356,7 @@ header {
     }
 
     .dropdown-link:hover {
-      background-color: rgba(76, 175, 80, 0.1);
+      background-color: #C4C4C4;
     }
 
     a:visited {
@@ -241,27 +364,38 @@ header {
     }
 
     .admin-nav {
-      background-color: #F9F7CE;
+      background-color: #595959;
+      box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.24);
       transition: width 0.2s ease-in-out;
       transition-delay: 0.1s;
       height: 273px;
       width: 0;
       position: fixed;
-      top: 272px;
+      top: 271px;
+      left: 0;
+
+      a {
+        color: white;
+      }
+
+      a:visited {
+        color: white;
+      }
 
       .dropdown-link:hover {
-        background-color: RGBA(255, 250, 147, 0.4);
+        background-color: #545454;
       }
-      
+
       .admin-head {
-        background: #595959;
+        background: $lunchpad_green;
         @include padding(8px null 8px null);
-        color: #FFF;
-        width: 201px;
+        color: white;
+        width: 200px;
       }
 
       .admin-head:hover {
-        background: #595959;      }
+        background: $lunchpad_green;
+      }
     }
 
     ul {
@@ -277,9 +411,6 @@ header {
         width: 100%;
         @include padding(12px null 10px 15px);
 
-        .school-name {
-          padding-left: 27px;
-        }
       }
 
       li {
@@ -339,12 +470,58 @@ header {
   }
 }
 
+.helpful_links {
+  border-top: 1px solid rgba(0,0,0,0.12);
+  width: 100%;
+  text-align: right;
+  @include padding(10px 35px 10px null);
+
+  ul {
+    list-style: none;
+  }
+
+  li:first-child {
+    padding: 0;
+  }
+
+  li {
+    padding-left: 20px;
+    display: inline;
+  }
+}
+
+.display-block {
+  border-top: 1px solid $lunchpad_grey_faint;
+  width: 100%;
+  text-align: left;
+  @include padding(15px 25px 15px 25px);
+
+  h1 {
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    padding-top: 10px;
+  }
+
+  li {
+    font-size: 14px;
+  }
+}
+
+div.display-block:hover {
+  background-color: $lunchpad_green_hover;
+}
+
 .order-block {
   width: 100%;
+  @include margin(10px null 10px null);
 }
 
 div.order-block:hover {
-  background-color: rgba(0,255,0,.05);
+  background-color: $lunchpad_green_hover;
 }
 
 .order-quantity {
@@ -357,27 +534,108 @@ div.order-block:hover {
 }
 
 .order-item-price {
-  color: $lunchpad_gray_secondary;
+  color: $lunchpad_grey_secondary;
   display: inline;
   text-align: right;
 }
 
-.quantity_add, .quantity_subtract {
-  a {
-    color: $lunchpad_gray_secondary;
-  }
 
-  a:visited {
-    color: $lunchpad_gray_secondary;
+.order-quantity-select {
+  a {
+    color: $lunchpad_grey_secondary;
   }
 
   a:hover {
     color: $lunchpad_green;
   }
+  margin-right: 20px;
+  display: inline;
+}
+
+.order-item {
+  display: inline-block;
 }
 
 .order-item-price {
+  text-align: right;
+}
 
+.order-item-notes {
+  padding-left: 102px;
+  @include padding(10px null 10px 102px);
+  font-size: 12px;
+}
+
+.show-notes {
+//  display: inline-block;
+  text-align: right;
+  float: right;
+  clear: right;
+  display: none;
+}
+
+a.show-notes:hover .order-item-notes {
+  display: inline-block;
+}
+
+.table-table {
+  display: table;
+  width: 100%;
+  @extend .card_padding;
+  border-top: 1px solid rgba(0,0,0,.12);
+}
+
+.table-title {
+  display: table-caption;
+}
+
+.table-heading {
+  display: table-row;
+  background-color: $lunchpad_green_dark;
+  color: white;
+  padding: 15px;
+}
+
+.table-subheading {
+  display: table-row;
+  background-color: rgba(0,0,0,.05);
+  padding-left: 15px;
+  border: 1px solid $lunchpad_green_dark;
+  text-align: left;
+}
+
+.table-footer {
+  display: table-row;
+  background-color: $lunchpad_green;
+  color: white;
+  padding-left: 15px;
+  border: 1px solid $lunchpad_green_dark;
+  text-align: left;
+
+}
+
+.table-row {
+  display: table-row;
+  text-align: left;
+  border: 1px solid $lunchpad_green_dark;
+}
+
+.table-cell {
+  display: table-cell;
+  @include padding(10px 20px 10px 10px);
+  font-size: 14px;
+}
+
+.cell-align-center {
+  text-align: center;
+}
+
+.cell-align-left {
+  text-align: left;
+}
+
+.cell-align-right {
+  text-align: right;
 }
 
 .order_confirm_wrapper {
@@ -450,14 +708,6 @@ div.order-block:hover {
     @include span-columns(2);
     @include omega();
   }
-}
-
-img.quantity_add {
-  width: 20px;
-}
-
-img.quantity_subtract {
-  width: 20px;
 }
 
 .school-profile {
@@ -594,6 +844,19 @@ img.quantity_subtract {
     display: inline;
     margin-left: 30px;
   }
+}
+
+.school_profile {
+  @extend .account_profile;
+}
+
+.school_profile_image {
+  @extend .account_profile_image;
+}
+
+.school_profile_info {
+  @extend .account_profile_info;
+  margin-top: 10px;
 }
 
 #flip {
