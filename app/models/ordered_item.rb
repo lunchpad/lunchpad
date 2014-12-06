@@ -1,5 +1,4 @@
 class OrderedItem < ActiveRecord::Base
-
   resourcify
   belongs_to :available_menu_item
   belongs_to :order
@@ -17,8 +16,6 @@ class OrderedItem < ActiveRecord::Base
 
   validates :quantity,
             presence: true
-
-
 
   def subtotal
     quantity * menu_item.price
@@ -49,6 +46,14 @@ class OrderedItem < ActiveRecord::Base
     ami = AvailableMenuItem.where('date >= ? AND date <= ? AND menu_item_id = ?',
                                   copy_date.beginning_of_day, copy_date.end_of_day, available_menu_item.menu_item)
     OrderedItem.create(available_menu_item_id: ami[0].id, order_id: order_id, quantity: self.quantity)
+  end
+
+  def self.ordered_between(begin_datetime,end_datetime,account = nil)
+    if account.nil?
+      self.joins(:available_menu_item).where('quantity > ? AND date > ? AND date < ?',0,begin_datetime,end_datetime)
+    else
+      self.joins(:order,:available_menu_item).where('account_id = ? AND quantity > ? AND date > ? AND date < ?',account.id,0,begin_datetime,end_datetime)
+    end
   end
 
   private
