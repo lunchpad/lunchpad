@@ -48,12 +48,8 @@ class OrderedItem < ActiveRecord::Base
     OrderedItem.create(available_menu_item_id: ami[0].id, order_id: order_id, quantity: self.quantity)
   end
 
-  def self.ordered_between(begin_datetime,end_datetime,account = nil)
-    if account.nil?
+  def self.ordered_between(begin_datetime,end_datetime)
       self.joins(:available_menu_item).where('quantity > ? AND date > ? AND date < ?',0,begin_datetime,end_datetime)
-    else
-      self.joins(:order,:available_menu_item).where('account_id = ? AND quantity > ? AND date > ? AND date < ?',account.id,0,begin_datetime,end_datetime)
-    end
   end
 
   private
