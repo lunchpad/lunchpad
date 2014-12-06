@@ -30,12 +30,13 @@ ActiveRecord::Schema.define(version: 20141205062917) do
     t.integer  "school_id"
     t.integer  "balance",    default: 0
     t.string   "name"
-    t.string   "section"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "section_id"
   end
 
   add_index "accounts", ["school_id"], name: "index_accounts_on_school_id", using: :btree
+  add_index "accounts", ["section_id"], name: "index_accounts_on_section_id", using: :btree
 
   create_table "available_menu_items", force: true do |t|
     t.datetime "date"
@@ -114,6 +115,13 @@ ActiveRecord::Schema.define(version: 20141205062917) do
     t.datetime "logo_updated_at"
     t.string   "section_name"
     t.string   "section_titles"
+  end
+
+  create_table "sections", force: true do |t|
+    t.string   "name"
+    t.integer  "school_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
