@@ -48,7 +48,7 @@ class MenuItemsControllerTest < ActionController::TestCase
   end
 
   context 'GET menu_items#edit' do
-    setup { get :edit, id: menu_items(:one) }
+    setup { get :edit, { id: menu_items(:one), vendor_id: vendors(:one).id } }
 
     should render_template('edit')
     should respond_with(:success)
@@ -60,7 +60,7 @@ class MenuItemsControllerTest < ActionController::TestCase
   end
 
   context 'POST menu_items#create' do
-    setup { post :create, { vendor_id: vendors(:one),
+    setup { post :create, { vendor_id: vendors(:one).id,
                             menu_item: valid_menu_item_data,
                             availability: valid_availability_data } }
 

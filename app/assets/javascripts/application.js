@@ -15,7 +15,6 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery-ui.multidatespicker
-//= require turbolinks
 //= require_tree .
 
 //var datesArr = [];
@@ -44,7 +43,7 @@ $(document).on("page:load ready", function(){
     $('#datepicker').multiDatesPicker({
         beforeShowDay: $.datepicker.noWeekends,
         numberOfMonths: 1,
-        defaultDate: '1/1/'+y,
+        defaultDate: today,
         dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
 //        addDates: datesArr
     });
