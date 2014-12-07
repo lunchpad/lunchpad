@@ -44,7 +44,7 @@ $(document).on("page:load ready", function(){
     $('#datepicker').multiDatesPicker({
         beforeShowDay: $.datepicker.noWeekends,
         numberOfMonths: 1,
-        defaultDate: '1/1/'+y,
+        defaultDate: today,
         dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
 //        addDates: datesArr
     });
@@ -58,5 +58,18 @@ $(document).on('click', '.menu-icon', function() {
     else {
         $('.dropdown-nav-visible').toggleClass('dropdown-nav');
     }
+});
+
+
+$(document).ready(function(){
+    $(".dropdown-button").click(function() {
+        $(".dropdown-menu").toggleClass("show-menu");
+        $(".dropdown-menu > li").click(function(){
+            $(".dropdown-menu").removeClass("show-menu");
+        });
+        $(".dropdown-menu.dropdown-select > li").click(function() {
+            $(".dropdown-button").html($(this).html());
+        });
+    });
 });
 

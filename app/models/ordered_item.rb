@@ -5,11 +5,14 @@ class OrderedItem < ActiveRecord::Base
   delegate :menu_item, to: :available_menu_item, allow_nil: true
   delegate :date, to: :available_menu_item, allow_nil: true
   delegate :account, to: :order, allow_nil: true
+  delegate :vendor, to: :menu_item, allow_nil: true
   after_create :credit_account
   after_update :update_account
   after_destroy :debit_account
   before_destroy :for_future_date?
   default_scope { order(created_at: :asc) }
+
+
 
   validates :available_menu_item_id,
             presence: true
@@ -49,7 +52,7 @@ class OrderedItem < ActiveRecord::Base
   end
 
   def self.ordered_between(begin_datetime,end_datetime)
-      self.joins(:available_menu_item).where('quantity > ? AND date > ? AND date < ?',0,begin_datetime,end_datetime)
+    self.joins(:available_menu_item).where('quantity > ? AND date > ? AND date < ?',0,begin_datetime,end_datetime)
   end
 
   private

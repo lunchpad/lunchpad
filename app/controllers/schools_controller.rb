@@ -20,10 +20,9 @@ class SchoolsController < ApplicationController
   end
 
   def order
-    @sections = @school.accounts.map { |account| account.section }.uniq.sort
-    @date = params[:filter][:date].to_date
-    @accounts = @school.accounts
-    set_vendors(@school, @date)
+    @date = params[:date].to_date
+    @ordered_items = @school.ordered_items.ordered_between(@date.beginning_of_day,
+                                                           @date.end_of_day)
   end
 
   def accounts

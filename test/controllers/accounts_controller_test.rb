@@ -27,7 +27,7 @@ class AccountsControllerTest < ActionController::TestCase
   end
 
   context "GET accounts#new with school" do
-    setup { get :new, { school: School.first.name } }
+    setup { get :new, { school: School.first } }
 
     should render_template('new')
     should respond_with(:success)

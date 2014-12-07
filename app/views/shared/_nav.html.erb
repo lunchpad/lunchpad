@@ -53,7 +53,7 @@
               <li class="school-name">Admin Tools</li><br />
               <li class="school-name"><%= school.name %></li>
             </div>
-          <%= link_to order_school_path(school, {filter: {date: Date.today}}) do %>
+          <%= link_to order_school_path(school, {date: Date.today}) do %>
             <div class="dropdown-link">
               <i class="fa fa-bar-chart-o fa-fw"></i>
               <li>&nbspLunch Reports</li>
