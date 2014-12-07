@@ -1,9 +1,32 @@
 <div class="flex-box card">
-  <div class="page_header">
-    <%= render partial: "accounts/account_profile_card" , locals: {account: account} %>
+
+  <div class="flex-boxes card-row card-align-left">
+    <div class="card-column-left">
+      <div class="page_header">
+        <%= render partial: "accounts/account_profile_card" , locals: {account: account} %>
+      </div>
+
+      <ul>
+        <li><%= "Balance: $#{account.balance_dollars}" %></li>
+        <li><a>Make Payment</a></li>
+        <li><a>Share Lunchbox</a></li>
+
+        <% if account.orders.count > 0 %>
+          <li><%= link_to "See all orders", account_orders_path(account) %></li>
+        <% end %>
+      </ul>
+
+    </div>
+
+    <div class="card-column-right card_margin">
+      <% calendar_settings = { owner: account,
+                               events: account.ordered_items.ordered_between(Date.today.beginning_of_month.beginning_of_week,
+                                                                             Date.today.end_of_month.end_of_week),
+                               begin_date: @start_date.beginning_of_month,
+                               end_date: (@start_date + 6).end_of_month,
+                               style: 'simple' } %>
+
+      <%= render partial: 'shared/calendar', locals: { calendar: calendar_settings } %>
+    </div>
   </div>
-
-
-  <%= render partial: "shared/lunch_coverage", locals: { order: account.has_order_for(@start_date), account: account, order_week: @order_week } %>
-
 </div>

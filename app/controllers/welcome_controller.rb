@@ -1,15 +1,7 @@
 class WelcomeController < ApplicationController
-  before_action :set_date_range
 
   def index
-    @order_week = order_week
+    @start_date = cutoff_date - 1
   end
 
-  private
-
-  def set_date_range
-    @start_date = cutoff_date
-    @end_date = @start_date + 4
-  end
 end
-

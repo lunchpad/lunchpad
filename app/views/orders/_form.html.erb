@@ -7,9 +7,9 @@
   <%= form_for [account, order] do |order_form| %>
     <%= order_form.fields_for :ordered_items, ordered_items do |menu_item| %>
 
-        <% if @date != menu_item.object.date %>
+        <% if @date != menu_item.object.date.to_date %>
           <h3><%= menu_item.object.date.strftime("%a %m/%-e") %></h3>
-          <% @date = menu_item.object.date %>
+          <% @date = menu_item.object.date.to_date %>
         <% end %>
 
         <div class="order-block">
@@ -46,7 +46,9 @@
     <% end %>
 </div>
 
-<%= render 'form_repeat_order' if (params[:action] == 'new') %>
+<% if @copyable_date.present? %>
+  <%= render partial: 'form_repeat_order', locals: { copyable_date: @copyable_date, begin_date: ordered_items[0].date.end_of_week + 1 } if (params[:action] == 'new') %>
+<% end %>
 
 <div class="form_wrapper">
 

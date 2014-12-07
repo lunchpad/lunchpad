@@ -10,8 +10,14 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @order = Order.new
-    @ordered_items = OrderedItem.build_menu(cutoff_date,cutoff_date + 4)
+    order_date = params[:order_date].to_date.monday
+    if order_date >= cutoff_date
+      @order = Order.new
+      @ordered_items = OrderedItem.build_menu(order_date,order_date + 4)
+      @copyable_date = @ordered_items.map{ |item| item.copyable_date }.select{ |date| date > order_date.end_of_week }.min
+    else
+      redirect_to account_orders_path, error: 'Order date is invalid.'
+    end
   end
 
   def create
@@ -19,7 +25,7 @@ class OrdersController < ApplicationController
     if @order.save && @order.copy(params[:copy_date].to_date)
       redirect_to account_order_path(id: @order), success: 'Order was created.'
     else
-      redirect_to new_account_order_path
+      redirect_to new_account_order_path, error: 'Your order is invalid.'
     end
   end
 

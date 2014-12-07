@@ -4,15 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   # enable_authorization :unless => :devise_controller?
 
-
   def cutoff_date
-    cutoff_date  = Date.parse('Monday')
-    return cutoff_date if cutoff_date > Date.today
-    cutoff_date += 7
-  end
-
-  def order_week(start_date = cutoff_date - 1)
-    end_date = start_date + 6
-    (start_date..end_date).to_a
+    Date.today.next_week(:monday)
   end
 end
