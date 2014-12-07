@@ -4,11 +4,10 @@
       <div class="menu-icon"><i class="fa fa-bars"></i></div>
       <div class="title"><%= link_to 'Lunchpad', root_path %></div>
     <ul>
-      <li>Logged in as <%= "#{current_user.first_name} #{current_user.last_name}" %></li>
+      <li>Logged in as <%= current_user.first_name %></li>
     </ul>
     <% else %>
       <div class="login-title">Lunchpad</div>
-      <%= render 'shared/login' %>
     <% end %>
   </div>
   <% if user_signed_in? %>
@@ -50,13 +49,11 @@
       <% school = (School.with_role :admin, current_user).first %>
       <div class="dropdown-nav admin-nav">
         <ul>
-          <%= link_to root_path do %>
             <div class="dropdown-link admin-head">
-              <li><i class="fa fa-cogs fa-fw"></i>&nbspAdmin Tools</li>
+              <li class="school-name">Admin Tools</li><br />
               <li class="school-name"><%= school.name %></li>
             </div>
-          <% end %>
-          <%= link_to order_school_path(school, {filter: {date: Date.today}}) do %>
+          <%= link_to order_school_path(school, {date: Date.today}) do %>
             <div class="dropdown-link">
               <i class="fa fa-bar-chart-o fa-fw"></i>
               <li>&nbspLunch Reports</li>

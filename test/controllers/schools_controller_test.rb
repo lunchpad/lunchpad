@@ -59,8 +59,17 @@ class SchoolsControllerTest < ActionController::TestCase
       end
 
       should 'redirect to school show' do
-        assert_redirected_to school_path
+        assert_redirected_to school_path(schools(:one))
       end
+    end
+
+    context 'with invalid school data' do
+      setup { patch :update, { id: schools(:one), school: invalid_school_data } }
+
+      should 'not update school' do
+        assert_redirected_to school_path(schools(:one))
+      end
+
     end
 
     context "with invalid school data" do

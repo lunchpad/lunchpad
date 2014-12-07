@@ -1,29 +1,44 @@
-<h1>Add a Lunch Account</h1>
-<% if user_signed_in? %>
-  <div class="card">
-
-    <%= form_for @account do |f| %>
-
-      <div class="field">
-        <%= f.label :name %>
-        <%= f.text_field :name, placeholder:'First and Last Name' %>
-      </div>
-
-      <div class="field">
-        <%= f.label :section %>
-        <%= f.text_field :section %>
-      </div>
-
-      <div class="actions">
-        <%= button_tag "Create Account", :class => "form-button-lg" %>
-      </div>
-
+<div class="dropdown">
+  <div class="dropdown-container">
+    <p class="dropdown-description">Choose School:</p>
+    <% if @school %>
+      <p class="dropdown-button"><%= @school.name %></p>
+    <% else %>
+      <p class="dropdown-button">Click to Select</p>
     <% end %>
-
+    <ul class="dropdown-menu dropdown-select">
+      <% School.find_each do |school| %>
+        <%= link_to new_account_path( { school: school } ) do %>
+          <li><%= school.name %></li>
+        <% end %>
+      <% end %>
+    </ul>
   </div>
+</div>
 
-<% else %>
 
-  <p><%= link_to 'Log in to create a new account.', new_user_session_path %></p>
+<div class="flex-boxes">
+    <% if @school %>
+    <div class="account-form">
+      <h2>New Lunchbox for <%= @school.name %></h2>
+      <%= form_for @account do |f| %>
+        <div class="field">
+          <%= f.text_field :name, placeholder:'First and Last Name' %>
+        </div>
 
-<% end %>
+        <div class="grade">
+          <%= f.label @school.section_name %>
+          <%= f.select :section, @section_titles %>
+
+
+        <%= f.hidden_field :school_id, value: @school.id %>
+        </div>
+
+
+        <div class="actions">
+          <%= button_tag "Create Lunchbox", :class => "form-button-lg" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

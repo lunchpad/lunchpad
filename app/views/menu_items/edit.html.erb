@@ -1,0 +1,33 @@
+<div class="flex-boxes card-wrapper">
+
+  <div class="flex-box card">
+
+    <div class="page_header">
+      <%= render "schools/school_profile_card", school: @school %>
+      <h1 class="card_title"><%= @vendor.name %></h1>
+    </div>
+
+    <div class="helpful_links">
+      <ul>
+        <li><%= link_to vendor_path(@vendor) do %>
+            <i class="fa fa-play fa-fw" id="flip"></i>
+            Back to <%= @vendor.name %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="display-block">
+      <h1>Edit <%= @menu_item.name %></h1><br />
+    </div>
+    <div class="display-block">
+      <p>
+        We're sorry, but you currently cannot edit a menu item during the school year.
+        You can remove availabilities for this item if it has not yet been ordered, and
+        you can create a new item if there is new price information for this item.
+      </p>
+    </div>
+
+  </div>
+
+</div>

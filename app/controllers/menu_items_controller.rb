@@ -2,7 +2,7 @@ class MenuItemsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_menu_item, only: [:show, :edit, :update, :destroy]
-  before_action :set_vendor, only: [:new, :create]
+  before_action :set_vendor, only: [:new, :create, :edit]
 
   def show
     @menu_item = MenuItem.find(params[:id])

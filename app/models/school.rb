@@ -19,5 +19,6 @@ class School < ActiveRecord::Base
                     :storage => :s3,
                     :bucket  => ENV['MY_BUCKET_NAME']
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
+  
 
 end

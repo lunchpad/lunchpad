@@ -3,25 +3,30 @@
   <div class="flex-box card">
 
     <div class="page_header">
-      <%= render "schools/school_profile_card", school: @school %>
-
-      <h1 class="card_title">Vendors</h1>
+      <%= render "schools/school_profile_card", school: @school %><h1 class="card_title">Vendors</h1>
     </div>
 
     <div class="helpful_links">
       <ul>
-        <li><%= link_to "Add a Vendor", new_vendor_path %></li>
+        <li><%= link_to new_vendor_path do %>
+            <i class="fa fa-plus fa-fw"></i>Add a Vendor</li>
+            <% end %>
       </ul>
     </div>
 
     <% if @vendors %>
-      <% @vendors.each do |v| %>
+      <% @vendors.each do |vendor| %>
         <div class="display-block">
+          <div class="edit-link">
+            <%= link_to edit_vendor_path(vendor) do %>
+              <i class="fa fa-pencil"></i>
+              Edit
+            <% end %>
+          </div>
+          <h2><%= link_to vendor.name, vendor_path(vendor) %></h2>
           <ul>
-            <li><%= link_to v.name, vendor_path(v) %></li>
-            <li><%= v.email %></li>
-            <li><%= v.phone_number %></li>
-
+            <li><%= vendor.email %></li>
+            <li><%= vendor.phone_number %></li>
           </ul>
         </div>
       <% end %>

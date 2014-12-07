@@ -4,48 +4,26 @@
 
     <div class="page_header">
       <%= render "schools/school_profile_card", school: @school %>
-
       <h1 class="card_title">Vendors</h1>
     </div>
 
-    <% if user_signed_in? %>
+      <div class="helpful_links">
+        <ul>
+          <li><%= link_to vendors_path do %>
+              <i class="fa fa-play fa-fw" id="flip"></i>
+              Back to All Vendors
+            <% end %>
+          </li>
+        </ul>
+      </div>
 
+      <div class="display-block">
+        <h1>Add a Vendor</h1>
+        <br />
+        <%= render 'form' %>
+      </div>
 
-    <div class="card_padding card-align-left">
-
-      <h1>Add a Vendor</h1>
-
-      <%= form_for @vendor do |f| %>
-
-        <div class="field">
-          <%= f.label :name %>
-          <%= f.text_field :name %>
-        </div>
-
-        <div class="field">
-          <%= f.label :email %>
-          <%= f.email_field :email %>
-        </div>
-
-        <div class="field">
-          <%= f.label :phone_number %>
-          <%= f.telephone_field :phone_number %>
-        </div>
     </div>
-    <div class="card_padding card-align-left">
-
-        <div class="actions">
-          <%= button_tag "Create Vendor", :class => "form-button-lg" %>
-        </div>
-
-      <% end %>
-    </div>
-
-    <% else %>
-
-      <p><%= link_to 'Log in to create a new account.', new_user_session_path %></p>
-
-    <% end %>
 
   </div>
 </div>
