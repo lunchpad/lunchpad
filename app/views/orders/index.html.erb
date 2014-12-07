@@ -1,6 +1,6 @@
 <div class="flex-boxes card-wrapper">
 
-  <div class="flex-box card">
+  <div class="flex-box card-wide">
 
     <div class="page_header">
       <%= render partial: "accounts/account_profile_card" , locals: {account: @account} %>
@@ -8,11 +8,18 @@
       <h1 class="card_title">All Orders</h1>
     </div>
 
-    <% @orders.each do |order| %>
-      <p><%= link_to "#{order.begin_date.strftime("%A, %B %d, %Y")}", edit_account_order_path(@account, order) %></p>
+    <% if @orders.empty? %>
+      No orders have been placed.
     <% end %>
 
-    <%= render partial: 'confirmation', collection: @orders, as: :order %>
-  </div>
+    <% calendar_settings = { owner: @account,
+                             events: @account.ordered_items.ordered_between(Date.today.beginning_of_month.beginning_of_week,
+                                                                           Date.today.end_of_month.end_of_week),
+                             begin_date: Date.today.beginning_of_month,
+                             end_date: Date.today.end_of_month,
+                             style: 'detail' } %>
 
+    <%= render partial: 'shared/calendar', locals: { calendar: calendar_settings } %>
+
+  </div>
 </div>

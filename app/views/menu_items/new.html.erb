@@ -3,11 +3,22 @@
   <div class="flex-box card">
 
     <div class="page_header">
-
+      <%= render "schools/school_profile_card", school: @school %>
       <h1 class="card_title"><%= @vendor.name %></h1>
     </div>
 
-    <div class="card_padding card-align-left">
+    <div class="helpful_links">
+      <ul>
+        <li><%= link_to vendor_path(@vendor) do %>
+            <i class="fa fa-play fa-fw" id="flip"></i>
+            Back to <%= @vendor.name %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+
+    <div class="display-block">
+      <h1>New Menu Item</h1><br />
       <%= render 'form' %>
     </div>
   </div>

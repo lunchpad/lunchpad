@@ -1,4 +1,4 @@
-<%= form_tag({controller: "schools", action: "order"}, method: "get") do %>
-  <%= date_field :filter, :date %>
+<%= form_tag(order_school_path(@school), :method => "get") do %>
+  <%= date_field nil, :date %>
   <%= submit_tag "Get Order" %>
 <% end %>

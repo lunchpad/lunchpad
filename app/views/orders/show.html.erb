@@ -8,14 +8,16 @@
       <h1 class="card_title">Review Order</h1>
     </div>
 
-    <%= render 'confirmation', order: @order %>
-
-    <div class="helpful_links">
+    <div class="card_links">
       <ul>
         <li><%= link_to 'Edit Order', edit_account_order_path %></li>
         <li><%= link_to 'Delete Order', [@account, @order], method: :delete %></li>
+        <li><%= link_to 'See All Orders', account_orders_path %></li>
       </ul>
     </div>
+
+    <%= render 'confirmation', ordered_items: @order.ordered_items %>
+
   </div>
 
 </div>

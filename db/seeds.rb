@@ -27,7 +27,10 @@ willow = School.create(name: 'Willow Oak',
                        description: 'Charter school',
                        motto: 'random motto',
                        phone: Faker::PhoneNumber.phone_number,
-                       address: Faker::Address.street_address)
+                       address: Faker::Address.street_address,
+                       section_name: "Grade",
+                       section_titles: "K 1 2 3 4 5 6 7 8 9 10 11 12")
+
 
 account = Account.create(school: willow,
                          balance: 0,
