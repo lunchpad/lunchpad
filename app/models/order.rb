@@ -17,22 +17,21 @@ class Order < ActiveRecord::Base
 
   def copy(future_date)
     return true if future_date.nil?
-    return false unless future_date > Date.today && future_date <= copyable_date?
+    return false unless future_date > Date.today && future_date <= copyable_date
     end_week = weeks_between(begin_date.to_date,future_date)
     (1..end_week).to_a.each do |week|
       new_order = account.orders.create
       ordered_items.each do |item|
         copy_date = item.date.to_date + (week * 7)
-        break unless copy_date <= item.copyable_date?
+        break unless copy_date <= item.copyable_date
         item.copy(item.date.to_date + (week * 7),new_order.id)
       end
     end
   end
 
-  def copyable_date?
-    max_dates = ordered_items.where('quantity > 0').map { |item| { max_date: item.copyable_date?, item: item } }
+  def copyable_date
+    max_dates = ordered_items.where('quantity > 0').map{ |item| { max_date: item.copyable_date, item: item } }
     max_dates.delete_if{ |max_dates| max_dates[:max_date] == nil }
-    return begin_date.to_date if max_dates.empty?
     max_dates.min_by{ |max_dates| max_dates[:max_date] }[:max_date]
   end
 

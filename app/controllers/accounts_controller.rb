@@ -1,6 +1,6 @@
 class AccountsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_account, only: [:show, :edit, :update, :destroy, :coverage]
+  before_action :set_account, only: [:show, :edit, :update, :calendar]
 
   def new
     if params[:school]
@@ -35,17 +35,11 @@ class AccountsController < ApplicationController
     redirect_to root_path, success: 'Account was updated.'
   end
 
-  def coverage
-    @order = @account.has_order_for(params[:start_date].to_date + 1)
-    @order_week = order_week(params[:start_date].to_date)
-
+  def calendar
+    @calendar = set_calendar(params[:begin_date].to_date,params[:end_date].to_date)
     respond_to do |format|
-      format.js do
-        if @order
-          render "shared/coverage", status: :created
-        else
-          render "shared/coverage", status: :accepted
-        end
+      if @calendar.values.exclude? nil
+        format.js { render "shared/calendar", status: :created }
       end
     end
   end
@@ -68,4 +62,13 @@ class AccountsController < ApplicationController
     params.require(:account).permit(:name, :section, :school_id)
   end
 
+  def set_calendar(begin_date,end_date)
+    begin_date ||= Date.today.beginning_of_month
+    end_date ||= Date.today.end_of_month
+    @calendar = { owner: @account,
+                  events: @account.ordered_items.ordered_between(begin_date.beginning_of_week,end_date.end_of_week),
+                  begin_date: begin_date,
+                  end_date: end_date,
+                  style: params[:style] }
+  end
 end

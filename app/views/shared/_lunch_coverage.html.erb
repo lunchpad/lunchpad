@@ -8,15 +8,15 @@
     <% end %>
   </div>
   <div class="calendar-header">
-    <div class="date-panel-sml"></div>
+    <div class="date-panel-simple"></div>
     <% order_week.each do |date| %>
-      <div class="date-panel-sml date-header"><%= date.strftime("%-a")[0] %></div>
+      <div class="date-panel-simple date-header"><%= date.strftime("%-a")[0] %></div>
     <% end %>
-    <div class="date-panel-sml"></div>
+    <div class="date-panel-simple"></div>
   </div>
 
   <div class="calendar-row">
-    <div class="date-panel-sml">
+    <div class="date-panel-simple">
       <%= link_to raw('<i class="fa fa-play" id="flip"></i>'), coverage_account_path(account, start_date: order_week[0] -7), method: :post, remote: true %>
     </div>
     <% order_week.each do |date| %>
@@ -43,7 +43,7 @@
       </div>
 
     <% end %>
-    <div class="date-panel-sml">
+    <div class="date-panel-simple">
       <%= link_to raw('<i class="fa fa-play"></i>'), coverage_account_path(account, start_date: order_week[0] + 7), method: :post, remote: true %>
     </div>
   </div>

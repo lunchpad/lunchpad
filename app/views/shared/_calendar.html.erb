@@ -1,0 +1,27 @@
+<div class="calendar-coverage-<%= calendar[:style] %>" id="<%= dom_id(calendar[:owner], :calendar) %>">
+  <div class="calendar-header-month-<%= calendar[:style] %>">
+    <div class="calendar-title-<%= calendar[:style] %>">
+      <%= calendar_title(calendar[:begin_date],calendar[:end_date]) %>
+    </div>
+
+    <div class="calendar-nav-<%= calendar[:style] %>">
+      <%= link_to raw('<i class="fa fa-chevron-left"></i>'), [:calendar, calendar[:owner],
+                                                              begin_date: calendar_begin_date(calendar[:begin_date],calendar[:end_date],false),
+                                                              end_date: calendar_end_date(calendar[:begin_date],calendar[:end_date],false),
+                                                              style: calendar[:style]],
+                                                              method: :post, remote: true %>
+      <%= link_to raw('<i class="fa fa-chevron-right"></i>'), [:calendar, calendar[:owner],
+                                                              begin_date: calendar_begin_date(calendar[:begin_date],calendar[:end_date]),
+                                                              end_date: calendar_end_date(calendar[:begin_date],calendar[:end_date]),
+                                                              style: calendar[:style]],
+                                                              method: :post, remote: true %>
+    </div>
+  </div>
+
+  <% if calendar[:style] == 'simple' %>
+    <%= render partial: 'accounts/calendar_dates', locals: { calendar: calendar } %>
+  <% else %>
+    <%= render partial: 'accounts/calendar_detail', locals: { calendar: calendar } %>
+  <% end %>
+
+</div>

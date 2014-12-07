@@ -2,10 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
-
   resources :accounts, only: [:new, :create, :show, :edit, :update, :destroy] do
     put :payment, on: :member
-    post :coverage, on: :member
+    post :calendar, on: :member
     resources :available_menu_items, only: :index do
       get :query, on: :collection
     end

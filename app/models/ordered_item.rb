@@ -33,7 +33,7 @@ class OrderedItem < ActiveRecord::Base
     available_menu_items.map { |order| OrderedItem.new(quantity: 0, available_menu_item_id: order.id) }
   end
 
-  def copyable_date?
+  def copyable_date
     available_menu_items = menu_item.available_menu_items.where('date >= ?', date.beginning_of_day).order('date ASC')
     max_date = available_menu_items.first.date.to_date
     available_menu_items[1..-1].each do |availability|
@@ -51,8 +51,8 @@ class OrderedItem < ActiveRecord::Base
     OrderedItem.create(available_menu_item_id: ami[0].id, order_id: order_id, quantity: self.quantity)
   end
 
-  def self.ordered_between(begin_datetime,end_datetime)
-    self.joins(:available_menu_item).where('quantity > ? AND date > ? AND date < ?',0,begin_datetime,end_datetime)
+  def self.ordered_between(begin_datetime = DateTime.now.beginning_of_month,end_datetime = DateTime.now.end_of_month)
+      self.joins(:available_menu_item).where('quantity > ? AND date > ? AND date < ?',0,begin_datetime.beginning_of_day,end_datetime.end_of_day)
   end
 
   private

@@ -1,5 +1,6 @@
 <div class="account_profile">
-  <div class="account_profile_image"></div>
+  <% rgb = colorize(account.name) %>
+  <div class="account_profile_image" style="background-color: rgba(<%= rgb[0] %>,<%= rgb[1] %>,<%= rgb[2] %>,1)"><%= account.name.first %></div>
   <div class="account_profile_info">
     <h1><%= "#{account.name}" %></h1>
     <h2><%= "#{account.school.name}" %></h2>

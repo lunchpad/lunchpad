@@ -69,8 +69,6 @@ $flex-box-gutter: 0;
   }
 }
 
-
-
 .flex-box {
   @include transition (all 0.2s ease-in-out);
   @include flex(2 2 15em);
@@ -79,7 +77,7 @@ $flex-box-gutter: 0;
   margin: $flex-box-gutter;
 }
 
-.card {
+.card-settings {
   @include flex(1 1 40em);
   @include span-columns(8);
   @include omega();
@@ -94,6 +92,57 @@ $flex-box-gutter: 0;
     color: #2E7D32;
     line-height: 28px;
   }
+}
+
+.card {
+  @extend .card-settings;
+  max-width: 700px;
+}
+
+.card-wide {
+  @extend .card-settings;
+  max-width: 900px;
+}
+
+.card-row {
+  width: 100%;
+}
+
+.card-column-left {
+  @include transition (all 0.2s ease-in-out);
+  @include flex(2 2 15em);
+  @include align-self(stretch);
+  display: block;
+  margin: $flex-box-gutter;
+  max-width: 250px;
+
+  ul {
+    padding-top: 20px;
+    @extend .card_margin;
+    clear: left;
+    list-style-type: none;
+  }
+  li {
+    display: block;
+    padding-bottom: 10px;
+  }
+
+  li:last-child {
+    padding-bottom: none;
+  }
+
+  a {
+    font-size: 14px;
+  }
+}
+
+.card-column-right {
+  @include transition (all 0.2s ease-in-out);
+  @include flex(2 2 15em);
+  @include align-self(stretch);
+  display: block;
+  margin: $flex-box-gutter;
+  max-width: 550px;
 }
 
 .card_margin {
@@ -468,6 +517,7 @@ header {
   border-top: 1px solid rgba(0,0,0,0.12);
   width: 100%;
   text-align: left;
+  float: left;
 
   h2 {
     @extend .card_margin;
@@ -730,34 +780,108 @@ a.show-notes:hover .order-item-notes {
 .calendar-coverage {
   width:100%;
   align-content: center;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
   float: left;
 }
 
-.calendar-header {
-  text-align: center;
+.calendar-coverage-simple {
   width: 100%;
-  height: auto;
+  text-align: center;
+}
+
+.calendar-table {
+  display: table;
+  width: 100%;
+  max-width: 850px;
+  border-right: 1px solid $lunchpad_grey_hint;
+  border-bottom: 1px solid $lunchpad_grey_hint;
+  text-align: center;
+  @include margin(25px auto 27px auto);
 }
 
 .calendar-header-month {
   text-align: center;
-  border-bottom: 1px solid rgba(0,0,0,0.12);
-  color: rgba(0,0,0,0.87);
+  width: 100%;
+  color: $lunchpad_green_dark;
   font-weight: 500;
+  border-top: 1px solid rgba(0,0,0,0.12);
+  border-bottom: 1px solid rgba(0,0,0,0.12);
   @include padding(10px null 10px null);
+}
+
+.calendar-header-month-detail {
+  @extend .calendar-header-month;
+  font-size: 20px;
+}
+
+.calendar-header-month-simple {
+  @extend .calendar-header-month;
+  font-size: 16px;
+}
+
+.calendar-title-detail {
+  width: 235px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 45px;
+  display: inline-block;
+}
+
+.calendar-title-simple {
+  width: 220px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 40px;
+  display: inline-block;
+}
+
+.calendar-nav {
+  border: 1px solid $lunchpad_green_light;
+  display: inline-block;
+}
+
+.calendar-nav-detail {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  @extend .calendar-nav;
+  padding: 5px;
+}
+
+.calendar-nav-simple {
+  @extend .date-panel;
+  @extend .calendar-nav;
+  max-height: 35px;
+  width: 100%;
+  max-width: 35px;
+  font-size: 14px;
+  font-weight: 500;
+  @include margin(2px 2px 2px 2px);
+  padding: 6px 0 8px 0;
+}
+
+.calendar-header-simple {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.calendar-header-detail {
+  @extend .table-heading;
+}
+
+.calendar-header-panel {
+  display: table-cell;
+  color: white;
+  @include padding(6px null 6px null);
+}
+
+.calendar-row-simple {
   float: left;
   width: 100%;
 }
 
-.calendar-row {
-  float: left;
-  width: 100%;
-  padding-bottom: 10px;
-
-  a {
-    color: rgba(0,0,0,0.26);
-  }
+.calendar-row-detail {
+  display: table-row;
 }
 
 .date-panel {
@@ -766,35 +890,89 @@ a.show-notes:hover .order-item-notes {
   display: inline-block;
 }
 
-.date-panel-sml {
-  @extend .date-panel;
-  max-height: 38px;
-  width: 100%;
-  max-width: 38px;
+.date-panel-detail {
+  width: 14%;
+  border-top: 1px solid $lunchpad_grey_hint;
+  border-left: 1px solid $lunchpad_grey_hint;
+  text-align: left;
+  display: table-cell;
   font-size: 14px;
   font-weight: 500;
-  @include margin(4px 2px 4px 4px);
-  padding: 6px 0 8px 0;
+  padding: 6px;
+  height: 100px;
+
+  a {
+    float: right;
+    color: rgba(0,0,0,.35);
+  }
+
+  a:hover {
+    color: $lunchpad_green_dark;
+  }
+
+  ul {
+    margin-top: 10px;
+  }
+
+  li {
+    font-size: 12px;
+  }
+}
+
+.date-panel-simple {
+  @extend .date-panel;
+  max-height: 35px;
+  width: 100%;
+  max-width: 35px;
+  font-size: 12px;
+  font-weight: 500;
+  @include margin(4px 2px 4px 2px);
+  padding: 8px 0 8px 0;
 }
 
 .date-covered {
   background-color: #4CAF50;
+
+  a {
+    color: white;
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+  }
+}
+
+div.date-covered:hover {
+  background-color: $lunchpad_green_dark;
+}
+
+.date-uncovered {
+  background: rgba(255,0,0,0.05);
+  a {
+    color: red;
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+  }
+}
+
+div.date-uncovered:hover {
+  background-color: $lunchpad_green;
   a {
     color: white;
   }
 }
 
-.date-uncovered {
-  background: rgba(255,0,0,0.10);
-  a {
-    color: red;
-  }
-}
-
 .date-disabled {
+  color: $lunchpad_grey_secondary;
   a {
     color: rgba(0, 0, 0, 0.26);
   }
+}
+
+.disabled-holiday {
+  border: 1px solid $lunchpad_grey_hint;
 }
 
 .account_profile {
@@ -809,6 +987,10 @@ a.show-notes:hover .order-item-notes {
   border-radius: 25px;
   margin-right: 10px;
   display: inline-block;
+  color: white;
+  font-size: 20px;
+  line-height: 43px;
+  text-align: center;
 }
 
 .account_profile_info {
@@ -838,7 +1020,7 @@ a.show-notes:hover .order-item-notes {
   }
 }
 
-.account_card_links {
+.card_links {
   @include padding(10px 15px 10px 15px);
   text-align: right;
   font-size: 14px;
