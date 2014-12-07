@@ -60,6 +60,7 @@ $(document).on('click', '.menu-icon', function() {
     }
 });
 
+
 $(document).ready(function(){
     $(".dropdown-button").click(function() {
         $(".dropdown-menu").toggleClass("show-menu");

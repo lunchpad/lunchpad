@@ -142,7 +142,7 @@ $dropdown-arrow-top-distance: 0;
   }
 
   #account_name {
-    width: 364px;
+    width: 99.5%;
   }
 
   .grade {
@@ -151,17 +151,19 @@ $dropdown-arrow-top-distance: 0;
     label {
       float: left;
       font-size: 16px;
-      @include margin(10px 10px null 8px);
+      @include margin(15px 10px null 8px);
     }
     #account_section {
-      @include margin(12px null 14px null);
+      @include margin(17px 10px 0 null);
+      float: left;
     }
   }
 
   .actions {
+    margin-top: 15px;
     float: right;
+    clear: right;
     width: 175px;
-    clear: left;
   }
 
 
