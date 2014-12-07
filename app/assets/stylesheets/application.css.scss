@@ -120,6 +120,12 @@ $flex-box-gutter: 0;
 
 //END OF VARIABLE AND STYLES
 
+form {
+  input {
+    margin-bottom: 10px;
+  }
+}
+
 .background {
   height: 700px;
   width: 100%;
@@ -493,6 +499,10 @@ header {
   width: 100%;
   text-align: left;
   @include padding(15px 25px 15px 25px);
+
+  .edit-link {
+    float: right;
+  }
 
   h1 {
     font-size: 18px;

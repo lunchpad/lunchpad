@@ -13,8 +13,17 @@
 
     <div class="helpful_links">
       <ul>
-        <li><%= link_to "Back to All Vendors", vendors_path %></li>
-        <li><%= link_to "Add Menu Item", new_vendor_menu_item_path(@vendor) %></li>
+        <li><%= link_to new_vendor_menu_item_path(@vendor) do %>
+            <i class="fa fa-plus fa-fw"></i>
+            Add Menu Item
+          <% end %>
+        </li>
+
+        <li><%= link_to vendors_path do %>
+              <i class="fa fa-play fa-fw" id="flip"></i>
+              Back to All Vendors
+            <% end %>
+        </li>
       </ul>
     </div>
 
@@ -25,8 +34,13 @@
     <% else %>
       <% @menu_items.each do |item| %>
         <div class="display-block">
+          <div class="edit-link">
+            <%= link_to edit_menu_item_path(item, { vendor_id: @vendor.id }) do %>
+              <i class="fa fa-pencil"></i>
+              Edit
+            <% end %>
+          </div>
           <h1><%= item.name %></h1>
-
           <ul>
             <li>
               <strong>Description:</strong>
@@ -40,7 +54,7 @@
               <strong>Available Date Range:</strong>
               <p>
                 <%= item.available_menu_items[0].date.strftime("%b %e, %Y") %> - <%= item.available_menu_items[-1].date.strftime("%b %e, %Y") %>
-                - <%= link_to "Modify Availability", menu_item_path(item) %>
+                - <%= link_to "Add/Remove Availability", menu_item_path(item) %>
               </p>
             </li>
           </ul>

@@ -23,7 +23,9 @@ class MenuItem < ActiveRecord::Base
     begin_date = Date.parse(availability[:begin_date])
     end_date = Date.parse(availability[:end_date])
     (begin_date..end_date).each do |date|
+      unless vendor.school.off_days.find_by(date: date)
       available_menu_items.create(date: date, school: vendor.school) if date.send(availability[:day_of_week].downcase + '?')
+      end
     end
   end
 

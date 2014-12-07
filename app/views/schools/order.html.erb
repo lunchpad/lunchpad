@@ -4,22 +4,16 @@
 
     <div class="page_header">
       <%= render "schools/school_profile_card", school: @school %>
-
       <h1 class="card_title">Orders</h1>
     </div>
 
-    <div class="card_padding card-align-left">
-
-<h1>Look Up Another Order</h1>
-
-  <%= render 'order_filter' %>
-
-
-<h1>Orders for <%= @date.strftime("%A %D") %></h1>
-
-
-
-
+    <div class="display-block card-align-left">
+      <h1>Look Up Another Order</h1>
+      <%= render 'order_filter' %>
     </div>
+
+    <div class="display-block">
+        <h1>Orders for <%= @date.strftime("%A %D") %></h1>
+      </div>
   </div>
 </div>

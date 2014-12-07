@@ -8,18 +8,21 @@
       <h1 class="card_title">Accounts</h1>
     </div>
 
-    <div class="card_padding card-align-left">
       <% @accounts.each do |account| %>
-        <h2><%= account.name %></h2>
-        <h2>Owes: $<%= account.balance / 100 %></h2>
-        <%= link_to 'Delete Account', account_path(account, {method: 'delete'}) %>
+        <div class="display-block">
+          <div class="edit-link">
+            <%= link_to 'Delete Account', account_path(account, {method: 'delete'}) %>
+          </div>
+          <h2><%= account.name %></h2>
+          <h2><%= "#{@school.section_name}: #{account.section}" %></h2>
+        <h1>Balance Due: $<%= account.balance / 100 %></h1>
+          <br />
         <%= form_tag({controller: "accounts", action: "payment"}, method: "put") do %>
-          <%= label_tag 'Balance Payments' %>
-          <%= number_field :amount, :payment, min: 0, step: 0.01 %>
+          <%= number_field :amount, :payment, min: 0, step: 0.01, placeholder: "Payment Amount" %>
           <%= hidden_field_tag :account, account.id %>
           <%= submit_tag 'Apply Payment' %>
         <% end %>
+        </div>
       <% end %>
-    </div>
   </div>
 </div>
