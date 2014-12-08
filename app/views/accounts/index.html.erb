@@ -10,4 +10,6 @@
         <%= render partial: "accounts/account_card", collection: @accounts, as: :account, locals: { calendars: @calendars } %>
     <% end %>
   </div>
+<% else %>
+  <%= redirect_to 'welcome#sign_in' %>
 <% end %>
