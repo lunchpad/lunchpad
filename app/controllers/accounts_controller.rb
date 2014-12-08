@@ -4,7 +4,7 @@ class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :calendar]
 
   def index
-      @accounts = current_user.accounts
+      @accounts = current_user.accounts.order('name ASC')
       @calendars = Hash[current_user.accounts.map { |account| [account.id, set_calendar(account)] }]
       @start_date = cutoff_date - 1
   end

@@ -62,7 +62,7 @@ $flex-box-gutter: 0;
 
 .card-wrapper {
   margin-top: 0px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 
   @include media(em(1050)) {
     margin-left: 10%;
@@ -305,7 +305,7 @@ form {
 
 //Header Styling
 body {
-  margin-top: 80px;
+  margin-top: 75px;
   background-color: #F6F6F6;
 
   .fa {
