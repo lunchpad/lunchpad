@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
   has_many :accounts, through: :account_ownerships
   has_many :account_ownerships
 
+  validates :first_name, presence: :true
+  validates :last_name, presence: :true
+
   def balance
     accounts.pluck(:balance).sum
   end
