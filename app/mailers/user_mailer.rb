@@ -1,7 +1,7 @@
 class UserMailer < ActionMailer::Base
   default from: 'lunchpad.us@gmail.com'
 
-  def new_account(account_id)
+  def new_lunchbox(account_id)
     @account = Account.find(account_id)
     create_mail(@account.user, 'You have created a new lunchbox.')
   end
