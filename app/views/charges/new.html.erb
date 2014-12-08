@@ -1,10 +1,12 @@
-<%= form_tag charges_path, method: :post, id: 'payment-form' do %>
+<form action="/charges" method="POST" id="stripe-form">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
   <span class="payment-errors"></span>
 
   <div class="form-row">
     <label>
       <span>Amount</span>
-      <%= number_field_tag :amount %>
+      <input type="number" size="20" name="amount" step=".01"/>
     </label>
   </div>
 
@@ -12,7 +14,6 @@
     <label>
       <span>Card Number</span>
       <input type="text" size="20" data-stripe="number"/>
-
     </label>
   </div>
 
@@ -33,4 +34,6 @@
   </div>
 
   <button type="submit">Submit Payment</button>
-<% end %>
+</form>
+
+
