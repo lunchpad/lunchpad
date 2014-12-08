@@ -1,0 +1,51 @@
+<div class="calendar-table">
+  <div class="calendar-header-<%= calendar[:style] %>">
+    <% Date::DAYNAMES.each do |day| %>
+      <div class="calendar-header-panel"><%= day[0..2] %></div>
+    <% end %>
+  </div>
+
+  <% (calendar[:begin_date].beginning_of_week(:sunday)..calendar[:end_date].end_of_week - 1.day).each do |date| %>
+    <% scheduled = calendar[:events].select{ |event| event.date.to_date == date } %>
+
+    <% date.day == 1 ? format = '%b %-d' : format = '%-d' %>
+    <% if date.sunday? %>
+      <div class="calendar-row-detail">
+        <div class="date-panel-detail">
+          <strong><%= date.strftime(format) %></strong>
+        </div>
+    <% elsif date.saturday? %>
+      <div class="date-panel-detail">
+        <strong><%= date.strftime(format) %></strong>
+      </div>
+      </div>
+    <% elsif scheduled.present? %>
+      <div class="date-panel-detail" id="<%= "date_panel_#{date.to_s}" %>">
+        <strong>
+          <%= date.strftime(format) %>
+          <%= link_to raw('<i class="fa fa-pencil-square-o"></i>'), edit_account_order_path(account_id: calendar[:owner], id: scheduled[0].order) %>
+        </strong>
+        <ul>
+          <% scheduled.each do |item| %>
+            <li><%= item.menu_item.name %> (x<%= item.quantity %>)</li>
+          <% end %>
+        </ul>
+      </div>
+    <% else %>
+      <div class="date-panel-detail" id="<%= "date_panel_#{date.to_s}" %>">
+        <strong>
+          <%= date.strftime(format) %>
+          <%= link_to raw('<i class="fa fa-plus"></i>'), new_account_order_path(calendar[:owner], order_date: date.to_s) %>
+        </strong>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<% if calendar[:events].empty? %>
+  <div class="form_date_span">
+    <h2>No items have been ordered for this date range.</h2>
+  </div>
+<% else %>
+  <%= render partial: 'orders/confirmation', locals: { ordered_items: calendar[:events] } %>
+<% end %>

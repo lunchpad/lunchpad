@@ -11,3 +11,4 @@ $(document).on('click', '.quantity_subtract', function() {
   quantity.value = Math.max((quantity.value - 1), 0);
   return false;
   });
+

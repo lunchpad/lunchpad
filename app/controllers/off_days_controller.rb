@@ -22,6 +22,15 @@ class OffDaysController < ApplicationController
     redirect_to school_off_days_path
   end
 
+  def calendar
+    @calendar = set_calendar(params[:begin_date].to_date,params[:end_date].to_date)
+    respond_to do |format|
+      if @calendar.values.exclude? nil
+        format.js { render "shared/calendar", status: :created }
+      end
+    end
+  end
+
   private
 
   def set_school
