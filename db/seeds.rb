@@ -31,6 +31,10 @@ willow = School.create(name: 'Willow Oak',
                        section_name: "Grade",
                        section_titles: "K 1 2 3 4 5 6 7 8 9 10 11 12")
 
+OffDay.create(name: "Christmas Day", date: '2014-12-25', school: willow)
+OffDay.create(name: "MLK Jr. Birthday", date: '2015-01-19', school: willow)
+OffDay.create(name: "Washington's Birthday", date: '2015-02-16', school: willow)
+OffDay.create(name: "Memorial Day", date: '2015-05-25', school: willow)
 
 account = Account.create(school: willow,
                          balance: 0,

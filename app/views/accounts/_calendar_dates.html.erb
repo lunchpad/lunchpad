@@ -5,25 +5,23 @@
 </div>
 
 <% (calendar[:begin_date].beginning_of_week(:sunday)..calendar[:end_date].end_of_week - 1.day).each do |date| %>
-  <% scheduled = calendar[:events].select{ |event| event.date.to_date == date } %>
-  <% off_day = calendar[:owner].school.off_days.map{ |i| i.date.to_date }.include?(date) %>
-
   <% if date.sunday? %>
     <div class="calendar-row">
   <% end %>
 
-  <% if date.cwday > 5 || date < Date.today.next_week.monday && scheduled.empty? %>
+  <% if date.cwday > 5 || date < Date.today.next_week.monday && calendar[:events].select{ |event| event.date.to_date == date }.empty? %>
     <div class="date-panel-simple date-disabled">
       <%= date.strftime("%-d") %>
     </div>
-  <% elsif calendar[:owner].school.off_days.exists?(:date => date.beginning_of_day) %>
+  <% elsif calendar[:owner].school.off_days.map{ |i| i.date.to_date }.include?(date) %>
     <div class="date-panel-simple date-disabled disabled-holiday">
       <%= date.strftime("%-d") %>
     </div>
   <% else %>
-    <% if scheduled.present? %>
+    <% if calendar[:events].select{ |event| event.date.to_date == date }.present? %>
       <div class="date-panel-simple date-covered" id="<%= "date_panel_#{date.to_s}" %>">
-        <%= link_to date.strftime("%-d"), account_order_path(account_id: calendar[:owner], id: scheduled[0].order) %>
+        <%= link_to date.strftime("%-d"), account_order_path(account_id: calendar[:owner],
+                                                             id: calendar[:events].select{ |event| event.date.to_date == date }[0].order) %>
       </div>
     <% else %>
       <div class="date-panel-simple date-uncovered" id="<%= "date_panel_#{date.to_s}" %>">

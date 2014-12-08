@@ -19,12 +19,12 @@ class MenuItem < ActiveRecord::Base
   validates :price,
             presence: true
 
-  def schedule_availability(availability)
-    begin_date = Date.parse(availability[:begin_date])
-    end_date = Date.parse(availability[:end_date])
+  def schedule_availability(begin_date,end_date,day_of_week)
+    begin_date = Date.parse(begin_date)
+    end_date = Date.parse(end_date)
     (begin_date..end_date).each do |date|
       unless vendor.school.off_days.find_by(date: date.beginning_of_day..date.end_of_day)
-      available_menu_items.create(date: date, school: vendor.school) if date.send(availability[:day_of_week].downcase + '?')
+        available_menu_items.create(date: date, school: vendor.school) if date.send(day_of_week.downcase + '?')
       end
     end
   end

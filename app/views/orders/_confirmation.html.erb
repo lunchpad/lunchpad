@@ -21,7 +21,7 @@
     </div>
   </div>
 
-<% ordered_items.where('quantity > 0').each do |item| %>
+<% ordered_items.each do |item| %>
 
   <% if @date != item.date %>
     <div class="table-subheading">
@@ -64,7 +64,7 @@
     <div class="table-cell">
     </div>
     <div class="table-cell cell-align-center">
-      $<%= Money.new(ordered_items.where('quantity > 0').map{ |item| item.menu_item.price }.sum) %>
+      $<%= Money.new(ordered_items.map{ |item| item.menu_item.price }.sum) %>
     </div>
   </div>
 </div>

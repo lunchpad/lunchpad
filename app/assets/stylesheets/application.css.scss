@@ -61,7 +61,8 @@ $flex-box-gutter: 0;
 }
 
 .card-wrapper {
-  margin-top: 70px;
+  margin-top: 0px;
+  margin-bottom: 15px;
 
   @include media(em(1050)) {
     margin-left: 10%;
@@ -304,7 +305,7 @@ form {
 
 //Header Styling
 body {
-  margin-top: 100px;
+  margin-top: 75px;
   background-color: #F6F6F6;
 
   .fa {
@@ -339,7 +340,6 @@ header {
     top: 0;
     left: 0;
     right: 0;
-
   }
 
   .menu-icon {
@@ -353,7 +353,6 @@ header {
       font-size: 28px;
       color: white;
     }
-
   }
 
   .menu-icon:hover {

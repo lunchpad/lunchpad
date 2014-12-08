@@ -7,7 +7,7 @@
           Click on the <i class="fa fa-bars"></i> icon in the top left corner to add your first Lunchbox!.</p>
       </div>
     <% else %>
-        <%= render partial: "account_card", collection: current_user.accounts, as: :account %>
+        <%= render partial: "accounts/account_card", collection: @accounts, as: :account, locals: { calendars: @calendars } %>
     <% end %>
   </div>
 <% end %>

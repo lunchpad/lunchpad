@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
     order_date = params[:order_date].to_date.monday
     if order_date >= cutoff_date
       @order = Order.new
-      @ordered_items = OrderedItem.build_menu(order_date,order_date + 4)
+      @ordered_items = OrderedItem.build_menu(order_date,order_date + 4).sort_by{ |item| [item.date, item.menu_item.name] }
       @copyable_date = @ordered_items.map{ |item| item.copyable_date }.select{ |date| date > order_date.end_of_week }.min
     else
       redirect_to account_orders_path, error: 'Order date is invalid.'
@@ -34,6 +34,7 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @ordered_items = @order.ordered_items.where('quantity > 0').sort_by{ |item| [item.date, item.menu_item.name] }
   end
 
   def update
