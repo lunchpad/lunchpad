@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
-  resources :accounts, only: [:new, :create, :show, :edit, :update, :destroy] do
+  resources :accounts, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     put :payment, on: :member
     post :calendar, on: :member
     resources :available_menu_items, only: :index do
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'accounts#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
