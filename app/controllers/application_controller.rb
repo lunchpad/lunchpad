@@ -7,4 +7,10 @@ class ApplicationController < ActionController::Base
   def cutoff_date
     Date.today.next_week(:monday)
   end
+
+  private
+
+  def after_sign_out_path_for(u)
+    root_path
+  end
 end
