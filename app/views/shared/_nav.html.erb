@@ -14,6 +14,12 @@
     <div class="shadows">
       <div id="dropdown" class="dropdown-nav">
         <ul>
+          <%= link_to root_path do %>
+            <div class="dropdown-link">
+              <i class="fa fa-cutlery fa-fw"></i>
+              <li>&nbspMy Lunchboxes</li>
+            </div>
+          <% end %>
           <%= link_to new_account_path do %>
             <div class="dropdown-link">
               <i class="fa fa-plus fa-fw"></i>
@@ -24,6 +30,12 @@
             <div class="dropdown-link">
               <i class="fa fa-usd fa-fw"></i>
               <li>&nbspPayments</li>
+            </div>
+          <% end %>
+          <%= link_to root_path do %>
+            <div class="dropdown-link">
+              <i class="fa fa-calendar fa-fw"></i>
+              <li>&nbspAll Orders</li>
             </div>
           <% end %>
           <%= link_to root_path do %>
