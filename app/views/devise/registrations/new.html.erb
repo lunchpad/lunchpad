@@ -3,7 +3,6 @@
 <div class="card">
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :create }) do |f| %>
-    <%= devise_error_messages! %>
 
     <div class="field">
       <%= f.label :first_name %><br />

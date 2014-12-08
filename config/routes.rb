@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
   resources :available_menu_items, only: :destroy
 
-  resources :charges
+  resources :charges do
+    put :apply, on: :collection
+  end
 
   resources :vendors, shallow: true do
     resources :menu_items, except: [:index]
@@ -29,6 +31,7 @@ Rails.application.routes.draw do
     get :admins, on: :member
     put :make_admin, on: :member
     put :remove_admin, on: :member
+    post :calendar, on: :member
     resources :off_days
   end
 

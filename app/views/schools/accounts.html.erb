@@ -4,10 +4,8 @@
 
     <div class="page_header">
       <%= render "schools/school_profile_card", school: @school %>
-
       <h1 class="card_title">Accounts</h1>
     </div>
-
       <% @accounts.each do |account| %>
         <div class="display-block">
           <div class="edit-link">
@@ -18,7 +16,7 @@
         <h1>Balance Due: $<%= account.balance / 100 %></h1>
           <br />
         <%= form_tag({controller: "accounts", action: "payment"}, method: "put") do %>
-          <%= number_field :amount, :payment, min: 0, step: 0.01, placeholder: "Payment Amount" %>
+          <%= number_field nil, :payment, min: 0, step: 0.01, placeholder: "Payment Amount" %>
           <%= hidden_field_tag :account, account.id %>
           <%= submit_tag 'Apply Payment' %>
         <% end %>

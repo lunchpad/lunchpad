@@ -1,4 +1,21 @@
 class ChargesController < ApplicationController
+
+  def index
+    @accounts = current_user.accounts
+  end
+
+  def apply
+    @account = Account.find(params[:account])
+    payment = (params[:payment]).to_i * 100
+    if current_user.wallet >= payment
+      @account.decrement!(:balance, payment)
+      current_user.decrement!(:wallet, payment)
+    else
+      flash[:alert] = "Something went wrong. Make sure you have enough money in your wallet to apply this payment."
+    end
+    redirect_to charges_path
+  end
+
   def new
   end
 
