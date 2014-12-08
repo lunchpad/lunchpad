@@ -8,13 +8,15 @@
       <ul>
         <li><%= "Balance: $#{account.balance_dollars}" %></li>
         <li><a>Make Payment</a></li>
-        <li><a>Share Lunchbox</a></li>
 
         <% if account.orders.count > 0 %>
           <li><%= link_to "See all orders", account_orders_path(account) %></li>
         <% end %>
+        <li><%= link_to "Share Lunchbox", new_account_account_ownership_path(account) %></li>
+        <li><a>Lunchbox Owners: <% account.account_ownerships.each do |n| %>
+                                  <%= n.first_name %>
+                                  <% end %> </a></li>
       </ul>
-
     </div>
 
     <div class="card-column-right card_margin">
