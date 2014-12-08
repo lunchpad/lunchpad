@@ -18,14 +18,7 @@
     </div>
 
     <div class="card-column-right card_margin">
-      <% calendar_settings = { owner: account,
-                               events: account.ordered_items.ordered_between(Date.today.beginning_of_month.beginning_of_week,
-                                                                             Date.today.end_of_month.end_of_week),
-                               begin_date: @start_date.beginning_of_month,
-                               end_date: (@start_date + 6).end_of_month,
-                               style: 'simple' } %>
-
-      <%= render partial: 'shared/calendar', locals: { calendar: calendar_settings } %>
+      <%= render partial: 'shared/calendar', locals: { calendar: calendars[account.id] } %>
     </div>
   </div>
 </div>

@@ -48,7 +48,9 @@ class AccountsControllerTest < ActionController::TestCase
       assert_not_nil assigns[:account]
     end
 
-    should redirect_to(:controller => "welcome", :action => "index")
+    should 'redirect to root' do
+      assert_redirected_to root_path
+    end
   end
 
   context 'GET accounts#show' do

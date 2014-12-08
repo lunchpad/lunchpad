@@ -1,6 +1,13 @@
 class AccountsController < ApplicationController
+  include CalendarHelper
   before_action :authenticate_user!
   before_action :set_account, only: [:show, :edit, :update, :calendar]
+
+  def index
+      @accounts = current_user.accounts
+      @calendars = Hash[current_user.accounts.map { |account| [account.id, set_calendar(account)] }]
+      @start_date = cutoff_date - 1
+  end
 
   def new
     if params[:school]
@@ -36,7 +43,7 @@ class AccountsController < ApplicationController
   end
 
   def calendar
-    @calendar = set_calendar(params[:begin_date].to_date,params[:end_date].to_date)
+    @calendar = set_calendar(@account,params[:begin_date],params[:end_date],params[:style])
     respond_to do |format|
       if @calendar.values.exclude? nil
         format.js { render "shared/calendar", status: :created }
@@ -62,13 +69,11 @@ class AccountsController < ApplicationController
     params.require(:account).permit(:name, :section, :school_id)
   end
 
-  def set_calendar(begin_date,end_date)
-    begin_date ||= Date.today.beginning_of_month
-    end_date ||= Date.today.end_of_month
-    @calendar = { owner: @account,
-                  events: @account.ordered_items.ordered_between(begin_date.beginning_of_week,end_date.end_of_week),
-                  begin_date: begin_date,
-                  end_date: end_date,
-                  style: params[:style] }
+  def set_calendar(account,begin_date = Date.today.beginning_of_month,end_date = Date.today.end_of_month,style = 'simple')
+    begin_date = begin_date.to_date
+    end_date = end_date.to_date
+    events = account.ordered_items.ordered_between(begin_date.beginning_of_week,end_date.end_of_week)
+    events = events.sort_by{ |item| [item.available_menu_item.date, item.order.account.name, item.menu_item.name] }
+    @calendar = { owner: account, events: events, begin_date: begin_date, end_date: end_date, style: style }
   end
 end

@@ -12,8 +12,6 @@ class OrderedItem < ActiveRecord::Base
   before_destroy :for_future_date?
   default_scope { order(created_at: :asc) }
 
-
-
   validates :available_menu_item_id,
             presence: true
 
