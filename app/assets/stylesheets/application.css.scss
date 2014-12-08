@@ -636,6 +636,8 @@ a.show-notes:hover .order-item-notes {
   display: inline-block;
 }
 
+
+
 .table-table {
   display: table;
   width: 100%;
@@ -654,13 +656,22 @@ a.show-notes:hover .order-item-notes {
   padding: 15px;
 }
 
-.table-subheading {
+.table-subheading-green {
   display: table-row;
-  background-color: rgba(0,0,0,.05);
+  background-color: $lunchpad_green_hover;
   padding-left: 15px;
   border: 1px solid $lunchpad_green_dark;
   text-align: left;
 }
+
+.table-subheading-gray {
+  display: table-row;
+  background-color: rgba(0,0,0,.05);
+  padding-left: 15px;
+  border: 1px solid $lunchpad_black;
+  text-align: left;
+}
+
 
 .table-footer {
   display: table-row;

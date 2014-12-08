@@ -21,8 +21,8 @@ class SchoolsController < ApplicationController
 
   def order
     @date = params[:date].to_date
-    @ordered_items = @school.ordered_items.ordered_between(@date.beginning_of_day,
-                                                           @date.end_of_day)
+    @sorted_items = @school.report_for @date
+    @sorted_for_totals = @school.total_for @sorted_items
   end
 
   def accounts

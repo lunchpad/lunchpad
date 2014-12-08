@@ -5,6 +5,7 @@ class OrderedItem < ActiveRecord::Base
   delegate :menu_item, to: :available_menu_item, allow_nil: true
   delegate :date, to: :available_menu_item, allow_nil: true
   delegate :account, to: :order, allow_nil: true
+  delegate :section, to: :account, allow_nil: true
   delegate :vendor, to: :menu_item, allow_nil: true
   after_create :credit_account
   after_update :update_account
@@ -34,7 +35,7 @@ class OrderedItem < ActiveRecord::Base
   end
 
   def copyable_date
-    available_menu_items = menu_item.available_menu_items.where('date >= ?', date.beginning_of_day).order('date ASC')
+    available_menu_items = menu_item.available_menu_items.where('date >= ?',date.beginning_of_day).order('date ASC')
     max_date = available_menu_items.first.date.to_date
     available_menu_items[1..-1].each do |availability|
       if (availability.date.to_date - max_date).to_i.modulo(7) == 0
@@ -51,9 +52,10 @@ class OrderedItem < ActiveRecord::Base
     OrderedItem.create(available_menu_item_id: ami[0].id, order_id: order_id, quantity: self.quantity)
   end
 
-  def self.ordered_between(begin_datetime = DateTime.now.beginning_of_month,end_datetime = DateTime.now.end_of_month)
+  def self.ordered_between(begin_datetime = DateTime.now.beginning_of_month, end_datetime = DateTime.now.end_of_month)
       self.joins(:available_menu_item).where('quantity > ? AND date > ? AND date < ?',0,begin_datetime.beginning_of_day,end_datetime.end_of_day)
   end
+
 
   private
 
