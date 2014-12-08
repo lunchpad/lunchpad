@@ -54,6 +54,7 @@ gem 'aws-sdk'
 # gem 'debugger', group: [:development, :test]
 
 group :development, :test do
+  gem "dotenv-rails"
   gem "better_errors", '~> 2.0.0'
   gem "binding_of_caller"
   gem "capybara"
