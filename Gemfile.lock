@@ -89,6 +89,9 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     docile (1.1.5)
+    dotenv (1.0.2)
+    dotenv-rails (1.0.2)
+      dotenv (= 1.0.2)
     erubis (2.7.0)
     execjs (2.2.2)
     faker (1.4.3)
@@ -254,6 +257,7 @@ DEPENDENCIES
   chronic
   coffee-rails (~> 4.0.0)
   devise
+  dotenv-rails
   faker (~> 1.4.3)
   jbuilder (~> 2.0)
   jquery-rails
