@@ -31,4 +31,6 @@ class OffDaysController < ApplicationController
   def off_day_params
     params.require(:off_day).permit(:name, :date)
   end
+
+
 end

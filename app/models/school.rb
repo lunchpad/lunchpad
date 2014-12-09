@@ -19,6 +19,18 @@ class School < ActiveRecord::Base
                     :storage => :s3,
                     :bucket  => ENV['MY_BUCKET_NAME']
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
-  
+
+  def report_for(date)
+    items = self.ordered_items.ordered_between(date.to_datetime,
+                                               date.to_datetime)
+    sorted = items.sort_by { |item| [item.section,
+                                     item.account.name,
+                                     item.vendor,
+                                     item.menu_item] }
+  end
+
+  def total_for(sorted_for_report)
+    sorted = sorted_for_report.sort_by { |item| [item.vendor, item.menu_item] }
+  end
 
 end

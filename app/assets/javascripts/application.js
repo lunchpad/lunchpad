@@ -15,28 +15,12 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery-ui.multidatespicker
-//= require turbolinks
+// require turbolinks
 //= require_tree .
 
 //var datesArr = [];
 //
 //datesArr.push(new Date ('Mon Aug 27 00:00:00 EDT 2014'));
-//
-//datesArr.push(new Date ('Mon Aug 20 00:00:00 EDT 2014'));
-//
-//datesArr.push(new Date ('Mon Aug 13 00:00:00 EDT 2014'));
-//
-//datesArr.push(new Date ('Mon Aug 06 00:00:00 EDT 2014'));
-//
-//datesArr.push(new Date ('Mon Jul 30 00:00:00 EDT 2014'));
-//
-//datesArr.push(new Date ('Mon Jul 23 00:00:00 EDT 2014'));
-//
-//datesArr.push(new Date ('Mon Jul 16 00:00:00 EDT 2014'));
-//
-//datesArr.push(new Date ('Mon Jul 09 00:00:00 EDT 2014'));
-//
-//datesArr.push(new Date ('Mon Jul 02 00:00:00 EDT 2014'));
 
 $(document).on("page:load ready", function(){
     var today = new Date();
@@ -59,33 +43,6 @@ $(document).on('click', '.menu-icon', function() {
         $('.dropdown-nav-visible').toggleClass('dropdown-nav');
     }
 });
-
-
-jQuery(function($) {
-	$('#payment-form').submit(function(event) {
-		var $form = $(this);
-
-		$form.find('button').prop('disabled', true);
-
-		Stripe.card.createToken($form, stripeResponseHandler);
-
-		return false;
-	});
-});
-
-function stripeResponseHandler(status, response) {
-	var $form = $('#payment-form');
-
-	if (response.error) {
-		$form.find('.payment-errors').text(response.error.message);
-		$form.find('button').prop('disabled', false);
-	} else {
-		var token = response.id;
-		$form.append($('<input type="hidden" name="stripeToken" />').val(token));
-		alert(response.id);
-		$form.get(0).submit();
-	}
-};
 
 $(document).ready(function(){
     $(".dropdown-button").click(function() {

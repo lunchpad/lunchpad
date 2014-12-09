@@ -1,0 +1,32 @@
+<div class="flex-boxes card-wrapper">
+  <div class="flex-box card">
+    <h1>Your Wallet: $<%= current_user.wallet / 100 %></h1>
+    <h2>Fill wallet</h2>
+    <div class="display-block">
+      <%= render 'new' %>
+    </div>
+  </div>
+</div>
+
+
+<div class="flex-boxes card-wrapper">
+  <div class="flex-box card">
+    <h1>Apply Payments to Your Lunchboxes</h1>
+
+    <% @accounts.each do |account| %>
+      <div class="display-block">
+        <div class="payment-field">
+          <%= form_tag({controller: "charges", action: "apply"}, method: "put") do %>
+            <ul>
+              <li><%= number_field nil, :payment, min: 0, step: 0.01, placeholder: "Payment Amount" %></li>
+              <li><%= submit_tag 'Apply Payment' %></li>
+            </ul>
+            <%= hidden_field_tag :account, account.id %>
+        <% end %>
+        </div>
+        <%= render partial: "accounts/account_profile_card" , locals: {account: account} %><br />
+        <p class="balance">Balance Owed: $<%= account.balance / 100 %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

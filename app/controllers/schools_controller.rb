@@ -21,8 +21,8 @@ class SchoolsController < ApplicationController
 
   def order
     @date = params[:date].to_date
-    @ordered_items = @school.ordered_items.ordered_between(@date.beginning_of_day,
-                                                           @date.end_of_day)
+    @sorted_items = @school.report_for @date
+    @sorted_for_totals = @school.total_for @sorted_items
   end
 
   def accounts
@@ -53,6 +53,15 @@ class SchoolsController < ApplicationController
     redirect_to admins_school_path(@school)
   end
 
+  def calendar
+    @calendar = set_calendar(@school,params[:begin_date],params[:end_date],params[:style])
+    respond_to do |format|
+      if @calendar.values.exclude? nil
+        format.js { render "shared/calendar", status: :created }
+      end
+    end
+  end
+
   private
 
   def set_school
@@ -71,5 +80,11 @@ class SchoolsController < ApplicationController
     params.require(:school).permit(:logo, :name, :description, :motto, :address, :phone, :id)
   end
 
+  def set_calendar(school,begin_date = Date.today.beginning_of_month,end_date = Date.today.end_of_month,style = 'simple')
+    begin_date = begin_date.to_date
+    end_date = end_date.to_date
+    events = school.days_off.sort_by{ |day| day.date }
+    @calendar = { owner: school, events: events, begin_date: begin_date, end_date: end_date, style: style }
+  end
 
 end
