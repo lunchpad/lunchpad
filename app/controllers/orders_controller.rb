@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_account, except: [:all]
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:edit, :update, :destroy]
+  before_action :set_ordered_items, only: [:show]
 
   attr_reader :ordered_items
 
@@ -27,8 +28,9 @@ class OrdersController < ApplicationController
 
   def create
     @order = @account.orders.build(order_params)
-    if @order.save && (params[:copy_date].empty? || @order.copy(params[:copy_date].to_date))
-      redirect_to account_order_path(id: @order), success: 'Order was created.'
+    @copies = @order.copy(params[:copy_date].to_date) unless params[:copy_date].nil?
+    if @order.save && (params[:copy_date].empty? || @copies)
+        redirect_to account_order_path(id: [@order, @copies].flatten.compact), success: 'Order was created.'
     else
       redirect_to new_account_order_path(order_date: params[:order_date]), error: 'Your order is invalid.'
     end
@@ -39,7 +41,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @ordered_items = @order.ordered_items.where('quantity > 0').sort_by{ |item| [item.date, item.menu_item.name] }
+    @ordered_items = @ordered_items.select { |item| item.quantity > 0 }.sort_by{ |item| [item.date, item.menu_item.name] }
   end
 
   def update
@@ -66,6 +68,11 @@ class OrdersController < ApplicationController
 
   def set_order
     @order = Order.find(params[:id])
+  end
+
+  def set_ordered_items
+    orders = Order.find(params[:id].split('/'))
+    @ordered_items = orders.map{ |order| order.ordered_items }.flatten
   end
 
   def order_params

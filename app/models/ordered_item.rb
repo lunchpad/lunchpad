@@ -44,6 +44,7 @@ class OrderedItem < ActiveRecord::Base
   end
 
   def copy(copy_date,order_id)
+    return true if vendor.school.off_days.pluck(:date).map(&:to_date).include? copy_date
     ami = menu_item.available_menu_items.where('date >= ? AND date <= ?',copy_date.beginning_of_day,copy_date.end_of_day).first
     OrderedItem.create(available_menu_item_id: ami.id, order_id: order_id, quantity: self.quantity)
   end
