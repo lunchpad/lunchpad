@@ -32,7 +32,7 @@ class OrdersControllerTest < ActionController::TestCase
     should respond_with(:success)
 
     should 'load orders' do
-      assert assigns[:orders], 'Should load orders'
+      assert assigns[:ordered_items], 'Should load ordered_items'
     end
   end
 
