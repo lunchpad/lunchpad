@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
   include CalendarHelper
   before_action :authenticate_user!
-  before_action :set_account, only: [:show, :edit, :update, :calendar]
+  before_action :set_account, only: [:show, :edit, :update, :destroy, :calendar]
 
   def index
       @accounts = current_user.accounts.order('name ASC')
