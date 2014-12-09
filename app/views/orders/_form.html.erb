@@ -5,6 +5,7 @@
 
 <div class="form_wrapper no-top-padding">
   <%= form_for [account, order] do |order_form| %>
+    <%= hidden_field_tag :order_date, @order_date %>
     <%= order_form.fields_for :ordered_items, ordered_items do |menu_item| %>
 
         <% if @date != menu_item.object.date.to_date %>

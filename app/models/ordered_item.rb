@@ -29,31 +29,28 @@ class OrderedItem < ActiveRecord::Base
 
   def self.build_menu(begin_date,end_date)
     available_menu_items = AvailableMenuItem.within_date_range(begin_date,end_date)
-    available_menu_items.map { |order| OrderedItem.new(quantity: 0, available_menu_item_id: order.id) }
+    available_menu_items.map { |ami| OrderedItem.new(quantity: 0, available_menu_item_id: ami.id) }
   end
 
   def copyable_date
-    available_menu_items = menu_item.available_menu_items.where('date >= ?',date.beginning_of_day).order('date ASC')
-    max_date = available_menu_items.first.date.to_date
-    available_menu_items[1..-1].each do |availability|
-      if (availability.date.to_date - max_date).to_i.modulo(7) == 0
-        break unless availability.date.to_date == max_date + 7
-        max_date = availability.date.to_date
-      end
+    availability_dates = menu_item.available_menu_items.where('date >= ?',self.date.beginning_of_day).order('date ASC').pluck(:date).map(&:to_date)
+    return if availability_dates.empty?
+    max_date = availability_dates.shift
+    availability_dates.each do |availability|
+      max_date = availability if availability == max_date + 7
+      break if availability > max_date + 7
     end
     max_date
   end
 
   def copy(copy_date,order_id)
-    ami = AvailableMenuItem.where('date >= ? AND date <= ? AND menu_item_id = ?',
-                                  copy_date.beginning_of_day, copy_date.end_of_day, available_menu_item.menu_item)
-    OrderedItem.create(available_menu_item_id: ami[0].id, order_id: order_id, quantity: self.quantity)
+    ami = menu_item.available_menu_items.where('date >= ? AND date <= ?',copy_date.beginning_of_day,copy_date.end_of_day)
+    available_menu_item.ordered_items.create(order_id: order_id, quantity: self.quantity)
   end
 
   def self.ordered_between(begin_datetime = DateTime.now.beginning_of_month, end_datetime = DateTime.now.end_of_month)
       self.joins(:available_menu_item).where('quantity > ? AND date > ? AND date < ?',0,begin_datetime.beginning_of_day,end_datetime.end_of_day)
   end
-
 
   private
 
