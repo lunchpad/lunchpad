@@ -126,13 +126,27 @@ $flex-box-gutter: 0;
   li {
     display: block;
     padding-bottom: 10px;
+    font-size: 14px;
   }
 
   li:last-child {
-    padding-bottom: none;
+    padding-bottom: 10px;
   }
 
   a {
+    font-size: 14px;
+  }
+}
+
+.lunchbox_owners {
+  ul {
+    padding-top: 0;
+    clear: left;
+    list-style-type: none;
+  }
+  li {
+    display: block;
+    padding-bottom: 10px;
     font-size: 14px;
   }
 }
@@ -1068,6 +1082,18 @@ div.date-uncovered:hover {
   color: white;
   font-size: 20px;
   line-height: 43px;
+  text-align: center;
+}
+
+.account_profile_image_small {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  display: inline-block;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
   text-align: center;
 }
 

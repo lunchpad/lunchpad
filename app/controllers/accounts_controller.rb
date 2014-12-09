@@ -43,6 +43,7 @@ class AccountsController < ApplicationController
   end
 
   def calendar
+
     @calendar = set_calendar(@account,params[:begin_date],params[:end_date],params[:style])
     respond_to do |format|
       if @calendar.values.exclude? nil
