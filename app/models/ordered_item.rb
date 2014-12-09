@@ -34,18 +34,18 @@ class OrderedItem < ActiveRecord::Base
 
   def copyable_date
     availability_dates = menu_item.available_menu_items.where('date >= ?',self.date.beginning_of_day).order('date ASC').pluck(:date).map(&:to_date)
-    return if availability_dates.empty?
+    return self.date.to_date if availability_dates.count == 1
     max_date = availability_dates.shift
     availability_dates.each do |availability|
-      max_date = availability if availability == max_date + 7
-      break if availability > max_date + 7
+      max_date = availability if (availability == max_date + 7) || (vendor.school.off_days.pluck(:date).map(&:to_date).exclude? availability)
+      break if availability > max_date + 7 && (vendor.school.off_days.pluck(:date).map(&:to_date).exclude? availability - 7)
     end
     max_date
   end
 
   def copy(copy_date,order_id)
-    ami = menu_item.available_menu_items.where('date >= ? AND date <= ?',copy_date.beginning_of_day,copy_date.end_of_day)
-    available_menu_item.ordered_items.create(order_id: order_id, quantity: self.quantity)
+    ami = menu_item.available_menu_items.where('date >= ? AND date <= ?',copy_date.beginning_of_day,copy_date.end_of_day).first
+    OrderedItem.create(available_menu_item_id: ami.id, order_id: order_id, quantity: self.quantity)
   end
 
   def self.ordered_between(begin_datetime = DateTime.now.beginning_of_month, end_datetime = DateTime.now.end_of_month)

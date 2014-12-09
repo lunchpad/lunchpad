@@ -47,8 +47,8 @@
     <% end %>
 </div>
 
-<% if @copyable_date.present? %>
-  <%= render partial: 'form_repeat_order', locals: { copyable_date: @copyable_date, begin_date: ordered_items[0].date.end_of_week + 1 } if (params[:action] == 'new') %>
+<% if order.copyable_date %>
+  <%= render partial: 'form_repeat_order', locals: { copyable_date: order.copyable_date } if (params[:action] == 'new') %>
 <% end %>
 
 <div class="form_wrapper">
