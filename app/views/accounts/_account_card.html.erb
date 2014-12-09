@@ -6,7 +6,7 @@
       </div>
 
       <ul>
-        <li><%= "Balance: $#{account.balance_dollars}" %></li>
+        <li><%= account.balance >= 0 ? 'Amount owed' : 'Account Credit:' %> $<%= account.balance_dollars %></li>
         <li><a>Make Payment</a></li>
 
         <% if account.orders.count > 0 %>
