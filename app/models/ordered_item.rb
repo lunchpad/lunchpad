@@ -50,7 +50,7 @@ class OrderedItem < ActiveRecord::Base
   end
 
   def self.ordered_between(begin_datetime = DateTime.now.beginning_of_month, end_datetime = DateTime.now.end_of_month)
-      self.joins(:available_menu_item).where('quantity > ? AND date > ? AND date < ?',0,begin_datetime.beginning_of_day,end_datetime.end_of_day)
+      self.joins(:available_menu_item).where('quantity > ? AND date >= ? AND date <= ?',0,begin_datetime.beginning_of_day,end_datetime.end_of_day)
   end
 
   private
