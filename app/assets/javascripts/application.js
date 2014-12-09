@@ -15,7 +15,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery-ui.multidatespicker
-// require turbolinks
+//= require turbolinks
 //= require_tree .
 
 //var datesArr = [];
@@ -44,7 +44,7 @@ $(document).on('click', '.menu-icon', function() {
     }
 });
 
-$(document).ready(function(){
+$(document).on("page:load ready", function(){
     $(".dropdown-button").click(function() {
         $(".dropdown-menu").toggleClass("show-menu");
         $(".dropdown-menu > li").click(function(){
@@ -55,3 +55,18 @@ $(document).ready(function(){
         });
     });
 });
+
+
+
+$(document).on("page:load ready", function() {
+    $(".wallet").hide();
+    $(".wallet-trigger").click(function () {
+        $(".wallet").toggle('slow');
+    });
+
+    $(".payment-drop").hide();
+    $("#payment-trigger").click(function() {
+        $(".payment-drop").toggle("fast");
+    });
+});
+
