@@ -863,6 +863,11 @@ a.show-notes:hover .order-item-notes {
   font-size: 20px;
 }
 
+.calendar-header-month-detail_all {
+  @extend .calendar-header-month-detail;
+}
+
+
 .calendar-header-month-simple {
   @extend .calendar-header-month;
   font-size: 16px;
@@ -874,6 +879,10 @@ a.show-notes:hover .order-item-notes {
   font-weight: 500;
   margin-left: 45px;
   display: inline-block;
+}
+
+.calendar-title-detail_all {
+  @extend .calendar-title-detail;
 }
 
 .calendar-title-simple {
@@ -897,6 +906,10 @@ a.show-notes:hover .order-item-notes {
   padding: 5px;
 }
 
+.calendar-nav-detail_all {
+  @extend .calendar-nav-detail;
+}
+
 .calendar-nav-simple {
   @extend .date-panel;
   @extend .calendar-nav;
@@ -918,6 +931,10 @@ a.show-notes:hover .order-item-notes {
   @extend .table-heading;
 }
 
+.calendar-header-detail_all {
+  @extend .calendar-header-detail;
+}
+
 .calendar-header-panel {
   display: table-cell;
   color: white;
@@ -932,6 +949,11 @@ a.show-notes:hover .order-item-notes {
 .calendar-row-detail {
   display: table-row;
 }
+
+.calendar-row-detail_all {
+  @extend .calendar-row-detail_all;
+}
+
 
 .date-panel {
   border-radius: 2px;
@@ -966,6 +988,10 @@ a.show-notes:hover .order-item-notes {
   li {
     font-size: 12px;
   }
+}
+
+.date-panel-detail_all {
+  @extend .date-panel-detail_all
 }
 
 .date-panel-simple {

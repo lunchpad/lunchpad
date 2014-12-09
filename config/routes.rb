@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     resources :account_ownerships, only: [:index, :create, :destroy, :new], on: :member
   end
 
+  get '/orders', to: 'orders#all', as: 'orders'
+
   resources :available_menu_items, only: :destroy
 
   resources :charges do

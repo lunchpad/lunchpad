@@ -1,12 +1,18 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_account
+  before_action :set_account, except: [:all]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
   attr_reader :ordered_items
 
+  def all
+    @ordered_items = current_user.accounts.map{ |account| account.ordered_items.ordered_between }.flatten
+    @ordered_items = @ordered_items.sort_by{ |item| [item.available_menu_item.date, item.account.name] }
+  end
+
   def index
-    @orders = @account.orders.sort_by(&:begin_date)
+    @ordered_items = @account.ordered_items.ordered_between(Date.today.beginning_of_month.beginning_of_week,
+                                                            Date.today.end_of_month.end_of_week).all
   end
 
   def new
