@@ -8,18 +8,14 @@
       <h1 class="card_title">All Orders</h1>
     </div>
 
-    <% if @orders.empty? %>
+    <% if @ordered_items.empty? %>
       No orders have been placed.
+    <% else %>
+      <%= render partial: 'shared/calendar', locals: { calendar: { owner: @account,
+                                                                   events: @ordered_items,
+                                                                   begin_date: Date.today.beginning_of_month,
+                                                                   end_date: Date.today.end_of_month,
+                                                                   style: 'detail' } } %>
     <% end %>
-
-    <% calendar_settings = { owner: @account,
-                             events: @account.ordered_items.ordered_between(Date.today.beginning_of_month.beginning_of_week,
-                                                                           Date.today.end_of_month.end_of_week),
-                             begin_date: Date.today.beginning_of_month,
-                             end_date: Date.today.end_of_month,
-                             style: 'detail' } %>
-
-    <%= render partial: 'shared/calendar', locals: { calendar: calendar_settings } %>
-
   </div>
 </div>
