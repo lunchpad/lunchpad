@@ -40,7 +40,7 @@
 
     <div class="table-row">
       <div class="table-cell">
-        <%= item.menu_item.name %>
+        <%= link_to raw('<i class="fa fa-pencil-square-o"></i>'), edit_account_order_path(account_id: item.order.account, id: item.order) %> <%= item.menu_item.name %>
       </div>
       <div class="table-cell cell-align-center">
         <%= item.quantity %>
