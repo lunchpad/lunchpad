@@ -20,7 +20,7 @@ class SchoolsController < ApplicationController
   end
 
   def order
-    @date = params[:date].to_date
+    @date = params[:date].to_date || Date.today
     @sorted_items = @school.report_for @date
     @sorted_for_totals = @school.total_for @sorted_items
   end

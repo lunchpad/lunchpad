@@ -1,6 +1,5 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
-ruby '2.1.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
@@ -71,6 +70,5 @@ gem 'bitters'
 gem 'neat', '~> 1.5.1'
 
 gem 'chronic'
-gem 'tickle'
 gem 'money-rails'
 gem 'rails_12factor', group: :production

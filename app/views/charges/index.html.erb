@@ -1,19 +1,24 @@
 <div class="flex-boxes card-wrapper">
   <div class="flex-box card">
     <h1>Your Wallet: $<%= current_user.wallet / 100 %></h1>
-    <h2>Fill wallet</h2>
-    <div class="display-block">
-      <%= render 'new' %>
+    <div class="wallet-trigger">
+      <h2>Fill Wallet</h2>
+      <p>(click to expand)</p>
+    </div>
+    <div class="wallet display-block">
+      <%= render 'form' %>
     </div>
   </div>
 </div>
 
-
 <div class="flex-boxes card-wrapper">
   <div class="flex-box card">
-    <h1>Apply Payments to Your Lunchboxes</h1>
-
+    <div id="payment-trigger">
+      <h1>Apply Payments to Your Lunchboxes</h1>
+      <p>(click to expand)</p>
+    </div>
     <% @accounts.each do |account| %>
+      <div class="payment-drop">
       <div class="display-block">
         <div class="payment-field">
           <%= form_tag({controller: "charges", action: "apply"}, method: "put") do %>
@@ -27,6 +32,13 @@
         <%= render partial: "accounts/account_profile_card" , locals: {account: account} %><br />
         <p class="balance">Balance Owed: $<%= account.balance / 100 %></p>
       </div>
+      </div>
     <% end %>
+  </div>
+</div>
+
+<div class="flex-boxes card-wrapper">
+  <div class="flex-box card">
+    <h1>Payment History</h1>
   </div>
 </div>
