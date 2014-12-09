@@ -7,10 +7,10 @@
 
       <ul>
         <li><%= "Balance: $#{account.balance_dollars}" %></li>
-        <li><a>Make Payment</a></li>
+        <li><%= link_to 'Apply Payment', charges_path %></li>
 
         <% if account.orders.count > 0 %>
-          <li><%= link_to "See all orders", account_orders_path(account) %></li>
+          <li><%= link_to "See Orders", account_orders_path(account) %></li>
         <% end %>
         <li><%= link_to "Share Lunchbox", new_account_account_ownership_path(account) %></li>
         <li><a>Lunchbox Owners: <% account.account_ownerships.each do |n| %>

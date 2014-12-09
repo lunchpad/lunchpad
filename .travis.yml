@@ -10,3 +10,4 @@ deploy:
     repo: lunchpad/lunchpad
 before_script:
 - psql -c 'create database travis_ci_test;' -U postgres
+script: bundle exec rake build && bundle exec rake builddoc
