@@ -9,7 +9,7 @@
       <% @accounts.each do |account| %>
         <div class="display-block">
           <div class="edit-link">
-            <%= link_to 'Delete Account', account_path(account, {method: 'delete'}) %>
+            <%= button_to 'Delete Account', account_path(account), method: :delete %>
           </div>
           <h2><%= account.name %></h2>
           <h2><%= "#{@school.section_name}: #{account.section}" %></h2>
