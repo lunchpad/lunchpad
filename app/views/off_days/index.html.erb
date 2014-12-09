@@ -19,6 +19,15 @@
           <% end %>
         </ul>
       <% end %>
+
+      <% settings = { owner: @school,
+                      events: @off_days,
+                      begin_date: Date.today.beginning_of_month,
+                      end_date: Date.today.end_of_month,
+                      style: 'simple' } %>
+
+      <%= render partial: 'shared/calendar', locals: { calendar: settings } %>
+
     </div>
 
     <div class="display-block">

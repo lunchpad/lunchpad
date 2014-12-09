@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
 
   validates :first_name, presence: :true
   validates :last_name, presence: :true
+  validates_numericality_of :wallet, :only_integer =>true,
+                            :greater_than_or_equal_to =>0
+
 
   def balance
     accounts.pluck(:balance).sum

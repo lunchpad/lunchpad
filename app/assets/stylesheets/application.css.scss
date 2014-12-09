@@ -171,6 +171,42 @@ $flex-box-gutter: 0;
   margin-top: 100px;
   }
 
+.alert-box {
+  background-color: #7E57C2;
+  color: white;
+  font-weight: bold;
+
+  .close {
+    color: white;
+  }
+
+  .close:hover {
+    color: $lunchpad_grey_secondary;
+  }
+}
+
+.payment-field {
+  width: 50%;
+  margin-top: 8px;
+  float: right;
+  display: inline-block;
+
+  #_payment {
+    float: left;
+    width: 50%;
+    height: 36px;
+    margin-right: 10px;
+  }
+
+  ul {
+    padding: 0;
+  }
+}
+
+.balance {
+  @include margin(21px null null 54px);
+}
+
 //END OF VARIABLE AND STYLES
 
 form {
@@ -426,7 +462,7 @@ header {
       height: 273px;
       width: 0;
       position: fixed;
-      top: 271px;
+      top: 360px;
       left: 0;
 
       a {
@@ -475,7 +511,7 @@ header {
   }
 
   .dropdown-nav-visible {
-    height: 215px;
+    height: 303px;
     transition: height 0.2s ease-in-out;
     box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.24);
 
@@ -638,6 +674,8 @@ a.show-notes:hover .order-item-notes {
   display: inline-block;
 }
 
+
+
 .table-table {
   display: table;
   width: 100%;
@@ -656,13 +694,22 @@ a.show-notes:hover .order-item-notes {
   padding: 15px;
 }
 
-.table-subheading {
+.table-subheading-green {
   display: table-row;
-  background-color: rgba(0,0,0,.05);
+  background-color: $lunchpad_green_hover;
   padding-left: 15px;
   border: 1px solid $lunchpad_green_dark;
   text-align: left;
 }
+
+.table-subheading-gray {
+  display: table-row;
+  background-color: rgba(0,0,0,.05);
+  padding-left: 15px;
+  border: 1px solid $lunchpad_black;
+  text-align: left;
+}
+
 
 .table-footer {
   display: table-row;
@@ -936,6 +983,7 @@ a.show-notes:hover .order-item-notes {
   background-color: #4CAF50;
 
   a {
+    transition: none;
     color: white;
     display: block;
     height: 100%;
@@ -951,6 +999,7 @@ div.date-covered:hover {
 .date-uncovered {
   background: rgba(255,0,0,0.05);
   a {
+    transition: none;
     color: red;
     display: block;
     height: 100%;

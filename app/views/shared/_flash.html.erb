@@ -1,8 +1,10 @@
 <% [:success, :info, :warning, :alert].each do |flash_type| %>
   <% if flash[flash_type] %>
-    <div data-alert class="alert-box <%= flash_type %> radius">
-      <%= flash[flash_type] %>
-      <a href="#" class="close">&times;</a>
+    <div class="flex-boxes card-wrapper">
+      <div class="flex-box card card_padding alert-box">
+        <%= flash[flash_type] %>
+        <a href="#" class="close">&times;</a>
+      </div>
     </div>
   <% end %>
 <% end %>
