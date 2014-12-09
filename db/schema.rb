@@ -48,11 +48,6 @@ ActiveRecord::Schema.define(version: 20141208173448) do
   add_index "available_menu_items", ["menu_item_id"], name: "index_available_menu_items_on_menu_item_id", using: :btree
   add_index "available_menu_items", ["school_id"], name: "index_available_menu_items_on_school_id", using: :btree
 
-  create_table "lunch_reports", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "menu_items", force: true do |t|
     t.integer  "vendor_id"
     t.string   "name"
