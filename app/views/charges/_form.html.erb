@@ -1,0 +1,43 @@
+<form class="cc-form" action="/charges" method="POST" id="stripe-form">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+  <span class="payment-errors"></span>
+
+  <div id="cvc">
+    <label>
+      <span>CVC/CVV</span>
+      <input type="text" size="4" data-stripe="cvc"/>
+    </label>
+  </div>
+
+  <div id="card-number">
+    <label>
+      <span>Card Number</span>
+      <input type="text" size="20" data-stripe="number"/>
+    </label>
+  </div>
+
+  <label>
+    <span>Expiration</span>
+    <span id="amount-span">Amount</span>
+    <input class="button" type="submit"/>
+
+  </label>
+
+  <div class="exp-date">
+    <div class="exp-month">
+      <input type="text" size="2" data-stripe="exp-month" placeholder="MM"/>
+    </div>
+    <div class="exp-year">
+      <input type="text" size="4" data-stripe="exp-year" placeholder="YYYY"/>
+      <input id="amount" type="number" size="20" name="amount" step=".01"/>
+    </div>
+  </div>
+  <div class="stripe-image">
+    <%= link_to 'http://www.stripe.com' do %>
+      <%= image_tag "solid.png" %>
+    <% end %>
+  </div>
+</form>
+
+

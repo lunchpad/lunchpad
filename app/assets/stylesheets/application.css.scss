@@ -20,6 +20,7 @@
 @import "base/base";
 @import "dropdown";
 
+
 $lunchpad_green: #4CAF50;
 $lunchpad_green_dark: #2E7D32;
 $lunchpad_green_light: #C8E6C9;
@@ -674,8 +675,6 @@ a.show-notes:hover .order-item-notes {
   display: inline-block;
 }
 
-
-
 .table-table {
   display: table;
   width: 100%;
@@ -1109,3 +1108,84 @@ div.date-uncovered:hover {
 .page_header {
   @extend .card_margin;
 }
+
+
+.wallet.display-block {
+  height: 175px;
+}
+
+.cc-form {
+  width: 350px;
+  height: 108px;
+  margin-left: 23%;
+
+  input {
+    margin-bottom: 2px;
+  }
+
+  label {
+    margin: 0;
+  }
+
+  #amount-span {
+    margin-left: 57px;
+  }
+
+  #card-number input{
+    width: 250px;
+  }
+
+  #cvc {
+    float: right;
+    clear: both;
+
+    input {
+      width: 65px;
+    }
+  }
+
+  .exp-date {
+    width: 235px;
+    float: left;
+
+    input {
+      width: 55px;
+    }
+
+    .exp-month {
+      float: left;
+
+      input {
+        width: 40px;
+        margin-right: 10px;
+      }
+    }
+
+    .exp-year {
+      input {
+        float: left;
+      }
+    }
+  }
+
+  #amount {
+    width: 100px;
+    float: right;
+  }
+
+  .button {
+    float: right;
+    margin-top: 19px;
+    margin-bottom: 0;
+    @include padding(10px 14px 10px 14px);
+  }
+
+  .stripe-image {
+    text-align: center;
+    img {
+      margin-top: 10px;
+    }
+  }
+}
+
+

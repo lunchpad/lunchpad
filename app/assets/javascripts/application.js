@@ -55,3 +55,20 @@ $(document).ready(function(){
         });
     });
 });
+
+
+
+$(document).ready(function() {
+    $(".wallet").hide();
+    $(".wallet-trigger").click(function () {
+        $(".wallet").toggle('slow');
+    });
+
+    $(".payment-drop").hide();
+    $("#payment-trigger").click(function() {
+        $(".payment-drop").toggle("slow");
+    });
+
+
+});
+
