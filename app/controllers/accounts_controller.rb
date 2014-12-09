@@ -53,9 +53,8 @@ class AccountsController < ApplicationController
 
   def payment
     @account = Account.find(params[:account])
-    @payment = (params[:amount][:payment]).to_i * 100
-    @account.balance -= @payment
-    @account.save
+    payment = (params[:payment]).to_i * 100
+    @account.decrement!(:balance, payment)
     redirect_to accounts_school_path(School.find(params[:id]))
   end
 

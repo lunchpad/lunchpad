@@ -12,8 +12,127 @@
       <%= render 'order_filter' %>
     </div>
 
+
     <div class="display-block">
-        <h1>Orders for <%= @date.strftime("%A %D") %></h1>
+
+      <h1>Total Orders for <%= @date.strftime("%A %D") %></h1>
+
+      <div class="table-table">
+        <div class="table-heading">
+          <div class="table-cell cell-align-left">
+            Vendor
+          </div>
+          <div class="table-cell cell-align-center">
+            Menu Item
+          </div>
+          <div class="table-cell cell-align-center">
+            Total Quantity
+          </div>
+        </div>
+
+        <% @sorted_for_totals.each do |item| %>
+
+          <% if @vendor != item.vendor %>
+            <div class="table-subheading-gray">
+              <div class="table-cell">
+                <strong><%= item.vendor.name %></strong>
+                <% @vendor = item.vendor %>
+              </div>
+              <div class="table-cell">
+              </div>
+              <div class="table-cell">
+              </div>
+            </div>
+          <% end %>
+
+            <% if @menu_item != item.menu_item %>
+            <div class="table-row">
+              <div class="table-cell">
+              </div>
+              <div class="table-cell cell-align-center">
+                <%= item.menu_item.name %>
+              </div>
+              <div class="table-cell cell-align-center">
+                <%= quantity_of item.menu_item %>
+              </div>
+            <% @menu_item = item.menu_item %>
+            </div>
+          <% end %>
+        <% end %>
+
       </div>
+
+    </div>
+
+    <div class="display-block">
+
+      <h1>Distribution of Orders for <%= @date.strftime("%A %D") %></h1>
+
+      <div class="table-table">
+        <div class="table-heading">
+          <div class="table-cell cell-align-left">
+            <%= @school.section_name %>
+          </div>
+          <div class="table-cell cell-align-center">
+            Student
+          </div>
+          <div class="table-cell cell-align-center">
+            Vendor
+          </div>
+          <div class="table-cell cell-align-center">
+            Menu Item
+          </div>
+          <div class="table-cell cell-align-center">
+            Quantity
+          </div>
+        </div>
+
+        <% @sorted_items.each do |item| %>
+
+          <% if @section != item.section %>
+            <div class="table-subheading-gray">
+              <div class="table-cell">
+                <strong><%= "#{@school.section_name}: #{item.section}" %></strong>
+                <% @section = item.section %>
+              </div>
+              <div class="table-cell">
+              </div>
+              <div class="table-cell">
+              </div>
+              <div class="table-cell">
+              </div>
+              <div class="table-cell">
+              </div>
+            </div>
+          <% end %>
+
+          <div class="table-row">
+            <div class="table-cell">
+            </div>
+              <% if @name != item.account.name %>
+                <div class="table-cell cell-align-center">
+                  <%= item.account.name %>
+                </div>
+                <% @name = item.account.name %>
+              <% else %>
+                <div class="table-cell cell-align-center">
+                </div>
+              <% end %>
+            <div class="table-cell cell-align-center">
+              <%= item.vendor.name %>
+            </div>
+            <div class="table-cell cell-align-center">
+              <%= item.menu_item.name %>
+            </div>
+            <div class="table-cell cell-align-center">
+              <%= item.quantity %>
+            </div>
+          </div>
+
+        <% end %>
+
+      </div>
+
+    </div>
   </div>
 </div>
