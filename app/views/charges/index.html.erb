@@ -1,9 +1,9 @@
 <div class="flex-boxes card-wrapper">
   <div class="flex-box card">
     <h1>Your Wallet: $<%= current_user.wallet / 100 %></h1>
+    <h2>Fill wallet</h2>
     <div class="display-block">
-      <h2>Fill your wallet</h2>
-      <p>Payment form goes here.</p>
+      <%= render 'new' %>
     </div>
   </div>
 </div>

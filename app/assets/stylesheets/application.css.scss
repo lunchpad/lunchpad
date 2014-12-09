@@ -983,6 +983,7 @@ a.show-notes:hover .order-item-notes {
   background-color: #4CAF50;
 
   a {
+    transition: none;
     color: white;
     display: block;
     height: 100%;
@@ -998,6 +999,7 @@ div.date-covered:hover {
 .date-uncovered {
   background: rgba(255,0,0,0.05);
   a {
+    transition: none;
     color: red;
     display: block;
     height: 100%;
