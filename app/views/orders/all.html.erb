@@ -8,15 +8,11 @@
       <h1 class="card_title">All Orders</h1>
     </div>
 
-    <% if @ordered_items.empty? %>
-      No orders have been placed.
-    <% end %>
-
     <% calendar_settings = { owner: current_user.accounts[0],
                              events: @ordered_items,
                              begin_date: Date.today.beginning_of_month,
                              end_date: Date.today.end_of_month,
-                             style: 'detail detail-all' } %>
+                             style: 'detail_all' } %>
 
     <%= render partial: 'shared/calendar', locals: { calendar: calendar_settings } %>
 

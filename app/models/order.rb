@@ -23,7 +23,7 @@ class Order < ActiveRecord::Base
       new_order = account.orders.create
       ordered_items.each do |item|
         copy_date = item.date.to_date + (week * 7)
-        break unless copy_date <= item.copyable_date
+        break unless copy_date <= item.copyable_date && copy_date <= future_date
         item.copy(item.date.to_date + (week * 7),new_order.id)
       end
     end
