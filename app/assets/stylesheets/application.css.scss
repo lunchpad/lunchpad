@@ -635,6 +635,13 @@ div.order-block:hover {
   text-align: right;
 }
 
+.order-item-vendor {
+  margin-top: 8px;
+  display: inline;
+  float: right;
+  font-size: 12px;
+  height: 100%;
+}
 
 .order-quantity-select {
   a {
@@ -652,13 +659,9 @@ div.order-block:hover {
   display: inline-block;
 }
 
-.order-item-price {
-  text-align: right;
-}
-
 .order-item-notes {
   padding-left: 102px;
-  @include padding(10px null 10px 102px);
+  @include padding(null null 10px 102px);
   font-size: 12px;
 }
 
@@ -673,8 +676,6 @@ div.order-block:hover {
 a.show-notes:hover .order-item-notes {
   display: inline-block;
 }
-
-
 
 .table-table {
   display: table;
