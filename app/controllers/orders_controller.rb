@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
   def create
     @order = @account.orders.build(order_params)
     @copies = @order.copy(params[:copy_date].to_date) unless params[:copy_date].nil?
-    if @order.ordered_items.map(&:quantity).reduce(:+) > 0 && @order.save && (params[:copy_date].empty? || @copies)
+    if @order.save && (params[:copy_date].empty? || @copies)
         redirect_to account_order_path(id: [@order, @copies].flatten.compact), success: 'Order was created.'
     else
       redirect_to new_account_order_path(order_date: params[:order_date]), error: 'Your order is invalid.'
