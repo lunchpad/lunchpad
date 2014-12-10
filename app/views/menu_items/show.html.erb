@@ -14,16 +14,15 @@
       </ul>
     </div>
     <div class="card_padding"
-      <h1><%= @menu_item.name %></h1>
+    <h1><%= @menu_item.name %></h1>
 
-      <% settings = { owner: @menu_item,
-                      events: @menu_item.available_menu_items,
-                      begin_date: Date.today.beginning_of_month,
-                      end_date: Date.today.end_of_month,
-                      style: 'simple' } %>
+    <% settings = { owner: @menu_item,
+                    events: @menu_item.available_menu_items,
+                    begin_date: Date.today.beginning_of_month,
+                    end_date: Date.today.end_of_month,
+                    style: 'simple' } %>
 
-      <%= render partial: 'shared/calendar', locals: { calendar: settings } %>
+    <%= render partial: 'shared/calendar', locals: { calendar: settings } %>
 
-    </div>
   </div>
 </div>
