@@ -46,6 +46,12 @@ h3 {
   line-height: 21px;
 }
 
+h5 {
+  color: $lunchpad_grey_secondary;
+  font-size: 14px;
+  line-height: 21px;
+}
+
 a {
   color: #2E7D32;
 }
@@ -127,13 +133,27 @@ $flex-box-gutter: 0;
   li {
     display: block;
     padding-bottom: 10px;
+    font-size: 14px;
   }
 
   li:last-child {
-    padding-bottom: none;
+    padding-bottom: 10px;
   }
 
   a {
+    font-size: 14px;
+  }
+}
+
+.lunchbox_owners {
+  ul {
+    padding-top: 0;
+    clear: left;
+    list-style-type: none;
+  }
+  li {
+    display: block;
+    padding-bottom: 10px;
     font-size: 14px;
   }
 }
@@ -221,7 +241,7 @@ form {
   width: 100%;
   background-image: url('apples.jpg');
   background-size: cover;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: -1px;
@@ -434,7 +454,7 @@ header {
     background: RGBA(207, 207, 207, 1);
     float: left;
     clear: both;
-    position: fixed;
+    position: absolute;
     top: 56px;
     left: 0;
     box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.24);
@@ -460,8 +480,8 @@ header {
       transition-delay: 0.1s;
       height: 273px;
       width: 0;
-      position: fixed;
-      top: 360px;
+      position: absolute;
+      top: 305px;
       left: 0;
 
       a {
@@ -709,7 +729,7 @@ a.show-notes, a.hide-notes {
   text-align: left;
 }
 
-.table-subheading-gray {
+.table-subheading-grey {
   display: table-row;
   background-color: rgba(0,0,0,.05);
   padding-left: 15px;
@@ -1000,12 +1020,21 @@ a.show-notes, a.hide-notes {
   }
 
   li {
+    margin-top: 4px;
     font-size: 12px;
   }
 }
 
+div.date-panel-detail:hover {
+  background-color: $lunchpad_green_hover;
+}
+
 .date-panel-detail_all {
-  @extend .date-panel-detail_all
+  @extend .date-panel-detail;
+
+  a {
+    vertical-align: center;
+  }
 }
 
 .date-panel-simple {
@@ -1049,9 +1078,10 @@ div.date-covered:hover {
 }
 
 div.date-uncovered:hover {
-  background-color: $lunchpad_green;
+  background-color: white;
+  outline: 1px solid $lunchpad_green;
   a {
-    color: white;
+    color: $lunchpad_green;
   }
 }
 
@@ -1082,6 +1112,34 @@ div.date-uncovered:hover {
   font-size: 20px;
   line-height: 43px;
   text-align: center;
+}
+
+.account_profile_image_small {
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  display: inline-block;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  vertical-align: center;
+
+  a {
+    float: none;
+    text-align: center;
+    font-size: 10px;
+    color: white;
+    height: 100%;
+    width: 100%;
+    transition: none;
+  }
+
+  a:hover {
+    color: #CCCCCC;
+    font-size: 10px;
+  }
 }
 
 .account_profile_info {
@@ -1119,7 +1177,6 @@ div.date-uncovered:hover {
   background-color: $lunchpad_green;
   border-radius: 8px;
   padding: 5px;
-  width: 200px;
   position: absolute;
   z-index: 2;
 
@@ -1145,8 +1202,34 @@ div.date-uncovered:hover {
   }
 }
 
+.available {
+  background-color: $lunchpad_green;
+  color: white;
+}
+
+.available:hover {
+  background-color: red;
+}
+
+.unavailable {
+  border: solid 1px red;
+}
+
+.unavailable:hover {
+  background-color: $lunchpad_green;
+}
+
+.ordered {
+  background-color: $lunchpad_green_light;
+  border: solid 1px red;
+}
+
 .past {
   color: $lunchpad_grey_hint;
+}
+
+.date-panel-avail {
+  @extend .date-panel-simple;
 }
 
 .card_links {
@@ -1197,7 +1280,6 @@ div.date-uncovered:hover {
   width: 350px;
   height: 108px;
   margin-left: 23%;
-
 
   input {
     margin-bottom: 2px;
@@ -1253,7 +1335,6 @@ div.date-uncovered:hover {
     float: right;
   }
 
-
   .button {
     float: right;
     margin-top: 19px;
@@ -1270,4 +1351,35 @@ div.date-uncovered:hover {
   }
 }
 
+.calendar-icon-border {
+  float: left;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 80px;
+  background-color: #7E57C2;
+  border-radius: 4px;
+  text-align: center;
+  border: 2px solid #7E57C2;
+  h1 {
+    padding: 5px;
+    font-size: 20px;
+    color: white;
+  }
 
+  .calendar-icon-contents {
+    background-color: white;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 5px;
+    margin: 2px;
+  }
+
+  display: inline-block;
+}
+
+.calendar-icon-prompt {
+  @include padding(12px 25px null 25px);
+  font-size: 16px;
+  display: inline-block;
+}

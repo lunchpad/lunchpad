@@ -8,15 +8,25 @@
       <ul>
 
         <li><%= account.balance >= 0 ? 'Amount owed' : 'Account Credit:' %> $<%= account.balance_dollars %></li>
-        <li><a>Make Payment</a></li>
+        <li><%= link_to 'Apply Payment', charges_path %></li>
 
         <% if account.orders.count > 0 %>
           <li><%= link_to "See Orders", account_orders_path(account) %></li>
         <% end %>
-        <li><%= link_to "Share Lunchbox", new_account_account_ownership_path(account) %></li>
-        <li><a>Lunchbox Owners: <% account.account_ownerships.each do |n| %>
-                                  <%= n.first_name %>
-                                  <% end %> </a></li>
+      </ul>
+      <ul class="lunchbox_owners">
+        <li><strong>Lunchbox Owners |</strong> <%= link_to raw('<i class="fa fa-share"></i>'), new_account_account_ownership_path(account) %></li>
+          <% account.users.each do |n| %>
+            <li>
+              <div class="account_profile_image_small" style="background-color: rgba(<%= colorize(n.first_name).join(",") %>,1)">
+                <%= n.first_name.first %>
+              </div>
+              <%= n.first_name %>
+            </li>
+          <% end %>
+        <li>
+
+        </li>
       </ul>
     </div>
 

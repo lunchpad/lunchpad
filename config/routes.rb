@@ -17,14 +17,17 @@ Rails.application.routes.draw do
 
   get '/orders', to: 'orders#all', as: 'orders'
 
-  resources :available_menu_items, only: :destroy
+  resources :available_menu_items, only: [:create, :destroy]
 
   resources :charges do
     put :apply, on: :collection
   end
 
   resources :vendors, shallow: true do
-    resources :menu_items, except: [:index]
+    resources :menu_items, except: [:index] do
+      resources :available_menu_items, only: [:create, :destroy], on: :member
+      post :calendar, on: :member
+    end
   end
 
   resources :admins, only: :index

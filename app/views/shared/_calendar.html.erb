@@ -19,8 +19,8 @@
   </div>
 
   <% if calendar[:style] == 'simple' %>
-    <%= render partial: calendar[:owner].class.to_s.pluralize + '/calendar_dates', locals: { calendar: calendar } %>
+    <%= render partial: calendar[:owner].class.to_s.underscore.pluralize + '/calendar_dates', locals: { calendar: calendar } %>
   <% else %>
-    <%= render partial: calendar[:owner].class.to_s.pluralize + '/calendar_' + calendar[:style], locals: { calendar: calendar } %>
+    <%= render partial: calendar[:owner].class.to_s.underscore.pluralize + '/calendar_' + calendar[:style], locals: { calendar: calendar } %>
   <% end %>
 </div>

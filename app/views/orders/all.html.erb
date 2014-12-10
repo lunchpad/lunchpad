@@ -5,16 +5,16 @@
     <div class="page_header">
       <%= render partial: "sessions/user_profile_card" , locals: {account: current_user} %>
 
-      <h1 class="card_title">All Orders</h1>
+      <h1 class="card_title">All Lunchbox Orders</h1>
     </div>
 
-    <% calendar_settings = { owner: current_user.accounts[0],
+    <% calendar_settings = { owner: current_user.accounts,
                              events: @ordered_items,
                              begin_date: Date.today.beginning_of_month,
                              end_date: Date.today.end_of_month,
                              style: 'detail_all' } %>
 
-    <%= render partial: 'shared/calendar', locals: { calendar: calendar_settings } %>
+    <%= render partial: 'accounts/calendar_detail_all', locals: { calendar: calendar_settings } %>
 
   </div>
 </div>

@@ -20,10 +20,10 @@
     <% if scheduled.present? %>
         <div class="date-panel-simple off-day" id="<%= "date_panel_#{date.to_s}" %>">
           <span class="hoverbox" id="<%= scheduled.first.id %>">
-            <%= scheduled.first.name %>
             <%= link_to school_off_day_path(@school, scheduled.first), method: :delete do %>
               <i class="fa fa-trash-o fa-fw"></i>
             <% end %>
+            <%= scheduled.first.name %>
           </span>
           <%= date.strftime("%-d") %>
         </div>
