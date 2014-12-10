@@ -23,23 +23,25 @@ super_admin = User.create(email: 'email@gmail.com',
                           last_name: 'Pad')
 
 
-willow = School.create(name: 'Willow Oak',
-                       description: 'Charter school',
-                       motto: 'random motto',
+hogwarts = School.create(name: 'Hogwarts',
+                       description: 'School of Witchcraft and Wizardry',
+                       motto: 'Never Tickle a Sleeping Dragon',
                        phone: Faker::PhoneNumber.phone_number,
-                       address: Faker::Address.street_address,
-                       section_name: "Grade",
-                       section_titles: "K 1 2 3 4 5 6 7 8 9 10 11 12")
+                       address: 'Somewhere in Scotland',
+                       section_name: "House",
+                       section_titles: "Gryffindor Hufflepuff Ravenclaw Slytherin")
 
-OffDay.create(name: "Christmas Day", date: '2014-12-25', school: willow)
-OffDay.create(name: "MLK Jr. Birthday", date: '2015-01-19', school: willow)
-OffDay.create(name: "Washington's Birthday", date: '2015-02-16', school: willow)
-OffDay.create(name: "Memorial Day", date: '2015-05-25', school: willow)
+OffDay.create(name: "Christmas Day", date: '2014-12-25', school: hogwarts)
+OffDay.create(name: "MLK Jr. Birthday", date: '2015-01-19', school: hogwarts)
+OffDay.create(name: "Washington's Birthday", date: '2015-02-16', school: hogwarts)
+OffDay.create(name: "Memorial Day", date: '2015-05-25', school: hogwarts)
 
-account = Account.create(school: willow,
+section = "Gryffindor"
+
+account = Account.create(school: hogwarts,
                          balance: 0,
-                         name: 'Student 1',
-                         section: 3)
+                         name: 'Neville Longbottom',
+                         section: section)
 
 User.create(email: 'deedeelavinder@gmail.com',
             first_name: 'DeeDee',
@@ -59,83 +61,94 @@ User.create(email: 'kheang@gmail.com',
             password: 'password',
             password_confirmation: 'password')
 
-super_admin.add_role :admin, willow
+
+# super_admin.add_role :admin, hogwarts
 
 
 User.all.each do |user |
-  user.add_role :admin, willow
+  user.add_role :admin, hogwarts
+  AccountOwnership.create(user: user, account: account)
 end
 
-AccountOwnership.create(user: super_admin, account: account)
 
-vendor_ht = Vendor.create(name: 'Harris Teeter',
-              email: 'email@gmail.com',
-              phone_number: '555-555-5555',
-              school: willow)
 
-vendor_cat = Vendor.create(name: 'Carolina Catering Company',
-                          email: 'carolina@gmail.com',
-                          phone_number: '555-555-5555',
-                          school: willow)
+vendor_tbi = Vendor.create(name: "Three Broomsticks",
+                           email: 'tbi@gmail.com',
+                           phone_number: '555-555-5555',
+                           school: hogwarts)
+
+vendor_hc = Vendor.create(name: "Hagrid's Cookery",
+                          email: 'hc@gmail.com',
+                          phone_number: '888-888-8888',
+                          school: hogwarts)
+
+vendor_lc = Vendor.create(name: "Leaky Cauldron",
+                           email: 'lc@gmail.com',
+                           phone_number: '444-444-4444',
+                           school: hogwarts)
 
 menu_items = []
 
-menu_items << MenuItem.create(vendor: vendor_ht,
-                              name: 'Pizza',
-                              description: 'cheese',
+menu_items << MenuItem.create(vendor: vendor_tbi,
+                              name: "Shepherd's Pie",
+                              description: 'meat pie with a crust of mashed potato',
                               price: 300)
 
-menu_items << MenuItem.create(vendor: vendor_ht,
-                              name: 'Burger',
-                              description: 'veggie',
+menu_items << MenuItem.create(vendor: vendor_tbi,
+                              name: 'Cornish Pasties',
+                              description: 'a pastry case with variable fillings, usually beef and vegetables',
                               price: 400)
 
-menu_items << MenuItem.create(vendor: vendor_cat,
+menu_items << MenuItem.create(vendor: vendor_tbi,
                               name: 'Salad',
-                              description: 'garden',
+                              description: 'from the garden',
                               price: 500)
 
-menu_items << MenuItem.create(vendor: vendor_cat,
-                              name: 'California roll',
-                              description: 'veggie',
+menu_items << MenuItem.create(vendor: vendor_tbi,
+                              name: 'Smoked Chicken Platter',
+                              description: 'open fire smoked and roasted',
                               price: 800)
 
-menu_items << MenuItem.create(vendor: vendor_ht,
-                              name: 'Chicken nuggets',
+menu_items << MenuItem.create(vendor: vendor_hc,
+                              name: 'Alleged Beef Casserole',
                               description: 'not veggie',
                               price: 400)
 
-menu_items << MenuItem.create(vendor: vendor_ht,
-                              name: 'Turkey sandwich',
-                              description: 'wheat bread',
+menu_items << MenuItem.create(vendor: vendor_hc,
+                              name: 'Rock Cakes',
+                              description: 'a small, hard fruit cake with a rough surface resembling a rock',
                               price: 600)
 
-menu_items << MenuItem.create(vendor: vendor_cat,
-                              name: 'Veggie wrap',
-                              description: 'veggie',
+menu_items << MenuItem.create(vendor: vendor_hc,
+                              name: 'Stoat Sandwiches',
+                              description: 'wheat with the meat of a stoat',
                               price: 400)
 
-menu_items << MenuItem.create(vendor: vendor_ht,
-                              name: 'Ham sandwich',
-                              description: 'wheat bread',
+menu_items << MenuItem.create(vendor: vendor_hc,
+                              name: 'Cabbage',
+                              description: 'garden fresh-ish',
                               price: 400)
 
-menu_items << MenuItem.create(vendor: vendor_cat,
-
-                              name: 'Veggie wrap',
-                              description: 'veggie',
+menu_items << MenuItem.create(vendor: vendor_lc,
+                              name: 'Mince Pie',
+                              description: 'fruit-based mincemeat sweet pie',
                               price: 300)
 
-menu_items << MenuItem.create(vendor: vendor_ht,
-                              name: 'Sandwich',
-                              description: 'wheat bread',
+menu_items << MenuItem.create(vendor: vendor_lc,
+                              name: 'Fish and Chips',
+                              description: 'battered and deep-fried haddock and chips',
                               price: 300)
 
-days_of_week = %w[Monday Monday Tuesday Tuesday Wednesday Wednesday Thursday Thursday Friday Friday]
+menu_items << MenuItem.create(vendor: vendor_lc,
+                              name: 'Bangers and Mash',
+                              description: 'mashed potatoes and sausages',
+                              price: 300)
+
+days_of_week = %w[Monday Monday Tuesday Tuesday Wednesday Wednesday Thursday Thursday Thursday Friday Friday]
 
 MenuItem.all.each do |menu_item|
   menu_item.schedule_availability(Date.today.strftime("%Y-%m-%d"),
-                                  (Date.today + 90).strftime("%Y-%m-%d"),
+                                  ("2016-06-10"),
                                   days_of_week[menu_items.index(menu_item)])
 end
 
