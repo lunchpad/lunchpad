@@ -5,12 +5,15 @@
 
 <div class="form_wrapper no-top-padding">
   <%= form_for [account, order] do |order_form| %>
+    <%= hidden_field_tag :order_date, @order_date %>
     <%= order_form.fields_for :ordered_items, ordered_items do |menu_item| %>
 
         <% if @date != menu_item.object.date.to_date %>
           <h3><%= menu_item.object.date.strftime("%a %m/%-e") %></h3>
           <% @date = menu_item.object.date.to_date %>
         <% end %>
+
+        <% item = ordered_items[menu_item.index].menu_item %>
 
         <div class="order-block">
           <div class="order-quantity">
@@ -30,24 +33,36 @@
             (<%= "$#{ordered_items[menu_item.index].menu_item.price_dollars}" %>)
           </div>
 
-          <div class="show-notes">
-            <a href='' class="show-notes">Details <i class="fa fa-chevron-down"></i></a>
+
+          <div id="<%= item.id %>" class="note-trigger inactive">
+
+            <div class="show-notes <%= item.id %>">
+              Show Details <i class="fa fa-chevron-down"></i>
+            </div>
+
+            <div class="hide-notes <%= item.id %>">
+              Hide Details <i class="fa fa-chevron-up"></i>
+            </div>
+
+          </div>
+
+          <div class="order-item-vendor">
+            <%= "#{ordered_items[menu_item.index].menu_item.vendor.name}" %>
           </div>
 
           <%= menu_item.hidden_field :available_menu_item_id %>
           <%= menu_item.hidden_field :id %>
         </div>
-        <div class="order-block order-item-notes">
-          <strong>Vendor:</strong>
-          <p><%= "#{ordered_items[menu_item.index].menu_item.vendor.name}" %></p>
-          <strong>Description:</strong>
-          <p><%= "#{ordered_items[menu_item.index].menu_item.description}" %></p>
+
+        <div class="order-block order-item-notes <%= item.id %>">
+          <strong>Notes:</strong> <%= "#{ordered_items[menu_item.index].menu_item.description}" %>
         </div>
+
     <% end %>
 </div>
 
-<% if @copyable_date.present? %>
-  <%= render partial: 'form_repeat_order', locals: { copyable_date: @copyable_date, begin_date: ordered_items[0].date.end_of_week + 1 } if (params[:action] == 'new') %>
+<% if order.copyable_date %>
+  <%= render partial: 'form_repeat_order', locals: { copyable_date: order.copyable_date } if (params[:action] == 'new') %>
 <% end %>
 
 <div class="form_wrapper">

@@ -41,25 +41,30 @@ account = Account.create(school: willow,
                          name: 'Student 1',
                          section: 3)
 
-user = User.create(email: 'deedeelavinder@gmail.com',
-                   first_name: 'DeeDee',
-                   last_name: 'Lavinder',
-                   password: 'password',
-                   password_confirmation: 'password')
+User.create(email: 'deedeelavinder@gmail.com',
+            first_name: 'DeeDee',
+            last_name: 'Lavinder',
+            password: 'password',
+            password_confirmation: 'password')
 
-user = User.create(email: 'nickpassarella@gmail.com',
-                   first_name: 'Nick',
-                   last_name: 'Passarella',
-                   password: 'password',
-                   password_confirmation: 'password')
+User.create(email: 'nickpassarella@gmail.com',
+            first_name: 'Nick',
+            last_name: 'Passarella',
+            password: 'password',
+            password_confirmation: 'password')
 
-user = User.create(email: 'kheang@gmail.com',
-                   first_name: 'Kheang',
-                   last_name: 'Lim',
-                   password: 'password',
-                   password_confirmation: 'password')
+User.create(email: 'kheang@gmail.com',
+            first_name: 'Kheang',
+            last_name: 'Lim',
+            password: 'password',
+            password_confirmation: 'password')
 
 super_admin.add_role :admin, willow
+
+
+User.all.each do |user |
+  user.add_role :admin, willow
+end
 
 AccountOwnership.create(user: super_admin, account: account)
 
@@ -126,12 +131,11 @@ menu_items << MenuItem.create(vendor: vendor_ht,
                               description: 'wheat bread',
                               price: 300)
 
-today = Date.today
 days_of_week = %w[Monday Monday Tuesday Tuesday Wednesday Wednesday Thursday Thursday Friday Friday]
 
 MenuItem.all.each do |menu_item|
-  menu_item.schedule_availability(begin_date: today.strftime("%Y-%m-%d"),
-                                  end_date: (today + 60).strftime("%Y-%m-%d"),
-                                  day_of_week: days_of_week[menu_items.index(menu_item)])
+  menu_item.schedule_availability(Date.today.strftime("%Y-%m-%d"),
+                                  (Date.today + 90).strftime("%Y-%m-%d"),
+                                  days_of_week[menu_items.index(menu_item)])
 end
 

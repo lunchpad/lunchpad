@@ -9,7 +9,7 @@
     <div class="calendar-row">
   <% end %>
 
-  <% if date.cwday > 5 || date < Date.today.next_week.monday && calendar[:events].select{ |event| event.date.to_date == date }.empty? %>
+  <% if (date.cwday > 5 || date < Date.today.next_week.monday) && calendar[:events].select{ |event| event.date.to_date == date }.empty? %>
     <div class="date-panel-simple date-disabled">
       <%= date.strftime("%-d") %>
     </div>

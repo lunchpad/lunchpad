@@ -628,12 +628,25 @@ div.order-block:hover {
   }
 }
 
+
+.note-trigger {
+  float: right;
+  width: 110px;
+}
+
 .order-item-price {
   color: $lunchpad_grey_secondary;
   display: inline;
   text-align: right;
 }
 
+.order-item-vendor {
+  float: right;
+  @include margin(8px 25px null null);
+  display: inline;
+  font-size: 12px;
+  height: 100%;
+}
 
 .order-quantity-select {
   a {
@@ -651,26 +664,23 @@ div.order-block:hover {
   display: inline-block;
 }
 
-.order-item-price {
-  text-align: right;
-}
-
 .order-item-notes {
   padding-left: 102px;
-  @include padding(10px null 10px 102px);
+  @include padding(null null 10px 102px);
   font-size: 12px;
 }
 
-.show-notes {
-//  display: inline-block;
-  text-align: right;
-  float: right;
-  clear: right;
-  display: none;
+a.show-notes, a.hide-notes {
+  margin: 0;
 }
 
-a.show-notes:hover .order-item-notes {
+.show-notes, .hide-notes {
   display: inline-block;
+  margin-top: 9px;
+  text-align: right;
+  float: right;
+  font-size: 12px;
+
 }
 
 .table-table {
@@ -1135,7 +1145,7 @@ div.date-uncovered:hover {
 
 
 .wallet.display-block {
-  height: 175px;
+  height: 210px;
 }
 
 .cc-form {
@@ -1207,6 +1217,7 @@ div.date-uncovered:hover {
   .stripe-image {
     text-align: center;
     img {
+      height: 35px;
       margin-top: 10px;
     }
   }

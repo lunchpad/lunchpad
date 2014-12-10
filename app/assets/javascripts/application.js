@@ -56,17 +56,29 @@ $(document).on("page:load ready", function(){
     });
 });
 
-
-
 $(document).on("page:load ready", function() {
-    $(".wallet").hide();
-    $(".wallet-trigger").click(function () {
-        $(".wallet").toggle('slow');
-    });
-
     $(".payment-drop").hide();
     $("#payment-trigger").click(function() {
         $(".payment-drop").toggle("fast");
     });
 });
+
+$(document).on("page:load ready", function(){
+    $(".hide-notes").hide();
+    $(".order-item-notes").hide();
+    $(".note-trigger").click(function() {
+        var id = this.id;
+        if($('#' + id).hasClass("inactive")) {
+            $(this).removeClass("inactive").addClass("active");
+            $("." + id + ".show-notes").hide();
+            $("." + id + ".hide-notes").show();
+        } else {
+            $(this).removeClass("active").addClass("inactive");
+            $("." + id + ".hide-notes").hide();
+            $("." + id + ".show-notes").show();
+        }
+        $("." + id + ".order-item-notes").toggle("fast");
+    });
+});
+
 

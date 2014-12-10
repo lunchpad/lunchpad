@@ -1,4 +1,6 @@
 <form class="cc-form" action="/charges" method="POST" id="stripe-form">
+  <h3>Fill Wallet</h3>
+
   <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 
   <span class="payment-errors"></span>
@@ -35,7 +37,11 @@
   </div>
   <div class="stripe-image">
     <%= link_to 'http://www.stripe.com' do %>
+<<<<<<< HEAD
       <%= image_tag "solid.png" %>
+=======
+      <%= image_tag "solid2x.png" %>
+>>>>>>> e523027fd492ad672ef14ba826f391ee0fb4d409
     <% end %>
   </div>
 </form>
