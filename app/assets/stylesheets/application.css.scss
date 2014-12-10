@@ -628,6 +628,12 @@ div.order-block:hover {
   }
 }
 
+
+.note-trigger {
+  float: right;
+  width: 110px;
+}
+
 .order-item-price {
   color: $lunchpad_grey_secondary;
   display: inline;
@@ -635,9 +641,9 @@ div.order-block:hover {
 }
 
 .order-item-vendor {
-  margin-top: 8px;
-  display: inline;
   float: right;
+  @include margin(8px 25px null null);
+  display: inline;
   font-size: 12px;
   height: 100%;
 }
@@ -664,16 +670,17 @@ div.order-block:hover {
   font-size: 12px;
 }
 
-.show-notes {
-//  display: inline-block;
-  text-align: right;
-  float: right;
-  clear: right;
-  display: none;
+a.show-notes, a.hide-notes {
+  margin: 0;
 }
 
-a.show-notes:hover .order-item-notes {
+.show-notes, .hide-notes {
   display: inline-block;
+  margin-top: 9px;
+  text-align: right;
+  float: right;
+  font-size: 12px;
+
 }
 
 .table-table {
@@ -1138,13 +1145,14 @@ div.date-uncovered:hover {
 
 
 .wallet.display-block {
-  height: 175px;
+  height: 210px;
 }
 
 .cc-form {
   width: 350px;
   height: 108px;
   margin-left: 23%;
+
 
   input {
     margin-bottom: 2px;
@@ -1200,6 +1208,7 @@ div.date-uncovered:hover {
     float: right;
   }
 
+
   .button {
     float: right;
     margin-top: 19px;
@@ -1210,9 +1219,12 @@ div.date-uncovered:hover {
   .stripe-image {
     text-align: center;
     img {
+      height: 35px;
       margin-top: 10px;
     }
   }
 }
+
+
 
 

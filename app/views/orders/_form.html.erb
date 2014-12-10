@@ -13,6 +13,8 @@
           <% @date = menu_item.object.date.to_date %>
         <% end %>
 
+        <% item = ordered_items[menu_item.index].menu_item %>
+
         <div class="order-block">
           <div class="order-quantity">
             <%= menu_item.number_field :quantity, min: 0, step: 1, class: 'order-quantity field' %>
@@ -31,20 +33,31 @@
             (<%= "$#{ordered_items[menu_item.index].menu_item.price_dollars}" %>)
           </div>
 
-          <div class="order-item-vendor">
-            <%= "#{ordered_items[menu_item.index].menu_item.vendor.name}" %>
+
+          <div id="<%= item.id %>" class="note-trigger inactive">
+
+            <div class="show-notes <%= item.id %>">
+              Show Details <i class="fa fa-chevron-down"></i>
+            </div>
+
+            <div class="hide-notes <%= item.id %>">
+              Hide Details <i class="fa fa-chevron-up"></i>
+            </div>
+
           </div>
 
-          <div class="show-notes">
-            <a href='' class="show-notes">Details <i class="fa fa-chevron-down"></i></a>
+          <div class="order-item-vendor">
+            <%= "#{ordered_items[menu_item.index].menu_item.vendor.name}" %>
           </div>
 
           <%= menu_item.hidden_field :available_menu_item_id %>
           <%= menu_item.hidden_field :id %>
         </div>
-        <div class="order-block order-item-notes">
+
+        <div class="order-block order-item-notes <%= item.id %>">
           <strong>Notes:</strong> <%= "#{ordered_items[menu_item.index].menu_item.description}" %>
         </div>
+
     <% end %>
 </div>
 
