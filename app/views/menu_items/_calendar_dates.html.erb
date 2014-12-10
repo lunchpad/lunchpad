@@ -1,0 +1,34 @@
+<div class="calendar-row-simple calendar-header-<%= calendar[:style] %>">
+  <% Date::DAYNAMES.each do |day| %>
+    <div class="date-panel-simple"><%= day.first %></div>
+  <% end %>
+</div>
+
+<% (calendar[:begin_date].beginning_of_week(:sunday)..calendar[:end_date].end_of_week - 1.day).each do |date| %>
+  <% scheduled = calendar[:events].select{ |event| event.date.to_date == date } %>
+  <% availability = calendar[:events].map{ |i| i.date.to_date }.include?(date) %>
+
+  <% if date.sunday? %>
+    <div class="calendar-row">
+  <% end %>
+
+  <% if date.cwday > 5 || date < Date.today.next_week.monday && scheduled.empty? %>
+    <div class="date-panel-simple past">
+      <%= date.strftime("%-d") %>
+    </div>
+  <% else %>
+    <% if scheduled.present? %>
+      <div class="date-panel-simple avail" id="<%= "date_panel_#{date.to_s}" %>">
+        <%= date.strftime("%-d") %>
+      </div>
+    <% else %>
+      <div class="date-panel-simple" id="<%= "date_panel_#{date.to_s}" %>">
+        <%= date.strftime("%-d") %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if date.saturday? %>
+    </div>
+  <% end %>
+<% end %>
