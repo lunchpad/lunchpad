@@ -27,7 +27,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    binding.pry
     @order = @account.orders.build(order_params)
     @copies = @order.copy(params[:copy_date].to_date) unless params[:copy_date].nil?
     if @order.save && (params[:copy_date].empty? || @copies)

@@ -92,7 +92,7 @@ menu_items = []
 menu_items << MenuItem.create(vendor: vendor_tbi,
                               name: "Shepherd's Pie",
                               description: 'meat pie with a crust of mashed potato',
-                              price: 300)
+                              price: 400)
 
 menu_items << MenuItem.create(vendor: vendor_tbi,
                               name: 'Cornish Pasties',
@@ -102,12 +102,12 @@ menu_items << MenuItem.create(vendor: vendor_tbi,
 menu_items << MenuItem.create(vendor: vendor_tbi,
                               name: 'Salad',
                               description: 'from the garden',
-                              price: 500)
+                              price: 300)
 
 menu_items << MenuItem.create(vendor: vendor_tbi,
                               name: 'Smoked Chicken Platter',
                               description: 'open fire smoked and roasted',
-                              price: 800)
+                              price: 600)
 
 menu_items << MenuItem.create(vendor: vendor_hc,
                               name: 'Alleged Beef Casserole',
@@ -117,7 +117,7 @@ menu_items << MenuItem.create(vendor: vendor_hc,
 menu_items << MenuItem.create(vendor: vendor_hc,
                               name: 'Rock Cakes',
                               description: 'a small, hard fruit cake with a rough surface resembling a rock',
-                              price: 600)
+                              price: 300)
 
 menu_items << MenuItem.create(vendor: vendor_hc,
                               name: 'Stoat Sandwiches',
@@ -127,7 +127,7 @@ menu_items << MenuItem.create(vendor: vendor_hc,
 menu_items << MenuItem.create(vendor: vendor_hc,
                               name: 'Cabbage',
                               description: 'garden fresh-ish',
-                              price: 400)
+                              price: 200)
 
 menu_items << MenuItem.create(vendor: vendor_lc,
                               name: 'Mince Pie',
@@ -142,13 +142,13 @@ menu_items << MenuItem.create(vendor: vendor_lc,
 menu_items << MenuItem.create(vendor: vendor_lc,
                               name: 'Bangers and Mash',
                               description: 'mashed potatoes and sausages',
-                              price: 300)
+                              price: 400)
 
 days_of_week = %w[Monday Monday Tuesday Tuesday Wednesday Wednesday Thursday Thursday Thursday Friday Friday]
 
 MenuItem.all.each do |menu_item|
   menu_item.schedule_availability(Date.today.strftime("%Y-%m-%d"),
-                                  ("2016-06-10"),
+                                  ("2015-06-10"),
                                   days_of_week[menu_items.index(menu_item)])
 end
 
