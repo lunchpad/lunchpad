@@ -39,12 +39,10 @@ OffDay.create(name: "MLK Jr. Birthday", date: '2015-01-19', school: hogwarts)
 OffDay.create(name: "Washington's Birthday", date: '2015-02-16', school: hogwarts)
 OffDay.create(name: "Memorial Day", date: '2015-05-25', school: hogwarts)
 
-section = "Gryffindor"
-
-account = Account.create(school: hogwarts,
-                         balance: 0,
-                         name: 'Neville Longbottom',
-                         section: section)
+section_g = "Gryffindor"
+section_h = "Hufflepuff"
+section_r = "Ravenclaw"
+section_s = "Slytherin"
 
 User.create(email: 'deedeelavinder@gmail.com',
             first_name: 'DeeDee',
@@ -64,15 +62,59 @@ User.create(email: 'kheang@gmail.com',
             password: 'password',
             password_confirmation: 'password')
 
-
-# super_admin.add_role :admin, hogwarts
-
-
 User.all.each do |user |
   user.add_role :admin, hogwarts
-  AccountOwnership.create(user: user, account: account)
 end
 
+Account.create(school: hogwarts,
+               balance: 0,
+               name: 'Draco Malfoy',
+               section: section_s)
+
+Account.create(school: hogwarts,
+               balance: 0,
+               name: 'Padma Patil',
+               section: section_r)
+
+Account.create(school: hogwarts,
+               balance: 0,
+               name: 'Hannah Abbott',
+               section: section_h)
+
+Account.create(school: hogwarts,
+               balance: 0,
+               name: 'Susan Bones',
+               section: section_h)
+
+Account.create(school: hogwarts,
+               balance: 0,
+               name: 'Vincent Crabbe',
+               section: section_s)
+
+Account.create(school: hogwarts,
+               balance: 0,
+               name: 'Penelope Clearwater',
+               section: section_r)
+
+Account.create(school: hogwarts,
+               balance: 0,
+               name: 'Cho Chang',
+               section: section_g)
+
+Account.create(school: hogwarts,
+               balance: 0,
+               name: 'Neville Longbottom',
+               section: section_g)
+
+Account.all.each do |a|
+  AccountOwnership.create( user: User.find_by(email: "deedeelavinder@gmail.com"), account: a )
+end
+
+User.create(email: 'mw@gmail.com',
+            first_name: 'Molly',
+            last_name: 'Weasley',
+            password: 'theburrow',
+            password_confirmation: 'theburrow')
 
 
 vendor_tbi = Vendor.create(name: "Three Broomsticks",
