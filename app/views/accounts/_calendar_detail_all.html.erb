@@ -1,3 +1,11 @@
+<div class="calendar-coverage-<%= calendar[:style] %>" id="<%= dom_id(current_user, :calendar_all) %>">
+  <div class="calendar-header-month-<%= calendar[:style] %>">
+    <div class="calendar-title-<%= calendar[:style] %>">
+      <%= calendar_title(calendar[:begin_date],calendar[:end_date]) %>
+    </div>
+  </div>
+</div>
+
 <div class="card-row card_margin">
   <% current_user.accounts.each do |account| %>
     <div class="account_profile_image_small" style="background-color: rgba(<%= colorize(account.name).join(",") %>,1)">
@@ -22,7 +30,7 @@
       <div class="date-panel-detail">
         <%= date.strftime(format) %>
       </div>
-    <% elsif calendar[:owner].school.off_days.map{ |i| i.date.to_date }.include?(date) %>
+    <% elsif current_user.accounts[0].school.off_days.include?(date) %>
       <div class="date-panel-detail">
         <%= date.strftime(format) %>
       </div>

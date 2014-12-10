@@ -33,4 +33,10 @@ class School < ActiveRecord::Base
     sorted = sorted_for_report.sort_by { |item| [item.vendor, item.menu_item] }
   end
 
+  def has_off_day(date)
+    full_day = date.beginning_of_day..date.end_of_day
+    off_day = self.off_days.where(date: full_day)
+    off_day.empty? ? false : off_day
+  end
+
 end

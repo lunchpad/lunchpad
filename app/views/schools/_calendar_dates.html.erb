@@ -13,21 +13,23 @@
   <% end %>
 
   <% if date.cwday > 5 || date < Date.today.next_week.monday && scheduled.empty? %>
-    <div class="date-panel-simple date-disabled">
-      <%= date.strftime("%-d") %>
-    </div>
-  <% elsif calendar[:owner].off_days.exists?(:date => date.beginning_of_day) %>
-    <div class="date-panel-simple date-disabled disabled-holiday">
+    <div class="date-panel-simple past">
       <%= date.strftime("%-d") %>
     </div>
   <% else %>
     <% if scheduled.present? %>
-      <div class="date-panel-simple date-uncovered" id="<%= "date_panel_#{date.to_s}" %>">
-        <%= link_to date.strftime("%-d"), root_path %>
-      </div>
+        <div class="date-panel-simple off-day" id="<%= "date_panel_#{date.to_s}" %>">
+          <span class="hoverbox" id="<%= scheduled.first.id %>">
+            <%= link_to school_off_day_path(@school, scheduled.first), method: :delete do %>
+              <i class="fa fa-trash-o fa-fw"></i>
+            <% end %>
+            <%= scheduled.first.name %>
+          </span>
+          <%= date.strftime("%-d") %>
+        </div>
     <% else %>
       <div class="date-panel-simple" id="<%= "date_panel_#{date.to_s}" %>">
-        <%= link_to date.strftime("%-d"), root_path %>
+        <%= date.strftime("%-d") %>
       </div>
     <% end %>
   <% end %>

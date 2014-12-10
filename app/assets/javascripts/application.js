@@ -18,22 +18,6 @@
 // require turbolinks
 //= require_tree .
 
-//var datesArr = [];
-//
-//datesArr.push(new Date ('Mon Aug 27 00:00:00 EDT 2014'));
-
-$(document).on("page:load ready", function(){
-    var today = new Date();
-    var y = today.getFullYear();
-    $('#datepicker').multiDatesPicker({
-        beforeShowDay: $.datepicker.noWeekends,
-        numberOfMonths: 1,
-        defaultDate: today,
-        dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
-//        addDates: datesArr
-    });
-});
-
 
 $(document).on('click', '.menu-icon', function() {
     if($('#dropdown').hasClass('dropdown-nav')){
@@ -56,12 +40,6 @@ $(document).on("page:load ready", function(){
     });
 });
 
-$(document).on("page:load ready", function() {
-    $(".payment-drop").hide();
-    $("#payment-trigger").click(function() {
-        $(".payment-drop").toggle("fast");
-    });
-});
 
 $(document).on("page:load ready", function(){
     $(".hide-notes").hide();
@@ -78,6 +56,10 @@ $(document).on("page:load ready", function(){
             $("." + id + ".show-notes").show();
         }
         $("." + id + ".order-item-notes").toggle("fast");
+    });
+
+    $(".close").click(function() {
+        $(this).parent().hide();
     });
 });
 

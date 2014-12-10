@@ -1,9 +1,17 @@
-<div class="form_wrapper">
+<div class="form_wrapper order-block">
     <h2>Repeat your order</h2>
 
-    <p>Your order can be repeated through <%= copyable_date.strftime('%A, %B %e, %Y') %></p>
+    <div class="calendar-icon-border"%>
+      <h1><%= copyable_date.strftime('%b') %></h1>
+      <div class="calendar-icon-contents"%>
+        <%= copyable_date.strftime('%e') %>
+      </div>
+    </div>
 
-    <p>To repeat your order, select a date below:</p>
+    <div class="calendar-icon-prompt">
+      <p>Your order can be repeated through <strong><%= copyable_date.strftime('%A, %B %e, %Y') %></strong>.</p>
+      <p>To repeat your order, select a date below:</p>
+      <%= date_field_tag "copy_date" %>
+    </div>
 
-    <%= date_field_tag "copy_date" %>
 </div>
