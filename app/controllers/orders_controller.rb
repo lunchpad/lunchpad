@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   before_action :set_account, except: [:all]
   before_action :set_order, only: [:edit, :update, :destroy]
   before_action :set_ordered_items, only: [:show]
+  before_action :check_prior_order, only: [:new]
 
   attr_reader :ordered_items
 
@@ -77,5 +78,12 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(ordered_items_attributes: [:quantity, :available_menu_item_id, :id])
+  end
+
+  def check_prior_order
+    previous_items = @account.ordered_items.ordered_between(params[:order_date].to_date.beginning_of_week,params[:order_date].to_date.end_of_week)
+    return unless previous_items.size > 0
+    @order = previous_items.first.order
+    redirect_to edit_account_order_path(@account, @order)
   end
 end
