@@ -221,7 +221,7 @@ form {
   width: 100%;
   background-image: url('apples.jpg');
   background-size: cover;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: -1px;
@@ -434,7 +434,7 @@ header {
     background: RGBA(207, 207, 207, 1);
     float: left;
     clear: both;
-    position: fixed;
+    position: absolute;
     top: 56px;
     left: 0;
     box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.24);
@@ -460,8 +460,8 @@ header {
       transition-delay: 0.1s;
       height: 273px;
       width: 0;
-      position: fixed;
-      top: 360px;
+      position: absolute;
+      top: 305px;
       left: 0;
 
       a {
@@ -1119,7 +1119,6 @@ div.date-uncovered:hover {
   background-color: $lunchpad_green;
   border-radius: 8px;
   padding: 5px;
-  width: 200px;
   position: absolute;
   z-index: 2;
 
@@ -1145,8 +1144,34 @@ div.date-uncovered:hover {
   }
 }
 
+.available {
+  background-color: $lunchpad_green;
+  color: white;
+}
+
+.available:hover {
+  background-color: red;
+}
+
+.unavailable {
+  border: solid 1px red;
+}
+
+.unavailable:hover {
+  background-color: $lunchpad_green;
+}
+
+.ordered {
+  background-color: $lunchpad_green_light;
+  border: solid 1px red;
+}
+
 .past {
   color: $lunchpad_grey_hint;
+}
+
+.date-panel-avail {
+  @extend .date-panel-simple;
 }
 
 .card_links {

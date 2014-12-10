@@ -1,6 +1,6 @@
 <div class="calendar-row-simple calendar-header-<%= calendar[:style] %>">
   <% Date::DAYNAMES.each do |day| %>
-    <div class="date-panel-simple"><%= day.first %></div>
+    <div class="date-panel-avail"><%= day.first %></div>
   <% end %>
 </div>
 
@@ -12,19 +12,29 @@
     <div class="calendar-row">
   <% end %>
 
-  <% if date.cwday > 5 || date < Date.today.next_week.monday && scheduled.empty? %>
-    <div class="date-panel-simple past">
+  <% if date.cwday > 5 || date < Date.today.next_week.monday && scheduled.empty? || date == Date.today %>
+    <div class="date-panel-avail past">
       <%= date.strftime("%-d") %>
     </div>
   <% else %>
     <% if scheduled.present? %>
-      <div class="date-panel-simple avail" id="<%= "date_panel_#{date.to_s}" %>">
-        <%= date.strftime("%-d") %>
-      </div>
+      <% if !scheduled.first.ordered_items.empty? %>
+        <div class="date-panel-avail ordered" id="<%= date.to_s %>">
+          <%= date.strftime("%-d") %>
+        </div>
+      <% else %>
+        <%= link_to available_menu_item_path(scheduled.first.id, { menu_item_id: scheduled.first.menu_item }) , method: :delete do %>
+          <div class="date-panel-avail available" id="<%= date.to_s %>">
+            <%= date.strftime("%-d") %>
+          </div>
+        <% end %>
+      <% end %>
     <% else %>
-      <div class="date-panel-simple" id="<%= "date_panel_#{date.to_s}" %>">
-        <%= date.strftime("%-d") %>
+      <%= link_to menu_item_available_menu_items_path(calendar[:owner], { date: date}), method: :post do %>
+        <div class="date-panel-avail unavailable" id="<%= date.to_s %>">
+          <%= date.strftime("%-d") %>
       </div>
+      <% end %>
     <% end %>
   <% end %>
 

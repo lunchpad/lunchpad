@@ -8,7 +8,7 @@
       <ul>
 
         <li><%= account.balance >= 0 ? 'Amount owed' : 'Account Credit:' %> $<%= account.balance_dollars %></li>
-        <li><a>Make Payment</a></li>
+        <li><%= link_to 'Apply Payment', charges_path %></li>
 
         <% if account.orders.count > 0 %>
           <li><%= link_to "See Orders", account_orders_path(account) %></li>

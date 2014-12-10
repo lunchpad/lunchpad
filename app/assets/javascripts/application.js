@@ -40,12 +40,6 @@ $(document).on("page:load ready", function(){
     });
 });
 
-$(document).on("page:load ready", function() {
-    $(".payment-drop").hide();
-    $("#payment-trigger").click(function() {
-        $(".payment-drop").toggle("fast");
-    });
-});
 
 $(document).on("page:load ready", function(){
     $(".hide-notes").hide();
@@ -67,21 +61,6 @@ $(document).on("page:load ready", function(){
     $(".close").click(function() {
         $(this).parent().hide();
     });
-
-    var dates = [];
-
-    $(".date-panel-simple").click(function() {
-        console.log(this.id);
-        if(!$(this).hasClass("selected") && !$(this).hasClass("off-day") && !$(this).hasClass("past")) {
-            $(this).addClass("selected");
-            dates.push(this.id.replace("date_panel_", ""));
-        } else {
-            $(this).removeClass("selected");
-        }
-        $("#datepicker").val(dates);
-        console.log(dates);
-    });
-
 });
 
 

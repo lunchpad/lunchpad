@@ -13,23 +13,17 @@
         <li><%= link_to "View All Menu Items", vendor_path(@menu_item.vendor) %></li>
       </ul>
     </div>
+    <div class="card_padding"
+      <h1><%= @menu_item.name %></h1>
 
-    <h1><%= @menu_item.name %></h1>
+      <% settings = { owner: @menu_item,
+                      events: @menu_item.available_menu_items,
+                      begin_date: Date.today.beginning_of_month,
+                      end_date: Date.today.end_of_month,
+                      style: 'simple' } %>
 
+      <%= render partial: 'shared/calendar', locals: { calendar: settings } %>
 
-    <ul>
-      <% if @menu_item.available_menu_items.empty? %>
-        <h2>This item is not currently available.</h2>
-      <% else %>
-        <% @menu_item.available_menu_items.each do |item| %>
-          <% if item.ordered_items.empty? %>
-            <li><%= item.date.strftime("%A, %b %d, %Y") %> <%= link_to "Remove", available_menu_item_path(item.id, {menu_item: @menu_item.id}), method: 'delete' %></li>
-          <% else %>
-            <div><%= item.date.strftime("%A, %b %d, %Y") %> Item has been ordered. You cannot delete.</div>
-          <% end %>
-        <% end %>
-      <% end %>
-    </ul>
-
+    </div>
   </div>
 </div>
