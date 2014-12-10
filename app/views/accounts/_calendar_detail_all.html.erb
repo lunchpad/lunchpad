@@ -57,7 +57,7 @@
         <div class="date-panel-detail" id="<%= "date_panel_#{date.to_s}" %>">
           <strong>
             <%= date.strftime(format) %>
-            <%= link_to raw('<i class="fa fa-plus"></i>'), new_account_order_path(calendar[:owner], order_date: date.to_s) %>
+            <%= link_to raw('<i class="fa fa-plus"></i>'), root_path %>
           </strong>
         </div>
       <% end %>
