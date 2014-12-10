@@ -18,18 +18,18 @@ class OrdersController < ApplicationController
 
   def new
     @order_date = params[:order_date].to_date.monday
-    if @order_date >= cutoff_date
+    if @order_date >= cutoff_date && OrderedItem.build_menu(@order_date,@order_date + 4).present?
       @order = Order.new(account: @account)
       @ordered_items = @order.build_menu(@order_date,@order_date + 4).sort_by{ |item| [item.date, item.menu_item.name] }
     else
-      redirect_to account_orders_path, error: 'Order date is invalid.'
+      redirect_to root_path, error: 'Order date is invalid.'
     end
   end
 
   def create
     @order = @account.orders.build(order_params)
     @copies = @order.copy(params[:copy_date].to_date) unless params[:copy_date].nil?
-    if @order.save && (params[:copy_date].empty? || @copies)
+    if @order.ordered_items.map(&:quantity).reduce(:+) > 0 && @order.save && (params[:copy_date].empty? || @copies)
         redirect_to account_order_path(id: [@order, @copies].flatten.compact), success: 'Order was created.'
     else
       redirect_to new_account_order_path(order_date: params[:order_date]), error: 'Your order is invalid.'

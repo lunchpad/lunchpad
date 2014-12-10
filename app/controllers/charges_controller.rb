@@ -33,6 +33,8 @@ class ChargesController < ApplicationController
     charge = (params[:amount].to_f * 100).to_i
     card = params[:stripeToken]
 
+    current_user.increment!(:wallet, charge)
+
     # if current_user.stripe_id?
     #   customer_id = current_user.stripe_id
     # else

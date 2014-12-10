@@ -261,6 +261,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails
+  minitest
   money-rails
   neat (~> 1.5.1)
   paperclip (~> 4.2)
