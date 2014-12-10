@@ -1,6 +1,9 @@
 language: ruby
 rvm: 2.1.3
 env: SECRET_KEY_BASE="$(bundle exec rake secret)"
+before_install:
+- travis_retry gem update --system
+- travis_retry gem install bundler --pre
 deploy:
   provider: heroku
   api_key:

@@ -1,12 +1,16 @@
+<div class="card-row card_margin">
+  <% current_user.accounts.each do |account| %>
+    <div class="account_profile_image_small" style="background-color: rgba(<%= colorize(account.name).join(",") %>,1)">
+      <%= account.name.first %></div> <%= account.name %> (<%= account.school.name %>)
+  <% end %>
+</div>
+
 <div class="calendar-table">
   <div class="calendar-header-<%= calendar[:style] %>">
     <% Date::DAYNAMES.each do |day| %>
       <div class="calendar-header-panel"><%= day[0..2] %></div>
     <% end %>
   </div>
-
-  <%= render partial: "accounts/account_profile_card" , collection: current_user.accounts.flatten, as: :account %>
-
   <% (calendar[:begin_date].beginning_of_week(:sunday)..calendar[:end_date].end_of_week - 1.day).each do |date| %>
     <% date.day == 1 ? format = '%b %-d' : format = '%-d' %>
 
@@ -28,15 +32,17 @@
         <div class="date-panel-detail" id="<%= "date_panel_#{date.to_s}" %>">
           <strong>
             <%= date.strftime(format) %>
-            <%= link_to raw('<i class="fa fa-pencil-square-o"></i>'), edit_account_order_path(account_id: calendar[:owner], id: scheduled[0].order) %>
           </strong>
           <ul>
             <% scheduled.each do |item| %>
               <li>
                 <div class="account_profile_image_small" style="background-color: rgba(<%= colorize(item.account.name).join(",") %>,1)">
-                  <%= item.account.name.first %>
-                </div> <%= item.menu_item.name %> (x<%= item.quantity %>)</li>
+                  <%= link_to item.account.name.first, edit_account_order_path(account_id: item.account, id: item.order) %>
+                </div>
+                <%= truncate(item.menu_item.name, length: 10) %> <%= link_to 'x' + item.quantity.to_s, edit_account_order_path(account_id: item.account, id: item.order) %>
+              </li>
             <% end %>
+
           </ul>
         </div>
       <% else %>
@@ -60,5 +66,5 @@
     <h2>No items have been ordered for this date range.</h2>
   </div>
 <% else %>
-  <%= render partial: 'orders/confirmation', locals: { ordered_items: calendar[:events] } %>
+  <%= render partial: 'orders/confirmation_all', locals: { ordered_items: calendar[:events] } %>
 <% end %>

@@ -1,0 +1,84 @@
+<div class="form_date_span">
+  <h2>
+    Orders: <%= (ordered_items.first.date ).strftime("%b %e") %>
+    <%= ' - ' + (ordered_items.last.date).strftime("%b %e") %>
+  </h2>
+</div>
+
+<div class="table-table">
+  <div class="table-heading">
+    <div class="table-cell cell-align-left">
+      Lunchbox
+    </div>
+    <div class="table-cell cell-align-left">
+      Menu Item
+    </div>
+    <div class="table-cell cell-align-center">
+      Quantity
+    </div>
+    <div class="table-cell cell-align-center">
+      Price
+    </div>
+    <div class="table-cell cell-align-center">
+      Subtotal
+    </div>
+  </div>
+
+<% ordered_items.each do |item| %>
+
+  <% if @date != item.date %>
+    <div class="table-subheading-grey">
+      <div class="table-cell">
+        <strong><%= item.date.strftime("%a %m/%-e") %></strong>
+        <% @date = item.date %>
+      </div>
+      <div class="table-cell">
+      </div>
+      <div class="table-cell">
+      </div>
+      <div class="table-cell">
+      </div>
+      <div class="table-cell">
+      </div>
+    </div>
+  <% end %>
+
+    <div class="table-row">
+      <div class="table-cell">
+        <div class="account_profile_image_small" style="background-color: rgba(<%= colorize(item.account.name).join(",") %>,1)">
+          <%= link_to item.account.name.first, edit_account_order_path(account_id: item.account, id: item.order) %>
+        </div>
+        <%= item.account.name %>
+      </div>
+      <div class="table-cell">
+        <%= link_to raw('<i class="fa fa-pencil-square-o"></i>'), edit_account_order_path(account_id: item.order.account, id: item.order) %> <%= item.menu_item.name %>
+      </div>
+      <div class="table-cell cell-align-center">
+        <%= item.quantity %>
+      </div>
+      <div class="table-cell cell-align-center">
+        $<%= item.menu_item.price_dollars %>
+      </div>
+      <div class="table-cell cell-align-center">
+        $<%= item.subtotal_dollars %>
+      </div>
+    </div>
+
+<% end %>
+
+  <div class="table-footer">
+    <div class="table-cell cell-align-left">
+      Total:
+    </div>
+    <div class="table-cell">
+    </div>
+    <div class="table-cell">
+    </div>
+    <div class="table-cell">
+    </div>
+    <div class="table-cell cell-align-center">
+      $<%= Money.new(ordered_items.map{ |item| item.menu_item.price }.sum) %>
+    </div>
+  </div>
+</div>
+

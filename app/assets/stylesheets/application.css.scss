@@ -20,6 +20,7 @@
 @import "base/base";
 @import "dropdown";
 
+
 $lunchpad_green: #4CAF50;
 $lunchpad_green_dark: #2E7D32;
 $lunchpad_green_light: #C8E6C9;
@@ -42,6 +43,12 @@ h2 {
 h3 {
   color: $lunchpad_green_dark;
   font-size: 18px;
+  line-height: 21px;
+}
+
+h5 {
+  color: $lunchpad_grey_secondary;
+  font-size: 14px;
   line-height: 21px;
 }
 
@@ -245,8 +252,6 @@ form {
   height: 400px;
   width: 340px;
   float: right;
-  position: relative;
-  top: 25px;
   @include margin(6% 13% null null);
 }
 
@@ -717,7 +722,7 @@ a.show-notes:hover .order-item-notes {
   text-align: left;
 }
 
-.table-subheading-gray {
+.table-subheading-grey {
   display: table-row;
   background-color: rgba(0,0,0,.05);
   padding-left: 15px;
@@ -1001,12 +1006,21 @@ a.show-notes:hover .order-item-notes {
   }
 
   li {
+    margin-top: 4px;
     font-size: 12px;
   }
 }
 
+div.date-panel-detail:hover {
+  background-color: $lunchpad_green_hover;
+}
+
 .date-panel-detail_all {
-  @extend .date-panel-detail_all
+  @extend .date-panel-detail;
+
+  a {
+    vertical-align: center;
+  }
 }
 
 .date-panel-simple {
@@ -1086,15 +1100,31 @@ div.date-uncovered:hover {
 }
 
 .account_profile_image_small {
-  width: 20px;
-  height: 20px;
-  border-radius: 20px;
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
   display: inline-block;
   color: white;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
   text-align: center;
+  vertical-align: center;
+
+  a {
+    float: none;
+    text-align: center;
+    font-size: 10px;
+    color: white;
+    height: 100%;
+    width: 100%;
+    transition: none;
+  }
+
+  a:hover {
+    color: #CCCCCC;
+    font-size: 10px;
+  }
 }
 
 .account_profile_info {
@@ -1162,3 +1192,84 @@ div.date-uncovered:hover {
 .page_header {
   @extend .card_margin;
 }
+
+
+.wallet.display-block {
+  height: 175px;
+}
+
+.cc-form {
+  width: 350px;
+  height: 108px;
+  margin-left: 23%;
+
+  input {
+    margin-bottom: 2px;
+  }
+
+  label {
+    margin: 0;
+  }
+
+  #amount-span {
+    margin-left: 57px;
+  }
+
+  #card-number input{
+    width: 250px;
+  }
+
+  #cvc {
+    float: right;
+    clear: both;
+
+    input {
+      width: 65px;
+    }
+  }
+
+  .exp-date {
+    width: 235px;
+    float: left;
+
+    input {
+      width: 55px;
+    }
+
+    .exp-month {
+      float: left;
+
+      input {
+        width: 40px;
+        margin-right: 10px;
+      }
+    }
+
+    .exp-year {
+      input {
+        float: left;
+      }
+    }
+  }
+
+  #amount {
+    width: 100px;
+    float: right;
+  }
+
+  .button {
+    float: right;
+    margin-top: 19px;
+    margin-bottom: 0;
+    @include padding(10px 14px 10px 14px);
+  }
+
+  .stripe-image {
+    text-align: center;
+    img {
+      margin-top: 10px;
+    }
+  }
+}
+
+

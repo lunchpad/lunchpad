@@ -8,6 +8,9 @@
 <div class="table-table">
   <div class="table-heading">
     <div class="table-cell cell-align-left">
+      Date
+    </div>
+    <div class="table-cell cell-align-left">
       Menu Item
     </div>
     <div class="table-cell cell-align-center">
@@ -22,23 +25,11 @@
   </div>
 
 <% ordered_items.each do |item| %>
-
-  <% if @date != item.date %>
-    <div class="table-subheading">
+    <div class="table-row">
       <div class="table-cell">
         <strong><%= item.date.strftime("%a %m/%-e") %></strong>
         <% @date = item.date %>
       </div>
-      <div class="table-cell">
-      </div>
-      <div class="table-cell">
-      </div>
-      <div class="table-cell">
-      </div>
-    </div>
-  <% end %>
-
-    <div class="table-row">
       <div class="table-cell">
         <%= link_to raw('<i class="fa fa-pencil-square-o"></i>'), edit_account_order_path(account_id: item.order.account, id: item.order) %> <%= item.menu_item.name %>
       </div>
@@ -58,6 +49,8 @@
   <div class="table-footer">
     <div class="table-cell cell-align-left">
       Total:
+    </div>
+    <div class="table-cell">
     </div>
     <div class="table-cell">
     </div>
