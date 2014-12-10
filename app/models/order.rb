@@ -4,7 +4,6 @@ class Order < ActiveRecord::Base
   has_one :school, through: :account
   has_many :ordered_items, dependent: :destroy
   accepts_nested_attributes_for :ordered_items
-  after_save :check_quantity
 
   validates :account_id, presence: true
 
@@ -14,11 +13,6 @@ class Order < ActiveRecord::Base
 
   def total_dollars
     Money.new(total).to_s
-  end
-
-  def check_quantity
-    return unless ordered_items.map(&:quantity).reduce(:+) == 0
-    self.destroy
   end
 
   def copy(future_date)

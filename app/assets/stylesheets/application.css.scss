@@ -1272,4 +1272,35 @@ div.date-uncovered:hover {
   }
 }
 
+.calendar-icon-border {
+  float: left;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 80px;
+  background-color: #7E57C2;
+  border-radius: 4px;
+  text-align: center;
+  border: 2px solid #7E57C2;
+  h1 {
+    padding: 5px;
+    font-size: 20px;
+    color: white;
+  }
 
+  .calendar-icon-contents {
+    background-color: white;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 5px;
+    margin: 2px;
+  }
+
+  display: inline-block;
+}
+
+.calendar-icon-prompt {
+  @include padding(12px 25px null 25px);
+  font-size: 16px;
+  display: inline-block;
+}

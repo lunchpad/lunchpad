@@ -51,6 +51,19 @@ class AccountsController < ApplicationController
     end
   end
 
+  def calendar_all
+    begin_date = params[:begin_date].to_date
+    end_date = params[:end_date].to_date
+    events = current_user.accounts.map{ |account| account.ordered_items.ordered_between(begin_date.beginning_of_week,end_date.end_of_week) }
+    events = events.sort_by{ |item| [item.available_menu_item.date, item.order.account.name, item.menu_item.name] }
+    @calendar = { owner: current_user.accounts, events: events, begin_date: begin_date, end_date: end_date, style: 'detail_all' }
+    respond_to do |format|
+      if @calendar.values.exclude? nil
+        format.js { render "accounts/calendar_detail_all", status: :created }
+      end
+    end
+  end
+
   def payment
     @account = Account.find(params[:account])
     payment = (params[:payment]).to_i * 100
