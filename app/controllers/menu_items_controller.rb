@@ -1,7 +1,6 @@
 class MenuItemsController < ApplicationController
-
   before_action :authenticate_user!
-  before_action :set_menu_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_menu_item, only: [:show, :edit, :update, :destroy, :calendar]
   before_action :set_vendor, only: [:new, :create, :edit]
 
   def show
@@ -34,6 +33,15 @@ class MenuItemsController < ApplicationController
     redirect_to @vendor, success: 'Menu item was removed.'
   end
 
+  def calendar
+    @calendar = set_calendar(@menu_item,params[:begin_date],params[:end_date],params[:style])
+    respond_to do |format|
+      if @calendar.values.exclude? nil
+        format.js { render "shared/calendar", status: :created }
+      end
+    end
+  end
+
   private
 
   def set_menu_item
@@ -52,6 +60,13 @@ class MenuItemsController < ApplicationController
 
   def availability_params
     params.require(:availability).permit(:begin_date,:end_date,:day_of_week)
+  end
+
+  def set_calendar(menu_item,begin_date = Date.today.beginning_of_month,end_date = Date.today.end_of_month,style = 'simple')
+    begin_date = begin_date.to_date
+    end_date = end_date.to_date
+    events = menu_item.available_menu_items.sort_by{ |day| [day.date] }
+    @calendar = { owner: school, events: events, begin_date: begin_date, end_date: end_date, style: style }
   end
 
 end

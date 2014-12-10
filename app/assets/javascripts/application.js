@@ -18,22 +18,6 @@
 // require turbolinks
 //= require_tree .
 
-//var datesArr = [];
-//
-//datesArr.push(new Date ('Mon Aug 27 00:00:00 EDT 2014'));
-
-$(document).on("page:load ready", function(){
-    var today = new Date();
-    var y = today.getFullYear();
-    $('#datepicker').multiDatesPicker({
-        beforeShowDay: $.datepicker.noWeekends,
-        numberOfMonths: 1,
-        defaultDate: today,
-        dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
-//        addDates: datesArr
-    });
-});
-
 
 $(document).on('click', '.menu-icon', function() {
     if($('#dropdown').hasClass('dropdown-nav')){
@@ -56,15 +40,27 @@ $(document).on("page:load ready", function(){
     });
 });
 
-$(document).on("page:load ready", function() {
-    $(".wallet").hide();
-    $(".wallet-trigger").click(function () {
-        $(".wallet").toggle('slow');
+
+$(document).on("page:load ready", function(){
+    $(".hide-notes").hide();
+    $(".order-item-notes").hide();
+    $(".note-trigger").click(function() {
+        var id = this.id;
+        if($('#' + id).hasClass("inactive")) {
+            $(this).removeClass("inactive").addClass("active");
+            $("." + id + ".show-notes").hide();
+            $("." + id + ".hide-notes").show();
+        } else {
+            $(this).removeClass("active").addClass("inactive");
+            $("." + id + ".hide-notes").hide();
+            $("." + id + ".show-notes").show();
+        }
+        $("." + id + ".order-item-notes").toggle("fast");
     });
 
-    $(".payment-drop").hide();
-    $("#payment-trigger").click(function() {
-        $(".payment-drop").toggle("fast");
+    $(".close").click(function() {
+        $(this).parent().hide();
     });
 });
+
 

@@ -1,0 +1,44 @@
+<div class="calendar-row-simple calendar-header-<%= calendar[:style] %>">
+  <% Date::DAYNAMES.each do |day| %>
+    <div class="date-panel-avail"><%= day.first %></div>
+  <% end %>
+</div>
+
+<% (calendar[:begin_date].beginning_of_week(:sunday)..calendar[:end_date].end_of_week - 1.day).each do |date| %>
+  <% scheduled = calendar[:events].select{ |event| event.date.to_date == date } %>
+  <% availability = calendar[:events].map{ |i| i.date.to_date }.include?(date) %>
+
+  <% if date.sunday? %>
+    <div class="calendar-row">
+  <% end %>
+
+  <% if date.cwday > 5 || date < Date.today.next_week.monday && scheduled.empty? || date == Date.today %>
+    <div class="date-panel-avail past">
+      <%= date.strftime("%-d") %>
+    </div>
+  <% else %>
+    <% if scheduled.present? %>
+      <% if !scheduled.first.ordered_items.empty? %>
+        <div class="date-panel-avail ordered" id="<%= date.to_s %>">
+          <%= date.strftime("%-d") %>
+        </div>
+      <% else %>
+        <%= link_to available_menu_item_path(scheduled.first.id, { menu_item_id: scheduled.first.menu_item }) , method: :delete do %>
+          <div class="date-panel-avail available" id="<%= date.to_s %>">
+            <%= date.strftime("%-d") %>
+          </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%= link_to menu_item_available_menu_items_path(calendar[:owner], { date: date}), method: :post do %>
+        <div class="date-panel-avail unavailable" id="<%= date.to_s %>">
+          <%= date.strftime("%-d") %>
+      </div>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if date.saturday? %>
+    </div>
+  <% end %>
+<% end %>

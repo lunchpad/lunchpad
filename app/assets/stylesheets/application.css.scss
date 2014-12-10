@@ -241,7 +241,7 @@ form {
   width: 100%;
   background-image: url('apples.jpg');
   background-size: cover;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: -1px;
@@ -454,7 +454,7 @@ header {
     background: RGBA(207, 207, 207, 1);
     float: left;
     clear: both;
-    position: fixed;
+    position: absolute;
     top: 56px;
     left: 0;
     box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.24);
@@ -480,8 +480,8 @@ header {
       transition-delay: 0.1s;
       height: 273px;
       width: 0;
-      position: fixed;
-      top: 360px;
+      position: absolute;
+      top: 305px;
       left: 0;
 
       a {
@@ -648,6 +648,12 @@ div.order-block:hover {
   }
 }
 
+
+.note-trigger {
+  float: right;
+  width: 110px;
+}
+
 .order-item-price {
   color: $lunchpad_grey_secondary;
   display: inline;
@@ -655,9 +661,9 @@ div.order-block:hover {
 }
 
 .order-item-vendor {
-  margin-top: 8px;
-  display: inline;
   float: right;
+  @include margin(8px 25px null null);
+  display: inline;
   font-size: 12px;
   height: 100%;
 }
@@ -684,16 +690,17 @@ div.order-block:hover {
   font-size: 12px;
 }
 
-.show-notes {
-//  display: inline-block;
-  text-align: right;
-  float: right;
-  clear: right;
-  display: none;
+a.show-notes, a.hide-notes {
+  margin: 0;
 }
 
-a.show-notes:hover .order-item-notes {
+.show-notes, .hide-notes {
   display: inline-block;
+  margin-top: 9px;
+  text-align: right;
+  float: right;
+  font-size: 12px;
+
 }
 
 .table-table {
@@ -844,6 +851,8 @@ a.show-notes:hover .order-item-notes {
 
 .calendar {
   @include padding(null 10px null 10px);
+  position: relative;
+  z-index: 1;
 }
 
 .calendar-coverage {
@@ -981,6 +990,11 @@ a.show-notes:hover .order-item-notes {
   display: inline-block;
 }
 
+.selected {
+  border: solid 1px $lunchpad_green;
+  background-color: $lunchpad_grey_faint;
+}
+
 .date-panel-detail {
   width: 14%;
   border-top: 1px solid $lunchpad_grey_hint;
@@ -1064,9 +1078,10 @@ div.date-covered:hover {
 }
 
 div.date-uncovered:hover {
-  background-color: $lunchpad_green;
+  background-color: white;
+  outline: 1px solid $lunchpad_green;
   a {
-    color: white;
+    color: $lunchpad_green;
   }
 }
 
@@ -1154,6 +1169,69 @@ div.date-uncovered:hover {
   }
 }
 
+.hoverbox {
+  display: none;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: $lunchpad_green;
+  border-radius: 8px;
+  padding: 5px;
+  position: absolute;
+  z-index: 2;
+
+  a {
+    color: white;
+  }
+}
+
+.off-day {
+  background-color: #595959;
+  color: white;
+}
+
+.off-day:hover {
+  background-color: #909090;
+  color: white;
+
+  span {
+    display: block;
+    @include margin(12px null null 10px);
+    position: absolute;
+    z-index: 2;
+  }
+}
+
+.available {
+  background-color: $lunchpad_green;
+  color: white;
+}
+
+.available:hover {
+  background-color: red;
+}
+
+.unavailable {
+  border: solid 1px red;
+}
+
+.unavailable:hover {
+  background-color: $lunchpad_green;
+}
+
+.ordered {
+  background-color: $lunchpad_green_light;
+  border: solid 1px red;
+}
+
+.past {
+  color: $lunchpad_grey_hint;
+}
+
+.date-panel-avail {
+  @extend .date-panel-simple;
+}
+
 .card_links {
   @include padding(10px 15px 10px 15px);
   text-align: right;
@@ -1195,7 +1273,7 @@ div.date-uncovered:hover {
 
 
 .wallet.display-block {
-  height: 175px;
+  height: 210px;
 }
 
 .cc-form {
@@ -1267,6 +1345,7 @@ div.date-uncovered:hover {
   .stripe-image {
     text-align: center;
     img {
+      height: 35px;
       margin-top: 10px;
     }
   }

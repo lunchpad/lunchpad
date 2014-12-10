@@ -2,8 +2,6 @@
   <div class="flex-box card">
     <h1>Your Wallet: $<%= current_user.wallet / 100 %></h1>
     <div class="wallet-trigger">
-      <h2>Fill Wallet</h2>
-      <p>(click to expand)</p>
     </div>
     <div class="wallet display-block">
       <%= render 'form' %>
@@ -34,11 +32,5 @@
       </div>
       </div>
     <% end %>
-  </div>
-</div>
-
-<div class="flex-boxes card-wrapper">
-  <div class="flex-box card">
-    <h1>Payment History</h1>
   </div>
 </div>
