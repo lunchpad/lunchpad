@@ -83,7 +83,7 @@ class SchoolsController < ApplicationController
   def set_calendar(school,begin_date = Date.today.beginning_of_month,end_date = Date.today.end_of_month,style = 'simple')
     begin_date = begin_date.to_date
     end_date = end_date.to_date
-    events = school.days_off.sort_by{ |day| day.date }
+    events = school.off_days.sort_by{ |day| [day.date] }
     @calendar = { owner: school, events: events, begin_date: begin_date, end_date: end_date, style: style }
   end
 

@@ -7,10 +7,10 @@ class OffDaysController < ApplicationController
   end
 
   def create
-    @dates = params[:off_day][:date].split(", ")
+    @dates = params[:off_day][:date].split(",")
     @name = params[:off_day][:name]
     @dates.each do |date|
-      @date = Chronic.parse(date)
+      @date = date.to_date
       @off_day = @school.off_days.create(name: @name, date: @date)
     end
     redirect_to school_off_days_path
@@ -31,6 +31,5 @@ class OffDaysController < ApplicationController
   def off_day_params
     params.require(:off_day).permit(:name, :date)
   end
-
 
 end
