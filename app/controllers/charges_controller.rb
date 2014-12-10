@@ -17,7 +17,6 @@ class ChargesController < ApplicationController
     redirect_to charges_path
   end
 
-
   def new
   end
 
