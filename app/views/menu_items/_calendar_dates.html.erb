@@ -6,7 +6,7 @@
 
 <% (calendar[:begin_date].beginning_of_week(:sunday)..calendar[:end_date].end_of_week - 1.day).each do |date| %>
   <% scheduled = calendar[:events].select{ |event| event.date.to_date == date } %>
-  <% off_day = calendar[:events].map{ |i| i.date.to_date }.include?(date) %>
+  <% availability = calendar[:events].map{ |i| i.date.to_date }.include?(date) %>
 
   <% if date.sunday? %>
     <div class="calendar-row">
@@ -18,15 +18,9 @@
     </div>
   <% else %>
     <% if scheduled.present? %>
-        <div class="date-panel-simple off-day" id="<%= "date_panel_#{date.to_s}" %>">
-          <span class="hoverbox" id="<%= scheduled.first.id %>">
-            <%= scheduled.first.name %>
-            <%= link_to school_off_day_path(@school, scheduled.first), method: :delete do %>
-              <i class="fa fa-trash-o fa-fw"></i>
-            <% end %>
-          </span>
-          <%= date.strftime("%-d") %>
-        </div>
+      <div class="date-panel-simple avail" id="<%= "date_panel_#{date.to_s}" %>">
+        <%= date.strftime("%-d") %>
+      </div>
     <% else %>
       <div class="date-panel-simple" id="<%= "date_panel_#{date.to_s}" %>">
         <%= date.strftime("%-d") %>

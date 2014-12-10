@@ -1,7 +1,6 @@
 <%= form_for :off_day do |f| %>
-  <%= f.label 'Off Day Description' %>
+  <%= f.label 'Select one or more dates above, enter a description below, and save your day off.' %>
   <%= f.text_field :name %>
-  <%= f.label 'Date (select one or multiple dates with the same description)' %>
-  <%= f.text_field :date, id: 'datepicker' %>
+  <%= f.hidden_field :date, id: 'datepicker' %>
   <%= f.submit 'Submit' %>
 <% end %>

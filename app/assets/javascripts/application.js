@@ -18,22 +18,6 @@
 //= require turbolinks
 //= require_tree .
 
-//var datesArr = [];
-//
-//datesArr.push(new Date ('Mon Aug 27 00:00:00 EDT 2014'));
-
-$(document).on("page:load ready", function(){
-    var today = new Date();
-    var y = today.getFullYear();
-    $('#datepicker').multiDatesPicker({
-        beforeShowDay: $.datepicker.noWeekends,
-        numberOfMonths: 1,
-        defaultDate: today,
-        dayNamesMin: ['S', 'M', 'T', 'W', 'T', 'F', 'S']
-//        addDates: datesArr
-    });
-});
-
 
 $(document).on('click', '.menu-icon', function() {
     if($('#dropdown').hasClass('dropdown-nav')){
@@ -79,6 +63,25 @@ $(document).on("page:load ready", function(){
         }
         $("." + id + ".order-item-notes").toggle("fast");
     });
+
+    $(".close").click(function() {
+        $(this).parent().hide();
+    });
+
+    var dates = [];
+
+    $(".date-panel-simple").click(function() {
+        console.log(this.id);
+        if(!$(this).hasClass("selected") && !$(this).hasClass("off-day") && !$(this).hasClass("past")) {
+            $(this).addClass("selected");
+            dates.push(this.id.replace("date_panel_", ""));
+        } else {
+            $(this).removeClass("selected");
+        }
+        $("#datepicker").val(dates);
+        console.log(dates);
+    });
+
 });
 
 

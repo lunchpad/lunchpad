@@ -831,6 +831,8 @@ a.show-notes, a.hide-notes {
 
 .calendar {
   @include padding(null 10px null 10px);
+  position: relative;
+  z-index: 1;
 }
 
 .calendar-coverage {
@@ -966,6 +968,11 @@ a.show-notes, a.hide-notes {
   border-radius: 2px;
   text-align: center;
   display: inline-block;
+}
+
+.selected {
+  border: solid 1px $lunchpad_green;
+  background-color: $lunchpad_grey_faint;
 }
 
 .date-panel-detail {
@@ -1104,6 +1111,44 @@ div.date-uncovered:hover {
   }
 }
 
+.hoverbox {
+  display: none;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: $lunchpad_green;
+  border-radius: 8px;
+  padding: 5px;
+  width: 200px;
+  position: absolute;
+  z-index: 2;
+
+  a {
+    color: white;
+  }
+}
+
+.off-day {
+  background-color: #595959;
+  color: white;
+}
+
+.off-day:hover {
+  background-color: #909090;
+  color: white;
+
+  span {
+    display: block;
+    @include margin(12px null null 10px);
+    position: absolute;
+    z-index: 2;
+  }
+}
+
+.past {
+  color: $lunchpad_grey_hint;
+}
+
 .card_links {
   @include padding(10px 15px 10px 15px);
   text-align: right;
@@ -1224,7 +1269,5 @@ div.date-uncovered:hover {
     }
   }
 }
-
-
 
 
