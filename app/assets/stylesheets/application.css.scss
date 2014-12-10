@@ -1,4 +1,4 @@
-/*
+/*/*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -29,6 +29,11 @@ $lunchpad_grey_hint: rgba(0,0,0,.26);
 $lunchpad_grey_faint: rgba(0,0,0,.12);
 $lunchpad_black: rgba(0,0,0,.87);
 $lunchpad_green_hover: rgba(0,255,0,.05);
+
+body {
+  margin: 0;
+  padding: 0;
+}
 
 h1 {
   @include padding(10px null 20px null);
@@ -237,22 +242,48 @@ form {
 }
 
 .background {
-  height: 700px;
+  height: 805px;
   width: 100%;
-  background-image: url('apples.jpg');
+  background-image: asset-url("kids-lunch.jpg", image);
   background-size: cover;
   position: absolute;
   top: 0;
+  bottom: 0;
   left: 0;
   z-index: -1px;
-  @include padding(null null null null);
+  -webkit-filter: blur(1px) grayscale(.1) brightness(.9);
+}
+
+.logo {
+  font-weight: 500;
+  font-family: Avenir;
+  color: white;
+  padding-right: 15px;
+  font-size: 150px;
+  letter-spacing: -10px;
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  margin-left: 160px;
+  z-index: 4px;
+  padding: 2px;
+}
+
+.solid-back {
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  background-color: $lunchpad_green;
+  z-index: -2;
 }
 
 .forms {
   height: 400px;
   width: 340px;
   float: right;
-  @include margin(6% 13% null null);
+  @include margin(2% 5% null null);  z-index: 1;
+  -webkit-filter: blur(0);
 }
 
 .login-form {
@@ -454,7 +485,7 @@ header {
     background: RGBA(207, 207, 207, 1);
     float: left;
     clear: both;
-    position: absolute;
+    position: fixed;
     top: 56px;
     left: 0;
     box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.24);
@@ -481,7 +512,7 @@ header {
       height: 273px;
       width: 0;
       position: absolute;
-      top: 305px;
+      top: 302px;
       left: 0;
 
       a {
@@ -530,7 +561,7 @@ header {
   }
 
   .dropdown-nav-visible {
-    height: 303px;
+    height: 301px;
     transition: height 0.2s ease-in-out;
     box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.24);
 
