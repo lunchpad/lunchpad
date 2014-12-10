@@ -15,7 +15,6 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery-ui.multidatespicker
-// require turbolinks
 //= require_tree .
 
 
@@ -62,5 +61,6 @@ $(document).on("page:load ready", function(){
         $(this).parent().hide();
     });
 });
+
 
 
