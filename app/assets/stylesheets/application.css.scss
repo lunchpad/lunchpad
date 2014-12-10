@@ -46,6 +46,12 @@ h3 {
   line-height: 21px;
 }
 
+h5 {
+  color: $lunchpad_grey_secondary;
+  font-size: 14px;
+  line-height: 21px;
+}
+
 a {
   color: #2E7D32;
 }
@@ -127,13 +133,27 @@ $flex-box-gutter: 0;
   li {
     display: block;
     padding-bottom: 10px;
+    font-size: 14px;
   }
 
   li:last-child {
-    padding-bottom: none;
+    padding-bottom: 10px;
   }
 
   a {
+    font-size: 14px;
+  }
+}
+
+.lunchbox_owners {
+  ul {
+    padding-top: 0;
+    clear: left;
+    list-style-type: none;
+  }
+  li {
+    display: block;
+    padding-bottom: 10px;
     font-size: 14px;
   }
 }
@@ -709,7 +729,7 @@ a.show-notes, a.hide-notes {
   text-align: left;
 }
 
-.table-subheading-gray {
+.table-subheading-grey {
   display: table-row;
   background-color: rgba(0,0,0,.05);
   padding-left: 15px;
@@ -993,12 +1013,21 @@ a.show-notes, a.hide-notes {
   }
 
   li {
+    margin-top: 4px;
     font-size: 12px;
   }
 }
 
+div.date-panel-detail:hover {
+  background-color: $lunchpad_green_hover;
+}
+
 .date-panel-detail_all {
-  @extend .date-panel-detail_all
+  @extend .date-panel-detail;
+
+  a {
+    vertical-align: center;
+  }
 }
 
 .date-panel-simple {
@@ -1075,6 +1104,34 @@ div.date-uncovered:hover {
   font-size: 20px;
   line-height: 43px;
   text-align: center;
+}
+
+.account_profile_image_small {
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  display: inline-block;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  vertical-align: center;
+
+  a {
+    float: none;
+    text-align: center;
+    font-size: 10px;
+    color: white;
+    height: 100%;
+    width: 100%;
+    transition: none;
+  }
+
+  a:hover {
+    color: #CCCCCC;
+    font-size: 10px;
+  }
 }
 
 .account_profile_info {
