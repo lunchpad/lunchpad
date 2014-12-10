@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ //= depend_on_asset "kids-lunch.jpg"
  *= require jquery-ui
  *= require_self
  */
@@ -19,6 +20,7 @@
 @import "neat";
 @import "base/base";
 @import "dropdown";
+
 
 
 $lunchpad_green: #4CAF50;
@@ -244,7 +246,7 @@ form {
 .background {
   height: 805px;
   width: 100%;
-  background-image: asset-url("kids-lunch.jpg", image);
+  background-image: url('<%= asset_path("kids-lunch.jpg") %>');
   background-size: cover;
   position: absolute;
   top: 0;
