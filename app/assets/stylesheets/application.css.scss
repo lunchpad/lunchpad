@@ -1071,9 +1071,10 @@ div.date-covered:hover {
 }
 
 div.date-uncovered:hover {
-  background-color: $lunchpad_green;
+  background-color: white;
+  outline: 1px solid $lunchpad_green;
   a {
-    color: white;
+    color: $lunchpad_green;
   }
 }
 
