@@ -10,6 +10,8 @@ class MenuItemsControllerTest < ActionController::TestCase
                          password: 'password',
                          password_confirmation: 'password')
     sign_in @user
+
+    @user.add_role :admin, schools(:one)
   end
 
   def valid_menu_item_data

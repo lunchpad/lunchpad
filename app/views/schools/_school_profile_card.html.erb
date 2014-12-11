@@ -1,5 +1,8 @@
 <div class="school_profile">
-  <div class="school_profile_image"></div>
+  <div class="school_profile_image">
+    <% rgb = colorize(school.name) %>
+    <div class="account_profile_image" style="background-color: rgba(<%= rgb[0] %>,<%= rgb[1] %>,<%= rgb[2] %>,1)"><%= school.name.first %></div>
+  </div>
   <div class="school_profile_info">
     <h1>
       <% if school.nil? %>

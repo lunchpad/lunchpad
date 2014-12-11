@@ -46,10 +46,12 @@ class MenuItemsController < ApplicationController
 
   def set_menu_item
     @menu_item = MenuItem.find(params[:id])
+    @school = @menu_item.vendor.school
   end
 
   def set_vendor
     @vendor = Vendor.find(params[:vendor_id])
+    @school = @vendor.school
   end
 
   def menu_item_params
@@ -68,5 +70,4 @@ class MenuItemsController < ApplicationController
     events = menu_item.available_menu_items.sort_by{ |day| [day.date] }
     @calendar = { owner: school, events: events, begin_date: begin_date, end_date: end_date, style: style }
   end
-
 end
