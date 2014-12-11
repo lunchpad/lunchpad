@@ -1,4 +1,7 @@
-<%= form_tag(order_school_path(@school), :method => "get") do %>
-  <%= date_field nil, :date %>
-  <%= submit_tag "Get Order" %>
-<% end %>
+<div class="order-filter">
+  <%= form_tag(order_school_path(@school), :method => "get") do %>
+    <%= date_field nil, :date %>
+    <%= submit_tag "Get Order" %>
+  <% end %>
+</div>
+

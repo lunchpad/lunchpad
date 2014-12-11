@@ -1,10 +1,10 @@
 module SchoolsHelper
 
-  def quantity_of(menu_item)
+  def sum_of(available_id)
     sum = []
-    menu_item.ordered_items.find_each do |ordered|
-      unless ordered.quantity < 1
-        sum << ordered.quantity
+    OrderedItem.where(available_menu_item_id: available_id).each do |item|
+      unless item.quantity < 1
+        sum << item.quantity
       end
     end
     sum.map(&:to_i).reduce(:+)

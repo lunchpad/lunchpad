@@ -13,7 +13,7 @@
     </div>
 
 
-    <div class="display-block">
+    <div class="display-block cut-side-padding">
 
       <h1>Total Orders for <%= @date.strftime("%A %D") %></h1>
 
@@ -53,7 +53,7 @@
                 <%= item.menu_item.name %>
               </div>
               <div class="table-cell cell-align-center">
-                <%= quantity_of item.menu_item %>
+                <%= sum_of item.available_menu_item.id %>
               </div>
             <% @menu_item = item.menu_item %>
             </div>
@@ -64,7 +64,7 @@
 
     </div>
 
-    <div class="display-block">
+    <div class="display-block cut-side-padding">
 
       <h1>Distribution of Orders for <%= @date.strftime("%A %D") %></h1>
 
