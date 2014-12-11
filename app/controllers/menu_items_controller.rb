@@ -21,7 +21,7 @@ class MenuItemsController < ApplicationController
       @menu_item.schedule_availability(*availability_params.values)
       redirect_to @vendor, success: 'Menu item was created.'
     else
-      render :new, error: 'Menu item was invalid.'
+      render :new
     end
   end
 
