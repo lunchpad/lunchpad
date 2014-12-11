@@ -43,12 +43,6 @@ section_g = "Gryffindor"
 section_h = "Hufflepuff"
 section_r = "Ravenclaw"
 section_s = "Slytherin"
-section = "Gryffindor"
-
-account = Account.create(school: hogwarts,
-                         balance: 0,
-                         name: 'Neville L.',
-                         section: section)
 
 User.create(email: 'deedeelavinder@gmail.com',
             first_name: 'DeeDee',
