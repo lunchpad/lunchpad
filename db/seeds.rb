@@ -44,7 +44,6 @@ section_h = "Hufflepuff"
 section_r = "Ravenclaw"
 section_s = "Slytherin"
 
-
 User.create(email: 'deedeelavinder@gmail.com',
             first_name: 'DeeDee',
             last_name: 'Lavinder',

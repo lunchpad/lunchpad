@@ -8,6 +8,13 @@
       <h1 class="card_title">All Orders</h1>
     </div>
 
+    <div class="card_links">
+      <ul>
+        <li><%= link_to 'Back to Home', root_path %></li>
+        <li><%= link_to 'Payments', charges_path %></li>
+      </ul>
+    </div>
+
       <%= render partial: 'shared/calendar', locals: { calendar: { owner: @account,
                                                                    events: @ordered_items,
                                                                    begin_date: Date.today.beginning_of_month,
