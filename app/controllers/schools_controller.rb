@@ -22,7 +22,7 @@ class SchoolsController < ApplicationController
   def order
     @date = params[:date].to_date || Date.today
     @sorted_items = @school.report_for @date
-    @sorted_for_totals = @sorted_items.shuffle.sort_by { |item| [item.vendor, item.menu_item] }
+    @sorted_for_totals = @sorted_items.sort_by { |item| [item.vendor, item.menu_item] }
   end
 
   def accounts

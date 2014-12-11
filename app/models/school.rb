@@ -21,8 +21,8 @@ class School < ActiveRecord::Base
   validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
 
   def report_for(date)
-    items = self.ordered_items.ordered_between(date.to_datetime,
-                                               date.to_datetime)
+    items = self.ordered_items.ordered_between(date.beginning_of_day,
+                                               date.end_of_day)
     sorted = items.sort_by { |item| [item.section,
                                      item.account.name,
                                      item.vendor,

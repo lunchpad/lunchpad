@@ -243,6 +243,7 @@ form {
   }
 }
 
+
 .background {
   height: 805px;
   width: 100%;
@@ -741,6 +742,18 @@ a.show-notes, a.hide-notes {
   width: 100%;
   @extend .card_padding;
   border-top: 1px solid rgba(0,0,0,.12);
+}
+
+.cut-side-padding {
+  @include padding(null 0 null 0);
+
+  h1 {
+    padding-left: 20px;
+  }
+}
+
+#_date {
+  width: 45%;
 }
 
 .table-title {
