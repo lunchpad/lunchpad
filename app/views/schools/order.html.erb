@@ -33,7 +33,7 @@
         <% @sorted_for_totals.each do |item| %>
 
           <% if @vendor != item.vendor %>
-            <div class="table-subheading-gray">
+            <div class="table-subheading-grey">
               <div class="table-cell">
                 <strong><%= item.vendor.name %></strong>
                 <% @vendor = item.vendor %>
@@ -90,7 +90,7 @@
         <% @sorted_items.each do |item| %>
 
           <% if @section != item.section %>
-            <div class="table-subheading-gray">
+            <div class="table-subheading-grey">
               <div class="table-cell">
                 <strong><%= "#{@school.section_name}: #{item.section}" %></strong>
                 <% @section = item.section %>
