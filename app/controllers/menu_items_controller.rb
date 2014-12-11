@@ -17,9 +17,12 @@ class MenuItemsController < ApplicationController
 
   def create
     @menu_item = @vendor.menu_items.new(menu_item_params)
-    render :new unless @menu_item.save
-    @menu_item.schedule_availability(*availability_params.values)
-    redirect_to @vendor, success: 'Menu item was created.'
+    if @menu_item.save
+      @menu_item.schedule_availability(*availability_params.values)
+      redirect_to @vendor, success: 'Menu item was created.'
+    else
+      render :new, error: 'Menu item was invalid.'
+    end
   end
 
   def update
