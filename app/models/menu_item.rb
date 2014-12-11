@@ -10,8 +10,7 @@ class MenuItem < ActiveRecord::Base
             presence: true
 
   validates :name,
-            presence: true,
-            uniqueness: { scope: :vendor_id, case_sensitive: false }
+            presence: true
 
   validates :description,
             presence: true

@@ -7,6 +7,14 @@
 
       <h1 class="card_title">Edit Order</h1>
     </div>
+
+    <div class="card_links">
+      <ul>
+        <li><%= link_to 'Back to Home', root_path %></li>
+        <li><%= link_to 'Delete Order', [@account, @order], method: :delete %></li>
+      </ul>
+    </div>
+
     <%= render partial: 'form', locals: {account: @account, order: @order, ordered_items: @ordered_items} %>
   </div>
 

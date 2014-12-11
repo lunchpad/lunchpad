@@ -37,7 +37,7 @@ class OrdersControllerTest < ActionController::TestCase
   end
 
   context 'GET orders#new' do
-    setup { get :new, { account_id: accounts(:one).id, order_date: Date.today.next_week(:monday) } }
+    setup { get :new, { account_id: accounts(:one).id, order_date: Date.today.next_week(:monday) + 7 } }
 
     should render_template('new')
     should respond_with(:success)

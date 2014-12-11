@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get '/orders', to: 'orders#all', as: 'orders'
 
+  get '/help', to: 'accounts#help', as: 'help'
+
   resources :available_menu_items, only: [:create, :destroy]
 
   resources :charges do

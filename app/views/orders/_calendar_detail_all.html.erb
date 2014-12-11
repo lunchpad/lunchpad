@@ -2,6 +2,11 @@
   <div class="calendar-header-month-<%= calendar[:style] %>">
     <div class="calendar-title-<%= calendar[:style] %>">
       <%= calendar_title(calendar[:begin_date],calendar[:end_date]) %>
+
+      <div class="calendar-nav-<%= calendar[:style] %>">
+        <%= link_to raw('<i class="fa fa-chevron-left"></i>'), orders_path(begin_date: calendar[:begin_date].last_month, end_date: calendar[:end_date].last_month.end_of_month) %>
+        <%= link_to raw('<i class="fa fa-chevron-right"></i>'), orders_path(begin_date: calendar[:begin_date].next_month, end_date: calendar[:end_date].next_month.end_of_month) %>
+      </div>
     </div>
   </div>
 </div>
@@ -57,7 +62,7 @@
         <div class="date-panel-detail" id="<%= "date_panel_#{date.to_s}" %>">
           <strong>
             <%= date.strftime(format) %>
-            <%= link_to raw('<i class="fa fa-plus"></i>'), new_account_order_path(calendar[:owner], order_date: date.to_s) %>
+            <%= link_to raw('<i class="fa fa-plus"></i>'), root_path %>
           </strong>
         </div>
       <% end %>
