@@ -58,6 +58,9 @@ class AccountsController < ApplicationController
     redirect_to accounts_school_path(School.find(params[:id]))
   end
 
+  def help
+  end
+
   private
 
   def set_account
