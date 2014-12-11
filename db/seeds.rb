@@ -39,19 +39,16 @@ OffDay.create(name: "MLK Jr. Birthday", date: '2015-01-19', school: hogwarts)
 OffDay.create(name: "Washington's Birthday", date: '2015-02-16', school: hogwarts)
 OffDay.create(name: "Memorial Day", date: '2015-05-25', school: hogwarts)
 
-<<<<<<< HEAD
 section_g = "Gryffindor"
 section_h = "Hufflepuff"
 section_r = "Ravenclaw"
 section_s = "Slytherin"
-=======
 section = "Gryffindor"
 
 account = Account.create(school: hogwarts,
                          balance: 0,
                          name: 'Neville L.',
                          section: section)
->>>>>>> ac20687796c6b5241daf9f4d9368ddc0af6af387
 
 User.create(email: 'deedeelavinder@gmail.com',
             first_name: 'DeeDee',
