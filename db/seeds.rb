@@ -19,11 +19,11 @@ Vendor.delete_all
 User.delete_all
 
 
-super_admin = User.create(email: 'email@gmail.com',
-                          password: 'password',
-                          password_confirmation: 'password',
-                          first_name: 'Lunch',
-                          last_name: 'Pad')
+# super_admin = User.create(email: 'email@gmail.com',
+#                           password: 'password',
+#                           password_confirmation: 'password',
+#                           first_name: 'Lunch',
+#                           last_name: 'Pad')
 
 
 hogwarts = School.create(name: 'Hogwarts',
@@ -43,7 +43,7 @@ section = "Gryffindor"
 
 account = Account.create(school: hogwarts,
                          balance: 0,
-                         name: 'Neville Longbottom',
+                         name: 'Neville L.',
                          section: section)
 
 User.create(email: 'deedeelavinder@gmail.com',
