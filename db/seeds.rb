@@ -62,9 +62,21 @@ User.create(email: 'kheang@gmail.com',
             password: 'password',
             password_confirmation: 'password')
 
+User.create(email: 'mg@hogwarts.edu',
+            first_name: 'Minerva',
+            last_name: 'McGonagall',
+            password: 'password',
+            password_confirmation: 'password')
+
 User.all.each do |user |
   user.add_role :admin, hogwarts
 end
+
+User.create(email: 'petunia@gmail.com',
+            first_name: 'Petunia',
+            last_name: 'Dursley',
+            password: 'password',
+            password_confirmation: 'password')
 
 Account.create(school: hogwarts,
                balance: 0,
