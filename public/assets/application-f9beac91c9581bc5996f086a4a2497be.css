@@ -1,0 +1,5011 @@
+@charset "UTF-8";
+/* line 2, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_grid.scss */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Bitters 0.10.0
+ * http://bitters.bourbon.io
+ * Copyright 2013–2014 thoughtbot, inc.
+ * MIT License */
+/* line 1, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/extends/_button.scss */
+button,
+input[type="submit"] {
+  -webkit-font-smoothing: antialiased;
+  background-color: #00815b;
+  border-radius: 3px;
+  color: white;
+  display: inline-block;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1;
+  padding: 0.75em 1em;
+  text-decoration: none;
+}
+/* line 13, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/extends/_button.scss */
+button:hover,
+input[type="submit"]:hover {
+  background-color: #003525;
+  color: white;
+}
+/* line 18, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/extends/_button.scss */
+button:disabled,
+input[type="submit"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* line 1, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_typography.scss */
+body {
+  -webkit-font-smoothing: antialiased;
+  background-color: white;
+  color: #333333;
+  font-family: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+/* line 15, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_typography.scss */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
+  line-height: 1.25;
+  margin: 0;
+  text-rendering: optimizeLegibility;
+}
+
+/* line 22, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_typography.scss */
+h1 {
+  font-size: 2.25em;
+}
+
+/* line 26, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_typography.scss */
+h2 {
+  font-size: 2em;
+}
+
+/* line 30, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_typography.scss */
+h3 {
+  font-size: 1.75em;
+}
+
+/* line 34, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_typography.scss */
+h4 {
+  font-size: 1.5em;
+}
+
+/* line 38, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_typography.scss */
+h5 {
+  font-size: 1.25em;
+}
+
+/* line 42, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_typography.scss */
+h6 {
+  font-size: 1em;
+}
+
+/* line 46, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_typography.scss */
+p {
+  margin: 0 0 0.75em;
+}
+
+/* line 50, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_typography.scss */
+a {
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+  text-decoration: none;
+}
+/* line 55, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_typography.scss */
+a:hover {
+  color: #003525;
+}
+/* line 59, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_typography.scss */
+a:active, a:focus {
+  color: #003525;
+  outline: none;
+}
+
+/* line 65, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_typography.scss */
+hr {
+  border-bottom: 1px solid #dddddd;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: 1.5em 0;
+}
+
+/* line 74, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_typography.scss */
+img,
+picture {
+  margin: 0;
+  max-width: 100%;
+}
+
+/* line 79, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_typography.scss */
+blockquote {
+  border-left: 2px solid #dddddd;
+  color: #595959;
+  margin: 1.5em 0;
+  padding-left: 0.75em;
+}
+
+/* line 86, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_typography.scss */
+cite {
+  color: #737373;
+  font-style: italic;
+}
+/* line 90, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_typography.scss */
+cite:before {
+  content: "\2014 \00A0";
+}
+
+/* line 1, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_forms.scss */
+fieldset {
+  background: #f7f7f7;
+  border: 1px solid #dddddd;
+  margin: 0 0 0.75em 0;
+  padding: 1.5em;
+}
+
+/* line 10, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_forms.scss */
+input,
+label,
+select {
+  display: block;
+  font-family: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
+  font-size: 14px;
+}
+
+/* line 16, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_forms.scss */
+label {
+  font-weight: bold;
+  margin-bottom: 0.375em;
+}
+/* line 20, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_forms.scss */
+label.required:after {
+  content: "*";
+}
+/* line 24, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_forms.scss */
+label abbr {
+  display: none;
+}
+
+/* line 31, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_forms.scss */
+textarea,
+input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"],
+select[multiple=multiple] {
+  -webkit-transition: border-color;
+  -moz-transition: border-color;
+  transition: border-color;
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid #dddddd;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+  font-family: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
+  font-size: 1em;
+  padding: 6px;
+  width: 100%;
+}
+/* line 44, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_forms.scss */
+textarea:hover,
+input[type="email"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="text"]:hover, input[type="url"]:hover, input[type="color"]:hover, input[type="date"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="month"]:hover, input[type="time"]:hover, input[type="week"]:hover,
+select[multiple=multiple]:hover {
+  border-color: #c4c4c4;
+}
+/* line 48, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_forms.scss */
+textarea:focus,
+input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="url"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus,
+select[multiple=multiple]:focus {
+  border-color: #00815b;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(0, 104, 73, 0.7);
+  outline: none;
+}
+
+/* line 55, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_forms.scss */
+textarea {
+  resize: vertical;
+}
+
+/* line 59, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_forms.scss */
+input[type="search"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+/* line 64, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_forms.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+  margin-right: 0.375em;
+}
+
+/* line 69, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_forms.scss */
+input[type="file"] {
+  padding-bottom: 0.75em;
+  width: 100%;
+}
+
+/* line 74, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_forms.scss */
+select {
+  margin-bottom: 1.5em;
+  max-width: 100%;
+  width: auto;
+}
+
+/* line 80, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_forms.scss */
+input[type="text"].order_form_quantity {
+  width: 40px;
+  text-align: center;
+}
+
+/* line 1, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_tables.scss */
+table {
+  border-collapse: collapse;
+  margin: 0.75em 0;
+  table-layout: fixed;
+  width: 100%;
+}
+
+/* line 8, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_tables.scss */
+th {
+  border-bottom: 1px solid #b7b7b7;
+  font-weight: bold;
+  padding: 0.75em 0;
+  text-align: left;
+}
+
+/* line 15, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_tables.scss */
+td {
+  border-bottom: 1px solid #dddddd;
+  padding: 0.75em 0;
+}
+
+/* line 22, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_tables.scss */
+tr,
+td,
+th {
+  vertical-align: middle;
+}
+
+/* line 2, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_lists.scss */
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+/* line 20, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_lists.scss */
+dl {
+  margin-bottom: 0.75em;
+}
+/* line 23, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_lists.scss */
+dl dt {
+  font-weight: bold;
+  margin-top: 0.75em;
+}
+/* line 28, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_lists.scss */
+dl dd {
+  margin: 0;
+}
+
+/* line 2, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_buttons.scss */
+button,
+input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  background-color: #4CAF50;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+/* line 14, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/base/_buttons.scss */
+button,
+input[type="submit"]:hover {
+  background-color: #2E7D32;
+}
+
+/* line 21, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.dropdown {
+  text-align: center;
+}
+
+/* line 25, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.dropdown-container {
+  display: inline-block;
+  position: relative;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12), 0px 0px 2px 0px rgba(0, 0, 0, 0.24);
+}
+
+/* line 32, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.dropdown-description {
+  background: white;
+  border-bottom-left-radius: 3px;
+  border-bottom: none;
+  border-left: none;
+  border-top-left-radius: 3px;
+  border-top: none;
+  color: rgba(102, 102, 102, 0.87);
+  float: left;
+  font-size: .7em;
+  line-height: 40px;
+  margin-bottom: 0;
+  padding: 0 0.5em 0 1em;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 32, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+  .dropdown-description {
+    font-size: 1em;
+  }
+}
+
+/* line 51, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.dropdown-button {
+  background: white;
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  cursor: pointer;
+  float: right;
+  font-size: .7em;
+  font-weight: 800;
+  line-height: 40px;
+  margin-bottom: 0;
+  padding: 0 3.5em 0 0.5em;
+  position: relative;
+}
+@media screen and (min-width: 53.75em) {
+  /* line 51, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+  .dropdown-button {
+    font-size: 1em;
+    padding: 0 2.5em 0 0.5em;
+  }
+}
+
+/* line 73, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.dropdown-button:hover {
+  background-color: #f7f7f7;
+}
+
+/* line 77, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.dropdown-button:after {
+  color: #333333;
+  content: "\25BE";
+  display: block;
+  position: absolute;
+  right: 1em;
+  top: 0;
+}
+
+/* line 86, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.dropdown-menu {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  background: white;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.87);
+  cursor: pointer;
+  display: none;
+  overflow: show;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  width: 228px;
+  z-index: 99999;
+}
+/* line 102, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.dropdown-menu:before {
+  position: absolute;
+  right: 1em;
+  color: white;
+  content: "\25b2";
+  font-size: 1.4em;
+  pointer-events: none;
+  text-shadow: 0 -2px 2px rgba(0, 0, 0, 0.3);
+  top: -1em;
+}
+
+/* line 113, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.dropdown-menu li {
+  border-bottom: none;
+  color: rgba(0, 0, 0, 0.87);
+  padding: 0.5em;
+}
+
+/* line 119, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.dropdown-menu li:hover {
+  background: #f7f7f7;
+}
+
+/* line 123, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.dropdown-menu li:first-child {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+/* line 128, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.dropdown-menu li:last-child {
+  border: none;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+/* line 134, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.show-menu {
+  display: block;
+}
+
+/* line 138, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.account-form {
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12), 0px 0px 2px 0px rgba(0, 0, 0, 0.24);
+  background-color: white;
+  padding: 15px;
+  margin-top: 20px;
+}
+/* line 140, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.account-form h2 {
+  margin-bottom: 15px;
+}
+/* line 144, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.account-form #account_name {
+  width: 99.5%;
+  margin-bottom: 0;
+}
+/* line 149, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.account-form .grade {
+  margin-top: 15px;
+  display: inline;
+}
+/* line 152, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.account-form .grade label {
+  float: left;
+  font-size: 16px;
+  margin-top: 15px;
+  margin-right: 10px;
+  margin-left: 8px;
+}
+/* line 157, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.account-form .grade #account_section {
+  margin-top: 17px;
+  margin-right: 10px;
+  margin-bottom: 0;
+  float: left;
+}
+/* line 163, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/dropdown.css.scss */
+.account-form .actions {
+  margin-top: 15px;
+  float: right;
+  clear: right;
+  width: 175px;
+}
+
+/*!
+ *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
+ *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
+ */
+/* FONT PATH
+ * -------------------------- */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url("/assets/fontawesome-webfont.eot?v=4.2.0");
+  src: url("/assets/fontawesome-webfont.eot?#iefix&v=4.2.0") format("embedded-opentype"), url("/assets/fontawesome-webfont.woff?v=4.2.0") format("woff"), url("/assets/fontawesome-webfont.ttf?v=4.2.0") format("truetype"), url("/assets/fontawesome-webfont.svg?v=4.2.0#fontawesomeregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 18, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* makes the font 33% larger relative to the icon container */
+/* line 27, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-lg {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+
+/* line 32, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-2x {
+  font-size: 2em;
+}
+
+/* line 35, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-3x {
+  font-size: 3em;
+}
+
+/* line 38, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-4x {
+  font-size: 4em;
+}
+
+/* line 41, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-5x {
+  font-size: 5em;
+}
+
+/* line 44, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-fw {
+  width: 1.28571429em;
+  text-align: center;
+}
+
+/* line 48, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-ul {
+  padding-left: 0;
+  margin-left: 2.14285714em;
+  list-style-type: none;
+}
+
+/* line 53, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-ul > li {
+  position: relative;
+}
+
+/* line 56, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-li {
+  position: absolute;
+  left: -2.14285714em;
+  width: 2.14285714em;
+  top: 0.14285714em;
+  text-align: center;
+}
+
+/* line 63, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-li.fa-lg {
+  left: -1.85714286em;
+}
+
+/* line 66, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-border {
+  padding: .2em .25em .15em;
+  border: solid 0.08em #eeeeee;
+  border-radius: .1em;
+}
+
+/* line 71, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.pull-right {
+  float: right;
+}
+
+/* line 74, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.pull-left {
+  float: left;
+}
+
+/* line 77, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa.pull-left {
+  margin-right: .3em;
+}
+
+/* line 80, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa.pull-right {
+  margin-left: .3em;
+}
+
+/* line 83, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+}
+
+@-webkit-keyframes fa-spin {
+  /* line 88, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  /* line 92, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes fa-spin {
+  /* line 98, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  /* line 102, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+/* line 107, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+/* line 113, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/* line 119, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+/* line 125, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-flip-horizontal {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+/* line 131, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-flip-vertical {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+/* line 141, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical {
+  filter: none;
+}
+
+/* line 144, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-stack {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  vertical-align: middle;
+}
+
+/* line 153, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-stack-1x,
+.fa-stack-2x {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* line 159, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-stack-1x {
+  line-height: inherit;
+}
+
+/* line 162, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-stack-2x {
+  font-size: 2em;
+}
+
+/* line 165, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-inverse {
+  color: #ffffff;
+}
+
+/* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
+   readers do not read off random characters that represent icons */
+/* line 170, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-glass:before {
+  content: "\f000";
+}
+
+/* line 173, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-music:before {
+  content: "\f001";
+}
+
+/* line 176, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-search:before {
+  content: "\f002";
+}
+
+/* line 179, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-envelope-o:before {
+  content: "\f003";
+}
+
+/* line 182, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-heart:before {
+  content: "\f004";
+}
+
+/* line 185, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-star:before {
+  content: "\f005";
+}
+
+/* line 188, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-star-o:before {
+  content: "\f006";
+}
+
+/* line 191, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-user:before {
+  content: "\f007";
+}
+
+/* line 194, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-film:before {
+  content: "\f008";
+}
+
+/* line 197, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-th-large:before {
+  content: "\f009";
+}
+
+/* line 200, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-th:before {
+  content: "\f00a";
+}
+
+/* line 203, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-th-list:before {
+  content: "\f00b";
+}
+
+/* line 206, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-check:before {
+  content: "\f00c";
+}
+
+/* line 211, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-remove:before,
+.fa-close:before,
+.fa-times:before {
+  content: "\f00d";
+}
+
+/* line 214, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-search-plus:before {
+  content: "\f00e";
+}
+
+/* line 217, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-search-minus:before {
+  content: "\f010";
+}
+
+/* line 220, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-power-off:before {
+  content: "\f011";
+}
+
+/* line 223, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-signal:before {
+  content: "\f012";
+}
+
+/* line 227, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-gear:before,
+.fa-cog:before {
+  content: "\f013";
+}
+
+/* line 230, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-trash-o:before {
+  content: "\f014";
+}
+
+/* line 233, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-home:before {
+  content: "\f015";
+}
+
+/* line 236, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-file-o:before {
+  content: "\f016";
+}
+
+/* line 239, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-clock-o:before {
+  content: "\f017";
+}
+
+/* line 242, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-road:before {
+  content: "\f018";
+}
+
+/* line 245, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-download:before {
+  content: "\f019";
+}
+
+/* line 248, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-arrow-circle-o-down:before {
+  content: "\f01a";
+}
+
+/* line 251, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-arrow-circle-o-up:before {
+  content: "\f01b";
+}
+
+/* line 254, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-inbox:before {
+  content: "\f01c";
+}
+
+/* line 257, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-play-circle-o:before {
+  content: "\f01d";
+}
+
+/* line 261, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-rotate-right:before,
+.fa-repeat:before {
+  content: "\f01e";
+}
+
+/* line 264, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-refresh:before {
+  content: "\f021";
+}
+
+/* line 267, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-list-alt:before {
+  content: "\f022";
+}
+
+/* line 270, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-lock:before {
+  content: "\f023";
+}
+
+/* line 273, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-flag:before {
+  content: "\f024";
+}
+
+/* line 276, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-headphones:before {
+  content: "\f025";
+}
+
+/* line 279, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-volume-off:before {
+  content: "\f026";
+}
+
+/* line 282, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-volume-down:before {
+  content: "\f027";
+}
+
+/* line 285, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-volume-up:before {
+  content: "\f028";
+}
+
+/* line 288, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-qrcode:before {
+  content: "\f029";
+}
+
+/* line 291, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-barcode:before {
+  content: "\f02a";
+}
+
+/* line 294, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-tag:before {
+  content: "\f02b";
+}
+
+/* line 297, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-tags:before {
+  content: "\f02c";
+}
+
+/* line 300, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-book:before {
+  content: "\f02d";
+}
+
+/* line 303, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-bookmark:before {
+  content: "\f02e";
+}
+
+/* line 306, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-print:before {
+  content: "\f02f";
+}
+
+/* line 309, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-camera:before {
+  content: "\f030";
+}
+
+/* line 312, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-font:before {
+  content: "\f031";
+}
+
+/* line 315, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-bold:before {
+  content: "\f032";
+}
+
+/* line 318, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-italic:before {
+  content: "\f033";
+}
+
+/* line 321, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-text-height:before {
+  content: "\f034";
+}
+
+/* line 324, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-text-width:before {
+  content: "\f035";
+}
+
+/* line 327, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-align-left:before {
+  content: "\f036";
+}
+
+/* line 330, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-align-center:before {
+  content: "\f037";
+}
+
+/* line 333, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-align-right:before {
+  content: "\f038";
+}
+
+/* line 336, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-align-justify:before {
+  content: "\f039";
+}
+
+/* line 339, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-list:before {
+  content: "\f03a";
+}
+
+/* line 343, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-dedent:before,
+.fa-outdent:before {
+  content: "\f03b";
+}
+
+/* line 346, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-indent:before {
+  content: "\f03c";
+}
+
+/* line 349, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-video-camera:before {
+  content: "\f03d";
+}
+
+/* line 354, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-photo:before,
+.fa-image:before,
+.fa-picture-o:before {
+  content: "\f03e";
+}
+
+/* line 357, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-pencil:before {
+  content: "\f040";
+}
+
+/* line 360, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-map-marker:before {
+  content: "\f041";
+}
+
+/* line 363, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-adjust:before {
+  content: "\f042";
+}
+
+/* line 366, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-tint:before {
+  content: "\f043";
+}
+
+/* line 370, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-edit:before,
+.fa-pencil-square-o:before {
+  content: "\f044";
+}
+
+/* line 373, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-share-square-o:before {
+  content: "\f045";
+}
+
+/* line 376, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-check-square-o:before {
+  content: "\f046";
+}
+
+/* line 379, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-arrows:before {
+  content: "\f047";
+}
+
+/* line 382, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-step-backward:before {
+  content: "\f048";
+}
+
+/* line 385, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-fast-backward:before {
+  content: "\f049";
+}
+
+/* line 388, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-backward:before {
+  content: "\f04a";
+}
+
+/* line 391, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-play:before {
+  content: "\f04b";
+}
+
+/* line 394, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-pause:before {
+  content: "\f04c";
+}
+
+/* line 397, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-stop:before {
+  content: "\f04d";
+}
+
+/* line 400, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-forward:before {
+  content: "\f04e";
+}
+
+/* line 403, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-fast-forward:before {
+  content: "\f050";
+}
+
+/* line 406, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-step-forward:before {
+  content: "\f051";
+}
+
+/* line 409, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-eject:before {
+  content: "\f052";
+}
+
+/* line 412, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-chevron-left:before {
+  content: "\f053";
+}
+
+/* line 415, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-chevron-right:before {
+  content: "\f054";
+}
+
+/* line 418, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-plus-circle:before {
+  content: "\f055";
+}
+
+/* line 421, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-minus-circle:before {
+  content: "\f056";
+}
+
+/* line 424, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-times-circle:before {
+  content: "\f057";
+}
+
+/* line 427, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-check-circle:before {
+  content: "\f058";
+}
+
+/* line 430, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-question-circle:before {
+  content: "\f059";
+}
+
+/* line 433, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-info-circle:before {
+  content: "\f05a";
+}
+
+/* line 436, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-crosshairs:before {
+  content: "\f05b";
+}
+
+/* line 439, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-times-circle-o:before {
+  content: "\f05c";
+}
+
+/* line 442, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-check-circle-o:before {
+  content: "\f05d";
+}
+
+/* line 445, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-ban:before {
+  content: "\f05e";
+}
+
+/* line 448, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-arrow-left:before {
+  content: "\f060";
+}
+
+/* line 451, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-arrow-right:before {
+  content: "\f061";
+}
+
+/* line 454, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-arrow-up:before {
+  content: "\f062";
+}
+
+/* line 457, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-arrow-down:before {
+  content: "\f063";
+}
+
+/* line 461, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-mail-forward:before,
+.fa-share:before {
+  content: "\f064";
+}
+
+/* line 464, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-expand:before {
+  content: "\f065";
+}
+
+/* line 467, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-compress:before {
+  content: "\f066";
+}
+
+/* line 470, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-plus:before {
+  content: "\f067";
+}
+
+/* line 473, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-minus:before {
+  content: "\f068";
+}
+
+/* line 476, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-asterisk:before {
+  content: "\f069";
+}
+
+/* line 479, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-exclamation-circle:before {
+  content: "\f06a";
+}
+
+/* line 482, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-gift:before {
+  content: "\f06b";
+}
+
+/* line 485, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-leaf:before {
+  content: "\f06c";
+}
+
+/* line 488, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-fire:before {
+  content: "\f06d";
+}
+
+/* line 491, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-eye:before {
+  content: "\f06e";
+}
+
+/* line 494, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-eye-slash:before {
+  content: "\f070";
+}
+
+/* line 498, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-warning:before,
+.fa-exclamation-triangle:before {
+  content: "\f071";
+}
+
+/* line 501, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-plane:before {
+  content: "\f072";
+}
+
+/* line 504, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-calendar:before {
+  content: "\f073";
+}
+
+/* line 507, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-random:before {
+  content: "\f074";
+}
+
+/* line 510, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-comment:before {
+  content: "\f075";
+}
+
+/* line 513, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-magnet:before {
+  content: "\f076";
+}
+
+/* line 516, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-chevron-up:before {
+  content: "\f077";
+}
+
+/* line 519, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-chevron-down:before {
+  content: "\f078";
+}
+
+/* line 522, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-retweet:before {
+  content: "\f079";
+}
+
+/* line 525, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-shopping-cart:before {
+  content: "\f07a";
+}
+
+/* line 528, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-folder:before {
+  content: "\f07b";
+}
+
+/* line 531, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-folder-open:before {
+  content: "\f07c";
+}
+
+/* line 534, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-arrows-v:before {
+  content: "\f07d";
+}
+
+/* line 537, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-arrows-h:before {
+  content: "\f07e";
+}
+
+/* line 541, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-bar-chart-o:before,
+.fa-bar-chart:before {
+  content: "\f080";
+}
+
+/* line 544, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-twitter-square:before {
+  content: "\f081";
+}
+
+/* line 547, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-facebook-square:before {
+  content: "\f082";
+}
+
+/* line 550, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-camera-retro:before {
+  content: "\f083";
+}
+
+/* line 553, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-key:before {
+  content: "\f084";
+}
+
+/* line 557, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-gears:before,
+.fa-cogs:before {
+  content: "\f085";
+}
+
+/* line 560, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-comments:before {
+  content: "\f086";
+}
+
+/* line 563, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-thumbs-o-up:before {
+  content: "\f087";
+}
+
+/* line 566, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-thumbs-o-down:before {
+  content: "\f088";
+}
+
+/* line 569, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-star-half:before {
+  content: "\f089";
+}
+
+/* line 572, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-heart-o:before {
+  content: "\f08a";
+}
+
+/* line 575, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-sign-out:before {
+  content: "\f08b";
+}
+
+/* line 578, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-linkedin-square:before {
+  content: "\f08c";
+}
+
+/* line 581, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-thumb-tack:before {
+  content: "\f08d";
+}
+
+/* line 584, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-external-link:before {
+  content: "\f08e";
+}
+
+/* line 587, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-sign-in:before {
+  content: "\f090";
+}
+
+/* line 590, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-trophy:before {
+  content: "\f091";
+}
+
+/* line 593, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-github-square:before {
+  content: "\f092";
+}
+
+/* line 596, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-upload:before {
+  content: "\f093";
+}
+
+/* line 599, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-lemon-o:before {
+  content: "\f094";
+}
+
+/* line 602, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-phone:before {
+  content: "\f095";
+}
+
+/* line 605, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-square-o:before {
+  content: "\f096";
+}
+
+/* line 608, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-bookmark-o:before {
+  content: "\f097";
+}
+
+/* line 611, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-phone-square:before {
+  content: "\f098";
+}
+
+/* line 614, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-twitter:before {
+  content: "\f099";
+}
+
+/* line 617, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-facebook:before {
+  content: "\f09a";
+}
+
+/* line 620, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-github:before {
+  content: "\f09b";
+}
+
+/* line 623, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-unlock:before {
+  content: "\f09c";
+}
+
+/* line 626, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-credit-card:before {
+  content: "\f09d";
+}
+
+/* line 629, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-rss:before {
+  content: "\f09e";
+}
+
+/* line 632, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-hdd-o:before {
+  content: "\f0a0";
+}
+
+/* line 635, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-bullhorn:before {
+  content: "\f0a1";
+}
+
+/* line 638, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-bell:before {
+  content: "\f0f3";
+}
+
+/* line 641, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-certificate:before {
+  content: "\f0a3";
+}
+
+/* line 644, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-hand-o-right:before {
+  content: "\f0a4";
+}
+
+/* line 647, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-hand-o-left:before {
+  content: "\f0a5";
+}
+
+/* line 650, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-hand-o-up:before {
+  content: "\f0a6";
+}
+
+/* line 653, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-hand-o-down:before {
+  content: "\f0a7";
+}
+
+/* line 656, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-arrow-circle-left:before {
+  content: "\f0a8";
+}
+
+/* line 659, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-arrow-circle-right:before {
+  content: "\f0a9";
+}
+
+/* line 662, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-arrow-circle-up:before {
+  content: "\f0aa";
+}
+
+/* line 665, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-arrow-circle-down:before {
+  content: "\f0ab";
+}
+
+/* line 668, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-globe:before {
+  content: "\f0ac";
+}
+
+/* line 671, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-wrench:before {
+  content: "\f0ad";
+}
+
+/* line 674, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-tasks:before {
+  content: "\f0ae";
+}
+
+/* line 677, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-filter:before {
+  content: "\f0b0";
+}
+
+/* line 680, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-briefcase:before {
+  content: "\f0b1";
+}
+
+/* line 683, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-arrows-alt:before {
+  content: "\f0b2";
+}
+
+/* line 687, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-group:before,
+.fa-users:before {
+  content: "\f0c0";
+}
+
+/* line 691, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-chain:before,
+.fa-link:before {
+  content: "\f0c1";
+}
+
+/* line 694, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-cloud:before {
+  content: "\f0c2";
+}
+
+/* line 697, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-flask:before {
+  content: "\f0c3";
+}
+
+/* line 701, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-cut:before,
+.fa-scissors:before {
+  content: "\f0c4";
+}
+
+/* line 705, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-copy:before,
+.fa-files-o:before {
+  content: "\f0c5";
+}
+
+/* line 708, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-paperclip:before {
+  content: "\f0c6";
+}
+
+/* line 712, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-save:before,
+.fa-floppy-o:before {
+  content: "\f0c7";
+}
+
+/* line 715, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-square:before {
+  content: "\f0c8";
+}
+
+/* line 720, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-navicon:before,
+.fa-reorder:before,
+.fa-bars:before {
+  content: "\f0c9";
+}
+
+/* line 723, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-list-ul:before {
+  content: "\f0ca";
+}
+
+/* line 726, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-list-ol:before {
+  content: "\f0cb";
+}
+
+/* line 729, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-strikethrough:before {
+  content: "\f0cc";
+}
+
+/* line 732, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-underline:before {
+  content: "\f0cd";
+}
+
+/* line 735, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-table:before {
+  content: "\f0ce";
+}
+
+/* line 738, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-magic:before {
+  content: "\f0d0";
+}
+
+/* line 741, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-truck:before {
+  content: "\f0d1";
+}
+
+/* line 744, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-pinterest:before {
+  content: "\f0d2";
+}
+
+/* line 747, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-pinterest-square:before {
+  content: "\f0d3";
+}
+
+/* line 750, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-google-plus-square:before {
+  content: "\f0d4";
+}
+
+/* line 753, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-google-plus:before {
+  content: "\f0d5";
+}
+
+/* line 756, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-money:before {
+  content: "\f0d6";
+}
+
+/* line 759, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-caret-down:before {
+  content: "\f0d7";
+}
+
+/* line 762, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-caret-up:before {
+  content: "\f0d8";
+}
+
+/* line 765, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-caret-left:before {
+  content: "\f0d9";
+}
+
+/* line 768, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-caret-right:before {
+  content: "\f0da";
+}
+
+/* line 771, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-columns:before {
+  content: "\f0db";
+}
+
+/* line 775, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-unsorted:before,
+.fa-sort:before {
+  content: "\f0dc";
+}
+
+/* line 779, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-sort-down:before,
+.fa-sort-desc:before {
+  content: "\f0dd";
+}
+
+/* line 783, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-sort-up:before,
+.fa-sort-asc:before {
+  content: "\f0de";
+}
+
+/* line 786, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-envelope:before {
+  content: "\f0e0";
+}
+
+/* line 789, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-linkedin:before {
+  content: "\f0e1";
+}
+
+/* line 793, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-rotate-left:before,
+.fa-undo:before {
+  content: "\f0e2";
+}
+
+/* line 797, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-legal:before,
+.fa-gavel:before {
+  content: "\f0e3";
+}
+
+/* line 801, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-dashboard:before,
+.fa-tachometer:before {
+  content: "\f0e4";
+}
+
+/* line 804, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-comment-o:before {
+  content: "\f0e5";
+}
+
+/* line 807, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-comments-o:before {
+  content: "\f0e6";
+}
+
+/* line 811, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-flash:before,
+.fa-bolt:before {
+  content: "\f0e7";
+}
+
+/* line 814, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-sitemap:before {
+  content: "\f0e8";
+}
+
+/* line 817, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-umbrella:before {
+  content: "\f0e9";
+}
+
+/* line 821, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-paste:before,
+.fa-clipboard:before {
+  content: "\f0ea";
+}
+
+/* line 824, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-lightbulb-o:before {
+  content: "\f0eb";
+}
+
+/* line 827, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-exchange:before {
+  content: "\f0ec";
+}
+
+/* line 830, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-cloud-download:before {
+  content: "\f0ed";
+}
+
+/* line 833, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-cloud-upload:before {
+  content: "\f0ee";
+}
+
+/* line 836, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-user-md:before {
+  content: "\f0f0";
+}
+
+/* line 839, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-stethoscope:before {
+  content: "\f0f1";
+}
+
+/* line 842, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-suitcase:before {
+  content: "\f0f2";
+}
+
+/* line 845, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-bell-o:before {
+  content: "\f0a2";
+}
+
+/* line 848, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-coffee:before {
+  content: "\f0f4";
+}
+
+/* line 851, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-cutlery:before {
+  content: "\f0f5";
+}
+
+/* line 854, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-file-text-o:before {
+  content: "\f0f6";
+}
+
+/* line 857, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-building-o:before {
+  content: "\f0f7";
+}
+
+/* line 860, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-hospital-o:before {
+  content: "\f0f8";
+}
+
+/* line 863, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-ambulance:before {
+  content: "\f0f9";
+}
+
+/* line 866, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-medkit:before {
+  content: "\f0fa";
+}
+
+/* line 869, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-fighter-jet:before {
+  content: "\f0fb";
+}
+
+/* line 872, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-beer:before {
+  content: "\f0fc";
+}
+
+/* line 875, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-h-square:before {
+  content: "\f0fd";
+}
+
+/* line 878, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-plus-square:before {
+  content: "\f0fe";
+}
+
+/* line 881, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-angle-double-left:before {
+  content: "\f100";
+}
+
+/* line 884, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-angle-double-right:before {
+  content: "\f101";
+}
+
+/* line 887, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-angle-double-up:before {
+  content: "\f102";
+}
+
+/* line 890, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-angle-double-down:before {
+  content: "\f103";
+}
+
+/* line 893, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-angle-left:before {
+  content: "\f104";
+}
+
+/* line 896, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-angle-right:before {
+  content: "\f105";
+}
+
+/* line 899, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-angle-up:before {
+  content: "\f106";
+}
+
+/* line 902, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-angle-down:before {
+  content: "\f107";
+}
+
+/* line 905, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-desktop:before {
+  content: "\f108";
+}
+
+/* line 908, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-laptop:before {
+  content: "\f109";
+}
+
+/* line 911, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-tablet:before {
+  content: "\f10a";
+}
+
+/* line 915, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-mobile-phone:before,
+.fa-mobile:before {
+  content: "\f10b";
+}
+
+/* line 918, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-circle-o:before {
+  content: "\f10c";
+}
+
+/* line 921, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-quote-left:before {
+  content: "\f10d";
+}
+
+/* line 924, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-quote-right:before {
+  content: "\f10e";
+}
+
+/* line 927, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-spinner:before {
+  content: "\f110";
+}
+
+/* line 930, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-circle:before {
+  content: "\f111";
+}
+
+/* line 934, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-mail-reply:before,
+.fa-reply:before {
+  content: "\f112";
+}
+
+/* line 937, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-github-alt:before {
+  content: "\f113";
+}
+
+/* line 940, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-folder-o:before {
+  content: "\f114";
+}
+
+/* line 943, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-folder-open-o:before {
+  content: "\f115";
+}
+
+/* line 946, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-smile-o:before {
+  content: "\f118";
+}
+
+/* line 949, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-frown-o:before {
+  content: "\f119";
+}
+
+/* line 952, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-meh-o:before {
+  content: "\f11a";
+}
+
+/* line 955, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-gamepad:before {
+  content: "\f11b";
+}
+
+/* line 958, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-keyboard-o:before {
+  content: "\f11c";
+}
+
+/* line 961, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-flag-o:before {
+  content: "\f11d";
+}
+
+/* line 964, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-flag-checkered:before {
+  content: "\f11e";
+}
+
+/* line 967, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-terminal:before {
+  content: "\f120";
+}
+
+/* line 970, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-code:before {
+  content: "\f121";
+}
+
+/* line 974, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-mail-reply-all:before,
+.fa-reply-all:before {
+  content: "\f122";
+}
+
+/* line 979, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-star-half-empty:before,
+.fa-star-half-full:before,
+.fa-star-half-o:before {
+  content: "\f123";
+}
+
+/* line 982, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-location-arrow:before {
+  content: "\f124";
+}
+
+/* line 985, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-crop:before {
+  content: "\f125";
+}
+
+/* line 988, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-code-fork:before {
+  content: "\f126";
+}
+
+/* line 992, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-unlink:before,
+.fa-chain-broken:before {
+  content: "\f127";
+}
+
+/* line 995, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-question:before {
+  content: "\f128";
+}
+
+/* line 998, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-info:before {
+  content: "\f129";
+}
+
+/* line 1001, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-exclamation:before {
+  content: "\f12a";
+}
+
+/* line 1004, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-superscript:before {
+  content: "\f12b";
+}
+
+/* line 1007, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-subscript:before {
+  content: "\f12c";
+}
+
+/* line 1010, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-eraser:before {
+  content: "\f12d";
+}
+
+/* line 1013, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-puzzle-piece:before {
+  content: "\f12e";
+}
+
+/* line 1016, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-microphone:before {
+  content: "\f130";
+}
+
+/* line 1019, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-microphone-slash:before {
+  content: "\f131";
+}
+
+/* line 1022, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-shield:before {
+  content: "\f132";
+}
+
+/* line 1025, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-calendar-o:before {
+  content: "\f133";
+}
+
+/* line 1028, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-fire-extinguisher:before {
+  content: "\f134";
+}
+
+/* line 1031, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-rocket:before {
+  content: "\f135";
+}
+
+/* line 1034, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-maxcdn:before {
+  content: "\f136";
+}
+
+/* line 1037, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-chevron-circle-left:before {
+  content: "\f137";
+}
+
+/* line 1040, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-chevron-circle-right:before {
+  content: "\f138";
+}
+
+/* line 1043, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-chevron-circle-up:before {
+  content: "\f139";
+}
+
+/* line 1046, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-chevron-circle-down:before {
+  content: "\f13a";
+}
+
+/* line 1049, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-html5:before {
+  content: "\f13b";
+}
+
+/* line 1052, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-css3:before {
+  content: "\f13c";
+}
+
+/* line 1055, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-anchor:before {
+  content: "\f13d";
+}
+
+/* line 1058, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-unlock-alt:before {
+  content: "\f13e";
+}
+
+/* line 1061, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-bullseye:before {
+  content: "\f140";
+}
+
+/* line 1064, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-ellipsis-h:before {
+  content: "\f141";
+}
+
+/* line 1067, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-ellipsis-v:before {
+  content: "\f142";
+}
+
+/* line 1070, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-rss-square:before {
+  content: "\f143";
+}
+
+/* line 1073, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-play-circle:before {
+  content: "\f144";
+}
+
+/* line 1076, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-ticket:before {
+  content: "\f145";
+}
+
+/* line 1079, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-minus-square:before {
+  content: "\f146";
+}
+
+/* line 1082, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-minus-square-o:before {
+  content: "\f147";
+}
+
+/* line 1085, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-level-up:before {
+  content: "\f148";
+}
+
+/* line 1088, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-level-down:before {
+  content: "\f149";
+}
+
+/* line 1091, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-check-square:before {
+  content: "\f14a";
+}
+
+/* line 1094, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-pencil-square:before {
+  content: "\f14b";
+}
+
+/* line 1097, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-external-link-square:before {
+  content: "\f14c";
+}
+
+/* line 1100, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-share-square:before {
+  content: "\f14d";
+}
+
+/* line 1103, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-compass:before {
+  content: "\f14e";
+}
+
+/* line 1107, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-toggle-down:before,
+.fa-caret-square-o-down:before {
+  content: "\f150";
+}
+
+/* line 1111, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-toggle-up:before,
+.fa-caret-square-o-up:before {
+  content: "\f151";
+}
+
+/* line 1115, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-toggle-right:before,
+.fa-caret-square-o-right:before {
+  content: "\f152";
+}
+
+/* line 1119, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-euro:before,
+.fa-eur:before {
+  content: "\f153";
+}
+
+/* line 1122, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-gbp:before {
+  content: "\f154";
+}
+
+/* line 1126, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-dollar:before,
+.fa-usd:before {
+  content: "\f155";
+}
+
+/* line 1130, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-rupee:before,
+.fa-inr:before {
+  content: "\f156";
+}
+
+/* line 1136, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-cny:before,
+.fa-rmb:before,
+.fa-yen:before,
+.fa-jpy:before {
+  content: "\f157";
+}
+
+/* line 1141, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-ruble:before,
+.fa-rouble:before,
+.fa-rub:before {
+  content: "\f158";
+}
+
+/* line 1145, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-won:before,
+.fa-krw:before {
+  content: "\f159";
+}
+
+/* line 1149, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-bitcoin:before,
+.fa-btc:before {
+  content: "\f15a";
+}
+
+/* line 1152, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-file:before {
+  content: "\f15b";
+}
+
+/* line 1155, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-file-text:before {
+  content: "\f15c";
+}
+
+/* line 1158, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-sort-alpha-asc:before {
+  content: "\f15d";
+}
+
+/* line 1161, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-sort-alpha-desc:before {
+  content: "\f15e";
+}
+
+/* line 1164, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-sort-amount-asc:before {
+  content: "\f160";
+}
+
+/* line 1167, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-sort-amount-desc:before {
+  content: "\f161";
+}
+
+/* line 1170, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-sort-numeric-asc:before {
+  content: "\f162";
+}
+
+/* line 1173, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-sort-numeric-desc:before {
+  content: "\f163";
+}
+
+/* line 1176, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-thumbs-up:before {
+  content: "\f164";
+}
+
+/* line 1179, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-thumbs-down:before {
+  content: "\f165";
+}
+
+/* line 1182, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-youtube-square:before {
+  content: "\f166";
+}
+
+/* line 1185, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-youtube:before {
+  content: "\f167";
+}
+
+/* line 1188, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-xing:before {
+  content: "\f168";
+}
+
+/* line 1191, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-xing-square:before {
+  content: "\f169";
+}
+
+/* line 1194, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-youtube-play:before {
+  content: "\f16a";
+}
+
+/* line 1197, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-dropbox:before {
+  content: "\f16b";
+}
+
+/* line 1200, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-stack-overflow:before {
+  content: "\f16c";
+}
+
+/* line 1203, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-instagram:before {
+  content: "\f16d";
+}
+
+/* line 1206, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-flickr:before {
+  content: "\f16e";
+}
+
+/* line 1209, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-adn:before {
+  content: "\f170";
+}
+
+/* line 1212, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-bitbucket:before {
+  content: "\f171";
+}
+
+/* line 1215, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-bitbucket-square:before {
+  content: "\f172";
+}
+
+/* line 1218, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-tumblr:before {
+  content: "\f173";
+}
+
+/* line 1221, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-tumblr-square:before {
+  content: "\f174";
+}
+
+/* line 1224, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-long-arrow-down:before {
+  content: "\f175";
+}
+
+/* line 1227, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-long-arrow-up:before {
+  content: "\f176";
+}
+
+/* line 1230, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-long-arrow-left:before {
+  content: "\f177";
+}
+
+/* line 1233, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-long-arrow-right:before {
+  content: "\f178";
+}
+
+/* line 1236, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-apple:before {
+  content: "\f179";
+}
+
+/* line 1239, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-windows:before {
+  content: "\f17a";
+}
+
+/* line 1242, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-android:before {
+  content: "\f17b";
+}
+
+/* line 1245, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-linux:before {
+  content: "\f17c";
+}
+
+/* line 1248, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-dribbble:before {
+  content: "\f17d";
+}
+
+/* line 1251, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-skype:before {
+  content: "\f17e";
+}
+
+/* line 1254, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-foursquare:before {
+  content: "\f180";
+}
+
+/* line 1257, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-trello:before {
+  content: "\f181";
+}
+
+/* line 1260, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-female:before {
+  content: "\f182";
+}
+
+/* line 1263, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-male:before {
+  content: "\f183";
+}
+
+/* line 1266, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-gittip:before {
+  content: "\f184";
+}
+
+/* line 1269, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-sun-o:before {
+  content: "\f185";
+}
+
+/* line 1272, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-moon-o:before {
+  content: "\f186";
+}
+
+/* line 1275, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-archive:before {
+  content: "\f187";
+}
+
+/* line 1278, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-bug:before {
+  content: "\f188";
+}
+
+/* line 1281, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-vk:before {
+  content: "\f189";
+}
+
+/* line 1284, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-weibo:before {
+  content: "\f18a";
+}
+
+/* line 1287, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-renren:before {
+  content: "\f18b";
+}
+
+/* line 1290, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-pagelines:before {
+  content: "\f18c";
+}
+
+/* line 1293, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-stack-exchange:before {
+  content: "\f18d";
+}
+
+/* line 1296, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-arrow-circle-o-right:before {
+  content: "\f18e";
+}
+
+/* line 1299, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-arrow-circle-o-left:before {
+  content: "\f190";
+}
+
+/* line 1303, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-toggle-left:before,
+.fa-caret-square-o-left:before {
+  content: "\f191";
+}
+
+/* line 1306, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-dot-circle-o:before {
+  content: "\f192";
+}
+
+/* line 1309, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-wheelchair:before {
+  content: "\f193";
+}
+
+/* line 1312, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-vimeo-square:before {
+  content: "\f194";
+}
+
+/* line 1316, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-turkish-lira:before,
+.fa-try:before {
+  content: "\f195";
+}
+
+/* line 1319, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-plus-square-o:before {
+  content: "\f196";
+}
+
+/* line 1322, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-space-shuttle:before {
+  content: "\f197";
+}
+
+/* line 1325, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-slack:before {
+  content: "\f198";
+}
+
+/* line 1328, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-envelope-square:before {
+  content: "\f199";
+}
+
+/* line 1331, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-wordpress:before {
+  content: "\f19a";
+}
+
+/* line 1334, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-openid:before {
+  content: "\f19b";
+}
+
+/* line 1339, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-institution:before,
+.fa-bank:before,
+.fa-university:before {
+  content: "\f19c";
+}
+
+/* line 1343, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-mortar-board:before,
+.fa-graduation-cap:before {
+  content: "\f19d";
+}
+
+/* line 1346, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-yahoo:before {
+  content: "\f19e";
+}
+
+/* line 1349, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-google:before {
+  content: "\f1a0";
+}
+
+/* line 1352, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-reddit:before {
+  content: "\f1a1";
+}
+
+/* line 1355, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-reddit-square:before {
+  content: "\f1a2";
+}
+
+/* line 1358, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-stumbleupon-circle:before {
+  content: "\f1a3";
+}
+
+/* line 1361, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-stumbleupon:before {
+  content: "\f1a4";
+}
+
+/* line 1364, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-delicious:before {
+  content: "\f1a5";
+}
+
+/* line 1367, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-digg:before {
+  content: "\f1a6";
+}
+
+/* line 1370, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-pied-piper:before {
+  content: "\f1a7";
+}
+
+/* line 1373, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-pied-piper-alt:before {
+  content: "\f1a8";
+}
+
+/* line 1376, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-drupal:before {
+  content: "\f1a9";
+}
+
+/* line 1379, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-joomla:before {
+  content: "\f1aa";
+}
+
+/* line 1382, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-language:before {
+  content: "\f1ab";
+}
+
+/* line 1385, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-fax:before {
+  content: "\f1ac";
+}
+
+/* line 1388, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-building:before {
+  content: "\f1ad";
+}
+
+/* line 1391, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-child:before {
+  content: "\f1ae";
+}
+
+/* line 1394, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-paw:before {
+  content: "\f1b0";
+}
+
+/* line 1397, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-spoon:before {
+  content: "\f1b1";
+}
+
+/* line 1400, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-cube:before {
+  content: "\f1b2";
+}
+
+/* line 1403, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-cubes:before {
+  content: "\f1b3";
+}
+
+/* line 1406, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-behance:before {
+  content: "\f1b4";
+}
+
+/* line 1409, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-behance-square:before {
+  content: "\f1b5";
+}
+
+/* line 1412, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-steam:before {
+  content: "\f1b6";
+}
+
+/* line 1415, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-steam-square:before {
+  content: "\f1b7";
+}
+
+/* line 1418, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-recycle:before {
+  content: "\f1b8";
+}
+
+/* line 1422, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-automobile:before,
+.fa-car:before {
+  content: "\f1b9";
+}
+
+/* line 1426, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-cab:before,
+.fa-taxi:before {
+  content: "\f1ba";
+}
+
+/* line 1429, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-tree:before {
+  content: "\f1bb";
+}
+
+/* line 1432, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-spotify:before {
+  content: "\f1bc";
+}
+
+/* line 1435, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-deviantart:before {
+  content: "\f1bd";
+}
+
+/* line 1438, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-soundcloud:before {
+  content: "\f1be";
+}
+
+/* line 1441, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-database:before {
+  content: "\f1c0";
+}
+
+/* line 1444, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-file-pdf-o:before {
+  content: "\f1c1";
+}
+
+/* line 1447, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-file-word-o:before {
+  content: "\f1c2";
+}
+
+/* line 1450, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-file-excel-o:before {
+  content: "\f1c3";
+}
+
+/* line 1453, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-file-powerpoint-o:before {
+  content: "\f1c4";
+}
+
+/* line 1458, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-file-photo-o:before,
+.fa-file-picture-o:before,
+.fa-file-image-o:before {
+  content: "\f1c5";
+}
+
+/* line 1462, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-file-zip-o:before,
+.fa-file-archive-o:before {
+  content: "\f1c6";
+}
+
+/* line 1466, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-file-sound-o:before,
+.fa-file-audio-o:before {
+  content: "\f1c7";
+}
+
+/* line 1470, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-file-movie-o:before,
+.fa-file-video-o:before {
+  content: "\f1c8";
+}
+
+/* line 1473, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-file-code-o:before {
+  content: "\f1c9";
+}
+
+/* line 1476, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-vine:before {
+  content: "\f1ca";
+}
+
+/* line 1479, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-codepen:before {
+  content: "\f1cb";
+}
+
+/* line 1482, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-jsfiddle:before {
+  content: "\f1cc";
+}
+
+/* line 1489, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-life-bouy:before,
+.fa-life-buoy:before,
+.fa-life-saver:before,
+.fa-support:before,
+.fa-life-ring:before {
+  content: "\f1cd";
+}
+
+/* line 1492, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-circle-o-notch:before {
+  content: "\f1ce";
+}
+
+/* line 1496, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-ra:before,
+.fa-rebel:before {
+  content: "\f1d0";
+}
+
+/* line 1500, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-ge:before,
+.fa-empire:before {
+  content: "\f1d1";
+}
+
+/* line 1503, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-git-square:before {
+  content: "\f1d2";
+}
+
+/* line 1506, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-git:before {
+  content: "\f1d3";
+}
+
+/* line 1509, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-hacker-news:before {
+  content: "\f1d4";
+}
+
+/* line 1512, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-tencent-weibo:before {
+  content: "\f1d5";
+}
+
+/* line 1515, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-qq:before {
+  content: "\f1d6";
+}
+
+/* line 1519, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-wechat:before,
+.fa-weixin:before {
+  content: "\f1d7";
+}
+
+/* line 1523, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-send:before,
+.fa-paper-plane:before {
+  content: "\f1d8";
+}
+
+/* line 1527, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-send-o:before,
+.fa-paper-plane-o:before {
+  content: "\f1d9";
+}
+
+/* line 1530, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-history:before {
+  content: "\f1da";
+}
+
+/* line 1533, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-circle-thin:before {
+  content: "\f1db";
+}
+
+/* line 1536, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-header:before {
+  content: "\f1dc";
+}
+
+/* line 1539, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-paragraph:before {
+  content: "\f1dd";
+}
+
+/* line 1542, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-sliders:before {
+  content: "\f1de";
+}
+
+/* line 1545, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-share-alt:before {
+  content: "\f1e0";
+}
+
+/* line 1548, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-share-alt-square:before {
+  content: "\f1e1";
+}
+
+/* line 1551, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-bomb:before {
+  content: "\f1e2";
+}
+
+/* line 1555, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-soccer-ball-o:before,
+.fa-futbol-o:before {
+  content: "\f1e3";
+}
+
+/* line 1558, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-tty:before {
+  content: "\f1e4";
+}
+
+/* line 1561, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-binoculars:before {
+  content: "\f1e5";
+}
+
+/* line 1564, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-plug:before {
+  content: "\f1e6";
+}
+
+/* line 1567, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-slideshare:before {
+  content: "\f1e7";
+}
+
+/* line 1570, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-twitch:before {
+  content: "\f1e8";
+}
+
+/* line 1573, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-yelp:before {
+  content: "\f1e9";
+}
+
+/* line 1576, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-newspaper-o:before {
+  content: "\f1ea";
+}
+
+/* line 1579, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-wifi:before {
+  content: "\f1eb";
+}
+
+/* line 1582, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-calculator:before {
+  content: "\f1ec";
+}
+
+/* line 1585, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-paypal:before {
+  content: "\f1ed";
+}
+
+/* line 1588, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-google-wallet:before {
+  content: "\f1ee";
+}
+
+/* line 1591, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-cc-visa:before {
+  content: "\f1f0";
+}
+
+/* line 1594, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-cc-mastercard:before {
+  content: "\f1f1";
+}
+
+/* line 1597, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-cc-discover:before {
+  content: "\f1f2";
+}
+
+/* line 1600, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-cc-amex:before {
+  content: "\f1f3";
+}
+
+/* line 1603, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-cc-paypal:before {
+  content: "\f1f4";
+}
+
+/* line 1606, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-cc-stripe:before {
+  content: "\f1f5";
+}
+
+/* line 1609, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-bell-slash:before {
+  content: "\f1f6";
+}
+
+/* line 1612, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-bell-slash-o:before {
+  content: "\f1f7";
+}
+
+/* line 1615, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-trash:before {
+  content: "\f1f8";
+}
+
+/* line 1618, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-copyright:before {
+  content: "\f1f9";
+}
+
+/* line 1621, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-at:before {
+  content: "\f1fa";
+}
+
+/* line 1624, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-eyedropper:before {
+  content: "\f1fb";
+}
+
+/* line 1627, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-paint-brush:before {
+  content: "\f1fc";
+}
+
+/* line 1630, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-birthday-cake:before {
+  content: "\f1fd";
+}
+
+/* line 1633, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-area-chart:before {
+  content: "\f1fe";
+}
+
+/* line 1636, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-pie-chart:before {
+  content: "\f200";
+}
+
+/* line 1639, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-line-chart:before {
+  content: "\f201";
+}
+
+/* line 1642, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-lastfm:before {
+  content: "\f202";
+}
+
+/* line 1645, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-lastfm-square:before {
+  content: "\f203";
+}
+
+/* line 1648, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-toggle-off:before {
+  content: "\f204";
+}
+
+/* line 1651, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-toggle-on:before {
+  content: "\f205";
+}
+
+/* line 1654, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-bicycle:before {
+  content: "\f206";
+}
+
+/* line 1657, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-bus:before {
+  content: "\f207";
+}
+
+/* line 1660, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-ioxhost:before {
+  content: "\f208";
+}
+
+/* line 1663, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-angellist:before {
+  content: "\f209";
+}
+
+/* line 1666, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-cc:before {
+  content: "\f20a";
+}
+
+/* line 1671, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-shekel:before,
+.fa-sheqel:before,
+.fa-ils:before {
+  content: "\f20b";
+}
+
+/* line 1674, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/font-awesome-rails-4.2.0.0/app/assets/stylesheets/font-awesome.css.erb */
+.fa-meanpath:before {
+  content: "\f20c";
+}
+
+ /*/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any styles
+* defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+* file per style scope.
+*
+//= depend_on_asset "kids-lunch.jpg"
+*= require jquery-ui
+*= require font-awesome
+*= require_self
+*/
+/* line 40, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 45, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+h1 {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+/* line 49, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+h2 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 20px;
+  line-height: 23px;
+}
+
+/* line 55, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+h3 {
+  color: #2e7d32;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+/* line 61, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+h5 {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 14px;
+  line-height: 21px;
+}
+
+/* line 67, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+a {
+  color: #2E7D32;
+}
+
+/* line 73, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.flex-boxes {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  box-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-align-items: stretch;
+  -ms-align-items: stretch;
+  -o-align-items: stretch;
+  align-items: stretch;
+  -ms-flex-align: stretch;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  text-align: center;
+}
+/* line 15, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_clearfix.scss */
+.flex-boxes:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 82, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card-wrapper {
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+@media screen and (min-width: 65.625em) {
+  /* line 82, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+  .card-wrapper {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+/* line 92, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.flex-box {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-box-flex: 2;
+  -moz-box-flex: 2;
+  box-flex: 2;
+  -webkit-flex: 2 2 15em;
+  -moz-flex: 2 2 15em;
+  -ms-flex: 2 2 15em;
+  flex: 2 2 15em;
+  -webkit-align-self: stretch;
+  -moz-align-self: stretch;
+  align-self: stretch;
+  -ms-flex-item-align: stretch;
+  display: block;
+  margin: 0;
+}
+
+/* line 100, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card-settings, .card, .sign-up-form, .card-wide {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1 1 40em;
+  -moz-flex: 1 1 40em;
+  -ms-flex: 1 1 40em;
+  flex: 1 1 40em;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  margin-right: 0;
+  border-radius: 2px;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12), 0px 0px 2px 0px rgba(0, 0, 0, 0.24);
+  margin-bottom: 15px;
+  max-width: 700px;
+}
+/* line 38, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.card-settings:last-child, .card:last-child, .sign-up-form:last-child, .card-wide:last-child {
+  margin-right: 0;
+}
+/* line 110, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card-settings h1, .card h1, .sign-up-form h1, .card-wide h1 {
+  font-size: 24px;
+  color: #2E7D32;
+  line-height: 28px;
+}
+
+/* line 117, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card, .sign-up-form {
+  max-width: 700px;
+}
+
+/* line 122, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card-wide {
+  max-width: 900px;
+}
+
+/* line 127, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card-row {
+  width: 100%;
+}
+
+/* line 131, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card-column-left {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-box-flex: 2;
+  -moz-box-flex: 2;
+  box-flex: 2;
+  -webkit-flex: 2 2 15em;
+  -moz-flex: 2 2 15em;
+  -ms-flex: 2 2 15em;
+  flex: 2 2 15em;
+  -webkit-align-self: stretch;
+  -moz-align-self: stretch;
+  align-self: stretch;
+  -ms-flex-item-align: stretch;
+  display: block;
+  margin: 0;
+  max-width: 260px;
+}
+/* line 139, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card-column-left ul {
+  padding-top: 20px;
+  clear: left;
+  list-style-type: none;
+}
+/* line 145, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card-column-left li {
+  display: block;
+  padding-bottom: 10px;
+  font-size: 14px;
+}
+/* line 151, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card-column-left li:last-child {
+  padding-bottom: 10px;
+}
+/* line 155, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card-column-left a {
+  font-size: 14px;
+}
+
+/* line 161, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.lunchbox_owners ul {
+  padding-top: 0;
+  clear: left;
+  list-style-type: none;
+}
+/* line 166, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.lunchbox_owners li {
+  display: block;
+  padding-bottom: 10px;
+  font-size: 14px;
+}
+
+/* line 173, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card-column-right {
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  -webkit-box-flex: 2;
+  -moz-box-flex: 2;
+  box-flex: 2;
+  -webkit-flex: 2 2 15em;
+  -moz-flex: 2 2 15em;
+  -ms-flex: 2 2 15em;
+  flex: 2 2 15em;
+  -webkit-align-self: stretch;
+  -moz-align-self: stretch;
+  align-self: stretch;
+  -ms-flex-item-align: stretch;
+  display: block;
+  margin: 0;
+  max-width: 560px;
+}
+
+/* line 182, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card_margin, .card-column-left ul, .form_date_span h2, .page_header {
+  margin: 25px;
+}
+
+/* line 186, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card_padding, .table-table {
+  padding: 25px;
+}
+
+/* line 190, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card-align-left {
+  text-align: left;
+}
+
+/* line 194, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card_title {
+  text-align: right;
+}
+
+/* line 198, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card_divider {
+  width: 100%;
+  height: 1;
+}
+
+/* line 203, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.share-ownership {
+  margin-top: 100px;
+}
+
+/* line 207, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.alert-box {
+  background-color: #7E57C2;
+  color: white;
+  font-weight: bold;
+}
+/* line 212, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.alert-box .close {
+  color: white;
+}
+/* line 216, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.alert-box .close:hover {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+/* line 221, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.payment-field {
+  width: 50%;
+  margin-top: 8px;
+  float: right;
+  display: inline-block;
+}
+/* line 227, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.payment-field #_payment {
+  float: left;
+  width: 50%;
+  height: 36px;
+  margin-right: 10px;
+}
+/* line 234, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.payment-field ul {
+  padding: 0;
+}
+
+/* line 239, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.balance {
+  margin-top: 21px;
+  margin-left: 54px;
+}
+
+/* line 246, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+form input {
+  margin-bottom: 10px;
+}
+
+/* line 251, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.sign-up-form {
+  padding: 10px;
+  width: 340px;
+  position: static;
+  z-index: 10;
+}
+/* line 258, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.sign-up-form a.trigger {
+  margin-left: 20px;
+}
+
+/* line 263, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.background, .black {
+  height: 1000px;
+  width: 100%;
+  background: url("https://s3.amazonaws.com/lunchpad/lunchpadkids.jpg");
+  background-size: cover;
+  clip: rect(150px, auto, 850px, 0);
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  top: -180px;
+  opacity: .65;
+}
+
+/* line 276, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.black {
+  background-image: none;
+  background-color: black;
+  z-index: 0;
+  opacity: 1;
+}
+
+/* line 284, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.logo {
+  font-weight: 500;
+  font-family: Avenir, 'Montserrat', sans-serif;
+  border-radius: 2px;
+  color: white;
+  width: 715px;
+  font-size: 150px;
+  letter-spacing: -10px;
+  position: relative;
+  top: 355px;
+  margin-left: 300px;
+  z-index: 1;
+}
+
+/* line 298, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.login-bar {
+  background-color: #4caf50;
+  height: 56px;
+  width: 100%;
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+/* line 309, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.login-bar .login-title {
+  font-family: Avenir, 'Montserrat', sans-serif;
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  width: 50px;
+  float: left;
+  padding-top: 12px;
+  padding-right: 40px;
+  padding-left: 54px;
+}
+
+/* line 321, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.forms {
+  height: 400px;
+  width: 340px;
+  right: 0;
+  margin-top: 2%;
+  margin-right: 5%;
+  position: absolute;
+  z-index: 2;
+}
+
+/* line 332, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.login-form ul {
+  float: left;
+}
+/* line 336, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.login-form .card, .login-form .sign-up-form {
+  width: 100%;
+  padding: 6px 25px 3px;
+  margin-bottom: 8px;
+}
+
+/* line 344, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.login-form .field {
+  height: 10px;
+  width: 200px;
+  margin: 0;
+  padding: 0;
+}
+/* line 351, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.login-form #user_email {
+  width: 285px;
+}
+/* line 355, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.login-form .test {
+  margin-top: 66px;
+  padding-top: 5px;
+}
+/* line 360, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.login-form .test a {
+  font-size: 14px;
+  font-weight: bold;
+  float: left;
+  padding-left: 10px;
+  color: #4caf50;
+}
+/* line 368, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.login-form .test a:hover {
+  color: #006F37;
+}
+/* line 373, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.login-form #user_remember_me {
+  float: left;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+/* line 378, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.login-form label {
+  float: left;
+}
+/* line 383, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.login-form #user_password {
+  margin-top: 9px;
+}
+/* line 387, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.login-form .login-button {
+  margin-top: 21px;
+  margin-right: 5px;
+  float: right;
+}
+/* line 391, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.login-form .login-button input {
+  padding: 8px 9px;
+  background-color: #4caf50;
+}
+/* line 396, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.login-form .login-button input:hover {
+  background-color: #2e7d32;
+}
+
+/* line 403, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.sign-up-form .card, .sign-up-form .sign-up-form {
+  width: 100%;
+  padding: 25px 29px 30px 28px;
+  position: sticky;
+}
+
+/* line 411, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+#new_user input {
+  margin-top: 10px;
+}
+/* line 415, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+#new_user .sign-up-button {
+  float: right;
+}
+/* line 418, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+#new_user .sign-up-button input {
+  background-color: #4caf50;
+}
+/* line 422, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+#new_user .sign-up-button input:hover {
+  background-color: #2e7d32;
+}
+
+/* line 429, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.styled-select {
+  height: 30px;
+  width: 300px;
+  background-color: blue;
+}
+
+/* line 436, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+body {
+  margin-top: 75px;
+  background-color: #F6F6F6;
+}
+/* line 440, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+body .fa {
+  font-size: 16px;
+}
+
+/* line 445, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+ul {
+  list-style: none;
+}
+
+/* line 449, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header {
+  margin-left: 0;
+}
+/* line 452, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .user-bar {
+  background-color: #4caf50;
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.5);
+  height: 56px;
+  width: 100%;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+/* line 464, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .menu-icon {
+  margin: 15px 20px 0;
+  opacity: 0.6;
+  float: left;
+}
+/* line 471, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .menu-icon .fa-bars {
+  font-size: 28px;
+  color: white;
+}
+/* line 477, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .menu-icon:hover {
+  opacity: 1;
+}
+/* line 481, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .title {
+  float: left;
+  margin-top: 12px;
+}
+/* line 485, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .title a {
+  font-family: Avenir, 'Montserrat', sans-serif;
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+}
+/* line 495, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .title a:visited {
+  color: white;
+}
+/* line 500, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header ul {
+  margin-top: 18px;
+  text-align: right;
+  font-weight: 600;
+  float: right;
+  font-size: 14px;
+  color: white;
+}
+/* line 508, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header ul li {
+  display: inline;
+  list-style-type: none;
+  padding-right: 24px;
+}
+/* line 515, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .dropdown-nav {
+  height: 0;
+  width: 200px;
+  background: RGBA(207, 207, 207, 1);
+  float: left;
+  clear: both;
+  position: fixed;
+  top: 56px;
+  left: 0;
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.24);
+  transition: height 0.2s ease-in-out;
+  transition-delay: 0.1s;
+}
+/* line 529, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .dropdown-nav a {
+  color: #595959;
+}
+/* line 533, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .dropdown-nav .dropdown-link:hover {
+  background-color: #C4C4C4;
+}
+/* line 537, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .dropdown-nav a:visited {
+  color: #595959;
+}
+/* line 541, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .dropdown-nav .admin-nav {
+  background-color: #595959;
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.24);
+  transition: width 0.2s ease-in-out;
+  transition-delay: 0.1s;
+  height: 273px;
+  width: 0;
+  position: absolute;
+  top: 302px;
+  left: 0;
+}
+/* line 552, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .dropdown-nav .admin-nav a {
+  color: white;
+}
+/* line 556, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .dropdown-nav .admin-nav a:visited {
+  color: white;
+}
+/* line 560, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .dropdown-nav .admin-nav .dropdown-link:hover {
+  background-color: #545454;
+}
+/* line 564, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .dropdown-nav .admin-nav .admin-head {
+  background: #4caf50;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: white;
+  width: 200px;
+}
+/* line 571, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .dropdown-nav .admin-nav .admin-head:hover {
+  background: #4caf50;
+}
+/* line 576, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .dropdown-nav ul {
+  margin-top: 0;
+  width: 100%;
+  visibility: hidden;
+  transition: visibility 0.1s linear;
+  display: inline;
+  text-align: left;
+  color: #727272;
+}
+/* line 585, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .dropdown-nav ul .dropdown-link {
+  width: 100%;
+  padding-top: 12px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+}
+/* line 591, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .dropdown-nav ul li {
+  font-size: 14px;
+}
+/* line 597, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .dropdown-nav-visible {
+  height: 301px;
+  transition: height 0.2s ease-in-out;
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.24);
+}
+/* line 603, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .dropdown-nav-visible .admin-nav {
+  width: 200px;
+  transition: width 0.2s ease-in-out;
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.24);
+}
+/* line 610, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+header .dropdown-nav-visible ul {
+  visibility: visible;
+  transition: visibility 0.2s linear;
+  transition-delay: 0.2s;
+}
+
+/* line 618, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.form_wrapper {
+  width: 100%;
+  text-align: left;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  padding: 25px;
+}
+/* line 624, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.form_wrapper h3 {
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+/* line 630, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.no-top-padding {
+  padding-top: 0;
+}
+
+/* line 634, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+#copy_date {
+  width: 200px;
+}
+
+/* line 638, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.form_date_span {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  width: 100%;
+  text-align: left;
+  float: left;
+}
+
+/* line 649, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.helpful_links {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  width: 100%;
+  text-align: right;
+  padding-top: 10px;
+  padding-right: 35px;
+  padding-bottom: 10px;
+}
+/* line 655, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.helpful_links ul {
+  list-style: none;
+}
+/* line 659, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.helpful_links li:first-child {
+  padding: 0;
+}
+/* line 663, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.helpful_links li {
+  padding-left: 20px;
+  display: inline;
+}
+
+/* line 669, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.display-block {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  width: 100%;
+  text-align: left;
+  padding: 15px 25px;
+}
+/* line 675, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.display-block .edit-link {
+  float: right;
+}
+/* line 679, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.display-block h1 {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+/* line 685, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.display-block ul {
+  padding-top: 10px;
+}
+/* line 689, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.display-block li {
+  font-size: 14px;
+}
+
+/* line 694, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+div.display-block:hover {
+  background-color: rgba(0, 255, 0, 0.05);
+}
+
+/* line 698, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order-block {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 703, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+div.order-block:hover {
+  background-color: rgba(0, 255, 0, 0.05);
+}
+
+/* line 707, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order-quantity {
+  display: inline-block;
+}
+/* line 710, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order-quantity .field {
+  width: 40px;
+  text-align: center;
+}
+
+/* line 717, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.note-trigger {
+  float: right;
+  width: 110px;
+}
+
+/* line 722, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order-item-price {
+  color: rgba(0, 0, 0, 0.54);
+  display: inline;
+  text-align: right;
+}
+
+/* line 728, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order-item-vendor {
+  float: right;
+  margin-top: 8px;
+  margin-right: 25px;
+  display: inline;
+  font-size: 12px;
+  height: 100%;
+}
+
+/* line 736, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order-quantity-select {
+  margin-right: 20px;
+  display: inline;
+}
+/* line 737, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order-quantity-select a {
+  color: rgba(0, 0, 0, 0.54);
+}
+/* line 741, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order-quantity-select a:hover {
+  color: #4caf50;
+}
+
+/* line 748, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order-item {
+  display: inline-block;
+}
+
+/* line 752, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order-item-notes {
+  padding-left: 102px;
+  padding-bottom: 10px;
+  padding-left: 102px;
+  font-size: 12px;
+}
+
+/* line 758, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+a.show-notes, a.hide-notes {
+  margin: 0;
+}
+
+/* line 762, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.show-notes, .hide-notes {
+  display: inline-block;
+  margin-top: 9px;
+  text-align: right;
+  float: right;
+  font-size: 12px;
+}
+
+/* line 771, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.table-table {
+  display: table;
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* line 778, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cut-side-padding {
+  padding-right: 0;
+  padding-left: 0;
+}
+/* line 781, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cut-side-padding h1 {
+  padding-left: 20px;
+}
+
+/* line 786, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+#_date {
+  width: 45%;
+}
+
+/* line 790, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.table-title {
+  display: table-caption;
+}
+
+/* line 794, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.table-heading, .calendar-header-detail, .calendar-header-detail_all {
+  display: table-row;
+  background-color: #2e7d32;
+  color: white;
+  padding: 15px;
+}
+
+/* line 801, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.table-subheading-green {
+  display: table-row;
+  background-color: rgba(0, 255, 0, 0.05);
+  padding-left: 15px;
+  border: 1px solid #2e7d32;
+  text-align: left;
+}
+
+/* line 809, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.table-subheading-grey {
+  display: table-row;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding-left: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.87);
+  text-align: left;
+}
+
+/* line 817, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.table-footer {
+  display: table-row;
+  background-color: #4caf50;
+  color: white;
+  padding-left: 15px;
+  border: 1px solid #2e7d32;
+  text-align: left;
+}
+
+/* line 827, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.table-row {
+  display: table-row;
+  text-align: left;
+  border: 1px solid #2e7d32;
+}
+
+/* line 833, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.table-cell {
+  display: table-cell;
+  padding: 10px 20px 10px 10px;
+  font-size: 14px;
+}
+
+/* line 839, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cell-align-center {
+  text-align: center;
+}
+
+/* line 843, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cell-align-left {
+  text-align: left;
+}
+
+/* line 847, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cell-align-right {
+  text-align: right;
+}
+
+/* line 851, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order_confirm_wrapper {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 15, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_clearfix.scss */
+.order_confirm_wrapper:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 853, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order_confirm_wrapper .ordered_item {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  margin-left: 8.5298%;
+}
+/* line 38, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.order_confirm_wrapper .ordered_item:last-child {
+  margin-right: 0;
+}
+/* line 857, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order_confirm_wrapper .ordered_quantity {
+  text-align: center;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%;
+}
+/* line 38, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.order_confirm_wrapper .ordered_quantity:last-child {
+  margin-right: 0;
+}
+/* line 861, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order_confirm_wrapper .ordered_price {
+  text-align: center;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%;
+}
+/* line 38, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.order_confirm_wrapper .ordered_price:last-child {
+  margin-right: 0;
+}
+/* line 865, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order_confirm_wrapper .ordered_sub_total {
+  text-align: right;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%;
+  margin-right: 0;
+}
+/* line 38, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.order_confirm_wrapper .ordered_sub_total:last-child {
+  margin-right: 0;
+}
+
+/* line 872, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order_confirm_wrapper_header {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 15, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/bourbon-3.2.3/app/assets/stylesheets/addons/_clearfix.scss */
+.order_confirm_wrapper_header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 875, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order_confirm_wrapper_header .order_confirm_title {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 82.94039%;
+  margin-left: 8.5298%;
+  margin-right: 0;
+  font-size: 40px;
+  font-weight: 600;
+}
+/* line 38, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.order_confirm_wrapper_header .order_confirm_title:last-child {
+  margin-right: 0;
+}
+/* line 882, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order_confirm_wrapper_header .order_confirm_sub_title {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 82.94039%;
+  margin-left: 8.5298%;
+  margin-right: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 16px;
+  font-weight: 600;
+}
+/* line 38, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.order_confirm_wrapper_header .order_confirm_sub_title:last-child {
+  margin-right: 0;
+}
+/* line 890, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order_confirm_wrapper_header .order_confirm_total {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 82.94039%;
+  margin-left: 8.5298%;
+  margin-right: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #ddfff5;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: right;
+}
+/* line 38, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.order_confirm_wrapper_header .order_confirm_total:last-child {
+  margin-right: 0;
+}
+/* line 900, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order_confirm_wrapper_header .ordered_item_header {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%;
+  margin-left: 8.5298%;
+  font-weight: 600;
+}
+/* line 38, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.order_confirm_wrapper_header .ordered_item_header:last-child {
+  margin-right: 0;
+}
+/* line 905, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order_confirm_wrapper_header .ordered_quantity_header {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%;
+  text-align: center;
+  font-weight: 600;
+}
+/* line 38, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.order_confirm_wrapper_header .ordered_quantity_header:last-child {
+  margin-right: 0;
+}
+/* line 910, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order_confirm_wrapper_header .ordered_price_header {
+  text-align: center;
+  font-weight: 600;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%;
+}
+/* line 38, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.order_confirm_wrapper_header .ordered_price_header:last-child {
+  margin-right: 0;
+}
+/* line 915, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.order_confirm_wrapper_header .ordered_sub_total_header {
+  text-align: right;
+  font-weight: 600;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 14.70196%;
+  margin-right: 0;
+}
+/* line 38, /Users/nickpassarella/.rbenv/versions/2.1.3/lib/ruby/gems/2.1.0/gems/neat-1.5.1/app/assets/stylesheets/grid/_span-columns.scss */
+.order_confirm_wrapper_header .ordered_sub_total_header:last-child {
+  margin-right: 0;
+}
+
+/* line 923, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.school-profile {
+  padding-top: 30px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  margin-left: 11%;
+}
+
+/* line 928, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar {
+  padding-right: 10px;
+  padding-left: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+/* line 934, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-coverage {
+  width: 100%;
+  align-content: center;
+  padding-bottom: 15px;
+  float: left;
+}
+
+/* line 941, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-coverage-simple {
+  width: 100%;
+  text-align: center;
+}
+
+/* line 946, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-table {
+  display: table;
+  width: 100%;
+  max-width: 850px;
+  border-right: 1px solid rgba(0, 0, 0, 0.26);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+  text-align: center;
+  margin: 25px auto 27px;
+}
+
+/* line 956, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-header-month, .calendar-header-month-detail, .calendar-header-month-detail_all, .calendar-header-month-simple {
+  text-align: center;
+  width: 100%;
+  color: #2e7d32;
+  font-weight: 500;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* line 966, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-header-month-detail, .calendar-header-month-detail_all {
+  font-size: 20px;
+}
+
+/* line 976, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-header-month-simple {
+  font-size: 16px;
+}
+
+/* line 981, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-title-detail, .calendar-title-detail_all {
+  width: 235px;
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 45px;
+  display: inline-block;
+}
+
+/* line 993, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-title-simple {
+  width: 220px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 40px;
+  display: inline-block;
+}
+
+/* line 1001, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-nav, .calendar-nav-detail, .calendar-nav-detail_all, .calendar-nav-simple {
+  border: 1px solid #c8e6c9;
+  display: inline-block;
+}
+
+/* line 1006, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-nav-detail, .calendar-nav-detail_all {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 5px;
+}
+
+/* line 1018, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-nav-simple {
+  max-height: 35px;
+  width: 100%;
+  max-width: 35px;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 2px;
+  padding: 6px 0 8px 0;
+}
+
+/* line 1030, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-header-simple {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* line 1043, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-header-panel {
+  display: table-cell;
+  color: white;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+/* line 1049, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-row-simple {
+  float: left;
+  width: 100%;
+}
+
+/* line 1054, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-row-detail {
+  display: table-row;
+}
+
+/* line 1063, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.date-panel, .calendar-nav-simple, .date-panel-simple, .date-panel-avail {
+  border-radius: 2px;
+  text-align: center;
+  display: inline-block;
+}
+
+/* line 1069, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.selected {
+  border: solid 1px #4caf50;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+/* line 1074, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.date-panel-detail, .date-panel-detail_all {
+  width: 14%;
+  border-top: 1px solid rgba(0, 0, 0, 0.26);
+  border-left: 1px solid rgba(0, 0, 0, 0.26);
+  text-align: left;
+  display: table-cell;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px;
+  height: 100px;
+}
+/* line 1085, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.date-panel-detail a, .date-panel-detail_all a {
+  float: right;
+  color: rgba(0, 0, 0, 0.35);
+}
+/* line 1090, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.date-panel-detail a:hover, .date-panel-detail_all a:hover {
+  color: #2e7d32;
+}
+/* line 1094, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.date-panel-detail ul, .date-panel-detail_all ul {
+  margin-top: 10px;
+}
+/* line 1098, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.date-panel-detail li, .date-panel-detail_all li {
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+/* line 1104, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+div.date-panel-detail:hover, div.date-panel-detail_all:hover {
+  background-color: rgba(0, 255, 0, 0.05);
+}
+
+/* line 1111, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.date-panel-detail_all a {
+  vertical-align: center;
+}
+
+/* line 1116, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.date-panel-simple, .date-panel-avail {
+  max-height: 35px;
+  width: 100%;
+  max-width: 35px;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 4px 2px;
+  padding: 8px 0 8px 0;
+}
+
+/* line 1127, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.date-covered {
+  background-color: #4CAF50;
+}
+/* line 1130, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.date-covered a {
+  transition: none;
+  color: white;
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+
+/* line 1140, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+div.date-covered:hover {
+  background-color: #2e7d32;
+}
+
+/* line 1144, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.date-uncovered {
+  background: rgba(255, 0, 0, 0.05);
+}
+/* line 1146, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.date-uncovered a {
+  transition: none;
+  color: red;
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+
+/* line 1156, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+div.date-uncovered:hover {
+  background-color: white;
+  outline: 1px solid #4caf50;
+}
+/* line 1159, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+div.date-uncovered:hover a {
+  color: #4caf50;
+}
+
+/* line 1164, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.date-disabled {
+  color: rgba(0, 0, 0, 0.54);
+}
+/* line 1166, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.date-disabled a {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+/* line 1171, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.disabled-holiday {
+  border: 1px solid rgba(0, 0, 0, 0.26);
+}
+
+/* line 1175, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.account_profile, .school_profile {
+  float: left;
+  display: inline-block;
+}
+
+/* line 1180, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.account_profile_image, .school_profile_image {
+  width: 45px;
+  height: 45px;
+  background: rgba(0, 0, 0, 0.54);
+  border-radius: 25px;
+  margin-right: 10px;
+  display: inline-block;
+  color: white;
+  font-size: 20px;
+  line-height: 43px;
+  text-align: center;
+}
+
+/* line 1193, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.account_profile_image_small {
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  display: inline-block;
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  text-align: center;
+  vertical-align: center;
+}
+/* line 1205, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.account_profile_image_small a {
+  float: none;
+  text-align: center;
+  font-size: 10px;
+  color: white;
+  height: 100%;
+  width: 100%;
+  transition: none;
+}
+/* line 1215, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.account_profile_image_small a:hover {
+  color: #CCCCCC;
+  font-size: 10px;
+}
+
+/* line 1221, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.account_profile_info, .school_profile_info {
+  height: 100%;
+  display: inline-block;
+  text-align: left;
+  float: right;
+}
+/* line 1227, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.account_profile_info ul, .school_profile_info ul {
+  text-decoration-style: none;
+}
+/* line 1231, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.account_profile_info h1, .school_profile_info h1 {
+  font-size: 20px;
+  line-height: 25px;
+  color: rgba(0, 0, 0, 0.87);
+  margin: 0;
+  padding: 0;
+}
+/* line 1239, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.account_profile_info h2, .school_profile_info h2 {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.54);
+  line-height: 14px;
+  margin: 0;
+  padding-top: 2px;
+}
+
+/* line 1248, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.hoverbox {
+  display: none;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: #4caf50;
+  border-radius: 8px;
+  padding: 5px;
+  position: absolute;
+  z-index: 2;
+}
+/* line 1259, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.hoverbox a {
+  color: white;
+}
+
+/* line 1264, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.off-day {
+  background-color: #595959;
+  color: white;
+}
+
+/* line 1269, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.off-day:hover {
+  background-color: #909090;
+  color: white;
+}
+/* line 1273, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.off-day:hover span {
+  display: block;
+  margin-top: 12px;
+  margin-left: 10px;
+  position: absolute;
+  z-index: 2;
+}
+
+/* line 1281, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.available {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* line 1286, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.available:hover {
+  background-color: red;
+}
+
+/* line 1290, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.unavailable {
+  border: solid 1px red;
+}
+
+/* line 1294, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.unavailable:hover {
+  background-color: #4caf50;
+}
+
+/* line 1298, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.ordered {
+  background-color: #c8e6c9;
+  border: solid 1px red;
+}
+
+/* line 1303, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.past {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+/* line 1311, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card_links {
+  padding: 10px 15px;
+  text-align: right;
+  font-size: 14px;
+  line-height: 24px;
+  clear: both;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+/* line 1318, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card_links ul {
+  list-style-type: none;
+}
+/* line 1321, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.card_links ul li {
+  display: inline;
+  margin-left: 30px;
+}
+
+/* line 1335, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.school_profile_info {
+  margin-top: 10px;
+}
+
+/* line 1340, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+#flip {
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+/* line 1351, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.wallet.display-block {
+  height: 210px;
+}
+
+/* line 1355, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cc-form {
+  width: 350px;
+  height: 108px;
+  margin-left: 23%;
+}
+/* line 1360, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cc-form input {
+  margin-bottom: 2px;
+}
+/* line 1364, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cc-form label {
+  margin: 0;
+}
+/* line 1368, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cc-form #amount-span {
+  margin-left: 57px;
+}
+/* line 1372, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cc-form #card-number input {
+  width: 250px;
+}
+/* line 1376, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cc-form #cvc {
+  float: right;
+  clear: both;
+}
+/* line 1380, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cc-form #cvc input {
+  width: 65px;
+}
+/* line 1385, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cc-form .exp-date {
+  width: 235px;
+  float: left;
+}
+/* line 1389, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cc-form .exp-date input {
+  width: 55px;
+}
+/* line 1393, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cc-form .exp-date .exp-month {
+  float: left;
+}
+/* line 1396, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cc-form .exp-date .exp-month input {
+  width: 40px;
+  margin-right: 10px;
+}
+/* line 1403, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cc-form .exp-date .exp-year input {
+  float: left;
+}
+/* line 1409, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cc-form #amount {
+  width: 100px;
+  float: right;
+}
+/* line 1414, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cc-form .button {
+  float: right;
+  margin-top: 19px;
+  margin-bottom: 0;
+  padding: 10px 14px;
+}
+/* line 1421, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cc-form .stripe-image {
+  text-align: center;
+}
+/* line 1423, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.cc-form .stripe-image img {
+  height: 35px;
+  margin-top: 10px;
+}
+
+/* line 1430, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-icon-border {
+  float: left;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 80px;
+  background-color: #7E57C2;
+  border-radius: 4px;
+  text-align: center;
+  border: 2px solid #7E57C2;
+  display: inline-block;
+}
+/* line 1440, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-icon-border h1 {
+  padding: 5px;
+  font-size: 20px;
+  color: white;
+}
+/* line 1446, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-icon-border .calendar-icon-contents {
+  background-color: white;
+  font-size: 25px;
+  font-weight: 500;
+  padding: 5px;
+  margin: 2px;
+}
+
+/* line 1457, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.calendar-icon-prompt {
+  padding-top: 12px;
+  padding-right: 25px;
+  padding-left: 25px;
+  font-size: 16px;
+  display: inline-block;
+}
+
+/* line 1463, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.copy, .copy h4 {
+  margin: 430px 25px 25px 75px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20pt;
+  width: 55%;
+  text-align: justify;
+}
+/* line 1471, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.copy h4 {
+  margin-left: 0;
+  margin-top: 0;
+  font-size: 36pt;
+}
+
+/* line 1480, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.three-step {
+  float: right;
+  width: 25%;
+  clear: both;
+  position: relative;
+  bottom: 999px;
+  text-align: center;
+  padding-right: 50px;
+  padding-left: 25px;
+  margin-right: 100px;
+  margin-left: 25px;
+}
+/* line 1490, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.three-step .fa {
+  font-size: 200pt;
+}
+
+/* line 1495, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.team-wrapper {
+  height: 500px;
+  width: 100%;
+  background-color: RGBA(144, 144, 144, 1);
+  position: absolute;
+  z-index: 0;
+  top: 2000px;
+  text-align: center;
+}
+/* line 1504, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.team-wrapper .team-name {
+  font-family: Avenir, 'Montserrat', sans-serif;
+  font-size: 90px;
+  color: white;
+  font-weight: 500;
+  letter-spacing: -3px;
+}
+
+/* line 1512, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.team {
+  position: relative;
+  top: 5px;
+  z-index: 1;
+  width: 1005px;
+  display: inline-block;
+}
+/* line 1519, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.team .name-header {
+  background-color: #4caf50;
+  height: 50px;
+}
+/* line 1524, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.team h1 {
+  color: white;
+  font-family: Avenir, 'Montserrat', sans-serif;
+  font-size: 24px;
+}
+/* line 1530, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.team .card, .team .sign-up-form {
+  width: 315px;
+  height: 315px;
+  text-align: center;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+/* line 1536, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.team .card .fa, .team .sign-up-form .fa {
+  font-size: 40px;
+}
+/* line 1541, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.team .nick {
+  float: right;
+  clear: right;
+}
+/* line 1546, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.team .kheang {
+  float: left;
+  clear: right;
+}
+/* line 1551, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.team .block-list li {
+  display: inline;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+/* line 1556, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.team .pic, .team .nick-pic, .team .kheang-pic, .team .deedee-pic {
+  border-radius: 50%;
+  width: 175px;
+  height: 175px;
+  border: solid 15px #7E57C2;
+  margin: 12px 70px;
+  float: left;
+  background-size: cover;
+  position: relative;
+  z-index: 3;
+}
+/* line 1568, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.team .nick-pic {
+  background-image: url("https://s3.amazonaws.com/lunchpad/Nick.jpg");
+}
+/* line 1573, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.team .kheang-pic {
+  background-image: url("https://s3.amazonaws.com/lunchpad/Kheang.jpg");
+}
+/* line 1578, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+.team .deedee-pic {
+  background-image: url("https://s3.amazonaws.com/lunchpad/DeeDee.jpg");
+}
+
+/* line 1585, /Users/nickpassarella/heroku_apps/lunchpad-us/app/assets/stylesheets/application.css.scss.erb */
+footer {
+  height: 60px;
+  width: 100%;
+  background-color: #4caf50;
+  position: absolute;
+  top: 2480px;
+  z-index: 20;
+}
