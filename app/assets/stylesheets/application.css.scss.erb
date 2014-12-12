@@ -37,8 +37,6 @@ $lunchpad_black: rgba(0,0,0,.87);
 $lunchpad_green_hover: rgba(0,255,0,.05);
 
 
-
-
 body {
   margin: 0;
   padding: 0;
@@ -1462,13 +1460,45 @@ div.date-uncovered:hover {
   display: inline-block;
 }
 
+.copy {
+  @include margin(430px 25px 25px 75px);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20pt;
+  width: 55%;
+  text-align: justify;
+
+
+  h4 {
+    @extend .copy;
+    margin-left: 0;
+    margin-top: 0;
+    font-size: 36pt;
+  }
+
+}
+
+.three-step {
+  float: right;
+  width: 25%;
+  clear: both;
+  position: relative;
+  bottom: 999px;
+  text-align: center;
+  @include padding(null 50px null 25px);
+  @include margin(null 100px null 25px);
+
+  .fa {
+    font-size: 200pt;
+  }
+}
+
 .team-wrapper {
   height: 500px;
   width: 100%;
   background-color: RGBA(144, 144, 144, 1);
   position: absolute;
   z-index: 0;
-  top: 900px;
+  top: 2000px;
   text-align: center;
 
   .team-name {
@@ -1557,6 +1587,6 @@ footer {
   width: 100%;
   background-color: $lunchpad_green;
   position: absolute;
-  top: 1398px;
+  top: 2480px;
   z-index: 20;
 }
