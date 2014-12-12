@@ -60,23 +60,44 @@ $(document).on("page:load ready", function(){
     $(".close").click(function() {
         $(this).parent().hide();
     });
+
+    $(".hidden-div").hide();
+    $(".trigger").click(function() {
+        $(".hidden-div").slideToggle();
+    })
+
 });
 
 $(document).on("page:load ready", function(){
 
     var dates = [];
 
-    $(".date-panel-simple").click(function() {
+    $("body").on("click", ".date-panel-simple", (function() {
         console.log(this.id);
         if(!$(this).hasClass("selected") && !$(this).hasClass("off-day") && !$(this).hasClass("past")) {
             $(this).addClass("selected");
             dates.push(this.id.replace("date_panel_", ""));
         } else {
+            for(var i = dates.length-1; i >= 0; i--) {
+                if(dates[i] == (this.id.replace("date_panel_", ""))) {
+                    dates.splice(i,1);
+                }
+            }
             $(this).removeClass("selected");
-            dates.remove(this.id.replace("date_panel_", ""));
         }
         $("#datepicker").val(dates);
         console.log(dates);
+    }));
+
+    $(window).scroll(function(e){
+        $el = $('.sign-up-form');
+        if ($(this).scrollTop() > 240 && $el.css('position') != 'fixed'){
+            $('.sign-up-form').css({'position': 'fixed', 'top': '5px'});
+        }
+        if ($(this).scrollTop() < 240 && $el.css('position') == 'fixed')
+        {
+            $('.sign-up-form').css({'position': 'relative', 'top': '5px'});
+        }
     });
 });
 

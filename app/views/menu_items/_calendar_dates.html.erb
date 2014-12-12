@@ -19,7 +19,7 @@
   <% else %>
     <% if scheduled.present? %>
       <% if !scheduled.first.ordered_items.empty? %>
-        <div class="date-panel-avail ordered" id="<%= date.to_s %>">
+        <div class="date-panel-avail available" id="<%= date.to_s %>">
           <%= date.strftime("%-d") %>
         </div>
       <% else %>

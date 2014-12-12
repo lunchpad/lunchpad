@@ -36,6 +36,9 @@ $lunchpad_grey_faint: rgba(0,0,0,.12);
 $lunchpad_black: rgba(0,0,0,.87);
 $lunchpad_green_hover: rgba(0,255,0,.05);
 
+
+
+
 body {
   margin: 0;
   padding: 0;
@@ -247,50 +250,83 @@ form {
   }
 }
 
+.sign-up-form {
+  @extend .card;
+  @include padding(10px 10px 10px 10px);
+  width: 340px;
+  position: static;
+  z-index: 10;
+
+  a.trigger {
+    margin-left: 20px;
+  }
+}
 
 .background {
-  height: 805px;
+  height: 1000px;
   width: 100%;
-  background-image: url('https://s3.amazonaws.com/lunchpad/lunchpadkids.jpg');
+  background: url('https://s3.amazonaws.com/lunchpad/lunchpadkids.jpg');
   background-size: cover;
+  clip: rect(150px, auto, 850px, 0);
   position: absolute;
-  top: 0;
-  bottom: 0;
   left: 0;
-  z-index: -1px;
-  -webkit-filter: blur(1px) grayscale(.1) brightness(.9);
+  z-index: 1;
+  top: -180px;
+  opacity: .65;
+}
+
+.black {
+  @extend .background;
+  background-image: none;
+  background-color: black;
+  z-index: 0;
+  opacity: 1;
 }
 
 .logo {
   font-weight: 500;
-  font-family: Avenir;
+  font-family: Avenir, 'Montserrat', sans-serif;
+  border-radius: 2px;
   color: white;
-  padding-right: 15px;
+  width: 715px;
   font-size: 150px;
   letter-spacing: -10px;
-  position: absolute;
-  top: auto;
-  bottom: 0;
-  margin-left: 160px;
-  z-index: 4px;
-  padding: 2px;
+  position: relative;
+  top: 355px;
+  margin-left: 300px;
+  z-index: 1;
 }
 
-.solid-back {
+.login-bar {
+  background-color: $lunchpad_green;
+  height: 56px;
   width: 100%;
-  position: relative;
+  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.50);
+  position: fixed;
+  z-index: 2;
   top: 0;
   left: 0;
-  background-color: $lunchpad_green;
-  z-index: -2;
+  right: 0;
+
+  .login-title {
+    font-family: Avenir, 'Montserrat', sans-serif;
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    width: 50px;
+    float: left;
+    @include padding(12px 40px null 54px);
+  }
 }
+
 
 .forms {
   height: 400px;
   width: 340px;
-  float: right;
-  @include margin(2% 5% null null);  z-index: 1;
-  -webkit-filter: blur(0);
+  right: 0;
+  @include margin(2% 5% null null);
+  position: absolute;
+  z-index: 2;
 }
 
 .login-form {
@@ -302,6 +338,7 @@ form {
   .card {
     width: 100%;
     @include padding(6px 25px 3px 25px);
+    margin-bottom: 8px;
   }
 }
 .login-form {
@@ -368,6 +405,7 @@ form {
   .card {
     width: 100%;
     @include padding(25px 29px 30px 28px);
+    position: sticky;
   }
 }
 
@@ -413,23 +451,13 @@ ul {
 header {
   margin-left: 0;
 
-  .login-title {
-    font-family: Avenir;
-    color: white;
-    font-size: 24px;
-    font-weight: 600;
-    width: 50px;
-    float: left;
-    @include padding(12px 40px null 54px);
-  }
-
   .user-bar {
     background-color: $lunchpad_green;
     box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.50);
     height: 56px;
     width: 100%;
     position: fixed;
-    z-index: 1;
+    z-index: 5;
     top: 0;
     left: 0;
     right: 0;
@@ -457,7 +485,7 @@ header {
     margin-top: 12px;
 
     a {
-      font-family: Avenir;
+      font-family: Avenir, 'Montserrat', sans-serif;
       color: white;
       font-size: 24px;
       font-weight: 600;
@@ -498,6 +526,7 @@ header {
     box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.24);
     transition: height 0.2s ease-in-out;
     transition-delay: 0.1s;
+
 
     a {
       color: #595959;
@@ -1431,4 +1460,103 @@ div.date-uncovered:hover {
   @include padding(12px 25px null 25px);
   font-size: 16px;
   display: inline-block;
+}
+
+.team-wrapper {
+  height: 500px;
+  width: 100%;
+  background-color: RGBA(144, 144, 144, 1);
+  position: absolute;
+  z-index: 0;
+  top: 900px;
+  text-align: center;
+
+  .team-name {
+    font-family: Avenir, 'Montserrat', sans-serif;
+    font-size: 90px;
+    color: white;
+    font-weight: 500;
+    letter-spacing: -3px;
+  }
+}
+.team {
+  position: relative;
+  top: 5px;
+  z-index: 1;
+  width: 1005px;
+  display: inline-block;
+
+  .name-header {
+    background-color: $lunchpad_green;
+    height: 50px;
+  }
+
+  h1 {
+    color: white;
+    font-family: Avenir, 'Montserrat', sans-serif;
+    font-size: 24px;
+  }
+
+  .card {
+    width: 315px;
+    height: 315px;
+    text-align: center;
+    @include margin(null 10px null 10px);
+
+    .fa {
+      font-size: 40px;
+    }
+  }
+
+  .nick {
+    float: right;
+    clear: right;
+  }
+
+  .kheang {
+    float: left;
+    clear: right;
+  }
+
+  .block-list li {
+    display: inline;
+    @include padding(null 15px null 15px);
+  }
+
+  .pic {
+    border-radius: 50%;
+    width: 175px;
+    height: 175px;
+    border: solid 15px #7E57C2;
+    @include margin(12px 70px 12px 70px);
+    float: left;
+    background-size: cover;
+    position: relative;
+    z-index: 3;
+  }
+
+  .nick-pic {
+    @extend .pic;
+    background-image: url("https://s3.amazonaws.com/lunchpad/Nick.jpg");
+  }
+
+  .kheang-pic {
+    @extend .pic;
+    background-image: url("https://s3.amazonaws.com/lunchpad/Kheang.jpg");
+  }
+
+  .deedee-pic {
+    @extend .pic;
+    background-image: url("https://s3.amazonaws.com/lunchpad/DeeDee.jpg");
+  }
+
+}
+
+footer {
+  height: 60px;
+  width: 100%;
+  background-color: $lunchpad_green;
+  position: absolute;
+  top: 1398px;
+  z-index: 20;
 }
