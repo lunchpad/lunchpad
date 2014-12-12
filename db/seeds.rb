@@ -168,7 +168,7 @@ menu_items << MenuItem.create(vendor: vendor_tbi,
 
 menu_items << MenuItem.create(vendor: vendor_hc,
                               name: 'Alleged Beef Casserole',
-                              description: 'not veggie',
+                              description: 'not vegetarian',
                               price: 400)
 
 menu_items << MenuItem.create(vendor: vendor_hc,
