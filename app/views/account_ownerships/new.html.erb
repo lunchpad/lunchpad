@@ -1,6 +1,6 @@
 <div class="flex-boxes card-wrapper">
 
-  <div class="flex-box card">
+  <div class="flex-box card card_padding">
     <p>Share this lunchbox with another parent/guardian:</p>
     <%= form_tag({controller: "account_ownerships", action: "create"}, method: "post") do %>
       <%= text_field :other_user_email, nil, :placeholder => "Enter their email address here" %>
