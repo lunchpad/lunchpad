@@ -45,11 +45,6 @@ section_r = "Ravenclaw"
 section_s = "Slytherin"
 section = "Gryffindor"
 
-account = Account.create(school: hogwarts,
-                         balance: 0,
-                         name: 'Neville L.',
-                         section: section)
-
 User.create(email: 'deedeelavinder@gmail.com',
             first_name: 'DeeDee',
             last_name: 'Lavinder',
@@ -68,9 +63,21 @@ User.create(email: 'kheang@gmail.com',
             password: 'password',
             password_confirmation: 'password')
 
+User.create(email: 'mg@hogwarts.edu',
+            first_name: 'Minerva',
+            last_name: 'McGonagall',
+            password: 'password',
+            password_confirmation: 'password')
+
 User.all.each do |user |
   user.add_role :admin, hogwarts
 end
+
+User.create(email: 'petunia@gmail.com',
+            first_name: 'Petunia',
+            last_name: 'Dursley',
+            password: 'password',
+            password_confirmation: 'password')
 
 Account.create(school: hogwarts,
                balance: 0,
