@@ -43,7 +43,6 @@ section_g = "Gryffindor"
 section_h = "Hufflepuff"
 section_r = "Ravenclaw"
 section_s = "Slytherin"
-section = "Gryffindor"
 
 User.create(email: 'deedeelavinder@gmail.com',
             first_name: 'DeeDee',
