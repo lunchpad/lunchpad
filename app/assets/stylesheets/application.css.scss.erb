@@ -1465,14 +1465,16 @@ div.date-uncovered:hover {
   font-family: 'Open Sans', sans-serif;
   font-size: 20pt;
   width: 55%;
-  text-align: justify;
-
 
   h4 {
     @extend .copy;
     margin-left: 0;
     margin-top: 0;
-    font-size: 36pt;
+    font-size: 25pt;
+  }
+
+  p {
+    text-align: justify;
   }
 
 }
@@ -1482,13 +1484,17 @@ div.date-uncovered:hover {
   width: 25%;
   clear: both;
   position: relative;
-  bottom: 999px;
+  bottom: 900px;
   text-align: center;
   @include padding(null 50px null 25px);
   @include margin(null 100px null 25px);
 
   .fa {
     font-size: 200pt;
+  }
+
+  p {
+    text-align: center;
   }
 }
 
@@ -1573,11 +1579,13 @@ div.date-uncovered:hover {
   .kheang-pic {
     @extend .pic;
     background-image: url("https://s3.amazonaws.com/lunchpad/Kheang.jpg");
+    background-position: 40% 50%;
   }
 
   .deedee-pic {
     @extend .pic;
     background-image: url("https://s3.amazonaws.com/lunchpad/DeeDee.jpg");
+    background-position: 40% 50%;
   }
 
 }
