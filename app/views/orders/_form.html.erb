@@ -17,11 +17,6 @@
 
         <div class="order-block">
 
-          <% if account.school.has_off_day @date %>
-
-            <h1><%= off_day.name %></h1>
-
-          <% else %>
 
             <div class="order-quantity">
               <%= menu_item.number_field :quantity, min: 0, step: 1, class: 'order-quantity field' %>
@@ -64,7 +59,6 @@
             <div class="order-block order-item-notes <%= item.id %>">
               <strong>Notes:</strong> <%= "#{ordered_items[menu_item.index].menu_item.description}" %>
             </div>
-         <% end %>
     <% end %>
 </div>
 
