@@ -255,8 +255,14 @@ form {
   position: static;
   z-index: 10;
 
-  a.trigger {
+  a {
     margin-left: 20px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  a:hover {
+    color: $lunchpad_green_dark;
   }
 }
 
@@ -270,15 +276,6 @@ form {
   left: 0;
   z-index: 1;
   top: -180px;
-  opacity: .65;
-}
-
-.black {
-  @extend .background;
-  background-image: none;
-  background-color: black;
-  z-index: 0;
-  opacity: 1;
 }
 
 .logo {
@@ -299,9 +296,9 @@ form {
   background-color: $lunchpad_green;
   height: 56px;
   width: 100%;
-  box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.50);
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.50);
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   top: 0;
   left: 0;
   right: 0;
@@ -324,7 +321,6 @@ form {
   right: 0;
   @include margin(2% 5% null null);
   position: absolute;
-  z-index: 2;
 }
 
 .login-form {
@@ -340,6 +336,8 @@ form {
   }
 }
 .login-form {
+  position: relative;
+  z-index: 2;
 
   .field{
     height: 10px;
@@ -400,10 +398,12 @@ form {
 }
 
 .sign-up-form{
+  position: relative;
+  z-index: 3;
+
   .card {
     width: 100%;
     @include padding(25px 29px 30px 28px);
-    position: sticky;
   }
 }
 
@@ -1461,140 +1461,153 @@ div.date-uncovered:hover {
 }
 
 .copy {
-  @include margin(430px 25px 25px 75px);
-  font-family: 'Open Sans', sans-serif;
-  font-size: 20pt;
-  width: 55%;
+  position: absolute;
+  top: 700px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16pt;
+  width: 70%;
+  margin-left: 120px;
 
   h4 {
-    @extend .copy;
-    margin-left: 0;
-    margin-top: 0;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: $lunchpad_green;
     font-size: 25pt;
   }
 
   p {
-    text-align: justify;
-  }
-
-}
-
-.three-step {
-  float: right;
-  width: 25%;
-  clear: both;
-  position: relative;
-  bottom: 900px;
-  text-align: center;
-  @include padding(null 50px null 25px);
-  @include margin(null 100px null 25px);
-
-  .fa {
-    font-size: 200pt;
-  }
-
-  p {
-    text-align: center;
-  }
-}
-
-.team-wrapper {
-  height: 500px;
-  width: 100%;
-  background-color: RGBA(144, 144, 144, 1);
-  position: absolute;
-  z-index: 0;
-  top: 2000px;
-  text-align: center;
-
-  .team-name {
-    font-family: Avenir, 'Montserrat', sans-serif;
-    font-size: 90px;
-    color: white;
-    font-weight: 500;
-    letter-spacing: -3px;
-  }
-}
-.team {
-  position: relative;
-  top: 5px;
-  z-index: 1;
-  width: 1005px;
-  display: inline-block;
-
-  .name-header {
-    background-color: $lunchpad_green;
-    height: 50px;
-  }
-
-  h1 {
-    color: white;
-    font-family: Avenir, 'Montserrat', sans-serif;
-    font-size: 24px;
-  }
-
-  .card {
-    width: 315px;
-    height: 315px;
-    text-align: center;
-    @include margin(null 10px null 10px);
-
-    .fa {
-      font-size: 40px;
-    }
-  }
-
-  .nick {
-    float: right;
-    clear: right;
-  }
-
-  .kheang {
-    float: left;
-    clear: right;
-  }
-
-  .block-list li {
-    display: inline;
-    @include padding(null 15px null 15px);
-  }
-
-  .pic {
-    border-radius: 50%;
-    width: 175px;
-    height: 175px;
-    border: solid 15px #7E57C2;
-    @include margin(12px 70px 12px 70px);
-    float: left;
-    background-size: cover;
-    position: relative;
-    z-index: 3;
-  }
-
-  .nick-pic {
-    @extend .pic;
-    background-image: url("https://s3.amazonaws.com/lunchpad/Nick.jpg");
-  }
-
-  .kheang-pic {
-    @extend .pic;
-    background-image: url("https://s3.amazonaws.com/lunchpad/Kheang.jpg");
-    background-position: 40% 50%;
-  }
-
-  .deedee-pic {
-    @extend .pic;
-    background-image: url("https://s3.amazonaws.com/lunchpad/DeeDee.jpg");
-    background-position: 40% 50%;
+    margin-top: 30px;
   }
 
 }
 
 footer {
-  height: 60px;
+  height: 200px;
   width: 100%;
   background-color: $lunchpad_green;
   position: absolute;
-  top: 2480px;
+  top: 1150px;
   z-index: 20;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  padding-top: 32px;
+
+
+  .email {
+    color: white;
+    font-size: 45px;
+    font-family: Avenir, 'Montserrat', sans-serif;
+    font-weight: 500;
+    width: 350px;
+    @include margin(0 auto 15px auto);
+    @include padding(2px 12px 2px 12px);
+    background-color: #7E57C2;
+    border-radius: 5px;
+  }
+
+  .email:hover {
+    background-color: #673AB7;
+  }
+
+  p {
+    color: white;
+    font-size: 35px;
+    font-family: Avenir, 'Montserrat', sans-serif;
+    font-weight: 500;
+  }
+}
+
+.bullets {
+
+  ///////////////////////////////////////////////////////////////////////////////////
+  $base-line-height: 1.5em !default;
+  $base-accent-color: #7E57C2;
+  $base-link-color: $base-accent-color !default;
+  $dark-gray: #333 !default;
+  $base-font-color: $dark-gray !default;
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
+  top: 900px;
+  height: 250px;
+  @include padding(0 20px 0 20px);
+  font-family: 'Roboto', sans-serif;
+
+
+  h2 {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  p {
+    color: $base-font-color;
+    line-height: $base-line-height;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  //////////////////////////////////////////////////////////////////////////////////
+
+  $icon-bullet-size: 3.5em;
+
+  @include display(flex);
+  @include flex-wrap(wrap);
+  margin-bottom: $base-line-height;
+  margin: 1em;
+  overflow: auto;
+
+  .bullet {
+    @include flex-basis(20em);
+    @include flex-grow(1);
+  }
+
+  .bullet-icon {
+    background: $base-accent-color;
+    border-radius: 50%;
+    float: left;
+    height: $icon-bullet-size;
+    padding: $icon-bullet-size /4;
+    width: $icon-bullet-size;
+  }
+
+  .bullet-icon-1 {
+    background: $base-accent-color;
+    .fa {
+      font-size: 30px;
+    }
+  }
+
+  .bullet-icon-2 {
+    background: adjust-hue($base-accent-color, -50);
+
+    .fa {
+      font-size: 28px;
+    }
+  }
+
+  .bullet-icon-3 {
+    background: #F8B836;
+    .fa {
+      font-size: 31px;
+    }
+  }
+
+  .bullet-content {
+    margin-left: $icon-bullet-size *1.4;
+    margin-bottom: 2em;
+  }
+
+  h2 {
+    border-bottom: 1px solid transparentize($base-font-color, .8);
+    display: inline-block;
+    font-size: $icon-bullet-size /2.5;
+    margin-bottom: $icon-bullet-size /6;
+    padding-top: $icon-bullet-size /7;
+  }
 }
